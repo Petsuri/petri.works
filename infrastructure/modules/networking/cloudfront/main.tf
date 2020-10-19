@@ -14,6 +14,27 @@ resource "aws_s3_bucket" "s3_distribution" {
   }
 }
 
+resource "aws_cloudfront_origin_access_identity" "origin_access_identity" {
+  comment = "${var.domain} -bucket identity for Cloudfront distribution "
+}
+
+
+data "aws_iam_policy_document" "s3_policy" {
+  statement {
+    actions   = ["s3:GetObject"]
+    resources = ["${aws_s3_bucket.s3_distribution.arn}/*"]
+
+    principals {
+      type        = "AWS"
+      identifiers = [aws_cloudfront_origin_access_identity.origin_access_identity.iam_arn]
+    }
+  }
+}
+
+resource "aws_s3_bucket_policy" "s3_distribution_policy" {
+  bucket = aws_s3_bucket.s3_distribution.id
+  policy = data.aws_iam_policy_document.s3_policy.json
+}
 
 resource "aws_s3_bucket" "s3_distribution_logs" {
   bucket = "${var.domain}-logs"
@@ -23,10 +44,6 @@ resource "aws_s3_bucket" "s3_distribution_logs" {
     Name        = "Bucket for ${var.domain} -domain static files access log"
     Environment = var.environment
   }
-}
-
-resource "aws_cloudfront_origin_access_identity" "origin_access_identity" {
-  comment = "${var.domain} -bucket identity for Cloudfront distribution "
 }
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
