@@ -17,3 +17,7 @@ variable "alias_host_zone_id" {
   type        = string
   description = "Alias host zone id used for route53 record"
 }
+
+variable "domain_validation_options" {
+  description = "Domain validation options used for records"
+}
