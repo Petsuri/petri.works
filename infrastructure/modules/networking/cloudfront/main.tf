@@ -1,8 +1,9 @@
 locals {
   s3_origin_id  = "${var.domain}-s3-origin"
-  oneDay        = 86400
+  oneMonth      = 2592000
   oneWeek       = 604800
   thirtyMinutes = 1800
+  fiveMinutes   = 300
 }
 
 resource "aws_s3_bucket" "s3_distribution" {
@@ -82,8 +83,8 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     }
 
     min_ttl                = 0
-    default_ttl            = local.oneDay
-    max_ttl                = local.oneWeek
+    default_ttl            = local.oneWeek
+    max_ttl                = local.oneMonth
     compress               = true
     viewer_protocol_policy = "redirect-to-https"
   }
@@ -104,8 +105,8 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     }
 
     min_ttl                = 0
-    default_ttl            = local.thirtyMinutes
-    max_ttl                = local.oneWeek
+    default_ttl            = local.fiveMinutes
+    max_ttl                = local.thirtyMinutes
     compress               = true
     viewer_protocol_policy = "redirect-to-https"
   }
