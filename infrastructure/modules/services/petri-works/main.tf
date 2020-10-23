@@ -25,3 +25,21 @@ module "acm_cert_validation" {
   certificate_arn         = module.acm_certificate.acm_certificate_arn
   validation_record_fqdns = module.route53.cert_validation_record_fqdns
 }
+
+module "iam_s3_deploy" {
+  source        = "../../iam/s3-deploy"
+  environment   = var.environment
+  s3_bucket_arn = module.cloudfront.cloudfront_s3_bucket_arn
+}
+
+module "github_secret_access_key_id" {
+  source       = "../../github/secrets"
+  secret_name  = "AWS_ACCESS_KEY_ID"
+  secret_value = module.iam_s3_deploy.iam_access_key_id
+}
+
+module "github_secret_access_key_secret" {
+  source       = "../../github/secrets"
+  secret_name  = "AWS_SECRET_ACCESS_KEY"
+  secret_value = module.iam_s3_deploy.iam_access_key_secret
+}

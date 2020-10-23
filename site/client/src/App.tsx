@@ -13,7 +13,6 @@ function App() {
           <li>BBQ</li>
           <li>... and awesome software development & architecture</li>
         </ul>
-        <code>testing pipeline deploy...</code>
       </header>
     </div>
   );
