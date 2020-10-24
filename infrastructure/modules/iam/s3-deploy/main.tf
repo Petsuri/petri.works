@@ -20,7 +20,10 @@ resource "aws_iam_policy" "policy" {
                 "s3:PutObjectAcl",
                 "s3:ListAllMyBuckets"
             ],
-            "Resource": "${var.s3_bucket_arn}"
+            "Resource": [
+              "${var.s3_bucket_arn}", 
+              "${var.s3_bucket_arn}/*"
+            ]
         }
     ]
 }
