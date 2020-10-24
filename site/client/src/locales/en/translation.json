@@ -1,0 +1,12 @@
+{
+    "main": {
+        "works": "Petri Miikki works",
+        "coming_soon": "Coming soon",
+        "coming" : {
+            "pizza": "Pizza",
+            "hamburger": "Burgers",
+            "smoking": "BBQ",
+            "software_development": "Awesome software development & architecture"
+        }
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "main": {
+        "works": "Petri Miikki työskentelee",
+        "coming_soon": "Tulossa pian",
+        "coming" : {
+            "pizza": "Pizzaa",
+            "hamburger": "Purilaisia",
+            "smoking": "Savustusta",
+            "software_development": "Mahtavaa softan kehitystä & arkkitehtuuria"
+        }
+    }
+}
