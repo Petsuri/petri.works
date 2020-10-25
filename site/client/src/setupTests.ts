@@ -10,3 +10,7 @@ jest.mock('react-i18next', () => ({
       i18n: { changeLanguage: jest.fn() }
     })
   }));
+
+  jest.mock('./i18n', () => ({
+    
+  }));
