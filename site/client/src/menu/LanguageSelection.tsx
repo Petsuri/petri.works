@@ -7,7 +7,7 @@ import { Locale } from "../locales/Locale";
 export const LanguageSelection = () => {
   const languageMenuId: string = "change-language-menu-id";
   const [anchorEl, setAnchorEl] = useState<Element | null>(null);
-  const [locale, setLocale] = useState<Locale>(getLocale);
+  const [locale, setLocale] = useState<Locale>(getLocale());
   const isLanguageMenuOpen = Boolean(anchorEl);
 
   const handleLanguageMenuOpen = (event: MouseEvent): void => {
@@ -25,17 +25,13 @@ export const LanguageSelection = () => {
   };
 
   const getMenuItems = () => {
-    return (
-      <>
-        {Locale.supported().map((locale, index) => {
-          return (
-            <MenuItem onClick={() => changeUserLocale(locale)}>
-              {locale.name}
-            </MenuItem>
-          );
-        })}
-      </>
-    );
+    return Locale.supported().map((locale, index) => {
+      return (
+        <MenuItem key={index} onClick={() => changeUserLocale(locale)}>
+          {locale.name}
+        </MenuItem>
+      );
+    });
   };
 
   const renderMenu = (

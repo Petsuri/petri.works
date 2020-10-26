@@ -3,6 +3,7 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import "@testing-library/jest-dom/extend-expect";
+import { Locale } from "./locales/Locale";
 
 jest.mock("react-i18next", () => ({
   useTranslation: () => ({
@@ -11,4 +12,9 @@ jest.mock("react-i18next", () => ({
   }),
 }));
 
-jest.mock("./i18n", () => ({}));
+const mockLocale = Locale.finnish();
+jest.mock("./i18n", () => ({
+  getLocale: () => {
+    return mockLocale;
+  }
+}));
