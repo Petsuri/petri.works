@@ -7,3 +7,8 @@ variable "s3_bucket_arn" {
   type        = string
   description = "Arn of s3 bucket to given deployment access"
 }
+
+variable "cloudfront_arn" {
+  type        = string
+  description = "Arn of Cloudfront distribution creating cache invalidation is allowed"
+}

@@ -1,9 +1,7 @@
 locals {
-  s3_origin_id  = "${var.domain}-s3-origin"
-  oneMonth      = 2592000
-  oneWeek       = 604800
-  thirtyMinutes = 1800
-  fiveMinutes   = 300
+  s3_origin_id = "${var.domain}-s3-origin"
+  oneMonth     = 2592000
+  oneWeek      = 604800
 }
 
 resource "aws_s3_bucket" "s3_distribution" {
@@ -90,26 +88,26 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   }
 
   #Cache behavior with precedence 0
-  ordered_cache_behavior {
-    path_pattern     = "index.html"
-    allowed_methods  = ["GET", "HEAD", "OPTIONS"]
-    cached_methods   = ["GET", "HEAD", "OPTIONS"]
-    target_origin_id = local.s3_origin_id
+  # ordered_cache_behavior {
+  #   path_pattern     = "index.html"
+  #   allowed_methods  = ["GET", "HEAD", "OPTIONS"]
+  #   cached_methods   = ["GET", "HEAD", "OPTIONS"]
+  #   target_origin_id = local.s3_origin_id
 
-    forwarded_values {
-      query_string = false
+  #   forwarded_values {
+  #     query_string = false
 
-      cookies {
-        forward = "none"
-      }
-    }
+  #     cookies {
+  #       forward = "none"
+  #     }
+  #   }
 
-    min_ttl                = 0
-    default_ttl            = local.fiveMinutes
-    max_ttl                = local.thirtyMinutes
-    compress               = true
-    viewer_protocol_policy = "redirect-to-https"
-  }
+  #   min_ttl                = 0
+  #   default_ttl            = local.oneWeek
+  #   max_ttl                = local.oneWeek
+  #   compress               = true
+  #   viewer_protocol_policy = "redirect-to-https"
+  # }
 
   price_class = "PriceClass_100"
 

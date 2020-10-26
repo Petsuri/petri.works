@@ -1,15 +1,15 @@
 export class Locale {
+    private static readonly Finnish = new Locale('fi', 'Suomi');
+    private static readonly English = new Locale('en', 'English');
+
     readonly locale: string;
     readonly name: string;
 
-    public static finnish = (): Locale => 
-        new Locale('fi', 'Suomi');
+    public static finnish = (): Locale => Locale.Finnish;
 
-    public static english = (): Locale => 
-    new Locale('en', 'English');
+    public static english = (): Locale => Locale.English;
 
-    constructor(theLocale: string, theName: string) 
-    {
+    private constructor(theLocale: string, theName: string) {
         this.locale = theLocale;
         this.name = theName;
     }

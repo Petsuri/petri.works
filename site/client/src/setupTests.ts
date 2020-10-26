@@ -5,12 +5,12 @@
 import '@testing-library/jest-dom/extend-expect';
 
 jest.mock('react-i18next', () => ({
-    useTranslation: () => ({
-      t: (key: string) => key,
-      i18n: { changeLanguage: jest.fn() }
-    })
-  }));
+  useTranslation: () => ({
+    t: (key: string) => key,
+    i18n: { changeLanguage: jest.fn() }
+  })
+}));
 
-  jest.mock('./i18n', () => ({
-    
-  }));
+jest.mock('./i18n', () => ({
+
+}));

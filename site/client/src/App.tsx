@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
 import { useTranslation } from 'react-i18next';
-import TopMenu from './TopMenu';
+import TopMenu from './menu/TopMenu';
 
 
 function App() {
   const { t } = useTranslation();
   return (
     <div>
-      <TopMenu /> 
+      <TopMenu />
       <div className="App">
         <header className="App-header">
           <p>{t('main.coming_soon')}</p>

@@ -14,18 +14,18 @@ const translations = {
 };
 
 i18n
-.use(initReactI18next)
-.init({
-    resources: translations,
-    lng: 'fi',
-    fallbackLng: 'en',
-    debug: false,
-    interpolation: {
-        escapeValue: false, // not needed for react as it escapes by default
-    },
-    react: {
-        useSuspense: false,
-    },
-});
+    .use(initReactI18next)
+    .init({
+        resources: translations,
+        lng: 'fi',
+        fallbackLng: 'en',
+        debug: false,
+        interpolation: {
+            escapeValue: false, // not needed for react as it escapes by default
+        },
+        react: {
+            useSuspense: false,
+        },
+    });
 
 export default i18n;

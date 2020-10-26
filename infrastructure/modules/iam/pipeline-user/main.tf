@@ -1,15 +1,14 @@
 resource "aws_iam_user" "deployer" {
-  name = "${var.environment}-s3-deploy"
+  name = "${var.environment}-pipeline-deploy"
 }
 
 resource "aws_iam_policy" "policy" {
-  name   = "${var.environment}-s3-deploy-policy"
+  name   = "${var.environment}-pipeline-deploy-policy"
   policy = <<EOF
 {
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "VisualEditor0",
             "Effect": "Allow",
             "Action": [
                 "s3:DeleteObject",
@@ -23,6 +22,15 @@ resource "aws_iam_policy" "policy" {
             "Resource": [
               "${var.s3_bucket_arn}", 
               "${var.s3_bucket_arn}/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+              "cloudfront:CreateInvalidation"
+            ],
+            "Resource": [
+              "${var.cloudfront_arn}"
             ]
         }
     ]
