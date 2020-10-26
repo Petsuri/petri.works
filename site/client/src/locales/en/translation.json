@@ -1,13 +1,13 @@
 {
-    "main": {
-        "works": "Petri Miikki works",
-        "works_short": "Petri works",
-        "coming_soon": "Coming soon",
-        "coming" : {
-            "pizza": "Pizza",
-            "hamburger": "Burgers",
-            "smoking": "BBQ",
-            "software_development": "Awesome software development & architecture"
-        }
+  "main": {
+    "works": "Petri Miikki works",
+    "works_short": "Petri works",
+    "coming_soon": "Coming soon",
+    "coming": {
+      "pizza": "Pizza",
+      "hamburger": "Burgers",
+      "smoking": "BBQ",
+      "software_development": "Awesome software development & architecture"
     }
+  }
 }
