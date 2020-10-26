@@ -2,11 +2,11 @@ export class Locale {
   private static readonly Finnish = new Locale("fi", "Suomi");
   private static readonly English = new Locale("en", "English");
 
-  readonly locale: string;
-  readonly name: string;
+  public readonly shortCode: string;
+  public readonly name: string;
 
-  private constructor(theLocale: string, theName: string) {
-    this.locale = theLocale;
+  private constructor(theShortCode: string, theName: string) {
+    this.shortCode = theShortCode;
     this.name = theName;
   }
 
@@ -17,8 +17,8 @@ export class Locale {
 
   public static supported = () => [Locale.Finnish, Locale.English];
 
-  public static find(locale: string): Locale {
-    const found = this.supported().find(item => item.locale === locale);
+  public static find(shortCode: string): Locale {
+    const found = this.supported().find(item => item.shortCode === shortCode);
     if (found) {
       return found;
     }

@@ -1,21 +1,21 @@
 import { IconButton, Menu, MenuItem, Typography } from "@material-ui/core";
 import React, { useState, MouseEvent } from "react";
-import { changeLanguage, getLanguage } from "../i18n";
+import { changeLocale, getLocale } from "../i18n";
 import LanguageIcon from "../icons/LanguageIcon";
 import { Locale } from "../locales/Locale";
 
 export const LanguageSelection = () => {
   const languageMenuId: string = "change-language-menu-id";
   const [anchorEl, setAnchorEl] = useState<Element | null>(null);
-  const [locale, setLocale] = useState<Locale>(getLanguage());
+  const [locale, setLocale] = useState<Locale>(getLocale);
   const isLanguageMenuOpen = Boolean(anchorEl);
 
   const handleLanguageMenuOpen = (event: MouseEvent): void => {
     setAnchorEl(event.currentTarget);
   };
 
-  const changeLocale = (newLocale: Locale): void => {
-    changeLanguage(newLocale);
+  const changeUserLocale = (newLocale: Locale): void => {
+    changeLocale(newLocale);
     setLocale(newLocale);
     handleMenuClose();
   };
@@ -29,7 +29,7 @@ export const LanguageSelection = () => {
       <>
         {Locale.supported().map((locale, index) => {
           return (
-            <MenuItem onClick={() => changeLocale(locale)}>
+            <MenuItem onClick={() => changeUserLocale(locale)}>
               {locale.name}
             </MenuItem>
           );
