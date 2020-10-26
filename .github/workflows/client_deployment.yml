@@ -38,4 +38,4 @@ jobs:
           aws s3 sync site/client/build/. s3://petri.works
       - name: Invalidate Cloudfront cache to instantly serve new files
         run: |
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "*" "*/*"
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "*" "/*"
