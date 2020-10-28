@@ -29,6 +29,18 @@ resource "aws_route53_record" "www_ipv6" {
   }
 }
 
+resource "aws_route53_record" "http_api_ipv4" {
+  zone_id = aws_route53_zone.domain.zone_id
+  type    = "A"
+  name    = var.api_domain
+
+  alias {
+    name                   = var.alias_api_domain
+    zone_id                = var.alias_api_host_zone_id
+    evaluate_target_health = false
+  }
+}
+
 resource "aws_route53_record" "cert_records" {
   for_each = {
     for dvo in var.domain_validation_options : dvo.domain_name => {
