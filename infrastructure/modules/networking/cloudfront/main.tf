@@ -11,7 +11,7 @@ resource "aws_cloudfront_origin_access_identity" "origin_access_identity" {
 module "s3_distribution" {
   source                   = "../../storage/s3"
   environment              = var.environment
-  bucket_name              = var.domain
+  bucket_name              = "${var.domain}-client-static-files"
   purpose_of_bucket        = "Bucket for ${var.domain} -domain static files"
   allowed_actions          = ["s3:GetObject"]
   bucket_policy_identifier = [aws_cloudfront_origin_access_identity.origin_access_identity.iam_arn]
@@ -21,7 +21,7 @@ module "s3_distribution_logs" {
   source                   = "../../storage/s3"
   environment              = var.environment
   bucket_acl               = "bucket-owner-full-control"
-  bucket_name              = "${var.domain}-logs"
+  bucket_name              = "${var.domain}-client-static-files-access-logs"
   purpose_of_bucket        = "Bucket for ${var.domain} -domain static files access log"
   allowed_actions          = ["*"]
   bucket_policy_identifier = [aws_cloudfront_origin_access_identity.origin_access_identity.iam_arn]

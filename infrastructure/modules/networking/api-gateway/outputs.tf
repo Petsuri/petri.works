@@ -5,3 +5,7 @@ output "domain_name" {
 output "hosted_zone_id" {
   value = aws_apigatewayv2_domain_name.gateway_domain_name.domain_name_configuration[0].hosted_zone_id
 }
+
+output "gateway_id" {
+  value = aws_apigatewayv2_api.gateway.id
+}

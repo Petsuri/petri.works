@@ -1,15 +1,7 @@
-provider "aws" {
-  alias = "acm_required_region"
-}
-
 module "acm_certificate" {
   source      = "../../networking/acm-certificate"
   domain      = var.domain
   environment = var.environment
-
-  providers = {
-    aws = aws.acm_required_region
-  }
 }
 
 module "cloudfront" {
@@ -24,10 +16,6 @@ module "api_gateway" {
   api_domain                 = var.api_domain
   environment                = var.environment
   api_domain_certificate_arn = module.acm_certificate.acm_certificate_arn
-
-  providers = {
-    aws = aws.acm_required_region
-  }
 }
 
 module "route53" {
@@ -46,10 +34,6 @@ module "acm_cert_validation" {
   source                  = "../../networking/acm-certificate-validation"
   certificate_arn         = module.acm_certificate.acm_certificate_arn
   validation_record_fqdns = module.route53.cert_validation_record_fqdns
-
-  providers = {
-    aws = aws.acm_required_region
-  }
 }
 
 module "iam_pipeline" {
@@ -75,4 +59,42 @@ module "github_secret_cloudfront_distribution_id" {
   source       = "../../github/secrets"
   secret_name  = "CLOUDFRONT_DISTRIBUTION_ID"
   secret_value = module.cloudfront.cloudfront_distribution_id
+}
+
+module "iam_api_gateway_lambda" {
+  source      = "../../iam/api-gateway-lambda-user"
+  environment = var.environment
+}
+
+module "lambda_test" {
+  source         = "../../compute/lambda"
+  environment    = var.environment
+  name           = "test"
+  handler        = "lambdas/helloworld.handler"
+  iam_user_arn   = module.iam_api_gateway_lambda.iam_user_arn
+  s3_bucket      = "helloworld-dev-serverlessdeploymentbucket-16n7e449fb731"
+  s3_key         = "serverless/helloworld/dev/1604260102880-2020-11-01T19:48:22.880Z/helloworld.zip"
+  http_method    = "GET"
+  http_route     = "/hello"
+  api_gateway_id = module.api_gateway.gateway_id
+}
+
+module "lambda_test_v2" {
+  source         = "../../compute/lambda"
+  environment    = var.environment
+  name           = "test_v2"
+  handler        = "lambdas/helloworld.handler"
+  iam_user_arn   = module.iam_api_gateway_lambda.iam_user_arn
+  s3_bucket      = "helloworld-dev-serverlessdeploymentbucket-16n7e449fb731"
+  s3_key         = "serverless/helloworld/dev/1604260102880-2020-11-01T19:48:22.880Z/helloworld.zip"
+  http_method    = "GET"
+  http_route     = "/hello/test"
+  api_gateway_id = module.api_gateway.gateway_id
+}
+
+module "api_gateway_stage" {
+  source         = "../../networking/api-gateway-stage"
+  name           = "v1"
+  api_gateway_id = module.api_gateway.gateway_id
+  route_keys     = [module.lambda_test.route_key, module.lambda_test_v2.route_key]
 }
