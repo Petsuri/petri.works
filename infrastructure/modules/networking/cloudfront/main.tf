@@ -4,51 +4,32 @@ locals {
   oneWeek      = 604800
 }
 
-resource "aws_s3_bucket" "s3_distribution" {
-  bucket = var.domain
-  acl    = "private"
-
-  tags = {
-    Name        = "Bucket for ${var.domain} -domain static files"
-    Environment = var.environment
-  }
-}
-
 resource "aws_cloudfront_origin_access_identity" "origin_access_identity" {
   comment = "${var.domain} -bucket identity for Cloudfront distribution "
 }
 
-
-data "aws_iam_policy_document" "s3_policy" {
-  statement {
-    actions   = ["s3:GetObject"]
-    resources = ["${aws_s3_bucket.s3_distribution.arn}/*"]
-
-    principals {
-      type        = "AWS"
-      identifiers = [aws_cloudfront_origin_access_identity.origin_access_identity.iam_arn]
-    }
-  }
+module "s3_distribution" {
+  source                   = "../../storage/s3"
+  environment              = var.environment
+  bucket_name              = var.domain
+  purpose_of_bucket        = "Bucket for ${var.domain} -domain static files"
+  allowed_actions          = ["s3:GetObject"]
+  bucket_policy_identifier = [aws_cloudfront_origin_access_identity.origin_access_identity.iam_arn]
 }
 
-resource "aws_s3_bucket_policy" "s3_distribution_policy" {
-  bucket = aws_s3_bucket.s3_distribution.id
-  policy = data.aws_iam_policy_document.s3_policy.json
-}
-
-resource "aws_s3_bucket" "s3_distribution_logs" {
-  bucket = "${var.domain}-logs"
-  acl    = "private"
-
-  tags = {
-    Name        = "Bucket for ${var.domain} -domain static files access log"
-    Environment = var.environment
-  }
+module "s3_distribution_logs" {
+  source                   = "../../storage/s3"
+  environment              = var.environment
+  bucket_acl               = "bucket-owner-full-control"
+  bucket_name              = "${var.domain}-logs"
+  purpose_of_bucket        = "Bucket for ${var.domain} -domain static files access log"
+  allowed_actions          = ["*"]
+  bucket_policy_identifier = [aws_cloudfront_origin_access_identity.origin_access_identity.iam_arn]
 }
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
-    domain_name = aws_s3_bucket.s3_distribution.bucket_regional_domain_name
+    domain_name = module.s3_distribution.bucket_regional_domain_name
     origin_id   = local.s3_origin_id
 
     s3_origin_config {
@@ -63,8 +44,8 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   logging_config {
     include_cookies = false
-    bucket          = aws_s3_bucket.s3_distribution_logs.bucket_regional_domain_name
-    prefix          = "log"
+    bucket          = module.s3_distribution_logs.bucket_regional_domain_name
+    prefix          = "log/"
   }
 
   default_cache_behavior {

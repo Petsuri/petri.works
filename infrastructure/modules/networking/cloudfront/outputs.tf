@@ -7,7 +7,7 @@ output "hosted_zone_id" {
 }
 
 output "cloudfront_s3_bucket_arn" {
-  value = aws_s3_bucket.s3_distribution.arn
+  value = module.s3_distribution.bucket_arn
 }
 
 output "cloudfront_arn" {
