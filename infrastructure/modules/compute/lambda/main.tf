@@ -14,12 +14,21 @@ resource "aws_lambda_function" "lambda" {
     Environment = var.environment
   }
 }
+resource "aws_lambda_permission" "api_gateway_permission" {
+  function_name = aws_lambda_function.lambda.function_name
+  statement_id  = "AllowExecutionFromApiGatewayBase"
+  action        = "lambda:InvokeFunction"
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${var.api_gateway_execution_arn}/*/*"
+}
+
 
 resource "aws_apigatewayv2_integration" "integration" {
   api_id           = var.api_gateway_id
   integration_type = "AWS_PROXY"
 
   connection_type        = "INTERNET"
+  passthrough_behavior   = "WHEN_NO_MATCH"
   integration_method     = "POST"
   integration_uri        = aws_lambda_function.lambda.invoke_arn
   payload_format_version = "2.0"

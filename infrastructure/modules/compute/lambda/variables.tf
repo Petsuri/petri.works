@@ -48,3 +48,8 @@ variable "api_gateway_id" {
   type        = string
   description = "ID of used API gateway"
 }
+
+variable "api_gateway_execution_arn" {
+  type        = string
+  description = "Execution arn of API gateway that invokes lambda"
+}

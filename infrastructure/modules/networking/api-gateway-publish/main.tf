@@ -13,3 +13,9 @@ resource "aws_apigatewayv2_stage" "stage" {
     }
   }
 }
+
+resource "aws_apigatewayv2_api_mapping" "custom_domain" {
+  api_id      = var.api_gateway_id
+  domain_name = var.api_gateway_domain_name_id
+  stage       = aws_apigatewayv2_stage.stage.id
+}

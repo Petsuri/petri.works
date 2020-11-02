@@ -67,34 +67,37 @@ module "iam_api_gateway_lambda" {
 }
 
 module "lambda_test" {
-  source         = "../../compute/lambda"
-  environment    = var.environment
-  name           = "test"
-  handler        = "lambdas/helloworld.handler"
-  iam_user_arn   = module.iam_api_gateway_lambda.iam_user_arn
-  s3_bucket      = "helloworld-dev-serverlessdeploymentbucket-16n7e449fb731"
-  s3_key         = "serverless/helloworld/dev/1604260102880-2020-11-01T19:48:22.880Z/helloworld.zip"
-  http_method    = "GET"
-  http_route     = "/hello"
-  api_gateway_id = module.api_gateway.gateway_id
+  source                    = "../../compute/lambda"
+  environment               = var.environment
+  name                      = "test"
+  handler                   = "lambdas/helloworld.handler"
+  iam_user_arn              = module.iam_api_gateway_lambda.iam_user_arn
+  s3_bucket                 = "helloworld-dev-serverlessdeploymentbucket-16n7e449fb731"
+  s3_key                    = "serverless/helloworld/dev/1604260102880-2020-11-01T19:48:22.880Z/helloworld.zip"
+  http_method               = "GET"
+  http_route                = "/hello"
+  api_gateway_id            = module.api_gateway.gateway_id
+  api_gateway_execution_arn = module.api_gateway.execution_arn
 }
 
 module "lambda_test_v2" {
-  source         = "../../compute/lambda"
-  environment    = var.environment
-  name           = "test_v2"
-  handler        = "lambdas/helloworld.handler"
-  iam_user_arn   = module.iam_api_gateway_lambda.iam_user_arn
-  s3_bucket      = "helloworld-dev-serverlessdeploymentbucket-16n7e449fb731"
-  s3_key         = "serverless/helloworld/dev/1604260102880-2020-11-01T19:48:22.880Z/helloworld.zip"
-  http_method    = "GET"
-  http_route     = "/hello/test"
-  api_gateway_id = module.api_gateway.gateway_id
+  source                    = "../../compute/lambda"
+  environment               = var.environment
+  name                      = "test_v2"
+  handler                   = "lambdas/helloworld.handler"
+  iam_user_arn              = module.iam_api_gateway_lambda.iam_user_arn
+  s3_bucket                 = "helloworld-dev-serverlessdeploymentbucket-16n7e449fb731"
+  s3_key                    = "serverless/helloworld/dev/1604260102880-2020-11-01T19:48:22.880Z/helloworld.zip"
+  http_method               = "GET"
+  http_route                = "/hello/test"
+  api_gateway_id            = module.api_gateway.gateway_id
+  api_gateway_execution_arn = module.api_gateway.execution_arn
 }
 
-module "api_gateway_stage" {
-  source         = "../../networking/api-gateway-stage"
-  name           = "v1"
-  api_gateway_id = module.api_gateway.gateway_id
-  route_keys     = [module.lambda_test.route_key, module.lambda_test_v2.route_key]
+module "api_gateway_publish" {
+  source                     = "../../networking/api-gateway-publish"
+  name                       = "v1"
+  api_gateway_id             = module.api_gateway.gateway_id
+  api_gateway_domain_name_id = module.api_gateway.custom_domain_id
+  route_keys                 = [module.lambda_test.route_key, module.lambda_test_v2.route_key]
 }
