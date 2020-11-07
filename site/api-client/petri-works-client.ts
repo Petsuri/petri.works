@@ -1,3 +1,3 @@
 
-export const logImportantMessage = (): void =>
-    console.log('täällä ollaan, lopultakin');
+export const logImportantMessage = (log: (message: any) => void): void =>
+    log('täällä ollaan, lopultakin');

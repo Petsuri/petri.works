@@ -2,9 +2,11 @@ import React from "react";
 import "./App.css";
 import { useTranslation } from "react-i18next";
 import TopMenu from "./menu/TopMenu";
+import { logImportantMessage } from "../../api-client/petri-works-client"
 
 function App() {
   const { t } = useTranslation();
+  logImportantMessage(console.log);  
   return (
     <div>
       <TopMenu />
