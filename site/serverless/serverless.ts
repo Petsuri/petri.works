@@ -12,14 +12,18 @@ const serverlessConfiguration: Serverless = {
     webpack: {
       webpackConfig: './webpack.config.js',
       includeModules: true
+    },
+    "serverless-offline": {
+      httpPort: 4000
     }
   },
   // Add the serverless-webpack plugin
-  plugins: ['serverless-webpack'],
+  plugins: ['serverless-webpack', 'serverless-offline'],
   provider: {
     name: 'aws',
     runtime: 'nodejs12.x',
     region: 'us-east-1',
+    stage: 'v1',
     apiGateway: {
       minimumCompressionSize: 1024,
     },
