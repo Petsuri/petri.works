@@ -42,6 +42,17 @@ const serverlessConfiguration: Serverless = {
           }
         }
       ]
+    },
+    test: {
+      handler: 'lambdas/testailua.handler',
+      events: [
+        {
+          http: {
+            method: 'get',
+            path: 'hello/test',
+          }
+        }
+      ]
     }
   }
 }

@@ -19,7 +19,7 @@ resource "aws_lambda_permission" "api_gateway_permission" {
   statement_id  = "AllowExecutionFromApiGatewayBase"
   action        = "lambda:InvokeFunction"
   principal     = "apigateway.amazonaws.com"
-  source_arn    = "${var.api_gateway_execution_arn}/*/*"
+  source_arn    = "${var.api_gateway_execution_arn}/*/${var.http_route}"
 }
 
 

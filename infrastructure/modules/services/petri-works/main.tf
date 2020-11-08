@@ -85,7 +85,7 @@ module "lambda_test_v2" {
   source                    = "../../compute/lambda"
   environment               = var.environment
   name                      = "test_v2"
-  handler                   = "lambdas/helloworld.handler"
+  handler                   = "lambdas/testailua.handler"
   iam_user_arn              = module.iam_api_gateway_lambda.iam_user_arn
   s3_bucket                 = "helloworld-dev-serverlessdeploymentbucket-16n7e449fb731"
   s3_key                    = "serverless/helloworld/dev/1604260102880-2020-11-01T19:48:22.880Z/helloworld.zip"
