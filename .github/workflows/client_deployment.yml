@@ -15,7 +15,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
-      - name: Install modules
+      - name: Install api-client modules
+        run: |
+          cd ~./site/api-client
+          npm install
+      - name: Install client modules
         run: |
           cd site/client
           npm install
