@@ -17,7 +17,6 @@ const serverlessConfiguration: Serverless = {
       httpPort: 4000
     }
   },
-  // Add the serverless-webpack plugin
   plugins: ['serverless-webpack', 'serverless-offline'],
   provider: {
     name: 'aws',
