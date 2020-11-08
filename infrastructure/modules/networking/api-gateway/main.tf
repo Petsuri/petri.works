@@ -4,6 +4,26 @@ resource "aws_apigatewayv2_api" "gateway" {
   disable_execute_api_endpoint = true
   version                      = 1
 
+  cors_configuration {
+    allow_methods = [
+      "OPTIONS",
+      "HEAD",
+      "GET",
+      "POST",
+      "PUT",
+      "PATCH",
+      "DELETE"
+    ]
+    allow_origins = ["https://${var.domain}"]
+    allow_headers = [
+      "Authorization",
+      "Content-Type",
+      "X-Amz-Date",
+      "X-Amz-Security-Token",
+      "X-Api-Key"
+    ]
+  }
+
   tags = {
     Environment = var.environment
   }
@@ -21,3 +41,14 @@ resource "aws_apigatewayv2_domain_name" "gateway_domain_name" {
     Environment = var.environment
   }
 }
+
+# resource "aws_apigatewayv2_integration" "cors_preflight" {
+#   api_id             = aws_apigatewayv2_api.gateway.id
+#   integration_type   = "MOCK"
+#   integration_method = "OPTIONS"
+# }
+
+# resource "aws_apigatewayv2_route" "example" {
+#   api_id    = aws_apigatewayv2_api.example.id
+#   route_key = "{cors+}"
+# }

@@ -13,6 +13,7 @@ module "cloudfront" {
 
 module "api_gateway" {
   source                     = "../../networking/api-gateway"
+  domain                     = var.domain
   api_domain                 = var.api_domain
   environment                = var.environment
   api_domain_certificate_arn = module.acm_certificate.acm_certificate_arn

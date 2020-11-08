@@ -3,6 +3,11 @@ variable "environment" {
   description = "Environment where route53 is deployed"
 }
 
+variable "domain" {
+  type        = string
+  description = "Name of domain for client"
+}
+
 variable "api_domain" {
   type        = string
   description = "Name of API domain for which API gateway is created"
