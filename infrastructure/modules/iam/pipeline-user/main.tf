@@ -1,6 +1,6 @@
 locals {
-  arn_resources          = join(", ", var.s3_bucket_arns)
-  arn_resources_wildcard = join(", ", formatlist("%s/*", var.s3_bucket_arns))
+  arn_resources          = join(", ", formatlist("\"%s\"", var.s3_bucket_arns))
+  arn_resources_wildcard = join(", ", formatlist("\"%s/*\"", var.s3_bucket_arns))
 }
 
 resource "aws_iam_user" "deployer" {
@@ -25,8 +25,8 @@ resource "aws_iam_policy" "policy" {
                 "s3:ListAllMyBuckets"
             ],
             "Resource": [
-              "${local.arn_resources}", 
-              "${local.arn_resources_wildcard}"
+              ${local.arn_resources}, 
+              ${local.arn_resources_wildcard}
             ]
         },
         {
