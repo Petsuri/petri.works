@@ -1,3 +1,7 @@
+locals {
+  serverless_package_name = "petri.works.lambdas.zip"
+}
+
 module "acm_certificate" {
   source      = "../../networking/acm-certificate"
   domain      = var.domain
@@ -37,10 +41,30 @@ module "acm_cert_validation" {
   validation_record_fqdns = module.route53.cert_validation_record_fqdns
 }
 
+module "s3_serverless_distribution" {
+  source            = "../../storage/s3"
+  environment       = var.environment
+  bucket_name       = "${var.domain}-serverless-static-files"
+  purpose_of_bucket = "Bucket for ${var.domain} -serverless static files"
+}
+
+module "github_secret_s3_serverless_bucket_name" {
+  source       = "../../github/secrets"
+  secret_name  = "AWS_S3_SERVERLESS_BUCKET_NAME"
+  secret_value = module.s3_serverless_distribution.bucket_name
+}
+
+module "github_secret_s3_serverless_bucket_key" {
+  source       = "../../github/secrets"
+  secret_name  = "AWS_S3_SERVERLESS_BUCKET_KEY"
+  secret_value = local.serverless_package_name
+
+}
+
 module "iam_pipeline" {
   source         = "../../iam/pipeline-user"
   environment    = var.environment
-  s3_bucket_arn  = module.cloudfront.cloudfront_s3_bucket_arn
+  s3_bucket_arns = [module.cloudfront.cloudfront_s3_bucket_arn, module.s3_serverless_distribution.bucket_arn]
   cloudfront_arn = module.cloudfront.cloudfront_arn
 }
 
@@ -73,8 +97,8 @@ module "lambda_test" {
   name                      = "test"
   handler                   = "lambdas/helloworld.handler"
   iam_user_arn              = module.iam_api_gateway_lambda.iam_user_arn
-  s3_bucket                 = "helloworld-dev-serverlessdeploymentbucket-16n7e449fb731"
-  s3_key                    = "serverless/helloworld/dev/1604260102880-2020-11-01T19:48:22.880Z/helloworld.zip"
+  s3_bucket                 = module.s3_serverless_distribution.bucket_name
+  s3_key                    = local.serverless_package_name
   http_method               = "GET"
   http_route                = "/hello"
   api_gateway_id            = module.api_gateway.gateway_id
@@ -87,8 +111,8 @@ module "lambda_test_v2" {
   name                      = "test_v2"
   handler                   = "lambdas/testailua.handler"
   iam_user_arn              = module.iam_api_gateway_lambda.iam_user_arn
-  s3_bucket                 = "helloworld-dev-serverlessdeploymentbucket-16n7e449fb731"
-  s3_key                    = "serverless/helloworld/dev/1604260102880-2020-11-01T19:48:22.880Z/helloworld.zip"
+  s3_bucket                 = module.s3_serverless_distribution.bucket_name
+  s3_key                    = local.serverless_package_name
   http_method               = "GET"
   http_route                = "/hello/test"
   api_gateway_id            = module.api_gateway.gateway_id

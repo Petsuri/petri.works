@@ -16,11 +16,13 @@ variable "purpose_of_bucket" {
 variable "allowed_actions" {
   type        = list(string)
   description = "Actions that are allowed for bucket"
+  default     = []
 }
 
 variable "bucket_policy_identifier" {
   type        = list(string)
   description = "List of identifiers for principals"
+  default     = []
 }
 
 variable "bucket_acl" {

@@ -31,15 +31,21 @@ jobs:
         run: |
           cd site/client
           npm run build
+      - name: Build serverless
+        run: |
+          cd site/serverless
+          serverless package 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-north-1
-      - name: Copy files to the website with the AWS CLI
+      - name: Copy client files to S3 bucket
         run: |
           aws s3 sync site/client/build/. s3://petri.works-client-static-files
+      - name: Copy serverless files to S3 bucket
+          aws s3 sync site/serverless/.serverless/${{ secrets.AWS_S3_SERVERLESS_BUCKET_KEY }} s3://${{ secrets.AWS_S3_SERVERLESS_BUCKET_NAME }}
       - name: Invalidate Cloudfront cache to instantly serve new files
         run: |
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"

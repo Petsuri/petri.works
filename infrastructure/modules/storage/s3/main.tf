@@ -1,3 +1,7 @@
+locals {
+  isPolicyAddedToBucket = length(var.bucket_policy_identifier) == 0 ? 0 : 1
+}
+
 resource "aws_s3_bucket" "bucket" {
   bucket = var.bucket_name
   acl    = var.bucket_acl
@@ -9,6 +13,8 @@ resource "aws_s3_bucket" "bucket" {
 }
 
 data "aws_iam_policy_document" "s3_policy_document" {
+  count = local.isPolicyAddedToBucket
+
   statement {
     actions   = var.allowed_actions
     resources = ["${aws_s3_bucket.bucket.arn}/*"]
@@ -21,6 +27,8 @@ data "aws_iam_policy_document" "s3_policy_document" {
 }
 
 resource "aws_s3_bucket_policy" "s3_policy" {
+  count = local.isPolicyAddedToBucket
+
   bucket = aws_s3_bucket.bucket.id
-  policy = data.aws_iam_policy_document.s3_policy_document.json
+  policy = data.aws_iam_policy_document.s3_policy_document[count.index].json
 }

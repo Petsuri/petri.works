@@ -2,7 +2,7 @@ import type { Serverless } from 'serverless/aws';
 
 const serverlessConfiguration: Serverless = {
   service: {
-    name: 'helloworld',
+    name: 'petri.works.lambdas',
     // app and org for use with dashboard.serverless.com
     // app: your-app-name,
     // org: your-org-name,
