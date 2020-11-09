@@ -51,7 +51,7 @@ jobs:
           aws s3 sync site/client/build/. s3://petri.works-client-static-files
       - name: Copy serverless files to S3 bucket
         run: |
-          aws s3 sync site/serverless/.serverless/petri.works.lambdas.zip s3://${{ secrets.AWS_S3_SERVERLESS_BUCKET_NAME }}
+          aws s3 cp site/serverless/.serverless/${{ secrets.AWS_S3_SERVERLESS_BUCKET_KEY }} s3://${{ secrets.AWS_S3_SERVERLESS_BUCKET_NAME }}
       - name: Invalidate Cloudfront cache to instantly serve new files
         run: |
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
