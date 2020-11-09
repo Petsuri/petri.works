@@ -27,6 +27,7 @@ jobs:
         run: |
           cd site/serverless
           npm install
+          npm install -g serverless
       - name: Run unit tests
         run: |
           cd site/client
