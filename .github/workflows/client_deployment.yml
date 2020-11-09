@@ -23,6 +23,10 @@ jobs:
         run: |
           cd site/client
           npm install
+      - name: Install serverless modules
+        run: |
+          cd site/serverless
+          npm install
       - name: Run unit tests
         run: |
           cd site/client
