@@ -15,18 +15,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
-      - name: Install api-client modules
+      - name: Install different project modules
         run: |
-          cd site/api-client
-          npm install
-      - name: Install client modules
-        run: |
-          cd site/client
-          npm install
-      - name: Install serverless modules
+          npm run install-projects
+      - name: Install serverless
         run: |
           cd site/serverless
-          npm install
           npm install -g serverless
       - name: Run unit tests
         run: |
