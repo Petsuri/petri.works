@@ -91,44 +91,27 @@ module "iam_api_gateway_lambda" {
   environment = var.environment
 }
 
-module "lambda_test" {
-  source                    = "../../compute/lambda"
-  environment               = var.environment
-  name                      = "test"
-  handler                   = "lambdas/helloworld.handler"
-  iam_user_arn              = module.iam_api_gateway_lambda.iam_user_arn
-  s3_bucket                 = module.s3_serverless_distribution.bucket_name
-  s3_key                    = local.serverless_package_name
-  http_method               = "GET"
-  http_route                = "/hello"
-  api_gateway_id            = module.api_gateway.gateway_id
-  api_gateway_execution_arn = module.api_gateway.execution_arn
-}
-
-module "lambda_test_v2" {
-  source                    = "../../compute/lambda"
-  environment               = var.environment
-  name                      = "test_v2"
-  handler                   = "lambdas/testailua.handler"
-  iam_user_arn              = module.iam_api_gateway_lambda.iam_user_arn
-  s3_bucket                 = module.s3_serverless_distribution.bucket_name
-  s3_key                    = local.serverless_package_name
-  http_method               = "GET"
-  http_route                = "/hello/test"
-  api_gateway_id            = module.api_gateway.gateway_id
-  api_gateway_execution_arn = module.api_gateway.execution_arn
-}
-
-module "api_gateway_publish" {
-  source                     = "../../networking/api-gateway-publish"
-  name                       = "v1"
-  api_gateway_id             = module.api_gateway.gateway_id
-  api_gateway_domain_name_id = module.api_gateway.custom_domain_id
-  route_keys                 = [module.lambda_test.route_key, module.lambda_test_v2.route_key]
-}
-
-module "github_secret_lambda_names" {
-  source       = "../../github/secrets"
-  secret_name  = "AWS_LAMBDA_NAMES"
-  secret_value = "${module.lambda_test.lambda_arn} ${module.lambda_test_v2.lambda_arn}"
+module "api_gate_way_lambdas" {
+  source                            = "../../compute/api-gateway-lambdas"
+  environment                       = var.environment
+  iam_user_arn                      = module.iam_api_gateway_lambda.iam_user_arn
+  s3_bucket                         = module.s3_serverless_distribution.bucket_name
+  s3_key                            = local.serverless_package_name
+  api_gateway_id                    = module.api_gateway.gateway_id
+  api_gateway_custom_domain_name_id = module.api_gateway.custom_domain_id
+  api_gateway_execution_arn         = module.api_gateway.execution_arn
+  lambdas = {
+    1 = {
+      name        = "test1",
+      handler     = "lambdas/helloworld.handler",
+      http_method = "GET",
+      http_route  = "/hello"
+    },
+    2 = {
+      name        = "test1_v2",
+      handler     = "lambdas/testailua.handler",
+      http_method = "GET",
+      http_route  = "/hello/test"
+    }
+  }
 }

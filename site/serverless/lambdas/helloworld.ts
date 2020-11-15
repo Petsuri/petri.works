@@ -5,7 +5,7 @@ export const handler: APIGatewayProxyHandler = async (event, _context) => {
   return {
     statusCode: 200,
     body: JSON.stringify({
-      message: 'Hello from petri.works. Toimii lopulta.!!',
+      message: 'Hello from petri.works. Testing pipeline!!',
     }, null, 2),
   };
 }
