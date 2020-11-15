@@ -1,4 +1,4 @@
-name: Client deploy
+name: Site deployment
 
 on:
   pull_request:
@@ -35,6 +35,7 @@ jobs:
       - name: Build client
         run: |
           cd site/client
+          GENERATE_SOURCEMAP=false
           npm run build
       - name: Build serverless
         run: |
