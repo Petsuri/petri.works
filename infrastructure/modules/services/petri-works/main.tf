@@ -126,3 +126,9 @@ module "api_gateway_publish" {
   api_gateway_domain_name_id = module.api_gateway.custom_domain_id
   route_keys                 = [module.lambda_test.route_key, module.lambda_test_v2.route_key]
 }
+
+module "github_secret_lambda_names" {
+  source       = "../../github/secrets"
+  secret_name  = "AWS_LAMBDA_NAMES"
+  secret_value = "${module.lambda_test.lambda_arn} ${module.lambda_test_v2.lambda_arn}"
+}

@@ -55,3 +55,9 @@ jobs:
       - name: Invalidate Cloudfront cache to instantly serve new files
         run: |
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+      - name: Update code for for lambdas
+        run: |
+          for functionName in ${{ secrets.AWS_LAMBDA_NAMES }}
+          do
+              aws lambda update-function-code --function-name $functionName --s3-bucket ${{ secrets.AWS_S3_SERVERLESS_BUCKET_NAME }} --s3-key ${{ secrets.AWS_S3_SERVERLESS_BUCKET_KEY }}
+          done

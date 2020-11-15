@@ -10,6 +10,7 @@ resource "aws_lambda_function" "lambda" {
   role          = var.iam_user_arn
   s3_bucket     = var.s3_bucket
   s3_key        = var.s3_key
+  publish       = true
   tags = {
     Environment = var.environment
   }
