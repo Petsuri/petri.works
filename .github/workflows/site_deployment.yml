@@ -17,6 +17,7 @@ jobs:
           node-version: "12.x"
       - name: Install different project modules
         run: |
+          cd site
           npm run install-projects
       - name: Install serverless
         run: |
