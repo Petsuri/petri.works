@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "install-projects": "(npm install) & (cd api-client && npm install) & (cd .. && cd client && npm install) & (cd .. && cd serverless && npm install)",
+        "install-projects": "(npm install) & (cd api-client && npm install) & (ls -la && cd .. && ls -la && cd client && npm install) & (cd .. && cd serverless && npm install)",
         "dev:client": "cd client && npm start",
         "dev:api": "cd serverless && serverless offline",
         "dev": "run-p dev:**"
