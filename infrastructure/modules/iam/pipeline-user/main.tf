@@ -37,6 +37,13 @@ resource "aws_iam_policy" "policy" {
             "Resource": [
               "${var.cloudfront_arn}"
             ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+              "lambda:UpdateFunctionCode"
+            ],
+            "Resource": ["*"]
         }
     ]
 }
