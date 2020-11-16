@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { useTranslation } from "react-i18next";
 import TopMenu from "./menu/TopMenu";
-import { logImportantMessage } from "../../api-client/petri-works-client"
+import { Hello } from '../../api-client/resources/Hello'
+import { client } from './ApiClient';
 
 function App() {
   const { t } = useTranslation();
-  logImportantMessage(console.log);  
+
+  useEffect(() => 
+  {
+      client().send(new Hello()).then(result =>
+        {
+          console.log(result);
+        }
+      );
+  }, []);
+
   return (
     <div>
       <TopMenu />
