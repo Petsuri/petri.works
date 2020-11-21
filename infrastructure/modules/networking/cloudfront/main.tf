@@ -42,6 +42,13 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   comment             = "Distribution for static files"
   default_root_object = "index.html"
 
+  custom_error_response {
+    error_code            = 403
+    error_caching_min_ttl = local.oneWeek
+    response_code         = 200
+    response_page_path    = "/index.html"
+  }
+
   logging_config {
     include_cookies = false
     bucket          = module.s3_distribution_logs.bucket_regional_domain_name
