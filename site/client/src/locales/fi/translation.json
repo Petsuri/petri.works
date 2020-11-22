@@ -8,6 +8,10 @@
       "hamburger": "Purilaisia",
       "smoking": "Savustusta",
       "software_development": "Mahtavaa softan kehitystä & arkkitehtuuria"
-    }
+    },
+    "cv": "Ansioluettelo"
+  },
+  "cv": {
+    "coming_soon": "Petrin ansioluettelo on tulossa pian"
   }
 }

@@ -11,10 +11,12 @@
     "@types/node": "^12.12.69",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.6",
     "i18next": "^19.8.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-i18next": "^11.7.3",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.0",
     "typescript": "^4.0.5"
   },

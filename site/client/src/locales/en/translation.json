@@ -8,6 +8,10 @@
       "hamburger": "Burgers",
       "smoking": "BBQ",
       "software_development": "Awesome software development & architecture"
-    }
+    },
+    "cv": "Curriculum Vitae"
+  },
+  "cv": {
+    "coming_soon": "Petri's Curriculum Vitae is coming soon"
   }
 }
