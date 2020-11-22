@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MainPage from "./MainPage";
 import TopMenu from './menu/TopMenu';
 import "./App.css";
-import CvPage from "./CvPage";
+import CvPage from "./cv/CvPage";
+import { PathToCvPage } from './cv/CvLink';
 
 export default function Routing() {
 
@@ -12,7 +13,7 @@ export default function Routing() {
             <TopMenu />
             <div className="App">
                 <Switch>
-                    <Route path="/cv">
+                    <Route path={PathToCvPage}>
                         <CvPage />
                     </Route>
                     <Route path="/">
