@@ -13,16 +13,16 @@ const translations = {
   },
 };
 
-const currentLocaleKey = 'locale.current.shortcode';
+const currentLocaleKey = "locale.current.shortcode";
 export const changeLocale = (locale: Locale): void => {
   i18n.changeLanguage(locale.shortCode);
   localStorage.setItem(currentLocaleKey, locale.shortCode);
-}
+};
 
 export const getLocale = (): Locale => {
-  const current = localStorage.getItem(currentLocaleKey) || '';
+  const current = localStorage.getItem(currentLocaleKey) || "";
   return Locale.find(current);
-}
+};
 
 i18n.use(initReactI18next).init({
   resources: translations,

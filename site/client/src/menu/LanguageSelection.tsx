@@ -2,7 +2,7 @@ import { IconButton, Menu, MenuItem, Typography } from "@material-ui/core";
 import React, { useState, MouseEvent } from "react";
 import { changeLocale, getLocale } from "../i18n";
 import { Locale } from "../locales/Locale";
-import TranslateIcon from '@material-ui/icons/Translate';
+import TranslateIcon from "@material-ui/icons/Translate";
 
 export const LanguageSelection = () => {
   const languageMenuId: string = "change-language-menu-id";

@@ -8,8 +8,8 @@ import {
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { LanguageSelection } from "./LanguageSelection";
-import MenuIcon from '@material-ui/icons/Menu';
-import Drawer from '@material-ui/core/Drawer';
+import MenuIcon from "@material-ui/icons/Menu";
+import Drawer from "@material-ui/core/Drawer";
 import DrawerContent from "./DrawerContent";
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -30,9 +30,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   menuIcon: {
     paddingRight: 25,
   },
-  paper: { 
-    background: '#282c34',
-  }
+  paper: {
+    background: "#282c34",
+  },
 }));
 
 const TopMenu = (): JSX.Element => {
@@ -44,7 +44,10 @@ const TopMenu = (): JSX.Element => {
     <>
       <AppBar position="static">
         <Toolbar>
-          <MenuIcon className={classes.menuIcon} onClick={() => setIsDrawerOpen(!isDrawerOpen)} />
+          <MenuIcon
+            className={classes.menuIcon}
+            onClick={() => setIsDrawerOpen(!isDrawerOpen)}
+          />
           <Typography variant="h6" className={classes.titleDesktop}>
             {t("main.works")}
           </Typography>
@@ -54,7 +57,12 @@ const TopMenu = (): JSX.Element => {
           <LanguageSelection />
         </Toolbar>
       </AppBar>
-      <Drawer anchor='left' classes={{paper: classes.paper}} open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
+      <Drawer
+        anchor="left"
+        classes={{ paper: classes.paper }}
+        open={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+      >
         <DrawerContent closeDrawer={() => setIsDrawerOpen(false)} />
       </Drawer>
     </>

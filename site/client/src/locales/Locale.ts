@@ -10,15 +10,13 @@ export class Locale {
     this.name = theName;
   }
 
-
-
   public static finnish = (): Locale => Locale.Finnish;
   public static english = (): Locale => Locale.English;
 
   public static supported = () => [Locale.Finnish, Locale.English];
 
   public static find(shortCode: string): Locale {
-    const found = this.supported().find(item => item.shortCode === shortCode);
+    const found = this.supported().find((item) => item.shortCode === shortCode);
     if (found) {
       return found;
     }

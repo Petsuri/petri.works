@@ -16,5 +16,5 @@ const mockLocale = Locale.finnish();
 jest.mock("./i18n", () => ({
   getLocale: () => {
     return mockLocale;
-  }
+  },
 }));
