@@ -1,8 +1,8 @@
 import { IconButton, Menu, MenuItem, Typography } from "@material-ui/core";
 import React, { useState, MouseEvent } from "react";
 import { changeLocale, getLocale } from "../i18n";
-import LanguageIcon from "../icons/LanguageIcon";
 import { Locale } from "../locales/Locale";
+import TranslateIcon from '@material-ui/icons/Translate';
 
 export const LanguageSelection = () => {
   const languageMenuId: string = "change-language-menu-id";
@@ -58,7 +58,7 @@ export const LanguageSelection = () => {
         onClick={handleLanguageMenuOpen}
         color="inherit"
       >
-        <LanguageIcon />
+        <TranslateIcon />
         <Typography variant="h6">{locale.name}</Typography>
       </IconButton>
       {renderMenu}

@@ -5,6 +5,7 @@ import TopMenu from './menu/TopMenu';
 import "./App.css";
 import CvPage from "./cv/CvPage";
 import { PathToCvPage } from './cv/CvLink';
+import { PathToMainPage } from "./MainLink";
 
 export default function Routing() {
 
@@ -16,7 +17,7 @@ export default function Routing() {
                     <Route path={PathToCvPage}>
                         <CvPage />
                     </Route>
-                    <Route path="/">
+                    <Route path={PathToMainPage}>
                         <MainPage />
                     </Route>
         

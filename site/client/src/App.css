@@ -33,3 +33,10 @@
     transform: rotate(360deg);
   }
 }
+
+a {
+  color: #FFF;
+}
+a:hover {
+   color: #00F
+}

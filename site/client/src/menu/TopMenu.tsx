@@ -5,9 +5,12 @@ import {
   Toolbar,
   Typography,
 } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { LanguageSelection } from "./LanguageSelection";
+import MenuIcon from '@material-ui/icons/Menu';
+import Drawer from '@material-ui/core/Drawer';
+import DrawerContent from "./DrawerContent";
 
 const useStyles = makeStyles((theme: Theme) => ({
   titleDesktop: {
@@ -24,24 +27,37 @@ const useStyles = makeStyles((theme: Theme) => ({
       display: "block",
     },
   },
+  menuIcon: {
+    paddingRight: 25,
+  },
+  paper: { 
+    background: '#282c34',
+  }
 }));
 
 const TopMenu = (): JSX.Element => {
   const { t } = useTranslation();
   const classes = useStyles();
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <Typography variant="h6" className={classes.titleDesktop}>
-          {t("main.works")}
-        </Typography>
-        <Typography variant="h6" className={classes.titleMobile}>
-          {t("main.works_short")}
-        </Typography>
-        <LanguageSelection />
-      </Toolbar>
-    </AppBar>
+    <>
+      <AppBar position="static">
+        <Toolbar>
+          <MenuIcon className={classes.menuIcon} onClick={() => setIsDrawerOpen(!isDrawerOpen)} />
+          <Typography variant="h6" className={classes.titleDesktop}>
+            {t("main.works")}
+          </Typography>
+          <Typography variant="h6" className={classes.titleMobile}>
+            {t("main.works_short")}
+          </Typography>
+          <LanguageSelection />
+        </Toolbar>
+      </AppBar>
+      <Drawer anchor='left' classes={{paper: classes.paper}} open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
+        <DrawerContent closeDrawer={() => setIsDrawerOpen(false)} />
+      </Drawer>
+    </>
   );
 };
 
