@@ -1,6 +1,5 @@
-import { Container, Divider, Link, Typography } from "@material-ui/core";
+import { Container, Divider, Typography } from "@material-ui/core";
 import React from "react";
-import { useTranslation } from "react-i18next";
 import { makeStyles, Theme } from "@material-ui/core/styles";
 import OuterLink from "../OuterLink";
 
@@ -25,7 +24,6 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 export default function CvPage() {
-  const { t } = useTranslation();
   const classes = useStyles();
 
   //return <div>{t("cv.coming_soon")}</div>;
