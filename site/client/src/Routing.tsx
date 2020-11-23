@@ -6,20 +6,33 @@ import "./App.css";
 import CvPage from "./cv/CvPage";
 import { PathToCvPage } from "./cv/CvLink";
 import { PathToMainPage } from "./MainLink";
+import { makeStyles, Theme } from "@material-ui/core";
+import { darkBackgroundColor } from "./styles/Colors";
+
+const useStyles = makeStyles((theme: Theme) => ({
+  container: {
+    minHeight: "100vh",
+    backgroundColor: darkBackgroundColor,
+  },
+}));
 
 export default function Routing() {
+  const classes = useStyles();
+
   return (
     <Router>
-      <TopMenu />
-      <div className="App">
-        <Switch>
-          <Route path={PathToCvPage}>
-            <CvPage />
-          </Route>
-          <Route path={PathToMainPage}>
-            <MainPage />
-          </Route>
-        </Switch>
+      <div className={classes.container}>
+        <TopMenu />
+        <div className="App">
+          <Switch>
+            <Route path={PathToCvPage}>
+              <CvPage />
+            </Route>
+            <Route path={PathToMainPage}>
+              <MainPage />
+            </Route>
+          </Switch>
+        </div>
       </div>
     </Router>
   );

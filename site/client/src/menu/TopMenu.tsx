@@ -1,5 +1,6 @@
 import {
   AppBar,
+  IconButton,
   makeStyles,
   Theme,
   Toolbar,
@@ -11,6 +12,7 @@ import { LanguageSelection } from "./LanguageSelection";
 import MenuIcon from "@material-ui/icons/Menu";
 import Drawer from "@material-ui/core/Drawer";
 import DrawerContent from "./DrawerContent";
+import { darkBackgroundColor } from "../styles/Colors";
 
 const useStyles = makeStyles((theme: Theme) => ({
   titleDesktop: {
@@ -31,7 +33,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     paddingRight: 25,
   },
   paper: {
-    background: "#282c34",
+    background: darkBackgroundColor,
+  },
+  icon: {
+    color: "inherit",
   },
 }));
 
@@ -44,10 +49,12 @@ const TopMenu = (): JSX.Element => {
     <>
       <AppBar position="static">
         <Toolbar>
-          <MenuIcon
-            className={classes.menuIcon}
+          <IconButton
+            className={classes.icon}
             onClick={() => setIsDrawerOpen(!isDrawerOpen)}
-          />
+          >
+            <MenuIcon />
+          </IconButton>
           <Typography variant="h6" className={classes.titleDesktop}>
             {t("main.works")}
           </Typography>
