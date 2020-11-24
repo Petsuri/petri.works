@@ -1,4 +1,4 @@
-import { Container, Divider, Typography } from "@material-ui/core";
+import { Container, Divider, Grid, Typography } from "@material-ui/core";
 import React from "react";
 import { makeStyles, Theme } from "@material-ui/core/styles";
 import OuterLink from "../OuterLink";
@@ -29,7 +29,7 @@ export default function CvPage() {
   //return <div>{t("cv.coming_soon")}</div>;
   return (
     <div className={classes.root}>
-      <Container maxWidth="sm">
+      <Container maxWidth="md">
         <Container className={classes.container}>
           <Typography variant="h3" className={classes.upperCaseText}>
             Petri Miikki
@@ -38,11 +38,22 @@ export default function CvPage() {
             Tech Lead
           </Typography>
           <Typography variant="h5" className={classes.upperCaseText}>
-            <OuterLink
-              openToBlank={true}
-              href="https://github.com/petsuri"
-              text="Github"
-            />
+            <Grid container spacing={5}>
+              <Grid item>
+                <OuterLink
+                  openToBlank={true}
+                  href="https://github.com/petsuri"
+                  text="Github"
+                />
+              </Grid>
+              <Grid item>
+                <OuterLink
+                  openToBlank={true}
+                  href="https://linkedin.com/in/petri-miikki-073775163"
+                  text="LinkedIn"
+                />
+              </Grid>
+            </Grid>
           </Typography>
           <Typography variant="h5" className={classes.upperCaseText}>
             <OuterLink
@@ -74,7 +85,78 @@ export default function CvPage() {
           <Typography variant="h3" className={classes.upperCaseText}>
             Skills
           </Typography>
-          <Typography variant="body1">...</Typography>
+          <Grid container spacing={3}>
+            <Grid item sm={5}>
+              <div>
+                <Typography variant="h5" className={classes.upperCaseText}>
+                  Software architecture
+                </Typography>
+                <Typography variant="body1">
+                  From monoliths to event-driven architectures. Making decisions
+                  which the best suite business needs.
+                </Typography>
+              </div>
+            </Grid>
+            <Grid item sm={5}>
+              <div>
+                <Typography variant="h5" className={classes.upperCaseText}>
+                  Solid principles
+                </Typography>
+                <Typography variant="body1">
+                  Advocate for good design practices and making code flexible.
+                  Hold workshops about <OuterLink href="" text="SOLID" />.
+                </Typography>
+              </div>
+            </Grid>
+            <Grid item sm={5}>
+              <div>
+                <Typography variant="h5" className={classes.upperCaseText}>
+                  Domain driven design
+                </Typography>
+                <Typography variant="body1">
+                  When products are complex with bigger teams of maintaining
+                  them, my skills of DDD with microservice patterns will bring
+                  simplicity to design.
+                </Typography>
+              </div>
+            </Grid>
+            <Grid item sm={5}>
+              <div>
+                <Typography variant="h5" className={classes.upperCaseText}>
+                  Software design patterns
+                </Typography>
+                <Typography variant="body1">
+                  Strong skills in software design patterns allowing me to make
+                  decisions best serving business and customer needs. Doesn't
+                  under- or overengineer.
+                </Typography>
+              </div>
+            </Grid>
+            <Grid item sm={5}>
+              <div>
+                <Typography variant="h5" className={classes.upperCaseText}>
+                  Unit testing
+                </Typography>
+                <Typography variant="body1">
+                  Skills to take the lead of defining good practices, patterns
+                  and priciples of unit testing. Passionate about writing high
+                  quality tests.
+                </Typography>
+              </div>
+            </Grid>
+            <Grid item sm={5}>
+              <div>
+                <Typography variant="h5" className={classes.upperCaseText}>
+                  Coaching and mentoring
+                </Typography>
+                <Typography variant="body1">
+                  Always willing to share knowledge, mentor and coach others to
+                  succeed. Successfully created practices for knowledge sharing
+                  in earlier positions.
+                </Typography>
+              </div>
+            </Grid>
+          </Grid>
         </Container>
       </Container>
     </div>
