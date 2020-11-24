@@ -12,6 +12,7 @@ import { darkBackgroundColor } from "./styles/Colors";
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
     minHeight: "100vh",
+    minWidth: "460px",
     backgroundColor: darkBackgroundColor,
   },
 }));

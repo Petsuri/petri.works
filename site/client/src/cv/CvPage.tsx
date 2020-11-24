@@ -5,7 +5,7 @@ import OuterLink from "../OuterLink";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    padding: "1rem",
+    margin: "1rem",
   },
   upperCaseText: {
     letterSpacing: theme.spacing(0.5),
