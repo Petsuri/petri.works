@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: "1rem",
   },
   upperCaseText: {
-    letterSpacing: theme.spacing(0.5),
+    letterSpacing: "0.05em",
     textTransform: "uppercase",
     textAlign: "left",
   },
@@ -29,7 +29,7 @@ export default function CvPage() {
   //return <div>{t("cv.coming_soon")}</div>;
   return (
     <div className={classes.root}>
-      <Container maxWidth="md">
+      <Container maxWidth="sm">
         <Container className={classes.container}>
           <Typography variant="h3" className={classes.upperCaseText}>
             Petri Miikki
