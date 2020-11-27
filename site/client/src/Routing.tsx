@@ -6,6 +6,7 @@ import "./App.css";
 import CvPage from "./cv/CvPage";
 import { PathToCvPage } from "./cv/CvLink";
 import { PathToMainPage } from "./MainLink";
+import TeamDayPage from "./TeamDayPage";
 import { makeStyles, Theme } from "@material-ui/core";
 import { darkBackgroundColor } from "./styles/Colors";
 
@@ -28,6 +29,9 @@ export default function Routing() {
           <Switch>
             <Route path={PathToCvPage}>
               <CvPage />
+            </Route>
+            <Route path={"/teamday"}>
+              <TeamDayPage />
             </Route>
             <Route path={PathToMainPage}>
               <MainPage />
