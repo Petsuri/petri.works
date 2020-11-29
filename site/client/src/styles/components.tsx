@@ -26,6 +26,7 @@ export const TextContainer = styled(Container)({
 
 export const FlexContainer = styled("div")({
   display: "flex",
+  flexWrap: "wrap",
   justifyContent: "space-between",
 });
 

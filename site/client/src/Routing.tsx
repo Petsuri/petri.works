@@ -7,7 +7,7 @@ import CvPage from "./cv/CvPage";
 import { PathToCvPage } from "./cv/CvLink";
 import { PathToMainPage } from "./MainLink";
 import { makeStyles, Theme } from "@material-ui/core";
-import { darkBackgroundColor } from "./styles/Colors";
+import { darkBackgroundColor } from "./styles/colors";
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
