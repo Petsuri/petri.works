@@ -80,7 +80,7 @@ const getListOfSkills = (): Skill[] => {
 export default function Skills() {
   const renderSkill = (skill: Skill) => {
     return (
-      <Grid item sm={5}>
+      <Grid item sm={6}>
         <div>
           <UCaseTypography variant="h5">{skill.header}</UCaseTypography>
           <Typography variant="body1">{skill.description}</Typography>

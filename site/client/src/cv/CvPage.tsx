@@ -6,6 +6,7 @@ import { TextContainer, WhiteDivider } from "../styles/components";
 import Profile from "./Profile";
 import PersonalInformation from "./PersonalInformation";
 import WorkExperience from "./WorkExperience";
+import Education from "./Education";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -33,6 +34,10 @@ export default function CvPage() {
         <WhiteDivider />
         <TextContainer>
           <WorkExperience />
+        </TextContainer>
+        <WhiteDivider />
+        <TextContainer>
+          <Education />
         </TextContainer>
       </Container>
     </div>

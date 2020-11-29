@@ -6,6 +6,7 @@ import {
   UCaseTypography,
   UnorderedList,
 } from "../styles/components";
+import { formatPeriod } from "../timeFormatting";
 
 interface Experience {
   company: string;
@@ -22,7 +23,7 @@ const getExperiences = (): Experience[] => {
   experienses.push({
     company: "Visma Solutions Oy, Visma Sign",
     jobTitle: "Tech Lead",
-    begin: new Date(2019, 6, 1),
+    begin: new Date(2019, 5, 1),
     end: null,
     descriptions: [
       "Strong focus on return on investment on what we are building and what way to best benefit business. Leading technical development of Visma Sign with daily hands-on coding.",
@@ -38,8 +39,8 @@ const getExperiences = (): Experience[] => {
   experienses.push({
     company: "Visma Solutions Oy, Netvisor",
     jobTitle: "Mobile Developer",
-    begin: new Date(2017, 6, 1),
-    end: new Date(2019, 6, 1),
+    begin: new Date(2017, 5, 1),
+    end: new Date(2019, 5, 1),
     descriptions: [
       "Started mobile development in Netvisor. For first 1,5 years was the only developer working on Netvisor mobile. This made me learn to be fast decision maker and focus on what actually matters for the business.",
     ],
@@ -56,7 +57,7 @@ const getExperiences = (): Experience[] => {
     company: "Visma Solutions Oy, Netvisor",
     jobTitle: "Software Developer",
     begin: new Date(2014, 4, 1),
-    end: new Date(2017, 6, 1),
+    end: new Date(2017, 5, 1),
     descriptions: [
       "Worked independently at the start. Made a lot of design decisions for features what we were implementing. After moving towards teams, worked as mentor and coach for our team.",
     ],
@@ -72,18 +73,6 @@ const getExperiences = (): Experience[] => {
   });
 
   return experienses;
-};
-
-const formatDate = (date: Date): string => {
-  return `${date.getMonth()} / ${date.getFullYear()}`;
-};
-
-const jobPeriod = (experience: Experience): string => {
-  if (experience.end === null) {
-    return formatDate(experience.begin) + " - Present";
-  }
-
-  return formatDate(experience.begin) + " - " + formatDate(experience.end);
 };
 
 const renderDescriptions = (descriptions: string[]): JSX.Element => {
@@ -119,7 +108,7 @@ const renderResponsibilities = (responsibilities: string[]): JSX.Element => {
   );
 };
 
-const renderAchievements = (achievements: string[] | undefined) => {
+const renderAchievements = (achievements: string[] | undefined): JSX.Element | null => {
   if (achievements === undefined) {
     return null;
   }
@@ -132,12 +121,14 @@ const renderAchievements = (achievements: string[] | undefined) => {
   );
 };
 
-const renderExperience = (job: Experience) => {
+const renderExperience = (job: Experience): JSX.Element => {
   return (
-    <Grid item sm={10}>
+    <Grid item sm={12}>
       <FlexContainer>
         <UCaseTypography variant="h5">{job.company}</UCaseTypography>
-        <UCaseTypography variant="h5">{jobPeriod(job)}</UCaseTypography>
+        <UCaseTypography variant="h5">
+          {formatPeriod(job.begin, job.end)}
+        </UCaseTypography>
       </FlexContainer>
       <UCaseTypography variant="h6">{job.jobTitle}</UCaseTypography>
       {renderDescriptions(job.descriptions)}
@@ -147,7 +138,7 @@ const renderExperience = (job: Experience) => {
   );
 };
 
-export default function WorkExperience() {
+export default function WorkExperience(): JSX.Element {
   return (
     <>
       <UCaseTypography variant="h3">Experience</UCaseTypography>
