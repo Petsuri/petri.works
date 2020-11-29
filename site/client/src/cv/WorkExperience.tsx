@@ -108,7 +108,9 @@ const renderResponsibilities = (responsibilities: string[]): JSX.Element => {
   );
 };
 
-const renderAchievements = (achievements: string[] | undefined): JSX.Element | null => {
+const renderAchievements = (
+  achievements: string[] | undefined
+): JSX.Element | null => {
   if (achievements === undefined) {
     return null;
   }
