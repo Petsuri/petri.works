@@ -13,6 +13,7 @@
     "main_page": "Main Page"
   },
   "cv": {
+    "present": "Present",
     "coming_soon": "Petri's Curriculum Vitae is coming soon",
     "education": {
       "header": "Education",
@@ -64,6 +65,47 @@
       "coaching_mentoring": {
         "name": "Coaching and mentoring",
         "description": "Always willing to share knowledge, mentor and coach others to succeed. Successfully created practices for knowledge sharing in earlier positions."
+      }
+    },
+    "experience": {
+      "header": "Experience",
+      "responsibilities": "Responsibilities",
+      "achievements": "Achievements",
+      "tech_lead": {
+        "description": "Strong focus on return on investment on what we are building and what way to best benefit business. Leading technical development of Visma Sign with daily hands-on coding.",
+        "responsibilities": {
+          "1": "Defining coding standards",
+          "2": "Architecture of the whole system",
+          "3": "Improving collaboration with all functions within Visma Sign",
+          "4": "Taking ownership of system development from subcontractor to Visma Solutions Oy"
+        },
+        "achievements": {
+          "1": "Building new team to take responsibility of the product"
+        }
+      },
+      "mobile_developer": {
+        "description": "Started mobile development in Netvisor. For first 1,5 years was the only developer working on Netvisor mobile. This made me learn to be fast decision maker and focus on what actually matters for the business.",
+        "responsibilities": {
+          "1": "Defining and implementing architecture for Netvisor mobile app",
+          "2": "Netvisor API development for supporting mobile use cases",
+          "3": "Acting as a mentor for our junior software developers in Netvisor",
+          "4": "Hosted workshops about unit testing, SOLID principles and domain driven design"
+        },
+        "achievements": {
+          "1": "Employee of the year, 2018"
+        }
+      },
+      "software_developer": {
+        "description": "Worked independently at the start. Made a lot of design decisions for features what we were implementing. After moving towards teams, worked as mentor for our team members.",
+        "responsibilities": {
+          "1": "Designing and making integrations with other Software systems, for example Netvisor ID, Visma Scanner and Visma Webshop",
+          "2": "Worked in 'technical council' as chairman for improving Netvisor's technical base",
+          "3": "Acting as mentor for new developers"
+        },
+        "achievements": {
+          "1": "Employee of the year, 2016",
+          "2": "Started monthly/biweekly knowledge sharing sessions"
+        }
       }
     }
   }

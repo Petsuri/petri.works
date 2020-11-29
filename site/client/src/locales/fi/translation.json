@@ -13,6 +13,7 @@
     "main_page": "Pääsivu"
   },
   "cv": {
+    "present": "Nykyhetki",
     "coming_soon": "Petrin ansioluettelo on tulossa pian",
     "education": {
       "header": "Koulutus",
@@ -64,6 +65,47 @@
       "coaching_mentoring": {
         "name": "Valmennus ja mentorointi",
         "description": "Aina halutuks jakamaan tietoa, mentoroimaan sekä valmentamaan muita, että he pystyvät onnistumaan. Onnistuneesti luonut käytännöt tiedon jakamiseen aiemmassa roolissani."
+      }
+    },
+    "experience": {
+      "header": "Kokemus",
+      "responsibilities": "Vastuut",
+      "achievements": "Saavutukset",
+      "tech_lead": {
+        "description": "Vahva keskittyminen ROIn näkökulmaan kun kehitämme sovellusta ja miten pystymme parhaiten edistämään tuotteemme liiketoimintaa. Visma Sign -tuotteen teknisen kehittämisen johtaminen, päivittäin koodaten.",
+        "responsibilities": {
+          "1": "Koodausstandarien määrittely",
+          "2": "Koko järjestelmän arkkitehtuuri",
+          "3": "Kaikkien eri funktioiden yhteistyön parantaminen Visma Signissa",
+          "4": "Omistajuuden ottaminen tuotteen kehityksestä, alihankkijalta Visma Solutions Oylle"
+        },
+        "achievements": {
+          "1": "Uuden tiimin rakentaminen ottamaan vastuun Visma Signin kehittämisestä"
+        }
+      },
+      "mobile_developer": {
+        "description": "Mobiilikehityksen aloittaminen Netvisorille. Ensimmäiset 1,5 vuotta ainoa kehittäjä joka työskenteli Netvisor mobiilin parissa. Tämän asniosta opin nopeaa päätöksen tekemistä ja keskittymään asioihin joilla on oikeasti merkitystä liiketoiminnan suhteen.",
+        "responsibilities": {
+          "1": "Arkkitehtuurin määrittely ja toteuttaminen Netvisorin mobiilisovellukseen",
+          "2": "Netvisorin rajapinnan kehittäminen tukemaan mobiilisovelluksen käyttötapauksia",
+          "3": "Mentorinia toimiminen meidän junnu-kehittäjille Netvisorissa",
+          "4": "Workshoppien järjestäminen ja pitäminen yksikkötestauksesta, SOLID periaatteista ja domain driven designista"
+        },
+        "achievements": {
+          "1": "Vuoden työntekijä, 2018"
+        }
+      },
+      "software_developer": {
+        "description": "Alussa enemmän itsenäistä työnkentelyä. Tein paljon suunnitelupäätöksiä toiminnallisuuksiin liittyen mitä tulimme toteuttamaan. Myöhemmin siirryimme tiimityöskentelyyn, niin toimin mentorina tiimimme jäsenille.",
+        "responsibilities": {
+          "1": "Integraatioiden suunnittelu ja toteuttamin eri järjestelmiin, esimerkiksi Netvisor ID, Visma Scanner ja Visma Webshop",
+          "2": "Netvisorin teknisen pohjan parantaminen 'teknisessä neuvostossa', jossa toimin puheenjohtajana",
+          "3": "Mentorina toiminen uusille kehittäjille"
+        },
+        "achievements": {
+          "1": "Vuoden työntekijä, 2016",
+          "2": "Kuukausittaisten/joka toinen viikko olevien tiedonjaon sessioiden aloittaminen"
+        }
       }
     }
   }

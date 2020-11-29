@@ -68,7 +68,7 @@ export default function Skills() {
 
   return (
     <>
-      <UCaseTypography variant="h3">Skills</UCaseTypography>
+      <UCaseTypography variant="h3">{t("cv.skills.header")}</UCaseTypography>
       <Grid container spacing={3}>
         {getListOfSkills(t).map(renderSkill)}
       </Grid>

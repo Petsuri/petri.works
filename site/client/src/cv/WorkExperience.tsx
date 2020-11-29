@@ -7,82 +7,91 @@ import {
   UnorderedList,
 } from "../styles/components";
 import { formatPeriod } from "../timeFormatting";
+import { useTranslation } from "react-i18next";
+import { TFunction } from "i18next";
 
 interface Experience {
   company: string;
   jobTitle: string;
   begin: Date;
   end: Date | null;
-  descriptions: string[];
+  description: string;
   responsibilities: string[];
-  achievements?: string[];
+  achievements: string[];
 }
 
-const getExperiences = (): Experience[] => {
+const createExperience = (
+  t: TFunction,
+  company: string,
+  jobTitle: string,
+  begin: Date,
+  end: Date | null,
+  translationKey: string,
+  responsibilityKeys: string[],
+  achievementKeys: string[]
+): Experience => {
+  const translationIndex = `cv.experience.${translationKey}.`;
+  return {
+    company,
+    jobTitle,
+    begin,
+    end,
+    description: t(translationIndex + "description"),
+    responsibilities: responsibilityKeys.map((key) =>
+      t(translationIndex + "responsibilities." + key)
+    ),
+    achievements: achievementKeys.map((key) =>
+      t(translationIndex + "achievements." + key)
+    ),
+  };
+};
+
+const getExperiences = (t: TFunction): Experience[] => {
   const experienses: Experience[] = [];
-  experienses.push({
-    company: "Visma Solutions Oy, Visma Sign",
-    jobTitle: "Tech Lead",
-    begin: new Date(2019, 5, 1),
-    end: null,
-    descriptions: [
-      "Strong focus on return on investment on what we are building and what way to best benefit business. Leading technical development of Visma Sign with daily hands-on coding.",
-    ],
-    responsibilities: [
-      "Defining coding standards",
-      "Architecture of the whole system",
-      "Improving collaboration with all functions within Visma Sign",
-      "Taking ownership of system development from subcontractor to Visma Solutions Oy",
-    ],
-  });
+  experienses.push(
+    createExperience(
+      t,
+      "Visma Solutions Oy, Visma Sign",
+      "Tech Lead",
+      new Date(2019, 5, 1),
+      null,
+      "tech_lead",
+      ["1", "2", "3", "4"],
+      ["1"]
+    )
+  );
 
-  experienses.push({
-    company: "Visma Solutions Oy, Netvisor",
-    jobTitle: "Mobile Developer",
-    begin: new Date(2017, 5, 1),
-    end: new Date(2019, 5, 1),
-    descriptions: [
-      "Started mobile development in Netvisor. For first 1,5 years was the only developer working on Netvisor mobile. This made me learn to be fast decision maker and focus on what actually matters for the business.",
-    ],
-    responsibilities: [
-      "Defining and implementing architecture for Netvisor mobile app",
-      "Netvisor API development for supporting mobile use cases",
-      "Acting as a mentor for our junior software developers in Netvisor",
-      "Hosted workshops about unit testing, SOLID principles and domain driven design",
-    ],
-    achievements: ["Employee of the year, 2018"],
-  });
+  experienses.push(
+    createExperience(
+      t,
+      "Visma Solutions Oy, Netvisor",
+      "Mobile Developer",
+      new Date(2017, 5, 1),
+      new Date(2019, 5, 1),
+      "mobile_developer",
+      ["1", "2", "3", "4"],
+      ["1"]
+    )
+  );
 
-  experienses.push({
-    company: "Visma Solutions Oy, Netvisor",
-    jobTitle: "Software Developer",
-    begin: new Date(2014, 4, 1),
-    end: new Date(2017, 5, 1),
-    descriptions: [
-      "Worked independently at the start. Made a lot of design decisions for features what we were implementing. After moving towards teams, worked as mentor and coach for our team.",
-    ],
-    responsibilities: [
-      "Designing and making integrations with other Software systems, for example Netvisor ID, Visma Scanner and Visma Webshop",
-      "Worked in 'technical council' as chairman for improving Netvisor's technical base",
-      "Acting as mentor for new developers",
-    ],
-    achievements: [
-      "Employee of the year, 2016",
-      "Started monthly/biweekly knowledge sharing sessions",
-    ],
-  });
+  experienses.push(
+    createExperience(
+      t,
+      "Visma Solutions Oy, Netvisor",
+      "Software Developer",
+      new Date(2014, 4, 1),
+      new Date(2017, 5, 1),
+      "software_developer",
+      ["1", "2", "3"],
+      ["1", "2"]
+    )
+  );
 
   return experienses;
 };
 
-const renderDescriptions = (descriptions: string[]): JSX.Element => {
-  return (
-    <>
-      {descriptions.map((description) => {
-        return <Paragraph variant="body1">{description}</Paragraph>;
-      })}
-    </>
-  );
+const renderDescriptions = (description: string): JSX.Element => {
+  return <Paragraph variant="body1">{description}</Paragraph>;
 };
 
 const renderListItems = (items: string[]): JSX.Element => {
@@ -99,16 +108,22 @@ const renderListItems = (items: string[]): JSX.Element => {
   );
 };
 
-const renderResponsibilities = (responsibilities: string[]): JSX.Element => {
+const renderResponsibilities = (
+  t: TFunction,
+  responsibilities: string[]
+): JSX.Element => {
   return (
     <>
-      <Paragraph variant="subtitle1">Responsibilities:</Paragraph>
+      <Paragraph variant="subtitle1">
+        {t("cv.experience.responsibilities")}:
+      </Paragraph>
       <UnorderedList>{renderListItems(responsibilities)}</UnorderedList>
     </>
   );
 };
 
 const renderAchievements = (
+  t: TFunction,
   achievements: string[] | undefined
 ): JSX.Element | null => {
   if (achievements === undefined) {
@@ -117,35 +132,39 @@ const renderAchievements = (
 
   return (
     <>
-      <Paragraph variant="subtitle1">Achievements:</Paragraph>
+      <Paragraph variant="subtitle1">
+        {t("cv.experience.achievements")}:
+      </Paragraph>
       <UnorderedList>{renderListItems(achievements)}</UnorderedList>
     </>
   );
 };
 
-const renderExperience = (job: Experience): JSX.Element => {
+const renderExperience = (t: TFunction, job: Experience): JSX.Element => {
   return (
     <Grid item sm={12}>
       <FlexContainer>
         <UCaseTypography variant="h5">{job.company}</UCaseTypography>
         <UCaseTypography variant="h5">
-          {formatPeriod(job.begin, job.end)}
+          {formatPeriod(t, job.begin, job.end)}
         </UCaseTypography>
       </FlexContainer>
       <UCaseTypography variant="h6">{job.jobTitle}</UCaseTypography>
-      {renderDescriptions(job.descriptions)}
-      {renderResponsibilities(job.responsibilities)}
-      {renderAchievements(job.achievements)}
+      {renderDescriptions(job.description)}
+      {renderResponsibilities(t, job.responsibilities)}
+      {renderAchievements(t, job.achievements)}
     </Grid>
   );
 };
 
 export default function WorkExperience(): JSX.Element {
+  const { t } = useTranslation();
+  const toExperience = renderExperience.bind(null, t);
   return (
     <>
       <UCaseTypography variant="h3">Experience</UCaseTypography>
       <Grid container spacing={3}>
-        {getExperiences().map(renderExperience)}
+        {getExperiences(t).map(toExperience)}
       </Grid>
     </>
   );
