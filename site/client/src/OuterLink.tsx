@@ -8,7 +8,6 @@ type OuterLinkProps = {
 };
 
 export default function OuterLink(props: OuterLinkProps) {
-  console.log(props);
   return (
     <Link href={props.href} target={props.openToBlank ? "_blank" : ""}>
       {props.text}
