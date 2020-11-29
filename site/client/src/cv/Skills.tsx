@@ -14,8 +14,8 @@ const getListOfSkills = (): Skill[] => {
     header: "Software architecture",
     description: (
       <>
-        "From monoliths to event-driven architectures. Making decisions which
-        the best suite business needs."
+        From monoliths to event-driven architectures. Making decisions which the
+        best suite business needs.
       </>
     ),
   });
@@ -38,9 +38,9 @@ const getListOfSkills = (): Skill[] => {
     header: "Domain driven design",
     description: (
       <>
-        "When products are complex with bigger teams of maintaining them, my
+        When products are complex with bigger teams of maintaining them, my
         skills of DDD with microservice patterns will bring simplicity to
-        design."
+        design.
       </>
     ),
   });
@@ -48,9 +48,9 @@ const getListOfSkills = (): Skill[] => {
     header: "Software design patterns",
     description: (
       <>
-        "Strong skills in software design patterns allowing me to make decisions
+        Strong skills in software design patterns allowing me to make decisions
         best serving business and customer needs. Doesn't under- or
-        overengineer."
+        overengineer.
       </>
     ),
   });
@@ -58,8 +58,8 @@ const getListOfSkills = (): Skill[] => {
     header: "Unit testing",
     description: (
       <>
-        "Skills to take the lead of defining good practices, patterns and
-        priciples of unit testing. Passionate about writing high quality tests."
+        Skills to take the lead of defining good practices, patterns and
+        priciples of unit testing. Passionate about writing high quality tests.
       </>
     ),
   });
@@ -67,9 +67,9 @@ const getListOfSkills = (): Skill[] => {
     header: "Coaching and mentoring",
     description: (
       <>
-        "Always willing to share knowledge, mentor and coach others to succeed.
+        Always willing to share knowledge, mentor and coach others to succeed.
         Successfully created practices for knowledge sharing in earlier
-        positions."
+        positions.
       </>
     ),
   });

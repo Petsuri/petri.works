@@ -5,6 +5,7 @@ import Skills from "./Skills";
 import { TextContainer, WhiteDivider } from "../styles/components";
 import Profile from "./Profile";
 import PersonalInformation from "./PersonalInformation";
+import WorkExperience from "./WorkExperience";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -28,6 +29,10 @@ export default function CvPage() {
         <WhiteDivider />
         <TextContainer>
           <Skills />
+        </TextContainer>
+        <WhiteDivider />
+        <TextContainer>
+          <WorkExperience />
         </TextContainer>
       </Container>
     </div>

@@ -23,3 +23,13 @@ export const Paragraph = styled(Typography)({
 export const TextContainer = styled(Container)({
   padding: "1rem",
 });
+
+export const FlexContainer = styled("div")({
+  display: "flex",
+  justifyContent: "space-between",
+});
+
+export const UnorderedList = styled("ul")({
+  marginBlockStart: "0.1rem",
+  marginBlockEnd: "0.1rem",
+});
