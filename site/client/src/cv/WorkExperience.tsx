@@ -162,7 +162,9 @@ export default function WorkExperience(): JSX.Element {
   const toExperience = renderExperience.bind(null, t);
   return (
     <>
-      <UCaseTypography variant="h3">Experience</UCaseTypography>
+      <UCaseTypography variant="h3">
+        {t("cv.experience.header")}
+      </UCaseTypography>
       <Grid container spacing={3}>
         {getExperiences(t).map(toExperience)}
       </Grid>
