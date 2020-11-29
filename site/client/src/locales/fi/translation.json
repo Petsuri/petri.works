@@ -13,6 +13,58 @@
     "main_page": "Pääsivu"
   },
   "cv": {
-    "coming_soon": "Petrin ansioluettelo on tulossa pian"
+    "coming_soon": "Petrin ansioluettelo on tulossa pian",
+    "education": {
+      "header": "Koulutus",
+      "school": {
+        "saimaa": {
+          "name": "Saimaan ammattikorkeakoulu",
+          "location": "Lappeenranta, Suomi",
+          "description": "Tietotekniikan insinööri (AMK)"
+        },
+        "juncheng": {
+          "name": "Beijing Juncheng Language School",
+          "location": "Peking, Kiina",
+          "description": "Intensiivinen puolen vuoden kiinan kielen kurssi"
+        },
+        "btbu": {
+          "name": "Beijing Technology and Business University",
+          "location": "Peking, Kiina",
+          "description": "Kiinan ja liiketalouden opiskelua osana Saimaan ammattikorkeakoulun tutkintoni vaihto-ohjelmaa"
+        }
+      }
+    },
+    "profile": {
+      "header": "Profiili",
+      "pitch": "Tech Lead yli 6 vuoden työkokemuksella työskennellen webbi- ja mobiilisovelluksien parissa. Omaa vahvan motivaation jatkuvalle kehittymiselle sekä itsensä haastamiselle, että pystyn kehittämään itseä ammattillisesti. Mentoroi ja coachaa työkavereita saavuttamaan heidän täyden potentiaalin ja yrityksen tavoitteet.",
+      "technical_decisions": "Teknisissä päätöksissä ottaa aina huomioon nykykontekstin sekä päätöksien ROIn, koska ei ole olemassa teknisiä päätöksiä, vain bisnespäätöksiä."
+    },
+    "skills": {
+      "header": "Taidot",
+      "architecture": {
+        "name": "Ohjelmistoarkkitehtuuri",
+        "description": "Monoliiteistä eventteihin perustuviin arkkitehtuureihin. Päätökset arkkitehtuurin osalta tehdään aina perustuen mikä parhaiten tukee bisnestä nyt ja tulevaisuudessa."
+      },
+      "solid": {
+        "name": "SOLID periatteet",
+        "description": "Puolestapuhuja hyville suunnittelukäytännöille ja kuinka koodin muuttamin on mahdollisuus, eikä uhka. Pitänyt workshoppeja "
+      },
+      "ddd": {
+        "name": "Domain driven design",
+        "description": "Kun tuotteet ovat monimutkaisia joita isot tiimit ylläpitävät, niin omat taitoni DDDsta mikropalvelu arkkitehtuuritavoista tuo yksinkertaisuutta suunnitteluun."
+      },
+      "design_patterns": {
+        "name": "Software design patterns",
+        "description": "Vahvat taidot ohjelmiston suunnittelumalleissa, jotka mahdollistavat että pystyn aina tekemään parhaat päätökset tukemaan liiketoiminnan ja asiakkaiden tarpeita. En ali- tai ylisuunnittele."
+      },
+      "unit_testing": {
+        "name": "Yksikkötestaus",
+        "description": "Omaan taidot ottaa johtajuuden määrittälläkseni hyvät käytännöt, mallit ja periaatteet yksikkötestaukseen. Olen intohimoinen kirjoittamaan laadukkaita testejä, joita on helppo ylläpitää tulevaisuudessa."
+      },
+      "coaching_mentoring": {
+        "name": "Valmennus ja mentorointi",
+        "description": "Aina halutuks jakamaan tietoa, mentoroimaan sekä valmentamaan muita, että he pystyvät onnistumaan. Onnistuneesti luonut käytännöt tiedon jakamiseen aiemmassa roolissani."
+      }
+    }
   }
 }

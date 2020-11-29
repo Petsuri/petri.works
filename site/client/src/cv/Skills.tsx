@@ -2,29 +2,39 @@ import { Grid, Typography } from "@material-ui/core";
 import { UCaseTypography } from "../styles/components";
 import React from "react";
 import OuterLink from "../OuterLink";
+import { useTranslation } from "react-i18next";
+import { TFunction } from "i18next";
 
 interface Skill {
   header: string;
   description: JSX.Element;
 }
 
-const getListOfSkills = (): Skill[] => {
-  const listOfSkills: Skill[] = [];
-  listOfSkills.push({
-    header: "Software architecture",
+const createSkill = (
+  t: Function,
+  translationKey: string,
+  postElement?: JSX.Element
+): Skill => {
+  const translationIndex = `cv.skills.${translationKey}.`;
+  return {
+    header: t(translationIndex + "name"),
     description: (
       <>
-        From monoliths to event-driven architectures. Making decisions which the
-        best suite business needs.
+        {t(translationIndex + "description")}
+        {postElement}
       </>
     ),
-  });
-  listOfSkills.push({
-    header: "Solid principles",
-    description: (
+  };
+};
+
+const getListOfSkills = (t: TFunction): Skill[] => {
+  const listOfSkills: Skill[] = [];
+  listOfSkills.push(createSkill(t, "architecture"));
+  listOfSkills.push(
+    createSkill(
+      t,
+      "solid",
       <>
-        Advocate for good design practices and making code flexible. Hold
-        workshops about
         <OuterLink
           href="https://github.com/petsuri/SolidPrinciplesWorkshop"
           openToBlank={true}
@@ -32,52 +42,19 @@ const getListOfSkills = (): Skill[] => {
         />
         .
       </>
-    ),
-  });
-  listOfSkills.push({
-    header: "Domain driven design",
-    description: (
-      <>
-        When products are complex with bigger teams of maintaining them, my
-        skills of DDD with microservice patterns will bring simplicity to
-        design.
-      </>
-    ),
-  });
-  listOfSkills.push({
-    header: "Software design patterns",
-    description: (
-      <>
-        Strong skills in software design patterns allowing me to make decisions
-        best serving business and customer needs. Doesn't under- or
-        overengineer.
-      </>
-    ),
-  });
-  listOfSkills.push({
-    header: "Unit testing",
-    description: (
-      <>
-        Skills to take the lead of defining good practices, patterns and
-        priciples of unit testing. Passionate about writing high quality tests.
-      </>
-    ),
-  });
-  listOfSkills.push({
-    header: "Coaching and mentoring",
-    description: (
-      <>
-        Always willing to share knowledge, mentor and coach others to succeed.
-        Successfully created practices for knowledge sharing in earlier
-        positions.
-      </>
-    ),
-  });
+    )
+  );
+  listOfSkills.push(createSkill(t, "ddd"));
+  listOfSkills.push(createSkill(t, "design_patterns"));
+  listOfSkills.push(createSkill(t, "unit_testing"));
+  listOfSkills.push(createSkill(t, "coaching_mentoring"));
 
   return listOfSkills;
 };
 
 export default function Skills() {
+  const { t } = useTranslation();
+
   const renderSkill = (skill: Skill) => {
     return (
       <Grid item sm={6}>
@@ -93,7 +70,7 @@ export default function Skills() {
     <>
       <UCaseTypography variant="h3">Skills</UCaseTypography>
       <Grid container spacing={3}>
-        {getListOfSkills().map(renderSkill)}
+        {getListOfSkills(t).map(renderSkill)}
       </Grid>
     </>
   );

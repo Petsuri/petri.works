@@ -6,6 +6,8 @@ import {
   UCaseTypography,
 } from "../styles/components";
 import { formatPeriod } from "../timeFormatting";
+import { useTranslation } from "react-i18next";
+import { TFunction } from "i18next";
 
 interface School {
   name: string;
@@ -15,33 +17,33 @@ interface School {
   end: Date;
 }
 
-const getSchools = (): School[] => {
+const createSchool = (
+  t: TFunction,
+  translationKey: string,
+  begin: Date,
+  end: Date
+): School => {
+  const translationIndex = `cv.education.school.${translationKey}.`;
+  return {
+    name: t(translationIndex + "name"),
+    location: t(translationIndex + "location"),
+    begin: begin,
+    end: end,
+    description: t(translationIndex + "description"),
+  };
+};
+
+const getSchools = (t: TFunction): School[] => {
   const schools: School[] = [];
-
-  schools.push({
-    name: "Saimaa University of Applied Sciences",
-    location: "Lappeenranta, Finland",
-    begin: new Date(2009, 7, 1),
-    end: new Date(2014, 5, 1),
-    description: "Bachelor of applied sciences",
-  });
-
-  schools.push({
-    name: "Beijing Juncheng Language School",
-    location: "Beijing, China",
-    begin: new Date(2012, 6, 1),
-    end: new Date(2012, 11, 1),
-    description: "Intensive Chinese learning course for half a year",
-  });
-
-  schools.push({
-    name: "Beijing Business and Technology University",
-    location: "Beijing, China",
-    begin: new Date(2011, 7, 1),
-    end: new Date(2012, 5, 1),
-    description:
-      "Studying Chinese and business as part of my studies in Saimaa University of Applied Sciences",
-  });
+  schools.push(
+    createSchool(t, "saimaa", new Date(2009, 7, 1), new Date(2014, 5, 1))
+  );
+  schools.push(
+    createSchool(t, "juncheng", new Date(2012, 6, 1), new Date(2012, 11, 1))
+  );
+  schools.push(
+    createSchool(t, "btbu", new Date(2011, 7, 1), new Date(2012, 5, 1))
+  );
 
   return schools;
 };
@@ -62,11 +64,13 @@ const renderSchools = (school: School): JSX.Element => {
 };
 
 export default function Education(): JSX.Element {
+  const { t } = useTranslation();
+
   return (
     <>
-      <UCaseTypography variant="h3">Education</UCaseTypography>
+      <UCaseTypography variant="h3">{t("cv.education.header")}</UCaseTypography>
       <Grid container spacing={3}>
-        {getSchools().map(renderSchools)}
+        {getSchools(t).map(renderSchools)}
       </Grid>
     </>
   );

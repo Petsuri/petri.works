@@ -13,6 +13,58 @@
     "main_page": "Main Page"
   },
   "cv": {
-    "coming_soon": "Petri's Curriculum Vitae is coming soon"
+    "coming_soon": "Petri's Curriculum Vitae is coming soon",
+    "education": {
+      "header": "Education",
+      "school": {
+        "saimaa": {
+          "name": "Saimaa University of Applied Sciences",
+          "location": "Lappeenranta, Finland",
+          "description": "Bachelor of applied sciences"
+        },
+        "juncheng": {
+          "name": "Beijing Juncheng Language School",
+          "location": "Beijing, China",
+          "description": "Intensive Chinese learning course for half a year"
+        },
+        "btbu": {
+          "name": "Beijing Technology and Business University",
+          "location": "Beijing, China",
+          "description": "Studying Chinese and business as part of my studies in Saimaa University of Applied Sciences"
+        }
+      }
+    },
+    "profile": {
+      "header": "Profile",
+      "pitch": "Tech Lead with 6+ years of experience working with web and mobile applications. Possesses a strong motivation for continuous improvement and challenging myself to develop professionally. Mentoring and coaching coworkers to achieve their own full potential and company's goals.",
+      "technical_decisions": "In technical decision making always taking in to notice current context and return on investment because there is no technical decisions, only business decisions."
+    },
+    "skills": {
+      "header": "Skills",
+      "architecture": {
+        "name": "Software architecture",
+        "description": "From monoliths to event-driven architectures. Making decisions which the best suite business needs."
+      },
+      "solid": {
+        "name": "SOLID principles",
+        "description": "Advocate for good design practices and how to embrace code changes as possibilities and not threats. Hold workshops about "
+      },
+      "ddd": {
+        "name": "Domain driven design",
+        "description": "When products are complex with bigger teams of maintaining them, my skills of DDD with microservice patterns will bring simplicity to design."
+      },
+      "design_patterns": {
+        "name": "Software design patterns",
+        "description": "Strong skills in software design patterns allowing me to make decisions best serving business and customer needs. Doesn't under- or overengineer."
+      },
+      "unit_testing": {
+        "name": "Unit testing",
+        "description": "Skills to take the lead of defining good practices, patterns and priciples of unit testing. Passionate about writing high quality tests which are easy maintain in future."
+      },
+      "coaching_mentoring": {
+        "name": "Coaching and mentoring",
+        "description": "Always willing to share knowledge, mentor and coach others to succeed. Successfully created practices for knowledge sharing in earlier positions."
+      }
+    }
   }
 }
