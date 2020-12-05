@@ -1,7 +1,7 @@
 import React from "react";
 import { List, ListItem, makeStyles, Theme } from "@material-ui/core";
 import CvLink from "../cv/CvLink";
-import MainLink from "../MainLink";
+import ComingSoonLink from "../coming-soon/ComingSoonLink";
 
 type DrawerContentProps = {
   closeDrawer: Function;
@@ -24,10 +24,10 @@ export default function DrawerContent(props: DrawerContentProps) {
     <div className={classes.content}>
       <List>
         <ListItem onClick={() => props.closeDrawer()}>
-          <MainLink />
+          <CvLink />
         </ListItem>
         <ListItem onClick={() => props.closeDrawer()}>
-          <CvLink />
+          <ComingSoonLink />
         </ListItem>
       </List>
     </div>

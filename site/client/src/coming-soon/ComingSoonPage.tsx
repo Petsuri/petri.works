@@ -1,9 +1,9 @@
 import { makeStyles, Theme } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Hello } from "../../api-client/resources/Hello";
-import { client } from "./ApiClient";
-import CvLink from "./cv/CvLink";
+import { Hello } from "../../../api-client/resources/Hello";
+import { client } from "../ApiClient";
+import CvLink from "../cv/CvLink";
 
 const useStyles = makeStyles((theme: Theme) => ({
   content: {
@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export default function MainPage() {
+export default function ComingSoonPage() {
   const { t } = useTranslation();
   const classes = useStyles();
 
@@ -29,9 +29,6 @@ export default function MainPage() {
         <header>
           <p>{t("main.coming_soon")}</p>
           <ul>
-            <li>
-              <CvLink />
-            </li>
             <li>{t("main.coming.pizza")}</li>
             <li>{t("main.coming.hamburger")}</li>
             <li>{t("main.coming.smoking")}</li>
