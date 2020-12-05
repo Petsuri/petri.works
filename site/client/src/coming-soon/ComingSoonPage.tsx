@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Hello } from "../../../api-client/resources/Hello";
 import { client } from "../ApiClient";
-import CvLink from "../cv/CvLink";
 
 const useStyles = makeStyles((theme: Theme) => ({
   content: {
