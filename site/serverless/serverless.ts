@@ -2,11 +2,12 @@ import type { Serverless } from 'serverless/aws';
 
 const serverlessConfiguration: Serverless = {
   service: {
-    name: 'petri.works.lambdas',
+    name: 'petri-works',
     // app and org for use with dashboard.serverless.com
     // app: your-app-name,
     // org: your-org-name,
   },
+  configValidationMode: 'error',
   frameworkVersion: '2',
   custom: {
     webpack: {
@@ -15,9 +16,20 @@ const serverlessConfiguration: Serverless = {
     },
     "serverless-offline": {
       httpPort: 4000
+    },
+    dynamodb: {
+      stages: 'v1',
+      start: {
+        port: 8000,
+        migrate: false,
+      }
     }
   },
-  plugins: ['serverless-webpack', 'serverless-offline'],
+  plugins: [
+    'serverless-webpack',
+    'serverless-dynamodb-local',
+    'serverless-offline',
+  ],
   provider: {
     name: 'aws',
     runtime: 'nodejs12.x',
@@ -54,6 +66,32 @@ const serverlessConfiguration: Serverless = {
           }
         }
       ]
+    }
+  },
+  resources: {
+    Resources: {
+      subscriptionsTable: {
+        Type: 'AWS::DynamoDB::Table',
+        Properties: {
+          TableName: 'subscriptions',
+          AttributeDefinitions: [
+            {
+              AttributeName: 'email',
+              AttributeType: 'S'
+            }
+          ],
+          KeySchema: [
+            {
+              AttributeName: 'email',
+              KeyType: 'HASH'
+            }
+          ],
+          ProvisionedThroughput: {
+            ReadCapacity: 5,
+            WriteCapacity: 5
+          }
+        }
+      }
     }
   }
 }

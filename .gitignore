@@ -384,3 +384,6 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+# Ignore serverless local dependencies
+**/.dynamodb
