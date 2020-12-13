@@ -2,6 +2,14 @@
 
 ## Requirements
 
-# Terraform
-# JavaSDK for local DynamoDB (https://www.java.com/en/download/)
-# serverless framework (npm install -g serverless)
+# Infrastructure
+## Terraform 
+- https://www.terraform.io/downloads.html
+
+# Local development
+## JavaSDK for local DynamoDB 
+- https://www.java.com/en/download/
+## npm 
+-https://nodejs.org/en/download/
+## serverless framework 
+- npm install -g serverless

@@ -1,5 +1,5 @@
 locals {
-  serverless_package_name = "petri.works.lambdas.zip"
+  serverless_package_name = "petri-works.zip"
 }
 
 module "acm_certificate" {
