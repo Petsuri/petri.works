@@ -97,9 +97,9 @@ const renderDescriptions = (description: string): JSX.Element => {
 const renderListItems = (items: string[]): JSX.Element => {
   return (
     <>
-      {items.map((item) => {
+      {items.map((item, index) => {
         return (
-          <li>
+          <li key={index}>
             <Typography variant="body1">{item}</Typography>
           </li>
         );
@@ -140,9 +140,9 @@ const renderAchievements = (
   );
 };
 
-const renderExperience = (t: TFunction, job: Experience): JSX.Element => {
+const renderExperience = (t: TFunction, job: Experience, key: number): JSX.Element => {
   return (
-    <Grid item sm={12}>
+    <Grid key={key} item sm={12}>
       <FlexContainer>
         <UCaseTypography variant="h5">{job.company}</UCaseTypography>
         <UCaseTypography variant="h5">

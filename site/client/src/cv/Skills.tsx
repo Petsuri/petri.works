@@ -55,9 +55,9 @@ const getListOfSkills = (t: TFunction): Skill[] => {
 export default function Skills() {
   const { t } = useTranslation();
 
-  const renderSkill = (skill: Skill) => {
+  const renderSkill = (skill: Skill, key: number) => {
     return (
-      <Grid item sm={6}>
+      <Grid key={key} item sm={6}>
         <div>
           <UCaseTypography variant="h5">{skill.header}</UCaseTypography>
           <Typography variant="body1">{skill.description}</Typography>
