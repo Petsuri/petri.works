@@ -25,6 +25,7 @@ jobs:
       - name: Run unit tests
         run: |
           cd site/client
+          npm install
           npm test
       - name: Build client
         run: |
