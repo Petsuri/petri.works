@@ -20,7 +20,7 @@ module "s3_distribution" {
 module "s3_distribution_logs" {
   source                   = "../../storage/s3"
   environment              = var.environment
-  bucket_acl               = "bucket-owner-full-control"
+  bucket_acl               = "log-delivery-write"
   bucket_name              = "${var.domain}-client-static-files-access-logs"
   purpose_of_bucket        = "Bucket for ${var.domain} -domain static files access log"
   allowed_actions          = ["*"]
