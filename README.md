@@ -13,3 +13,5 @@
 -https://nodejs.org/en/download/
 ## serverless framework 
 - npm install -g serverless
+## DynamoDB
+- http://localhost:8000/shell/
