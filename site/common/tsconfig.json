@@ -4,8 +4,8 @@
   "compilerOptions": {
     "composite": true,
     "declaration": true,
-    "declarationDir": "../../types/subscriptions",
-    "outDir": "../../lib/subscriptions",
+    "declarationDir": "../../types/common",
+    "outDir": "../../lib/common",
     "lib": [
       "es2020"
     ],

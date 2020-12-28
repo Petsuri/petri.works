@@ -36,7 +36,10 @@ describe("EmailAddress", () => {
             "petri@@petri.works",
             "@petri.works",
             "ää@petri.works",
-            "()@petri.works"
+            "()@petri.works",
+            "@",
+            " petri@@petri.works",
+            "petri@@petri.works ",
         ].forEach(value => {
             it(`should be false with invalid email: ${value}`, () => {
                 const actual = EmailAddress.isValid(value);
@@ -57,7 +60,7 @@ describe("EmailAddress", () => {
 
                 const sut = new EmailAddressBuilder().withEmail(value);
 
-                expect(sut.build()).toThrow(new Error)
+                expect(sut.build).toThrow(Error);
 
             });
         });
