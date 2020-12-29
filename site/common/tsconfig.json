@@ -4,7 +4,7 @@
   "compilerOptions": {
     "composite": true,
     "declaration": true,
-    "outDir": "./lib/common/src",
+    "outDir": "./dist",
     "lib": [
       "es2020"
     ],
@@ -19,6 +19,6 @@
     "**/*.ts"
   ],
   "exclude": [
-    "__test__/**/*.ts",
+    "dist/**/*.ts",
   ]
 }

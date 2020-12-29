@@ -22,7 +22,11 @@ jobs:
         run: |
           cd site/serverless
           npm install -g serverless
-      - name: Run unit tests
+      - name: Run common unit tests
+        run: |
+          cd site/common
+          npm test
+      - name: Run client unit tests
         run: |
           cd site/client
           npm install
