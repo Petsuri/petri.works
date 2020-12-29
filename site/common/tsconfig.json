@@ -4,8 +4,7 @@
   "compilerOptions": {
     "composite": true,
     "declaration": true,
-    "declarationDir": "../../types/common",
-    "outDir": "../../lib/common",
+    "outDir": "./lib/common/src",
     "lib": [
       "es2020"
     ],
@@ -18,5 +17,8 @@
   },
   "include": [
     "**/*.ts"
+  ],
+  "exclude": [
+    "__test__/**/*.ts",
   ]
 }

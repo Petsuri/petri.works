@@ -4,9 +4,11 @@
   "compilerOptions": {
     "composite": true,
     "declaration": true,
-    "declarationDir": "../../types/storage-dynamodb",
-    "outDir": "../../lib/storage-dynamodb",
-    "lib": ["es2020"],
+    "declarationDir": "../../types/",
+    "outDir": "../../lib/",
+    "lib": [
+      "es2020"
+    ],
     "module": "commonjs",
     "target": "es2020",
     "strict": true,
@@ -14,5 +16,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["**/*.ts"]
+  "include": [
+    "**/*.ts"
+  ]
 }

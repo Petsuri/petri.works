@@ -1,7 +1,11 @@
 {
   "extends": "../tsconfig-base.json",
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -13,5 +17,14 @@
     "jsx": "react",
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "config-overrides.ts", "config-overrides.js"]
+  "include": [
+    "src",
+    "config-overrides.ts",
+    "config-overrides.js"
+  ],
+  "references": [
+    {
+      "path": "../api-client"
+    }
+  ]
 }

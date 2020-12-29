@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@petriworks/common": "file:..\\common",
     "aws-sdk": "^2.804.0",
     "typescript": "^4.0.5"
   },
