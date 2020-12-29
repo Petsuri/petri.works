@@ -387,3 +387,6 @@ terraform.rc
 
 # Ignore serverless local dependencies
 **/.dynamodb
+
+# Ignore local Typescript project builds
+**/dist/

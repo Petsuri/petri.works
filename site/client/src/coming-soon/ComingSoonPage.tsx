@@ -1,7 +1,7 @@
 import { makeStyles, Theme } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Hello } from "../../../api-client/resources/Hello";
+import { Hello } from "@petriworks/api-client";
 import { client } from "../ApiClient";
 
 const useStyles = makeStyles((theme: Theme) => ({

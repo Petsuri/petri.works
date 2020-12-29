@@ -1,5 +1,5 @@
 {
-  "name": "petri.works.lambdas",
+  "name": "@petriworks/serverless",
   "version": "1.0.0",
   "description": "Serverless webpack example using Typescript",
   "main": "handler.js",

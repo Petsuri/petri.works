@@ -1,5 +1,5 @@
 {
-  "name": "storage-dynamodb",
+  "name": "@petriworks/storage-dynamodb",
   "version": "1.0.0",
   "private": true,
   "dependencies": {

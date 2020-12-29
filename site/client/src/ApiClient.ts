@@ -1,4 +1,4 @@
-import { PetriWorksClient } from "../../api-client/PetriWorksClient";
+import { PetriWorksClient } from "@petriworks/api-client";
 
 export const client = (): PetriWorksClient => {
   if (process.env.REACT_APP_API_HOST === undefined) {

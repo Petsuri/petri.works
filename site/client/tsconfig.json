@@ -4,7 +4,8 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "esnext",
+      "es2020"
     ],
     "allowJs": true,
     "esModuleInterop": true,
@@ -18,13 +19,6 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "src",
-    "config-overrides.ts",
-    "config-overrides.js"
-  ],
-  "references": [
-    {
-      "path": "../api-client"
-    }
+    "src"
   ]
 }
