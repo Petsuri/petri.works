@@ -35,11 +35,11 @@ const Form = (props: FormikProps<FormValues>) => {
                 helperText={!isEmailValid(touched, errors) && t("career.subscribe.invalid_email")}
             />
             <TextField
-                error={!isEmailValid(touched, errors)}
+                error={!isNameValid(touched, errors)}
                 id="name"
                 label={t("career.subscribe.name")}
                 defaultValue=""
-                helperText={!isEmailValid(touched, errors) && t("career.subscribe.invalid_name")}
+                helperText={!isNameValid(touched, errors) && t("career.subscribe.invalid_name")}
             />
         </Grid>
     );
