@@ -1,14 +1,16 @@
 {
-    "name": "site",
-    "version": "0.1.0",
+    "name": "@petriworks/site",
+    "version": "1.0.0",
     "private": true,
     "scripts": {
         "install-projects-win": "(npm install) & (cd common && npm install && tsc -b) & (cd ../api-client && npm install && tsc -b) & (cd ../client && npm install) & (cd ../serverless && npm install) & (cd ../storage-dynamodb && npm install && tsc -b)",
         "install-projects": "(npm install) & (cd common && npm install && tsc -b) & (cd api-client && npm install && tsc -b) & (cd client && npm install) & (cd serverless && npm install) & (cd storage-dynamodb && npm install && tsc -b)",
+        "dev:build-api-client": "cd api-client && tsc -b --clean && tsc -b",
+        "dev:build-common": "cd common && tsc -b --clean && tsc -b",
+        "dev:build-storage-dynamodb": "cd storage-dynamodb && tsc -b --clean  && tsc -b",
         "dev:client": "cd client && npm start",
         "dev:dynamodb": "cd serverless && serverless dynamodb install && serverless dynamodb start",
         "dev:serverless": "cd serverless && serverless offline",
-        "dev:docker": "",
         "dev": "run-p dev:**"
     },
     "devDependencies": {
