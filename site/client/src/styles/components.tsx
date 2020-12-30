@@ -26,25 +26,34 @@ export const TextContainer = styled(Container)({
   padding: "1rem",
 });
 
+const defaultTextInputBorderBottom = '1px solid white';
 export const TextInput = withStyles({
   root: {
+    '& label': {
+      color: 'white',
+    },
+    '& input': {
+      color: 'white',
+    },
+    '& label.Mui-error': {
+      color: 'white',
+    },
     '& label.Mui-focused': {
       color: 'white',
     },
+    '& .MuiInput-underline:before': {
+      borderBottom: defaultTextInputBorderBottom,
+    },
+    '& .MuiInput-underline:hover': {
+      borderBottom: defaultTextInputBorderBottom,
+    },
+    '& .MuiInput-underline:focus': {
+      borderBottom: defaultTextInputBorderBottom,
+    },
     '& .MuiInput-underline:after': {
-      borderBottomColor: 'white',
+      borderBottom: defaultTextInputBorderBottom,
     },
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: 'white',
-      },
-      '&:hover fieldset': {
-        borderColor: 'yellow',
-      },
-      '&.Mui-focused fieldset': {
-        borderColor: 'white',
-      },
-    },
+
   },
 })(TextField);
 
