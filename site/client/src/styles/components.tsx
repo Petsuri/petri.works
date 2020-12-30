@@ -1,7 +1,6 @@
 import { styled } from "@material-ui/core/styles";
 import { Container, Divider, TextField, Typography, withStyles } from "@material-ui/core";
 import React from "react";
-import { darkThemeTextColor } from "./colors";
 
 const defaultMargin = "0.2rem";
 
