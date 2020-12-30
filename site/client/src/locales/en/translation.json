@@ -10,7 +10,8 @@
       "software_development": "Awesome software development & architecture"
     },
     "cv": "Curriculum Vitae",
-    "main_page": "Main Page"
+    "main_page": "Main Page",
+    "path_to_being_developer": "Path to being a developer"
   },
   "cv": {
     "present": "Present",
@@ -108,5 +109,17 @@
         }
       }
     }
+  },
+  "career": {
+    "header": "Path to developer and beyond",
+    "career_as_software_developer": "Have you thought a career as a software developer but are not sure where to start:",
+    "what_do_i_need": {
+      "degree": "Would I need degree from university?",
+      "where_to_start": "Where to start?",
+      "what_programming_language": "What programming language should I learn first?",
+      "getting_first_job": "How can I land my first job as a software developer?",
+      "advancing_in_career": "How can I advance in my career?"
+    },
+    "good_news": "I have good news for you. I will answer all these questions and help you land your first programming job. While content is under work, please subscribe to petri.works and get notified of new articles."
   }
 }

@@ -10,7 +10,8 @@
       "software_development": "Mahtavaa softan kehitystä & arkkitehtuuria"
     },
     "cv": "Ansioluettelo",
-    "main_page": "Pääsivu"
+    "main_page": "Pääsivu",
+    "path_to_being_developer": "Polku kehittäjäksi"
   },
   "cv": {
     "present": "Nykyhetki",
@@ -108,5 +109,17 @@
         }
       }
     }
+  },
+  "career": {
+    "header": "Polku kehittäjäksi ja sen yli",
+    "career_as_software_developer": "Oletko ajatellut uraa koodarina, mutta et tiedä mistä aloittaa:",
+    "what_do_i_need": {
+      "degree": "Tarvitsenko korkeakoulututkintoa?",
+      "where_to_start": "Mistä lähteä liikkeelle?",
+      "what_programming_language": "Mitä ohjelmointikieltä minun tulisi opetella ensimmäisenä?",
+      "getting_first_job": "Miten saan ensimmäisen työpaikkani koodarina?",
+      "advancing_in_career": "Miten pystyn etenemään urallani?"
+    },
+    "good_news": "Minulla on hyviä uutisia sinulle. Tulen vastaamaan kaikkiin näihin kysymyksiin ja auttamaan sinua saamaan ensimmäisen ohjelmointityösi. Sillä välin kun sisältö on vielä työnalla, niin tilaa petri.works ja saa ilmoitukset uusista artikkeleista."
   }
 }
