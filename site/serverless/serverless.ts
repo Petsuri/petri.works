@@ -1,99 +1,99 @@
-import type { Serverless } from 'serverless/aws';
+import type { Serverless } from "serverless/aws";
 
 const serverlessConfiguration: Serverless = {
   service: {
-    name: 'petri-works',
+    name: "petri-works",
     // app and org for use with dashboard.serverless.com
     // app: your-app-name,
     // org: your-org-name,
   },
-  configValidationMode: 'error',
-  frameworkVersion: '2',
+  configValidationMode: "error",
+  frameworkVersion: "2",
   custom: {
     webpack: {
-      webpackConfig: './webpack.config.js',
-      includeModules: true
+      webpackConfig: "./webpack.config.js",
+      includeModules: true,
     },
     "serverless-offline": {
-      httpPort: 4000
+      httpPort: 4000,
     },
     dynamodb: {
-      stages: 'v1',
+      stages: "v1",
       start: {
         port: 8000,
         migrate: false,
-      }
-    }
+      },
+    },
   },
   plugins: [
-    'serverless-webpack',
-    'serverless-dynamodb-local',
-    'serverless-offline',
+    "serverless-webpack",
+    "serverless-dynamodb-local",
+    "serverless-offline",
   ],
   provider: {
-    name: 'aws',
-    runtime: 'nodejs12.x',
-    region: 'us-east-1',
-    stage: 'v1',
+    name: "aws",
+    runtime: "nodejs12.x",
+    region: "us-east-1",
+    stage: "v1",
     apiGateway: {
       minimumCompressionSize: 1024,
     },
     environment: {
-      AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
+      AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1",
     },
   },
   functions: {
     hello: {
-      handler: 'lambdas/helloworld.handler',
+      handler: "lambdas/helloworld.handler",
       events: [
         {
           http: {
-            method: 'get',
-            path: 'hello',
+            method: "get",
+            path: "hello",
             cors: true,
-          }
-        }
-      ]
+          },
+        },
+      ],
     },
     test: {
-      handler: 'lambdas/testailua.handler',
+      handler: "lambdas/testailua.handler",
       events: [
         {
           http: {
-            method: 'get',
-            path: 'hello/test',
+            method: "get",
+            path: "hello/test",
             cors: true,
-          }
-        }
-      ]
-    }
+          },
+        },
+      ],
+    },
   },
   resources: {
     Resources: {
       subscriptionsTable: {
-        Type: 'AWS::DynamoDB::Table',
+        Type: "AWS::DynamoDB::Table",
         Properties: {
-          TableName: 'subscriptions',
+          TableName: "subscriptions",
           AttributeDefinitions: [
             {
-              AttributeName: 'email',
-              AttributeType: 'S'
-            }
+              AttributeName: "email",
+              AttributeType: "S",
+            },
           ],
           KeySchema: [
             {
-              AttributeName: 'email',
-              KeyType: 'HASH'
-            }
+              AttributeName: "email",
+              KeyType: "HASH",
+            },
           ],
           ProvisionedThroughput: {
             ReadCapacity: 5,
-            WriteCapacity: 5
-          }
-        }
-      }
-    }
-  }
-}
+            WriteCapacity: 5,
+          },
+        },
+      },
+    },
+  },
+};
 
 module.exports = serverlessConfiguration;

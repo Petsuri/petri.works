@@ -1,3 +1,3 @@
-export * from './resources/ApiResourceBase';
-export * from './resources/Hello';
-export * from './PetriWorksClient';
+export * from "./resources/ApiResourceBase";
+export * from "./resources/Hello";
+export * from "./PetriWorksClient";

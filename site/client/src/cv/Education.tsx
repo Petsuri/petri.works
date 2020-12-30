@@ -48,7 +48,11 @@ const getSchools = (t: TFunction): School[] => {
   return schools;
 };
 
-const renderSchool = (t: TFunction, school: School, key: number): JSX.Element => {
+const renderSchool = (
+  t: TFunction,
+  school: School,
+  key: number
+): JSX.Element => {
   return (
     <Grid key={key} item sm={12}>
       <FlexContainer>
@@ -71,7 +75,8 @@ export default function Education(): JSX.Element {
       <UCaseTypography variant="h3">{t("cv.education.header")}</UCaseTypography>
       <Grid container spacing={3}>
         {getSchools(t).map(toSchool)}
-      </Grid>§
+      </Grid>
+      §
     </>
   );
 }

@@ -1,1 +1,1 @@
-export * from './src/DocumentClient';
+export * from "./src/DocumentClient";

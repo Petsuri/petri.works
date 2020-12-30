@@ -140,7 +140,11 @@ const renderAchievements = (
   );
 };
 
-const renderExperience = (t: TFunction, job: Experience, key: number): JSX.Element => {
+const renderExperience = (
+  t: TFunction,
+  job: Experience,
+  key: number
+): JSX.Element => {
   return (
     <Grid key={key} item sm={12}>
       <FlexContainer>

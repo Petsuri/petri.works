@@ -15,6 +15,6 @@
     ".webpack/**/*",
     "_warmup/**/*",
     ".vscode/**/*",
-    ".serverless/**/*",
+    ".serverless/**/*"
   ]
 }

@@ -5,7 +5,11 @@ import { useTranslation } from "react-i18next";
 export const PathToBeingDeveloperPage: string = "/path-to-being-developer";
 
 export default function BeingDeveloperLink() {
-    const { t } = useTranslation();
+  const { t } = useTranslation();
 
-    return <Link to={PathToBeingDeveloperPage}>{t("main.path_to_being_developer")}</Link>;
+  return (
+    <Link to={PathToBeingDeveloperPage}>
+      {t("main.path_to_being_developer")}
+    </Link>
+  );
 }

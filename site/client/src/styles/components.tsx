@@ -1,6 +1,6 @@
 import { styled } from "@material-ui/core/styles";
 import { Container, Divider, Typography } from "@material-ui/core";
-import React from 'react';
+import React from "react";
 
 const defaultMargin = "0.2rem";
 
@@ -37,11 +37,10 @@ export const UnorderedList = styled("ul")({
 });
 
 type PageContainerProps = {
-  children: React.ReactNode
+  children: React.ReactNode;
 };
 
 export function PageContainer(props: PageContainerProps) {
-
   const PageContainerStyles = styled("div")({
     margin: "1rem",
   });
@@ -49,10 +48,8 @@ export function PageContainer(props: PageContainerProps) {
   return (
     <PageContainerStyles>
       <Container maxWidth="md">
-        <>
-          {props.children}
-        </>
+        <>{props.children}</>
       </Container>
     </PageContainerStyles>
-  )
-}  
+  );
+}
