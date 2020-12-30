@@ -7,6 +7,8 @@ import {
   Paragraph,
   UnorderedList,
 } from "../styles/components";
+import { client } from "../ApiClient";
+import Subscribe from "./Subscribe";
 
 export default function BeingDeveloperPage() {
   const { t } = useTranslation();
@@ -41,6 +43,8 @@ export default function BeingDeveloperPage() {
       </UnorderedList>
 
       <Paragraph variant="body1">{t("career.good_news")}</Paragraph>
+
+      <Subscribe apiClient={client()} />
     </PageContainer>
   );
 }

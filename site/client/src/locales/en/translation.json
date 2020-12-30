@@ -120,6 +120,12 @@
       "getting_first_job": "How can I land my first job as a software developer?",
       "advancing_in_career": "How can I advance in my career?"
     },
-    "good_news": "I have good news for you. I will answer all these questions and help you land your first programming job. While content is under work, please subscribe to petri.works and get notified of new articles."
+    "good_news": "I have good news for you. I will answer all these questions and help you land your first programming job. While content is under work, please subscribe to petri.works and get notified of new articles.",
+    "subscribe": {
+      "email": "Email",
+      "invalid_email": "Given email is invalid",
+      "name": "Name",
+      "invalid_name": "Given name maximum length is 50 characters"
+    }
   }
 }
