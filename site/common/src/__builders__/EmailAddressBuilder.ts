@@ -1,4 +1,4 @@
-import EmailAddress from "../EmailAddress";
+import { EmailAddress } from "../EmailAddress";
 
 export default class EmailAddressBuilder {
   private _email: string;

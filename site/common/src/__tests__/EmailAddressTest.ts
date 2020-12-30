@@ -1,4 +1,4 @@
-import EmailAddress from "../EmailAddress";
+import { EmailAddress } from "../EmailAddress";
 import EmailAddressBuilder from "../__builders__/EmailAddressBuilder";
 
 describe("EmailAddress", () => {
@@ -34,6 +34,7 @@ describe("EmailAddress", () => {
       "@",
       " petri@@petri.works",
       "petri@@petri.works ",
+      null,
     ].forEach((value) => {
       it(`should be false with invalid email: ${value}`, () => {
         const actual = EmailAddress.isValid(value);

@@ -1,6 +1,7 @@
 import { styled } from "@material-ui/core/styles";
-import { Container, Divider, Typography } from "@material-ui/core";
+import { Container, Divider, TextField, Typography, withStyles } from "@material-ui/core";
 import React from "react";
+import { darkThemeTextColor } from "./colors";
 
 const defaultMargin = "0.2rem";
 
@@ -24,6 +25,28 @@ export const Paragraph = styled(Typography)({
 export const TextContainer = styled(Container)({
   padding: "1rem",
 });
+
+export const TextInput = withStyles({
+  root: {
+    '& label.Mui-focused': {
+      color: 'white',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: 'white',
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'white',
+      },
+      '&:hover fieldset': {
+        borderColor: 'yellow',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: 'white',
+      },
+    },
+  },
+})(TextField);
 
 export const FlexContainer = styled("div")({
   display: "flex",

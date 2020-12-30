@@ -1,4 +1,4 @@
-export default class EmailAddress {
+export class EmailAddress {
   private _email: string;
 
   public constructor(email: string) {
@@ -9,7 +9,11 @@ export default class EmailAddress {
     this._email = email;
   }
 
-  public static isValid(email: string): boolean {
+  public static isValid(email: string | null): boolean {
+    if (!email) {
+      return false;
+    }
+
     const emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     return emailPattern.test(email.toLowerCase());
   }
