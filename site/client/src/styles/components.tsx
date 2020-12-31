@@ -1,6 +1,7 @@
 import { styled } from "@material-ui/core/styles";
-import { Container, Divider, TextField, Typography, withStyles } from "@material-ui/core";
+import { Button, Container, Divider, TextField, Typography, withStyles } from "@material-ui/core";
 import React from "react";
+import { darkThemeTextColor } from "./colors";
 
 const defaultMargin = "0.2rem";
 
@@ -26,7 +27,7 @@ export const TextContainer = styled(Container)({
 });
 
 const defaultTextInputBorderBottom = '1px solid white';
-export const TextInput = withStyles({
+export const StyledTextField = withStyles({
   root: {
     '& label': {
       color: 'white',
@@ -56,10 +57,24 @@ export const TextInput = withStyles({
   },
 })(TextField);
 
+export const StyledButton = withStyles({
+  outlinedPrimary: {
+    color: darkThemeTextColor,
+    border: defaultTextInputBorderBottom,
+    
+  }
+
+})(Button);
+
 export const FlexContainer = styled("div")({
   display: "flex",
   flexWrap: "wrap",
   justifyContent: "space-between",
+});
+
+export const ParagraphContainer = styled("div")({
+  paddingTop: "1rem",
+  paddingBottom: "1rem",
 });
 
 export const UnorderedList = styled("ul")({

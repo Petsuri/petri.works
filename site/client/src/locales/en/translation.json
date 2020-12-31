@@ -125,7 +125,8 @@
       "email": "Email",
       "invalid_email": "Given email is invalid",
       "name": "Name",
-      "invalid_name": "Given name maximum length is 50 characters"
+      "invalid_name": "Given name maximum length is 50 characters",
+      "subscribe": "Subscribe"
     }
   }
 }

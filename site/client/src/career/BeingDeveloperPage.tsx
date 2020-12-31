@@ -6,6 +6,7 @@ import {
   UCaseTypography,
   Paragraph,
   UnorderedList,
+  ParagraphContainer,
 } from "../styles/components";
 import { client } from "../ApiClient";
 import Subscribe from "./Subscribe";
@@ -34,15 +35,20 @@ export default function BeingDeveloperPage() {
   return (
     <PageContainer>
       <UCaseTypography variant="h3">{t("career.header")}</UCaseTypography>
-      <Paragraph variant="body1">
-        {t("career.career_as_software_developer")}
-      </Paragraph>
 
-      <UnorderedList>
-        {whatDoINeedTranslationsKeys.map(renderWhatDoINeed)}
-      </UnorderedList>
+      <ParagraphContainer>
+        <Paragraph variant="body1">
+          {t("career.career_as_software_developer")}
+        </Paragraph>
 
-      <Paragraph variant="body1">{t("career.good_news")}</Paragraph>
+        <ParagraphContainer>
+          <UnorderedList>
+            {whatDoINeedTranslationsKeys.map(renderWhatDoINeed)}
+          </UnorderedList>
+        </ParagraphContainer>
+
+        <Paragraph variant="body1">{t("career.good_news")}</Paragraph>
+      </ParagraphContainer>
 
       <Subscribe apiClient={client()} />
     </PageContainer>

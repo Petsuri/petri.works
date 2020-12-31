@@ -1,10 +1,11 @@
 import React from 'react';
 import { withFormik, FormikProps, FormikErrors, FormikTouched } from 'formik';
-import { Grid, Button } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import { ApiClient } from "@petriworks/api-client";
 import { EmailAddress } from "@petriworks/common";
 import { useTranslation } from "react-i18next";
-import { TextInput } from '../styles/components';
+import { ParagraphContainer, StyledTextField } from '../styles/components';
+import SubscribeButton from "./SubscribeButton";
 
 type FormValues = {
     name: string,
@@ -29,33 +30,36 @@ const Form = (props: FormikProps<FormValues>) => {
     const { touched, errors, isSubmitting, handleChange, handleBlur } = props;
     return (
         <>
-            <Grid container spacing={2}>
-                <Grid item xs={7} sm={6}>
-                    <TextInput
-                        error={!isNameValid(touched, errors)}
-                        id="name"
-                        label={t("career.subscribe.name")}
-                        defaultValue=""
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        helperText={!isNameValid(touched, errors) && t("career.subscribe.invalid_name")}
-                        fullWidth
-                    />
+            <ParagraphContainer>
+
+                <Grid container spacing={2}>
+                    <Grid item xs={7} sm={6}>
+                        <StyledTextField
+                            error={!isNameValid(touched, errors)}
+                            id="name"
+                            label={t("career.subscribe.name")}
+                            defaultValue=""
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            helperText={!isNameValid(touched, errors) && t("career.subscribe.invalid_name")}
+                            fullWidth
+                        />
+                    </Grid>
+                    <Grid item xs={7} sm={6}>
+                        <StyledTextField
+                            error={!isEmailValid(touched, errors)}
+                            id="email"
+                            label={t("career.subscribe.email")}
+                            defaultValue=""
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            helperText={!isEmailValid(touched, errors) && t("career.subscribe.invalid_email")}
+                            fullWidth
+                        />
+                    </Grid>
                 </Grid>
-                <Grid item xs={7} sm={6}>
-                    <TextInput
-                        error={!isEmailValid(touched, errors)}
-                        id="email"
-                        label={t("career.subscribe.email")}
-                        defaultValue=""
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        helperText={!isEmailValid(touched, errors) && t("career.subscribe.invalid_email")}
-                        fullWidth
-                    />
-                </Grid>
-            </Grid>
-            <Button disabled={isSubmitting}>Subscribe</Button>
+            </ParagraphContainer>
+            <SubscribeButton isSubmitting={isSubmitting} onClick={props.submitForm} />
         </>
     );
 }
@@ -69,7 +73,7 @@ const Subscribe = withFormik<FormProps, FormValues>({
         return errors;
     },
     handleSubmit: (values: FormValues) => {
-
+        console.log(values);
     }
 })(Form);
 
