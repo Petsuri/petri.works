@@ -2,7 +2,8 @@ import React from "react";
 import { withFormik, FormikProps, FormikErrors, FormikTouched } from "formik";
 import { Grid } from "@material-ui/core";
 import { ApiClient } from "@petriworks/api-client";
-import { EmailAddress, Name } from "@petriworks/common";
+import { Name } from "@petriworks/common";
+import { NewSubscriptionSchema } from "@petriworks/validation";
 import { useTranslation } from "react-i18next";
 import { ParagraphContainer, StyledTextField } from "../styles/components";
 import SubscribeButton from "./SubscribeButton";
@@ -89,16 +90,7 @@ const Form = (props: FormikProps<FormValues>) => {
 };
 
 const Subscribe = withFormik<FormProps, FormValues>({
-  validate: (values: FormValues) => {
-    const errors: FormikErrors<FormValues> = {};
-    if (!EmailAddress.isValid(values.email)) {
-      errors.email = "invalid";
-    }
-    if (!Name.isValid(values.name)) {
-      errors.name = "invalid";
-    }
-    return errors;
-  },
+  validationSchema: NewSubscriptionSchema,
   handleSubmit: (values, formikBag) => {
     console.log(values);
     formikBag.resetForm({});

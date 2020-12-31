@@ -43,6 +43,18 @@ const serverlessConfiguration: Serverless = {
     },
   },
   functions: {
+    subscribePost: {
+      handler: "lambdas/subscribePost.handler",
+      events: [
+        {
+          http: {
+            method: "post",
+            path: "subscribe",
+            cors: true,
+          },
+        },
+      ],
+    },
     hello: {
       handler: "lambdas/helloworld.handler",
       events: [

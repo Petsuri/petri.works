@@ -29,15 +29,18 @@ describe("Name", () => {
       });
     });
 
-    [null, "", "123456789012345678901234567890123456789012345678901"].forEach(
-      (value) => {
-        it(`should be false with invalid name: ${value}`, () => {
-          const actual = Name.isValid(value);
+    [
+      null,
+      undefined,
+      "",
+      "123456789012345678901234567890123456789012345678901",
+    ].forEach((value) => {
+      it(`should be false with invalid name: ${value}`, () => {
+        const actual = Name.isValid(value);
 
-          expect(actual).toBe(false);
-        });
-      }
-    );
+        expect(actual).toBe(false);
+      });
+    });
 
     ["", "123456789012345678901234567890123456789012345678901"].forEach(
       (value) => {

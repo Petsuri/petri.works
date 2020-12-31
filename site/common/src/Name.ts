@@ -14,7 +14,7 @@ export class Name {
     this._name = name;
   }
 
-  public static isValid(email: string | null): boolean {
+  public static isValid(email: string | null | undefined): boolean {
     if (!email) {
       return false;
     }

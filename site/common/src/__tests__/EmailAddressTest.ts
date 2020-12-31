@@ -36,6 +36,7 @@ describe("EmailAddress", () => {
       " petri@@petri.works",
       "petri@@petri.works ",
       null,
+      undefined,
     ].forEach((value) => {
       it(`should be false with invalid email: ${value}`, () => {
         const actual = EmailAddress.isValid(value);

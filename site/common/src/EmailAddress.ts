@@ -9,7 +9,7 @@ export class EmailAddress {
     this._email = email;
   }
 
-  public static isValid(email: string | null): boolean {
+  public static isValid(email: string | null | undefined): boolean {
     if (!email) {
       return false;
     }
