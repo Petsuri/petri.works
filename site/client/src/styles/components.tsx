@@ -1,5 +1,12 @@
 import { styled } from "@material-ui/core/styles";
-import { Button, Container, Divider, TextField, Typography, withStyles } from "@material-ui/core";
+import {
+  Button,
+  Container,
+  Divider,
+  TextField,
+  Typography,
+  withStyles,
+} from "@material-ui/core";
 import React from "react";
 import { darkThemeTextColor } from "./colors";
 
@@ -26,34 +33,33 @@ export const TextContainer = styled(Container)({
   padding: "1rem",
 });
 
-const defaultTextInputBorderBottom = '1px solid white';
+const defaultTextInputBorderBottom = "1px solid white";
 export const StyledTextField = withStyles({
   root: {
-    '& label': {
-      color: 'white',
+    "& label": {
+      color: "white",
     },
-    '& input': {
-      color: 'white',
+    "& input": {
+      color: "white",
     },
-    '& label.Mui-error': {
-      color: 'white',
+    "& label.Mui-error": {
+      color: "white",
     },
-    '& label.Mui-focused': {
-      color: 'white',
+    "& label.Mui-focused": {
+      color: "white",
     },
-    '& .MuiInput-underline:before': {
+    "& .MuiInput-underline:before": {
       borderBottom: defaultTextInputBorderBottom,
     },
-    '& .MuiInput-underline:hover': {
+    "& .MuiInput-underline:hover": {
       borderBottom: defaultTextInputBorderBottom,
     },
-    '& .MuiInput-underline:focus': {
+    "& .MuiInput-underline:focus": {
       borderBottom: defaultTextInputBorderBottom,
     },
-    '& .MuiInput-underline:after': {
+    "& .MuiInput-underline:after": {
       borderBottom: defaultTextInputBorderBottom,
     },
-
   },
 })(TextField);
 
@@ -61,9 +67,7 @@ export const StyledButton = withStyles({
   outlinedPrimary: {
     color: darkThemeTextColor,
     border: defaultTextInputBorderBottom,
-    
-  }
-
+  },
 })(Button);
 
 export const FlexContainer = styled("div")({

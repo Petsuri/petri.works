@@ -2,7 +2,7 @@ import axios from "axios";
 import { ApiResourceBase } from "./resources/ApiResourceBase";
 
 export interface ApiClient {
-  send(resource: ApiResourceBase): Promise<string>
+  send(resource: ApiResourceBase): Promise<string>;
 }
 
 export class PetriWorksClient implements ApiClient {
