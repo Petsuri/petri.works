@@ -2,7 +2,7 @@ import React from "react";
 import { withFormik, FormikProps, FormikErrors, FormikTouched } from "formik";
 import { Grid } from "@material-ui/core";
 import { ApiClient } from "@petriworks/api-client";
-import { EmailAddress } from "@petriworks/common";
+import { EmailAddress, Name } from "@petriworks/common";
 import { useTranslation } from "react-i18next";
 import { ParagraphContainer, StyledTextField } from "../styles/components";
 import SubscribeButton from "./SubscribeButton";
@@ -39,7 +39,9 @@ const Form = (props: FormikProps<FormValues>) => {
     handleChange,
     handleBlur,
     submitForm,
+    values,
   } = props;
+
   return (
     <>
       <ParagraphContainer>
@@ -48,13 +50,17 @@ const Form = (props: FormikProps<FormValues>) => {
             <StyledTextField
               error={!isNameValid(touched, errors)}
               id="name"
+              value={values.name || ""}
               label={t("career.subscribe.name")}
               defaultValue=""
               onChange={handleChange}
               onBlur={handleBlur}
               helperText={
                 !isNameValid(touched, errors) &&
-                t("career.subscribe.invalid_name")
+                t("career.subscribe.invalid_name", {
+                  min: Name.MinLenght,
+                  max: Name.MaxLength,
+                })
               }
               fullWidth
             />
@@ -63,6 +69,7 @@ const Form = (props: FormikProps<FormValues>) => {
             <StyledTextField
               error={!isEmailValid(touched, errors)}
               id="email"
+              value={values.email || ""}
               label={t("career.subscribe.email")}
               defaultValue=""
               onChange={handleChange}
@@ -87,11 +94,15 @@ const Subscribe = withFormik<FormProps, FormValues>({
     if (!EmailAddress.isValid(values.email)) {
       errors.email = "invalid";
     }
+    if (!Name.isValid(values.name)) {
+      errors.name = "invalid";
+    }
     return errors;
   },
   handleSubmit: (values, formikBag) => {
     console.log(values);
-    formikBag.resetForm();
+    formikBag.resetForm({});
+    formikBag.setSubmitting(false);
   },
 })(Form);
 

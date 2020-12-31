@@ -31,6 +31,7 @@ describe("EmailAddress", () => {
       "@petri.works",
       "ää@petri.works",
       "()@petri.works",
+      "petri@petri",
       "@",
       " petri@@petri.works",
       "petri@@petri.works ",

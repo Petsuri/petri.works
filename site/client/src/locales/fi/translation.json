@@ -125,7 +125,7 @@
       "email": "Sähköposti",
       "invalid_email": "Syöttämäsi sähköposti on virheellinen",
       "name": "Nimi",
-      "invalid_name": "Syöttämäsi nimen on oltava korkeitaan 50 merkkiä pitkä",
+      "invalid_name": "Nimen pituuden on oltava {{min}} ja {{max}} merkkin välillä",
       "subscribe": "Tilaa"
     }
   }
