@@ -102,16 +102,10 @@ module "api_gate_way_lambdas" {
   api_gateway_execution_arn         = module.api_gateway.execution_arn
   lambdas = {
     1 = {
-      name        = "test1",
-      handler     = "lambdas/helloworld.handler",
-      http_method = "GET",
-      http_route  = "/hello"
+      name        = "new subscribe",
+      handler     = "lambdas/subscribe.handler",
+      http_method = "POST",
+      http_route  = "/subscribe"
     },
-    2 = {
-      name        = "test1_v2",
-      handler     = "lambdas/testailua.handler",
-      http_method = "GET",
-      http_route  = "/hello/test"
-    }
   }
 }

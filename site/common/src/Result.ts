@@ -10,9 +10,9 @@ export function success<T>(value: T): SuccessType<T> {
   };
 }
 
-export type FailureType<E> = {
+export type FailureType<F> = {
   ok: false;
-  error: E;
+  error: F;
 };
 
 export function failure<T>(value: T): FailureType<T> {
@@ -24,7 +24,7 @@ export function failure<T>(value: T): FailureType<T> {
 
 export type Result<S, E> = SuccessType<S> | FailureType<E>;
 
-export function map<S, E, SS>(current: Result<S, E>, f: (value: S) => SS): Result<SS, E> {
+export function map<S, F, SS>(current: Result<S, F>, f: (value: S) => SS): Result<SS, F> {
   if (current.ok) {
     return success(f(current.value));
   }
@@ -32,13 +32,21 @@ export function map<S, E, SS>(current: Result<S, E>, f: (value: S) => SS): Resul
   return current;
 }
 
-export function bind<S, E, SS>(
-  current: Result<S, E>,
-  f: (value: S) => Result<SS, E>
-): Result<SS, E> {
+export function bind<S, F, SS>(
+  current: Result<S, F>,
+  f: (value: S) => Result<SS, F>
+): Result<SS, F> {
   if (current.ok) {
     return f(current.value);
   }
 
   return current;
+}
+
+export function match<S, F, T>(current: Result<S, F>, onSuccess: (value: S) => T, onFailure: (value: F) => T): T {
+  if (current.ok) {
+    return onSuccess(current.value);
+  }
+
+  return onFailure(current.error);
 }

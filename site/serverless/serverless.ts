@@ -51,30 +51,6 @@ const serverlessConfiguration: Serverless = {
         },
       ],
     },
-    hello: {
-      handler: "lambdas/helloworld.handler",
-      events: [
-        {
-          http: {
-            method: "get",
-            path: "hello",
-            cors: true,
-          },
-        },
-      ],
-    },
-    test: {
-      handler: "lambdas/testailua.handler",
-      events: [
-        {
-          http: {
-            method: "get",
-            path: "hello/test",
-            cors: true,
-          },
-        },
-      ],
-    },
   },
   resources: {
     Resources: {
