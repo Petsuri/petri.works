@@ -26,6 +26,10 @@ jobs:
         run: |
           cd site/serverless
           npm install -g serverless
+      - name: Build typescript modules
+        run: |
+          cd site
+          npm run build
       - name: Run all site tests
         run: |
           cd site/client
