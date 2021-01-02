@@ -76,7 +76,6 @@ const Form = (props: FormikProps<NewSubscriptionRequest>) => {
 const Subscribe = withFormik<FormProps, NewSubscriptionRequest>({
   validationSchema: NewSubscriptionSchema,
   handleSubmit: (values, formikBag) => {
-    console.log(values);
     formikBag.resetForm({});
     formikBag.setSubmitting(false);
   },

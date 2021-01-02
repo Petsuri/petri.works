@@ -1,11 +1,11 @@
 import { Request } from "./Request";
 import { Response } from "./Response";
 import { ApiResourceBase } from "./resources/ApiResourceBase";
-import { Result } from "@petriworks/common";
+import { Result, Unit } from "@petriworks/common";
 import { ValidationError } from "@petriworks/api-contracts";
 
 export interface ApiClient {
-  send<T>(resource: ApiResourceBase): Promise<Result<T, ValidationError[] | string>>;
+  send<T>(resource: ApiResourceBase): Promise<Result<T | Unit, ValidationError[] | string>>;
 }
 
 export class PetriWorksClient implements ApiClient {
@@ -17,7 +17,7 @@ export class PetriWorksClient implements ApiClient {
     this._response = response;
   }
 
-  public async send<T>(resource: ApiResourceBase): Promise<Result<T, ValidationError[] | string>> {
+  public async send<T>(resource: ApiResourceBase): Promise<Result<T | Unit, ValidationError[] | string>> {
     const result = await this._request.send(resource);
     return this._response.handleResult<T>(result);
   }
