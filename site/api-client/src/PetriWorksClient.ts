@@ -1,19 +1,24 @@
-import axios from "axios";
+import { Request } from "./Request";
+import { Response } from "./Response";
 import { ApiResourceBase } from "./resources/ApiResourceBase";
+import { Result } from "@petriworks/common";
+import { ValidationError } from "@petriworks/api-contracts";
 
 export interface ApiClient {
-  send(resource: ApiResourceBase): Promise<string>;
+  send<T>(resource: ApiResourceBase): Promise<Result<T, ValidationError[] | string>>;
 }
 
 export class PetriWorksClient implements ApiClient {
-  private _apiUrl: string;
+  private _request: Request;
+  private _response: Response;
 
-  public constructor(apiUrl: string) {
-    this._apiUrl = apiUrl;
+  public constructor(request: Request, response: Response) {
+    this._request = request;
+    this._response = response;
   }
 
-  public async send(resource: ApiResourceBase): Promise<string> {
-    const result = await axios.get<string>(this._apiUrl + resource.route);
-    return result.data;
+  public async send<T>(resource: ApiResourceBase): Promise<Result<T, ValidationError[] | string>> {
+    const result = await this._request.send(resource);
+    return this._response.handleResult<T>(result);
   }
 }

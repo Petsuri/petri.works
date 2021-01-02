@@ -1,4 +1,4 @@
-import { ApiResourceBase } from "./ApiResourceBase";
+import { ApiResourceBase } from "../ApiResourceBase";
 
 export class Hello extends ApiResourceBase {
   public constructor() {
