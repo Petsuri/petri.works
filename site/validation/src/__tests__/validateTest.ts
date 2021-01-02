@@ -15,9 +15,7 @@ describe("validate", () => {
       },
       {
         input: `{"name":"123456"}`,
-        failure: [
-          { field: "name", message: "name must be at most 5 characters" },
-        ],
+        failure: [{ field: "name", message: "name must be at most 5 characters" }],
       },
       {
         input: `{"name":""}`,

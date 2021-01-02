@@ -25,11 +25,7 @@ const serverlessConfiguration: Serverless = {
       },
     },
   },
-  plugins: [
-    "serverless-webpack",
-    "serverless-dynamodb-local",
-    "serverless-offline",
-  ],
+  plugins: ["serverless-webpack", "serverless-dynamodb-local", "serverless-offline"],
   provider: {
     name: "aws",
     runtime: "nodejs12.x",

@@ -10,11 +10,7 @@ interface Skill {
   description: JSX.Element;
 }
 
-const createSkill = (
-  t: Function,
-  translationKey: string,
-  postElement?: JSX.Element
-): Skill => {
+const createSkill = (t: Function, translationKey: string, postElement?: JSX.Element): Skill => {
   const translationIndex = `cv.skills.${translationKey}.`;
   return {
     header: t(translationIndex + "name"),

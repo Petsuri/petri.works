@@ -37,9 +37,7 @@ describe("Result", () => {
     it("should return new result when given success", () => {
       const current = success("10");
 
-      const actual = bind(current, (value: string) =>
-        success(Number(value) + 10)
-      );
+      const actual = bind(current, (value: string) => success(Number(value) + 10));
 
       const expected = success(20);
       expect(actual).toEqual(expected);

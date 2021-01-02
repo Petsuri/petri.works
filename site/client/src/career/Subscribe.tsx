@@ -17,31 +17,17 @@ type FormProps = {
   apiClient: ApiClient;
 };
 
-const isEmailValid = (
-  touched: FormikTouched<FormValues>,
-  errors: FormikErrors<FormValues>
-) => {
+const isEmailValid = (touched: FormikTouched<FormValues>, errors: FormikErrors<FormValues>) => {
   return !touched.email || errors.email === undefined;
 };
 
-const isNameValid = (
-  touched: FormikTouched<FormValues>,
-  errors: FormikErrors<FormValues>
-) => {
+const isNameValid = (touched: FormikTouched<FormValues>, errors: FormikErrors<FormValues>) => {
   return !touched.name || errors.name === undefined;
 };
 
 const Form = (props: FormikProps<FormValues>) => {
   const { t } = useTranslation();
-  const {
-    touched,
-    errors,
-    isSubmitting,
-    handleChange,
-    handleBlur,
-    submitForm,
-    values,
-  } = props;
+  const { touched, errors, isSubmitting, handleChange, handleBlur, submitForm, values } = props;
 
   return (
     <>
@@ -75,10 +61,7 @@ const Form = (props: FormikProps<FormValues>) => {
               defaultValue=""
               onChange={handleChange}
               onBlur={handleBlur}
-              helperText={
-                !isEmailValid(touched, errors) &&
-                t("career.subscribe.invalid_email")
-              }
+              helperText={!isEmailValid(touched, errors) && t("career.subscribe.invalid_email")}
               fullWidth
             />
           </Grid>

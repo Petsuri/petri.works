@@ -25,9 +25,7 @@ export default function BeingDeveloperPage() {
   const renderWhatDoINeed = (translationKey: string, index: number) => {
     return (
       <li key={index}>
-        <Typography variant="body1">
-          {t(`career.what_do_i_need.${translationKey}`)}
-        </Typography>
+        <Typography variant="body1">{t(`career.what_do_i_need.${translationKey}`)}</Typography>
       </li>
     );
   };
@@ -37,14 +35,10 @@ export default function BeingDeveloperPage() {
       <UCaseTypography variant="h3">{t("career.header")}</UCaseTypography>
 
       <ParagraphContainer>
-        <Paragraph variant="body1">
-          {t("career.career_as_software_developer")}
-        </Paragraph>
+        <Paragraph variant="body1">{t("career.career_as_software_developer")}</Paragraph>
 
         <ParagraphContainer>
-          <UnorderedList>
-            {whatDoINeedTranslationsKeys.map(renderWhatDoINeed)}
-          </UnorderedList>
+          <UnorderedList>{whatDoINeedTranslationsKeys.map(renderWhatDoINeed)}</UnorderedList>
         </ParagraphContainer>
 
         <Paragraph variant="body1">{t("career.good_news")}</Paragraph>

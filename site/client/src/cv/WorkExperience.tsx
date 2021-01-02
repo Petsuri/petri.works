@@ -1,11 +1,6 @@
 import { Grid, Typography } from "@material-ui/core";
 import React from "react";
-import {
-  FlexContainer,
-  Paragraph,
-  UCaseTypography,
-  UnorderedList,
-} from "../styles/components";
+import { FlexContainer, Paragraph, UCaseTypography, UnorderedList } from "../styles/components";
 import { formatPeriod } from "../timeFormatting";
 import { useTranslation } from "react-i18next";
 import { TFunction } from "i18next";
@@ -40,9 +35,7 @@ const createExperience = (
     responsibilities: responsibilityKeys.map((key) =>
       t(translationIndex + "responsibilities." + key)
     ),
-    achievements: achievementKeys.map((key) =>
-      t(translationIndex + "achievements." + key)
-    ),
+    achievements: achievementKeys.map((key) => t(translationIndex + "achievements." + key)),
   };
 };
 
@@ -108,15 +101,10 @@ const renderListItems = (items: string[]): JSX.Element => {
   );
 };
 
-const renderResponsibilities = (
-  t: TFunction,
-  responsibilities: string[]
-): JSX.Element => {
+const renderResponsibilities = (t: TFunction, responsibilities: string[]): JSX.Element => {
   return (
     <>
-      <Paragraph variant="subtitle1">
-        {t("cv.experience.responsibilities")}:
-      </Paragraph>
+      <Paragraph variant="subtitle1">{t("cv.experience.responsibilities")}:</Paragraph>
       <UnorderedList>{renderListItems(responsibilities)}</UnorderedList>
     </>
   );
@@ -132,26 +120,18 @@ const renderAchievements = (
 
   return (
     <>
-      <Paragraph variant="subtitle1">
-        {t("cv.experience.achievements")}:
-      </Paragraph>
+      <Paragraph variant="subtitle1">{t("cv.experience.achievements")}:</Paragraph>
       <UnorderedList>{renderListItems(achievements)}</UnorderedList>
     </>
   );
 };
 
-const renderExperience = (
-  t: TFunction,
-  job: Experience,
-  key: number
-): JSX.Element => {
+const renderExperience = (t: TFunction, job: Experience, key: number): JSX.Element => {
   return (
     <Grid key={key} item sm={12}>
       <FlexContainer>
         <UCaseTypography variant="h5">{job.company}</UCaseTypography>
-        <UCaseTypography variant="h5">
-          {formatPeriod(t, job.begin, job.end)}
-        </UCaseTypography>
+        <UCaseTypography variant="h5">{formatPeriod(t, job.begin, job.end)}</UCaseTypography>
       </FlexContainer>
       <UCaseTypography variant="h6">{job.jobTitle}</UCaseTypography>
       {renderDescriptions(job.description)}
@@ -166,9 +146,7 @@ export default function WorkExperience(): JSX.Element {
   const toExperience = renderExperience.bind(null, t);
   return (
     <>
-      <UCaseTypography variant="h3">
-        {t("cv.experience.header")}
-      </UCaseTypography>
+      <UCaseTypography variant="h3">{t("cv.experience.header")}</UCaseTypography>
       <Grid container spacing={3}>
         {getExperiences(t).map(toExperience)}
       </Grid>

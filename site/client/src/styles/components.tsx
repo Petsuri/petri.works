@@ -1,12 +1,5 @@
 import { styled } from "@material-ui/core/styles";
-import {
-  Button,
-  Container,
-  Divider,
-  TextField,
-  Typography,
-  withStyles,
-} from "@material-ui/core";
+import { Button, Container, Divider, TextField, Typography, withStyles } from "@material-ui/core";
 import React from "react";
 import { darkThemeTextColor } from "./colors";
 

@@ -24,10 +24,7 @@ export function failure<T>(value: T): FailureType<T> {
 
 export type Result<S, E> = SuccessType<S> | FailureType<E>;
 
-export function map<S, E, SS>(
-  current: Result<S, E>,
-  f: (value: S) => SS
-): Result<SS, E> {
+export function map<S, E, SS>(current: Result<S, E>, f: (value: S) => SS): Result<SS, E> {
   if (current.ok) {
     return success(f(current.value));
   }

@@ -1,11 +1,4 @@
-import {
-  AppBar,
-  IconButton,
-  makeStyles,
-  Theme,
-  Toolbar,
-  Typography,
-} from "@material-ui/core";
+import { AppBar, IconButton, makeStyles, Theme, Toolbar, Typography } from "@material-ui/core";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { LanguageSelection } from "./LanguageSelection";
@@ -49,10 +42,7 @@ const TopMenu = (): JSX.Element => {
     <>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            className={classes.icon}
-            onClick={() => setIsDrawerOpen(!isDrawerOpen)}
-          >
+          <IconButton className={classes.icon} onClick={() => setIsDrawerOpen(!isDrawerOpen)}>
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.titleDesktop}>

@@ -11,11 +11,7 @@ export default function PersonalInformation() {
       <UCaseTypography variant="h5">
         <Grid container spacing={5}>
           <Grid item>
-            <OuterLink
-              openToBlank={true}
-              href="https://github.com/petsuri"
-              text="Github"
-            />
+            <OuterLink openToBlank={true} href="https://github.com/petsuri" text="Github" />
           </Grid>
           <Grid item>
             <OuterLink
@@ -27,10 +23,7 @@ export default function PersonalInformation() {
         </Grid>
       </UCaseTypography>
       <UCaseTypography variant="h5">
-        <OuterLink
-          href="mailto:miikinpetri@gmail.com"
-          text="miikinpetri@gmail.com"
-        />
+        <OuterLink href="mailto:miikinpetri@gmail.com" text="miikinpetri@gmail.com" />
       </UCaseTypography>
     </>
   );
