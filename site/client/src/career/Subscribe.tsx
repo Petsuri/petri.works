@@ -3,7 +3,7 @@ import { withFormik, FormikProps, FormikErrors, FormikTouched } from "formik";
 import { Grid } from "@material-ui/core";
 import { ApiClient } from "@petriworks/api-client";
 import { Name } from "@petriworks/common";
-import { NewSubscriptionSchema } from "@petriworks/validation";
+import { NewSubscriptionSchema } from "@petriworks/api-contracts";
 import { useTranslation } from "react-i18next";
 import { ParagraphContainer, StyledTextField } from "../styles/components";
 import SubscribeButton from "./SubscribeButton";
