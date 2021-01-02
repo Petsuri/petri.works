@@ -3,29 +3,30 @@ import { withFormik, FormikProps, FormikErrors, FormikTouched } from "formik";
 import { Grid } from "@material-ui/core";
 import { ApiClient } from "@petriworks/api-client";
 import { Name } from "@petriworks/common";
-import { NewSubscriptionSchema } from "@petriworks/api-contracts";
+import { NewSubscriptionSchema, NewSubscriptionRequest } from "@petriworks/api-contracts";
 import { useTranslation } from "react-i18next";
 import { ParagraphContainer, StyledTextField } from "../styles/components";
 import SubscribeButton from "./SubscribeButton";
-
-type FormValues = {
-  name: string;
-  email: string;
-};
 
 type FormProps = {
   apiClient: ApiClient;
 };
 
-const isEmailValid = (touched: FormikTouched<FormValues>, errors: FormikErrors<FormValues>) => {
+const isEmailValid = (
+  touched: FormikTouched<NewSubscriptionRequest>,
+  errors: FormikErrors<NewSubscriptionRequest>
+) => {
   return !touched.email || errors.email === undefined;
 };
 
-const isNameValid = (touched: FormikTouched<FormValues>, errors: FormikErrors<FormValues>) => {
+const isNameValid = (
+  touched: FormikTouched<NewSubscriptionRequest>,
+  errors: FormikErrors<NewSubscriptionRequest>
+) => {
   return !touched.name || errors.name === undefined;
 };
 
-const Form = (props: FormikProps<FormValues>) => {
+const Form = (props: FormikProps<NewSubscriptionRequest>) => {
   const { t } = useTranslation();
   const { touched, errors, isSubmitting, handleChange, handleBlur, submitForm, values } = props;
 
@@ -72,7 +73,7 @@ const Form = (props: FormikProps<FormValues>) => {
   );
 };
 
-const Subscribe = withFormik<FormProps, FormValues>({
+const Subscribe = withFormik<FormProps, NewSubscriptionRequest>({
   validationSchema: NewSubscriptionSchema,
   handleSubmit: (values, formikBag) => {
     console.log(values);

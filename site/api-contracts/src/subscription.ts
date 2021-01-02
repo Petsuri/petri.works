@@ -1,7 +1,12 @@
 import * as Yup from "yup";
 import { EmailAddress, Name } from "@petriworks/common";
 
-export const NewSubscriptionSchema = Yup.object().shape({
+export type NewSubscriptionRequest = {
+  name: string;
+  email: string;
+};
+
+export const NewSubscriptionSchema = Yup.object().strict().shape({
   name: Yup.string()
     .required()
     .test("Name", "Invalid name", (value) => Name.isValid(value)),

@@ -12,15 +12,15 @@ const mapToError = (errors: YupValidationError): ValidationError[] => {
   });
 };
 
-export const validateSchema = async (
+export async function validateSchema<T>(
   input: string | null,
   schema: ObjectSchema<any>
-): Promise<Result<boolean, ValidationError[]>> => {
+): Promise<Result<T, ValidationError[]>> {
   const values = input === null ? {} : JSON.parse(input);
   return await schema
-    .validate(values, { strict: true, abortEarly: false })
-    .then(() => success(true))
+    .validate(values, { strict: false, abortEarly: false, stripUnknown: true })
+    .then(value => success(value as T))
     .catch((errors: YupValidationError) => {
       return failure(mapToError(errors));
     });
-};
+}
