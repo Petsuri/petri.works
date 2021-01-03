@@ -43,6 +43,7 @@ jobs:
       - name: Build serverless
         run: |
           cd site/serverless
+          npm install -g ts-node
           serverless package 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
