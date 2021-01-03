@@ -8,10 +8,7 @@ const serverlessConfiguration: Serverless = {
     // org: your-org-name,
   },
   package: {
-    exclude: [
-      "node_modules/**",
-      "venv/**",
-    ],
+    excludeDevDependencies: true,
   },
   configValidationMode: "error",
   frameworkVersion: "2",
