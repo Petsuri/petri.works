@@ -25,7 +25,15 @@ export class AxiosRequest implements Request {
       options.body = resource.body;
     }
 
-    const response = await this._axios(options);
+    return this._axios(options)
+      .then(response => {
+        return AxiosRequest.createRequestResult(response);
+      }).catch(response => {
+        return AxiosRequest.createRequestResult(response);
+      });
+  }
+
+  private static createRequestResult(response: any): RequestResult {
     return {
       body: !response.data ? JSON.stringify({}) : JSON.stringify(response.data),
       httpStatusCode: response.status,
