@@ -1,8 +1,8 @@
 import React from "react";
 import { withFormik, FormikProps, FormikErrors, FormikTouched } from "formik";
 import { Grid } from "@material-ui/core";
-import { ApiClient } from "@petriworks/api-client";
-import { Name } from "@petriworks/common";
+import { ApiClient, SubscribeResource } from "@petriworks/api-client";
+import { Name, Unit, match, unit } from "@petriworks/common";
 import { NewSubscriptionSchema, NewSubscriptionRequest } from "@petriworks/api-contracts";
 import { useTranslation } from "react-i18next";
 import { ParagraphContainer, StyledTextField } from "../styles/components";
@@ -40,7 +40,6 @@ const Form = (props: FormikProps<NewSubscriptionRequest>) => {
               id="name"
               value={values.name || ""}
               label={t("career.subscribe.name")}
-              defaultValue=""
               onChange={handleChange}
               onBlur={handleBlur}
               helperText={
@@ -59,7 +58,6 @@ const Form = (props: FormikProps<NewSubscriptionRequest>) => {
               id="email"
               value={values.email || ""}
               label={t("career.subscribe.email")}
-              defaultValue=""
               onChange={handleChange}
               onBlur={handleBlur}
               helperText={!isEmailValid(touched, errors) && t("career.subscribe.invalid_email")}
@@ -75,9 +73,24 @@ const Form = (props: FormikProps<NewSubscriptionRequest>) => {
 
 const Subscribe = withFormik<FormProps, NewSubscriptionRequest>({
   validationSchema: NewSubscriptionSchema,
-  handleSubmit: (values, formikBag) => {
-    formikBag.resetForm({});
-    formikBag.setSubmitting(false);
+  handleSubmit: async (values, formikBag) => {
+    const { apiClient } = formikBag.props;
+
+    const result = await apiClient.send<Unit>(new SubscribeResource(values));
+    match(result,
+      () => {
+        console.log("success");
+        formikBag.resetForm({});
+        formikBag.setSubmitting(false);
+        return unit();
+      },
+      () => {
+        console.log("error");
+        return unit();
+      }
+    )
+
+
   },
 })(Form);
 

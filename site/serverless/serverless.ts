@@ -44,7 +44,7 @@ const serverlessConfiguration: Serverless = {
       events: [
         {
           http: {
-            method: "post",
+            method: "POST",
             path: "subscribe",
             cors: true,
           },
