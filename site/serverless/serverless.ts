@@ -40,7 +40,7 @@ const serverlessConfiguration: Serverless = {
   },
   functions: {
     subscribePost: {
-      handler: "lambdas/subscribePost.handler",
+      handler: "src/lambdas/subscribePost.handler",
       events: [
         {
           http: {

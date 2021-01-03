@@ -15,5 +15,4 @@ export class ResponseStubBuilder<T> {
       handleResult: jest.fn().mockReturnValue(this._handleResult),
     };
   }
-
 }

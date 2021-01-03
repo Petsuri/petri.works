@@ -45,12 +45,6 @@ export function bind<S, F, SS>(
   return current;
 }
 
-export function match<S, F>(
-  current: Result<S, F>,
-  onSuccess: (value: S) => Unit,
-  onFailure: (value: F) => Unit
-): Unit;
-
 export function match<S, F, T>(
   current: Result<S, F>,
   onSuccess: (value: S) => T,

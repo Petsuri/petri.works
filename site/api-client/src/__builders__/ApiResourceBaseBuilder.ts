@@ -1,7 +1,6 @@
 import { ApiResourceBase, HttpMethod } from "../resources/ApiResourceBase";
 
 export class ApiResourceBaseBuilder {
-
   private _httpMethod: HttpMethod = "GET";
   private _route: string = "xxx";
   private _body: object | null = null;

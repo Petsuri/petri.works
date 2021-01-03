@@ -77,7 +77,8 @@ const Subscribe = withFormik<FormProps, NewSubscriptionRequest>({
     const { apiClient } = formikBag.props;
 
     const result = await apiClient.send<Unit>(new SubscribeResource(values));
-    match(result,
+    match(
+      result,
       () => {
         console.log("success");
         formikBag.resetForm({});
@@ -88,9 +89,7 @@ const Subscribe = withFormik<FormProps, NewSubscriptionRequest>({
         console.log("error");
         return unit();
       }
-    )
-
-
+    );
   },
 })(Form);
 

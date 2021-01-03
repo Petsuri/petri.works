@@ -22,13 +22,17 @@ export class AxiosRequest implements Request {
     };
 
     if (resource.body !== null) {
-      options.body = resource.body;
+      options.data = resource.body;
+      options.headers = {
+        "Content-Type": "application/json",
+      };
     }
 
     return this._axios(options)
-      .then(response => {
+      .then((response) => {
         return AxiosRequest.createRequestResult(response);
-      }).catch(response => {
+      })
+      .catch((response) => {
         return AxiosRequest.createRequestResult(response);
       });
   }

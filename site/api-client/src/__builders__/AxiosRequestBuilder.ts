@@ -1,7 +1,6 @@
 import { AxiosFunction, AxiosRequest } from "../AxiosRequest";
 
 export class AxiosRequestBuilder {
-
   private _baseUrl: string = "xxx";
   private _axios: AxiosFunction = jest.fn();
 
@@ -18,5 +17,4 @@ export class AxiosRequestBuilder {
   public build(): AxiosRequest {
     return new AxiosRequest(this._baseUrl, this._axios);
   }
-
 }

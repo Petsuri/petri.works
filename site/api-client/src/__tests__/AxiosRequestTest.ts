@@ -17,13 +17,26 @@ describe("AxiosRequest", () => {
       const axios = jest.fn().mockReturnValue(Promise.resolve<any>({}));
       const sut = new AxiosRequestBuilder().withBaseUrl("yyy").withAxios(axios).build();
 
-      sut.send(new ApiResourceBaseBuilder().withHttpMethod("POST").withRoute("/testing").withBody({ a: "b" }).build());
+      sut.send(
+        new ApiResourceBaseBuilder()
+          .withHttpMethod("POST")
+          .withRoute("/testing")
+          .withBody({ a: "b" })
+          .build()
+      );
 
-      expect(axios).toHaveBeenCalledWith({ url: "yyy/testing", method: "POST", body: `{"a":"b"}` });
+      expect(axios).toHaveBeenCalledWith({
+        url: "yyy/testing",
+        method: "POST",
+        data: `{"a":"b"}`,
+        headers: { "Content-Type": "application/json" },
+      });
     });
 
     it("should return response body and status with successful request", async () => {
-      const axios = jest.fn().mockReturnValue(Promise.resolve<any>({ data: { a: 1 }, status: 200 }));
+      const axios = jest.fn().mockReturnValue(
+        Promise.resolve<any>({ data: { a: 1 }, status: 200 })
+      );
       const sut = new AxiosRequestBuilder().withBaseUrl("yyy").withAxios(axios).build();
 
       const actual = await sut.send(new ApiResourceBaseBuilder().build());
@@ -32,7 +45,9 @@ describe("AxiosRequest", () => {
     });
 
     it("should return response empty body when request doesn't have response data", async () => {
-      const axios = jest.fn().mockReturnValue(Promise.resolve<any>({ data: null, status: 201 }));
+      const axios = jest.fn().mockReturnValue(
+        Promise.resolve<any>({ data: null, status: 201 })
+      );
       const sut = new AxiosRequestBuilder().withBaseUrl("yyy").withAxios(axios).build();
 
       const actual = await sut.send(new ApiResourceBaseBuilder().build());
@@ -41,7 +56,9 @@ describe("AxiosRequest", () => {
     });
 
     it("should return response body and status when request fails", async () => {
-      const axios = jest.fn().mockReturnValue(Promise.reject<any>({ data: { "message": "error" }, status: 400 }));
+      const axios = jest.fn().mockReturnValue(
+        Promise.reject<any>({ data: { message: "error" }, status: 400 })
+      );
       const sut = new AxiosRequestBuilder().withBaseUrl("yyy").withAxios(axios).build();
 
       const actual = await sut.send(new ApiResourceBaseBuilder().build());

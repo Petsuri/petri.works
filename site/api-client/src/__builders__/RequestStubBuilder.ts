@@ -16,7 +16,6 @@ export class RequestStubBuilder {
   public build(): Request {
     return {
       send: jest.fn().mockReturnValue(this._send),
-    }
+    };
   }
-
 }

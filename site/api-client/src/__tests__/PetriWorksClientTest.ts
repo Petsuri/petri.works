@@ -54,11 +54,12 @@ describe("PetriWorksClient", () => {
       expect(response.handleResult).toHaveBeenCalledWith(expectedResult);
     });
 
-
     it("should return handled response when request was rejected", async () => {
       const sut = new PetriWorksClientBuilder()
         .withRequest(new RequestStubBuilder().withSendAsRejected().build())
-        .withResponse(new ResponseStubBuilder<any>().withHandleResult(failure({ error: true })).build())
+        .withResponse(
+          new ResponseStubBuilder<any>().withHandleResult(failure({ error: true })).build()
+        )
         .build();
 
       const actual = await sut.send<any>(new ApiResourceBaseBuilder().build());

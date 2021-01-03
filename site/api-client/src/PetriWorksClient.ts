@@ -17,13 +17,13 @@ export class PetriWorksClient implements ApiClient {
     this._response = response;
   }
 
-  public async send<T>(
-    resource: ApiResourceBase
-  ): Promise<Result<T, ValidationError[] | object>> {
-    return await this._request.send(resource)
-      .then(result => {
-        return this._response.handleResult<T>(result)
-      }).catch(result => {
+  public async send<T>(resource: ApiResourceBase): Promise<Result<T, ValidationError[] | object>> {
+    return await this._request
+      .send(resource)
+      .then((result) => {
+        return this._response.handleResult<T>(result);
+      })
+      .catch((result) => {
         return this._response.handleResult<T>(result);
       });
   }
