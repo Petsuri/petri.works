@@ -1,5 +1,4 @@
-export type Method = 'GET' | 'POST' | 'get' | 'post';
-
+export type Method = "GET" | "POST";
 
 export abstract class ApiResourceBase {
   private _httpMethod: Method;

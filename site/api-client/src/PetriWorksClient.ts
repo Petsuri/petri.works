@@ -17,7 +17,9 @@ export class PetriWorksClient implements ApiClient {
     this._response = response;
   }
 
-  public async send<T>(resource: ApiResourceBase): Promise<Result<T | Unit, ValidationError[] | string>> {
+  public async send<T>(
+    resource: ApiResourceBase
+  ): Promise<Result<T | Unit, ValidationError[] | string>> {
     const result = await this._request.send(resource);
     return this._response.handleResult<T>(result);
   }

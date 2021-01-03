@@ -48,10 +48,13 @@ describe("validate", () => {
     });
 
     it("should remove fields not defined in schema", async () => {
-      const actual = await validateSchema<TestType>(`{"name": "XXX", "email": "petri@petri.works"}`, TestSchema);
+      const actual = await validateSchema<TestType>(
+        `{"name": "XXX", "email": "petri@petri.works"}`,
+        TestSchema
+      );
 
       const expected = success({ name: "XXX" } as TestType);
       expect(actual).toStrictEqual(expected);
-    })
+    });
   });
 });

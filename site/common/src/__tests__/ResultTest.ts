@@ -48,14 +48,22 @@ describe("Result", () => {
     it("should return onSuccess value when result is success", () => {
       const current = success("XXX");
 
-      const actual = match(current, value => value, _ => "YYYY");
+      const actual = match(
+        current,
+        (value) => value,
+        (_) => "YYYY"
+      );
 
       expect(actual).toBe("XXX");
     });
     it("should return onFailure value when result is failure", () => {
       const current = failure("YYY");
 
-      const actual = match(current, _ => "XXXX", value => value);
+      const actual = match(
+        current,
+        (_) => "XXXX",
+        (value) => value
+      );
 
       expect(actual).toBe("YYY");
     });

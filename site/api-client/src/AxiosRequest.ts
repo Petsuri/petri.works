@@ -4,10 +4,9 @@ import { AxiosPromise, AxiosRequestConfig } from "axios";
 
 export type AxiosFunction = {
   (config: AxiosRequestConfig): AxiosPromise<string>;
-}
+};
 
 export class AxiosRequest implements Request {
-
   private _apiBaseUrl: string;
   private _axios;
 
@@ -17,10 +16,9 @@ export class AxiosRequest implements Request {
   }
 
   public async send(resource: ApiResourceBase): Promise<RequestResult> {
-
     const options: { [k: string]: any } = {
       url: this._apiBaseUrl + resource.route,
-      method: resource.httpMethod
+      method: resource.httpMethod,
     };
 
     if (resource.body !== null) {
@@ -33,5 +31,4 @@ export class AxiosRequest implements Request {
       httpStatusCode: response.status,
     };
   }
-
 }
