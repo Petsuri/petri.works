@@ -7,6 +7,12 @@ const serverlessConfiguration: Serverless = {
     // app: your-app-name,
     // org: your-org-name,
   },
+  package: {
+    exclude: [
+      "node_modules/**",
+      "venv/**",
+    ],
+  },
   configValidationMode: "error",
   frameworkVersion: "2",
   custom: {
