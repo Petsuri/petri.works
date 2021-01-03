@@ -5,7 +5,7 @@ import {
   NewSubscriptionSchema,
   NewSubscriptionRequest,
 } from "@petriworks/api-contracts";
-import { noContent, validationError } from "../results";
+import { noContent, validationError } from "../src/results";
 
 export const handler: APIGatewayProxyHandler = async (event, _context) => {
   const result = await validateSchema<NewSubscriptionRequest>(event.body, NewSubscriptionSchema);

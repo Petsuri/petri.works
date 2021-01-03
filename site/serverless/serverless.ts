@@ -29,7 +29,7 @@ const serverlessConfiguration: Serverless = {
       },
     },
   },
-  plugins: ["serverless-webpack", "serverless-dynamodb-local", "serverless-offline", "serverless-plugin-typescript"],
+  plugins: ["serverless-dynamodb-local", "serverless-offline", "serverless-plugin-typescript"],
   provider: {
     name: "aws",
     runtime: "nodejs12.x",
@@ -44,7 +44,7 @@ const serverlessConfiguration: Serverless = {
   },
   functions: {
     subscribePost: {
-      handler: "src/lambdas/subscribePost.handler",
+      handler: "lambdas/subscribePost.handler",
       events: [
         {
           http: {
