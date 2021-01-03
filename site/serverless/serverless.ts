@@ -9,7 +9,6 @@ const serverlessConfiguration: Serverless = {
   },
   package: {
     excludeDevDependencies: true,
-    exclude: ["node_modules/@petriworks/*/node_modules/**"],
   },
   configValidationMode: "error",
   frameworkVersion: "2",

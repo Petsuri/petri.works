@@ -102,8 +102,8 @@ module "api_gate_way_lambdas" {
   api_gateway_execution_arn         = module.api_gateway.execution_arn
   lambdas = {
     1 = {
-      name        = "new subscribe",
-      handler     = "src/lambdas/subscribe.handler",
+      name        = "subscribe",
+      handler     = "lambdas/subscribePost.handler",
       http_method = "POST",
       http_route  = "/subscribe"
     },
