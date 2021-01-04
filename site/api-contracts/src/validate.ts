@@ -12,15 +12,29 @@ const mapToError = (errors: YupValidationError): ValidationError[] => {
   });
 };
 
+function parseInput<T>(input: string | null): Result<T, ValidationError[]> {
+  try {
+    const values = input === null ? {} : JSON.parse(input);
+    return success(values as T);
+  } catch (_) {
+    return failure([{ field: "input", message: "input is not valid JSON" }]);
+  }
+}
+
 export async function validateSchema<T>(
   input: string | null,
   schema: ObjectSchema<any>
 ): Promise<Result<T, ValidationError[]>> {
-  const values = input === null ? {} : JSON.parse(input);
-  return await schema
-    .validate(values, { strict: true, abortEarly: false })
-    .then((value) => success(value as T))
-    .catch((errors: YupValidationError) => {
-      return failure(mapToError(errors));
-    });
+
+  const json = parseInput<T>(input);
+  if (json.ok) {
+    return await schema
+      .validate(json.value, { strict: true, abortEarly: false })
+      .then((value) => success(value as T))
+      .catch((errors: YupValidationError) => {
+        return failure(mapToError(errors));
+      });
+  }
+
+  return json;
 }

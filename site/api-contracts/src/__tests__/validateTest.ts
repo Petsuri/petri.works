@@ -50,5 +50,12 @@ describe("validate", () => {
       const expected = success({ name: "X" } as TestType);
       expect(actual).toStrictEqual(expected);
     });
+
+    it("should return failure when given invalid JSON", async () => {
+      const actual = await validateSchema<TestType>(``, TestSchema);
+
+      const expected = failure([{ field: "input", message: "input is not valid JSON" }]);
+      expect(actual).toStrictEqual(expected);
+    });
   });
 });
