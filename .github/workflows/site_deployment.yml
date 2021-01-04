@@ -13,12 +13,8 @@ jobs:
       - name: Set up node environment
         uses: actions/setup-node@v1
         with:
-          node-version: "12.x"
-      - name: Install base site
-        run: |
-          cd site
-          npm install
-      - name: Install site modules
+          node-version: "15.x"
+      - name: Install site and modules
         run: |
           cd site
           npm run install-projects
