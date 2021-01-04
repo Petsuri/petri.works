@@ -126,7 +126,9 @@
       "invalid_email": "Syöttämäsi sähköposti on virheellinen",
       "name": "Nimi",
       "invalid_name": "Nimen pituuden on oltava {{min}} ja {{max}} merkkin välillä",
-      "subscribe": "Tilaa"
+      "subscribe": "Tilaa",
+      "success": "petri.works tilattu onnistuneesti",
+      "error": "petri.worksin tilaus epäonnistui"
     }
   }
 }

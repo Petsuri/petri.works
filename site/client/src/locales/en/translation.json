@@ -126,7 +126,9 @@
       "invalid_email": "Given email is invalid",
       "name": "Name",
       "invalid_name": "Name length must be between {{min}} and {{max}} characters",
-      "subscribe": "Subscribe"
+      "subscribe": "Subscribe",
+      "success": "Sucessfully subscribed to petri.works",
+      "error": "Subsribing to petri.works failed"
     }
   }
 }

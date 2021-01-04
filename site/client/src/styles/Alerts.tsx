@@ -42,10 +42,14 @@ function CustomizedSnackbars(props: SnackbarProps) {
   const classes = useStyles();
   const { isOpen, setOpen, message, severity } = props;
 
+  const close = () => {
+    setOpen(false);
+  }
+
   return (
     <div className={classes.root}>
-      <Snackbar open={isOpen} autoHideDuration={6000}>
-        <MuiAlert elevation={6} variant="filled" onClose={() => setOpen(false)} severity={severity}>
+      <Snackbar open={isOpen} autoHideDuration={6000} onClose={() => close()}>
+        <MuiAlert elevation={6} variant="filled" onClose={() => close()} severity={severity}>
           {message}
         </MuiAlert>
       </Snackbar>
