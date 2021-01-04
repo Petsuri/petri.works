@@ -76,7 +76,7 @@ const Subscribe = withFormik<FormProps, NewSubscriptionRequest>({
   handleSubmit: async (values, formikBag) => {
     const { apiClient } = formikBag.props;
 
-    const result = await apiClient.send<Unit>(new SubscribeResource(values));
+    const result = await apiClient.send<Unit>(new SubscribeResource({ email: values.email, name: values.name }));
     match(
       result,
       () => {

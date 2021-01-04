@@ -15,4 +15,6 @@ export const NewSubscriptionSchema = Yup.object()
     email: Yup.string()
       .required()
       .test("Email", "Invalid email", (value) => EmailAddress.isValid(value)),
-  });
+  })
+  .noUnknown(true)
+  .required();

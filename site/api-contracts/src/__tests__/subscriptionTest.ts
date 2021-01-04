@@ -1,4 +1,5 @@
 import { NewSubscriptionSchema } from "../subscription";
+import { validateSchema } from "../validate";
 
 describe("subscription", () => {
   describe("NewSubscriptionSchema", () => {
@@ -23,6 +24,16 @@ describe("subscription", () => {
       });
 
       expect(actual).toBe(true);
+    });
+
+    it("should disallow extra fields", async () => {
+      const actual = validateSchema(`{
+        "name": "Petri",
+        "email": "petri@petri.works",
+        "extra": "xxx"
+      }`, NewSubscriptionSchema);
+
+      expect((await actual).ok).toBe(false);
     });
   });
 });

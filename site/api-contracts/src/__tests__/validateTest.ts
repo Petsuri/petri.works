@@ -7,7 +7,7 @@ describe("validate", () => {
     type TestType = {
       name: string;
     };
-    const TestSchema = Yup.object().shape({
+    const TestSchema = Yup.object().noUnknown(true).shape({
       name: Yup.string().required().min(1).max(5),
     });
 
@@ -31,6 +31,10 @@ describe("validate", () => {
         input: null,
         failure: [{ field: "name", message: "name is a required field" }],
       },
+      {
+        input: `{"name": "XXX", "email": "petri@petri.works"}`,
+        failure: [{ field: "", message: "this field has unspecified keys: email" }]
+      }
     ].forEach((value) => {
       it(`should return false with invalid input '${value.input}'`, async () => {
         const actual = await validateSchema<TestType>(value.input, TestSchema);
@@ -44,16 +48,6 @@ describe("validate", () => {
       const actual = await validateSchema<TestType>(`{"name": "X"}`, TestSchema);
 
       const expected = success({ name: "X" } as TestType);
-      expect(actual).toStrictEqual(expected);
-    });
-
-    it("should remove fields not defined in schema", async () => {
-      const actual = await validateSchema<TestType>(
-        `{"name": "XXX", "email": "petri@petri.works"}`,
-        TestSchema
-      );
-
-      const expected = success({ name: "XXX" } as TestType);
       expect(actual).toStrictEqual(expected);
     });
   });

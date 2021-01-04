@@ -18,7 +18,7 @@ export async function validateSchema<T>(
 ): Promise<Result<T, ValidationError[]>> {
   const values = input === null ? {} : JSON.parse(input);
   return await schema
-    .validate(values, { strict: false, abortEarly: false, stripUnknown: true })
+    .validate(values, { strict: true, abortEarly: false })
     .then((value) => success(value as T))
     .catch((errors: YupValidationError) => {
       return failure(mapToError(errors));
