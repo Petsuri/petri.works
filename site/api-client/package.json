@@ -8,8 +8,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "@petriworks/api-contracts": "file:..\\api-contracts",
-    "@petriworks/common": "file:..\\common",
     "axios": "^0.21.1"
   },
   "devDependencies": {

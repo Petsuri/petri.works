@@ -2,6 +2,11 @@
   "name": "@petriworks/site",
   "version": "1.0.0",
   "private": true,
+  "workspaces": [
+    "common",
+    "api-client",
+    "api-contracts"
+  ],
   "scripts": {
     "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
     "install-projects-win": "(npm install) & (cd common && npm install && tsc -b) & (cd ../api-contracts && npm install && tsc -b) & (cd ../api-client && npm install && tsc -b) & (cd ../client && npm install) & (cd ../serverless && npm install) & (cd ../storage-dynamodb && npm install && tsc -b)",

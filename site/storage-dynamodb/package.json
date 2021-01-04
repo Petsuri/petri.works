@@ -5,7 +5,6 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@petriworks/common": "file:..\\common",
     "aws-sdk": "^2.804.0"
   },
   "devDependencies": {

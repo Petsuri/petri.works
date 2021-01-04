@@ -7,8 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@petriworks/api-contracts": "file:..\\api-contracts",
-    "@petriworks/common": "file:..\\common",
     "source-map-support": "^0.5.10"
   },
   "devDependencies": {

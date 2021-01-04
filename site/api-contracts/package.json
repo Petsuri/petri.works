@@ -8,7 +8,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "@petriworks/common": "file:..\\common",
     "yup": "^0.32.8"
   },
   "devDependencies": {
