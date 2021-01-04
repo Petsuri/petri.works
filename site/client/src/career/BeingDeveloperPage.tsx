@@ -10,9 +10,22 @@ import {
 } from "../styles/components";
 import { client } from "../ApiClient";
 import Subscribe from "./Subscribe";
+import { ErrorAlert, SuccessAlert } from "../styles/Alerts";
 
 export default function BeingDeveloperPage() {
   const { t } = useTranslation();
+  const [isSuccessAlertOpen, setSuccessAlertOpen] = React.useState(false);
+  const [isErrorAlertOpen, setErrorAlertOpen] = React.useState(false);
+
+  const showSuccess = (): void => {
+    setSuccessAlertOpen(true);
+    setErrorAlertOpen(false);
+  }
+
+  const showError = (): void => {
+    setSuccessAlertOpen(false);
+    setErrorAlertOpen(true);
+  }
 
   const whatDoINeedTranslationsKeys = [
     "where_to_start",
@@ -44,7 +57,11 @@ export default function BeingDeveloperPage() {
         <Paragraph variant="body1">{t("career.good_news")}</Paragraph>
       </ParagraphContainer>
 
-      <Subscribe apiClient={client()} />
+      <Subscribe apiClient={client()} showSuccess={showSuccess} showError={showError} />
+
+      <SuccessAlert message="Testiä" isOpen={isSuccessAlertOpen} setOpen={setSuccessAlertOpen} />
+      <ErrorAlert message="Testiä" isOpen={isErrorAlertOpen} setOpen={setErrorAlertOpen} />
+
     </PageContainer>
   );
 }

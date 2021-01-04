@@ -9,7 +9,9 @@ import { ParagraphContainer, StyledTextField } from "../styles/components";
 import SubscribeButton from "./SubscribeButton";
 
 type FormProps = {
-  apiClient: ApiClient;
+  apiClient: ApiClient,
+  showSuccess: () => void,
+  showError: () => void,
 };
 
 const isEmailValid = (
@@ -74,18 +76,20 @@ const Form = (props: FormikProps<NewSubscriptionRequest>) => {
 const Subscribe = withFormik<FormProps, NewSubscriptionRequest>({
   validationSchema: NewSubscriptionSchema,
   handleSubmit: async (values, formikBag) => {
-    const { apiClient } = formikBag.props;
+    const { apiClient, showSuccess, showError } = formikBag.props;
 
     const result = await apiClient.send<Unit>(new SubscribeResource({ email: values.email, name: values.name }));
     match(
       result,
       () => {
+        showSuccess();
         console.log("success");
         formikBag.resetForm({});
         formikBag.setSubmitting(false);
         return unit();
       },
       () => {
+        showError();
         console.log("error");
         return unit();
       }
