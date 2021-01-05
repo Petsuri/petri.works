@@ -1,4 +1,4 @@
-import { DocumentClient, PutItemInput } from "aws-sdk/clients/dynamodb";
+import { DocumentClient } from "aws-sdk/clients/dynamodb";
 import { failure, Result, success, unit, Unit } from "@petriworks/common";
 
 export type DynamoDbError = {
@@ -7,17 +7,15 @@ export type DynamoDbError = {
 };
 
 export interface DynamoDbClient {
-  put(item: PutItemInput): Promise<Result<Unit, DynamoDbError>>;
+  put(item: DocumentClient.PutItemInput): Promise<Result<Unit, DynamoDbError>>;
 }
 
-const putItem = async (client: DocumentClient, item: PutItemInput): Promise<Result<Unit, DynamoDbError>> => {
+const putItem = async (client: DocumentClient, item: DocumentClient.PutItemInput): Promise<Result<Unit, DynamoDbError>> => {
   const request = client.put(item);
-  return await request.promise().then((value) => {
-    if (value.$response.error) {
-      return failure({ message: value.$response.error.message, code: value.$response.error.code });
-    }
-
+  return await request.promise().then(_ => {
     return success(unit());
+  }).catch(value => {
+    return failure({ message: value.message, code: value.code });
   });
 };
 

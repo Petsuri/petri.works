@@ -5,7 +5,8 @@
   "workspaces": [
     "common",
     "api-client",
-    "api-contracts"
+    "api-contracts",
+    "storage-dynamodb"
   ],
   "scripts": {
     "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",

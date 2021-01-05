@@ -23,8 +23,12 @@ const serverlessConfiguration: Serverless = {
     dynamodb: {
       stages: "v1",
       start: {
+        migrate: true,
         port: 8000,
-        migrate: false,
+        inMemory: true,
+        heapInitial: "200m",
+        heapMax: "1g",
+        seed: true,
       },
     },
   },
@@ -57,7 +61,7 @@ const serverlessConfiguration: Serverless = {
   },
   resources: {
     Resources: {
-      subscriptionsTable: {
+      usersTable: {
         Type: "AWS::DynamoDB::Table",
         Properties: {
           TableName: "subscriptions",
@@ -66,16 +70,24 @@ const serverlessConfiguration: Serverless = {
               AttributeName: "email",
               AttributeType: "S",
             },
+            {
+              AttributeName: "name",
+              AttributeType: "S",
+            },
           ],
           KeySchema: [
             {
               AttributeName: "email",
               KeyType: "HASH",
             },
+            {
+              AttributeName: "name",
+              KeyType: "RANGE",
+            },
           ],
           ProvisionedThroughput: {
-            ReadCapacity: 5,
-            WriteCapacity: 5,
+            ReadCapacityUnits: 1,
+            WriteCapacityUnits: 1,
           },
         },
       },
