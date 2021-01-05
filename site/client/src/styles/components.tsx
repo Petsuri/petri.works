@@ -1,4 +1,4 @@
-import { styled } from "@material-ui/core/styles";
+import { styled, createMuiTheme, responsiveFontSizes, ThemeProvider } from "@material-ui/core/styles";
 import { Button, Container, Divider, TextField, Typography, withStyles } from "@material-ui/core";
 import React from "react";
 import { darkThemeTextColor } from "./colors";
@@ -79,20 +79,24 @@ export const UnorderedList = styled("ul")({
   marginBlockEnd: "0.1rem",
 });
 
+
 type PageContainerProps = {
   children: React.ReactNode;
 };
 
 export function PageContainer(props: PageContainerProps) {
+  const responsiveFontSizesTheme = responsiveFontSizes(createMuiTheme());
   const PageContainerStyles = styled("div")({
     margin: "1rem",
   });
 
   return (
-    <PageContainerStyles>
-      <Container maxWidth="md">
-        <>{props.children}</>
-      </Container>
-    </PageContainerStyles>
+    <ThemeProvider theme={responsiveFontSizesTheme}>
+      <PageContainerStyles>
+        <Container maxWidth="md">
+          <>{props.children}</>
+        </Container>
+      </PageContainerStyles>
+    </ThemeProvider>
   );
 }
