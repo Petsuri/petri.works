@@ -1,21 +1,15 @@
 {
   "extends": "../tsconfig-base.json",
   "compilerOptions": {
-    "lib": [
-      "es2020"
-    ],
-    "removeComments": true,
-    "moduleResolution": "node",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "sourceMap": true,
-    "outDir": "lib"
+    "composite": true,
+    "outDir": "./dist",
   },
   "include": [
-    "./**/*.ts"
+    "**/*.ts"
   ],
   "exclude": [
     "node_modules/**/*",
+    "src/__*__",
     ".webpack/**/*",
     "_warmup/**/*",
     ".vscode/**/*",
