@@ -15,17 +15,15 @@ type FormProps = {
 };
 
 const isEmailValid = (
-  touched: FormikTouched<NewSubscriptionRequest>,
   errors: FormikErrors<NewSubscriptionRequest>
 ) => {
-  return !touched.email || errors.email === undefined;
+  return errors.email === undefined;
 };
 
 const isNameValid = (
-  touched: FormikTouched<NewSubscriptionRequest>,
   errors: FormikErrors<NewSubscriptionRequest>
 ) => {
-  return !touched.name || errors.name === undefined;
+  return errors.name === undefined;
 };
 
 const Form = (props: FormikProps<NewSubscriptionRequest>) => {
@@ -38,14 +36,14 @@ const Form = (props: FormikProps<NewSubscriptionRequest>) => {
         <Grid container spacing={2}>
           <Grid item xs={7} sm={6}>
             <StyledTextField
-              error={!isNameValid(touched, errors)}
+              error={!isNameValid(errors)}
               id="name"
               value={values.name || ""}
               label={t("career.subscribe.name")}
               onChange={handleChange}
               onBlur={handleBlur}
               helperText={
-                !isNameValid(touched, errors) &&
+                !isNameValid(errors) &&
                 t("career.subscribe.invalid_name", {
                   min: Name.MinLenght,
                   max: Name.MaxLength,
@@ -56,13 +54,13 @@ const Form = (props: FormikProps<NewSubscriptionRequest>) => {
           </Grid>
           <Grid item xs={7} sm={6}>
             <StyledTextField
-              error={!isEmailValid(touched, errors)}
+              error={!isEmailValid(errors)}
               id="email"
               value={values.email || ""}
               label={t("career.subscribe.email")}
               onChange={handleChange}
               onBlur={handleBlur}
-              helperText={!isEmailValid(touched, errors) && t("career.subscribe.invalid_email")}
+              helperText={!isEmailValid(errors) && t("career.subscribe.invalid_email")}
               fullWidth
             />
           </Grid>
@@ -75,23 +73,23 @@ const Form = (props: FormikProps<NewSubscriptionRequest>) => {
 
 const subsribeToPetriWorks = async (values: NewSubscriptionRequest, formikBag: FormikBag<FormProps, NewSubscriptionRequest>) => {
   const { apiClient, subscribeSucceeded, subsribeError } = formikBag.props;
-  const resetForm = () => {
-    formikBag.resetForm({});
-    formikBag.setSubmitting(false);
-  }
 
   const result = await apiClient.send<Unit>(new SubscribeResource({ email: values.email, name: values.name }));
   if (result.ok) {
     subscribeSucceeded();
-    resetForm();
+    formikBag.resetForm({});
   } else {
     subsribeError();
   }
+
+  formikBag.setSubmitting(false);
 }
 
 const Subscribe = withFormik<FormProps, NewSubscriptionRequest>({
   validationSchema: NewSubscriptionSchema,
   handleSubmit: subsribeToPetriWorks,
+  validateOnChange: true,
+  validateOnBlur: false,
 })(Form);
 
 export default Subscribe;
