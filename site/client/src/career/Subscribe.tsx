@@ -1,5 +1,5 @@
 import React from "react";
-import { withFormik, FormikProps, FormikErrors, FormikTouched, FormikBag } from "formik";
+import { withFormik, FormikProps, FormikErrors, FormikBag } from "formik";
 import { Grid } from "@material-ui/core";
 import { ApiClient, SubscribeResource } from "@petriworks/api-client";
 import { Name, Unit } from "@petriworks/common";
@@ -28,7 +28,7 @@ const isNameValid = (
 
 const Form = (props: FormikProps<NewSubscriptionRequest>) => {
   const { t } = useTranslation();
-  const { touched, errors, isSubmitting, handleChange, handleBlur, submitForm, values } = props;
+  const { errors, isSubmitting, handleChange, handleBlur, submitForm, values } = props;
 
   return (
     <>
