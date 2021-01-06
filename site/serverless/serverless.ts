@@ -15,7 +15,9 @@ const serverlessConfiguration: Serverless = {
   custom: {
     webpack: {
       webpackConfig: "./webpack.config.js",
-      includeModules: true,
+      includeModules: {
+        forceExclude: ["aws-sdk"],
+      },
     },
     "serverless-offline": {
       httpPort: 4000,
@@ -32,7 +34,7 @@ const serverlessConfiguration: Serverless = {
       },
     },
   },
-  plugins: ["serverless-dynamodb-local", "serverless-offline", "serverless-webpack"],
+  plugins: ["serverless-dynamodb-local", "serverless-offline", "serverless-webpack", "serverless-dotenv-plugin"],
   provider: {
     name: "aws",
     runtime: "nodejs12.x",
