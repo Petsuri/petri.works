@@ -1,6 +1,6 @@
 variable "environment" {
   type        = string
-  description = "Environment where route53 is deployed"
+  description = "Environment where Lambda is deployed"
 }
 
 variable "name" {

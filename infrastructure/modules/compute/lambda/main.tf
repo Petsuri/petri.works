@@ -2,6 +2,8 @@ locals {
   ten_seconds = 10000
 }
 
+data "aws_region" "current" {}
+
 resource "aws_lambda_function" "lambda" {
 
   function_name = var.name
@@ -13,6 +15,11 @@ resource "aws_lambda_function" "lambda" {
   publish       = true
   tags = {
     Environment = var.environment
+  }
+  environment {
+    variables = {
+      DYNAMODB_REGION = data.aws_region.current.name
+    }
   }
 }
 resource "aws_lambda_permission" "api_gateway_permission" {
