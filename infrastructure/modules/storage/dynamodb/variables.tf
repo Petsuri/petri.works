@@ -15,7 +15,7 @@ variable "hash_key" {
 
 variable "range_key" {
   type        = string
-  description = "The attribute to use as the rage (sort) key"
+  description = "The attribute to use as the range (sort) key"
   default     = null
 }
 

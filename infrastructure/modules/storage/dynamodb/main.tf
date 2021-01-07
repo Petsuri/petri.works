@@ -8,25 +8,10 @@ resource "aws_dynamodb_table" "dynamodb_table" {
     for_each = var.attributes
 
     content {
-      name = attribute.name
-      type = attribute.type
+      name = attribute.value.name
+      type = attribute.value.type
     }
   }
-
-  ttl {
-    attribute_name = "TimeToExist"
-    enabled        = false
-  }
-
-  # global_secondary_index {
-  #   name               = "GameTitleIndex"
-  #   hash_key           = "GameTitle"
-  #   range_key          = "TopScore"
-  #   write_capacity     = 10
-  #   read_capacity      = 10
-  #   projection_type    = "INCLUDE"
-  #   non_key_attributes = ["UserId"]
-  # }
 
   tags = {
     Environment = var.environment

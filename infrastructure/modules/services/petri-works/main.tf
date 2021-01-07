@@ -86,9 +86,28 @@ module "github_secret_cloudfront_distribution_id" {
   secret_value = module.cloudfront.cloudfront_distribution_id
 }
 
-module "iam_api_gateway_lambda" {
-  source      = "../../iam/api-gateway-lambda-user"
+module "dynamodb_table_subscriptions" {
+  source      = "../../storage/dynamodb"
   environment = var.environment
+  table_name  = "subscriptions"
+  hash_key    = "email"
+  range_key   = "name"
+  attributes = {
+    1 = {
+      name = "email",
+      type = "S"
+    },
+    2 = {
+      name = "name",
+      type = "S"
+    }
+  }
+}
+
+module "iam_api_gateway_lambda" {
+  source        = "../../iam/api-gateway-lambda-user"
+  environment   = var.environment
+  dynamodb_arns = [module.dynamodb_table_subscriptions.arn]
 }
 
 module "api_gate_way_lambdas" {
