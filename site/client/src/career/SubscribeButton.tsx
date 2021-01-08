@@ -26,6 +26,7 @@ const SubscribeButton = (props: SubscribeButtonProps) => {
   return (
     <FullWidthDiv>
       <StyledButton
+        data-testid="subscribe-button-submit"
         color="primary"
         variant="outlined"
         disabled={props.isSubmitting}

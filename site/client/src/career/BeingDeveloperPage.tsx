@@ -57,7 +57,7 @@ export default function BeingDeveloperPage() {
         <Paragraph variant="body1">{t("career.good_news")}</Paragraph>
       </ParagraphContainer>
 
-      <Subscribe apiClient={client()} subscribeSucceeded={showSubscribeSuccess} subsribeError={showSubscribeError} />
+      <Subscribe apiClient={client()} subscribeSucceeded={showSubscribeSuccess} subscribeError={showSubscribeError} />
 
       <SuccessAlert message={t("career.subscribe.success")} isOpen={isSuccessAlertOpen} setOpen={setSuccessAlertOpen} />
       <ErrorAlert message={t("career.subscribe.error")} isOpen={isErrorAlertOpen} setOpen={setErrorAlertOpen} />
