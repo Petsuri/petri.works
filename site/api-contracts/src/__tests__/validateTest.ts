@@ -5,7 +5,7 @@ import { validateSchema } from "../validate";
 describe("validate", () => {
   describe("validateSchema", () => {
     type TestType = {
-      name: string;
+      readonly name: string;
     };
     const TestSchema = Yup.object().noUnknown(true).shape({
       name: Yup.string().required().min(1).max(5),

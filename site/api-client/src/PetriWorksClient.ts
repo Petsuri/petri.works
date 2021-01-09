@@ -9,8 +9,8 @@ export interface ApiClient {
 }
 
 export class PetriWorksClient implements ApiClient {
-  private _request: Request;
-  private _response: Response;
+  private readonly _request: Request;
+  private readonly _response: Response;
 
   public constructor(request: Request, response: Response) {
     this._request = request;

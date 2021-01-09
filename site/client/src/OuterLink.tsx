@@ -2,9 +2,9 @@ import { Link } from "@material-ui/core";
 import React from "react";
 
 type OuterLinkProps = {
-  href: string;
-  text: string;
-  openToBlank?: boolean;
+  readonly href: string;
+  readonly text: string;
+  readonly openToBlank?: boolean;
 };
 
 export default function OuterLink(props: OuterLinkProps) {

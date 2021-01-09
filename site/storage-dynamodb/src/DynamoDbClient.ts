@@ -2,8 +2,8 @@ import { AttributeMap, DocumentClient } from "aws-sdk/clients/dynamodb";
 import { failure, none, Option, Result, some, success, unit, Unit } from "@petriworks/common";
 
 export type DynamoDbError = {
-  message: string,
-  code: string,
+  readonly message: string,
+  readonly code: string,
 };
 
 export interface DynamoDbClient {

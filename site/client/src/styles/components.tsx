@@ -81,7 +81,7 @@ export const UnorderedList = styled("ul")({
 
 
 type PageContainerProps = {
-  children: React.ReactNode;
+  readonly children: React.ReactNode;
 };
 
 export function PageContainer(props: PageContainerProps) {

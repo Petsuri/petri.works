@@ -1,8 +1,6 @@
-import { Unit } from "./Unit";
-
 export type SuccessType<S> = {
-  ok: true;
-  value: S;
+  readonly ok: true;
+  readonly value: S;
 };
 
 export function success<T>(value: T): SuccessType<T> {
@@ -13,8 +11,8 @@ export function success<T>(value: T): SuccessType<T> {
 }
 
 export type FailureType<F> = {
-  ok: false;
-  error: F;
+  readonly ok: false;
+  readonly error: F;
 };
 
 export function failure<T>(value: T): FailureType<T> {

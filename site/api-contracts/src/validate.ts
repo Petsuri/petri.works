@@ -2,8 +2,8 @@ import { failure, Result, success } from "@petriworks/common";
 import { ObjectSchema, ValidationError as YupValidationError } from "yup";
 
 export type ValidationError = {
-  field: string;
-  message: string;
+  readonly field: string;
+  readonly message: string;
 };
 
 const mapToError = (errors: YupValidationError): ValidationError[] => {

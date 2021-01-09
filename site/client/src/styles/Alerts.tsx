@@ -13,13 +13,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export type AlertProps = {
-  message: string,
-  isOpen: boolean,
-  setOpen: Dispatch<SetStateAction<boolean>>,
+  readonly message: string,
+  readonly isOpen: boolean,
+  readonly setOpen: Dispatch<SetStateAction<boolean>>,
 }
 
 type AlertSeverity = {
-  severity: 'success' | 'info' | 'warning' | 'error',
+  readonly severity: 'success' | 'info' | 'warning' | 'error',
 }
 
 type SnackbarProps = AlertSeverity & AlertProps;

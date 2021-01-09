@@ -16,8 +16,8 @@ const FullWidthDiv = styled(withTheme(Div))((props) => ({
 }));
 
 type SubscribeButtonProps = {
-  isSubmitting: boolean;
-  onClick: Function;
+  readonly isSubmitting: boolean;
+  readonly onClick: Function;
 };
 
 const SubscribeButton = (props: SubscribeButtonProps) => {

@@ -2,7 +2,7 @@ export class Name {
   public static readonly MaxLength: number = 50;
   public static readonly MinLenght: number = 1;
 
-  private _name: string;
+  private readonly _name: string;
 
   public constructor(name: string) {
     if (!Name.isValid(name)) {

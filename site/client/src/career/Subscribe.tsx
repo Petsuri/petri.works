@@ -5,7 +5,7 @@ import SubscribeForm from "./SubscribeForm";
 import { ErrorAlert, SuccessAlert } from "../styles/Alerts";
 
 type SubscribeProps = {
-  apiClient: ApiClient,
+  readonly apiClient: ApiClient,
 };
 
 

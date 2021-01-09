@@ -9,8 +9,8 @@ import { ParagraphContainer, StyledTextField } from "../styles/components";
 import SubscribeButton from "./SubscribeButton";
 
 type SubscribeProps = {
-  apiClient: ApiClient,
-  wasSubscriptionSuccessfull: (_: boolean) => void,
+  readonly apiClient: ApiClient,
+  readonly wasSubscriptionSuccessfull: (_: boolean) => void,
 }
 
 

@@ -5,7 +5,7 @@ import ComingSoonLink from "../coming-soon/ComingSoonLink";
 import BeingDeveloperLink from "../career/BeingDeveloperLink";
 
 type DrawerContentProps = {
-  closeDrawer: Function;
+  readonly closeDrawer: Function;
 };
 
 const useStyles = makeStyles((theme: Theme) => ({

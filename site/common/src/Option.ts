@@ -1,10 +1,10 @@
 export type SomeType<T> = {
-  isSome: true,
-  value: T,
+  readonly isSome: true,
+  readonly value: T,
 };
 
 export type NoneType = {
-  isSome: false,
+  readonly isSome: false,
 };
 
 export type Option<T> = SomeType<T> | NoneType;

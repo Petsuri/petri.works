@@ -1,5 +1,5 @@
 export class EmailAddress {
-  private _email: string;
+  private readonly _email: string;
 
   public constructor(email: string) {
     if (!EmailAddress.isValid(email)) {
