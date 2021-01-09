@@ -1,24 +1,24 @@
 import React from "react";
 import { ApiClient } from "@petriworks/api-client";
-import Subscribe from "../../career/Subscribe";
 import { ApiClientStubBuilder } from "../ApiClientStubBuilder";
+import SubscribeForm from "../../career/SubscribeForm";
 
-export class SubscribeBuilder {
+export class SubscribeFormBuilder {
 
   private _apiClient: ApiClient = new ApiClientStubBuilder().build();
   private _wasSubscriptionSuccessfull: (_: boolean) => void = jest.fn();
 
-  public withApiClient(value: ApiClient): SubscribeBuilder {
+  public withApiClient(value: ApiClient): SubscribeFormBuilder {
     this._apiClient = value;
     return this;
   }
 
-  public withWasSubscriptionSuccessfull(value: (_: boolean) => void): SubscribeBuilder {
+  public withWasSubscriptionSuccessfull(value: (_: boolean) => void): SubscribeFormBuilder {
     this._wasSubscriptionSuccessfull = value;
     return this;
   }
 
   public build(): React.ReactElement {
-    return <Subscribe apiClient={this._apiClient} wasSubscriptionSuccessfull={this._wasSubscriptionSuccessfull} />
+    return <SubscribeForm apiClient={this._apiClient} wasSubscriptionSuccessfull={this._wasSubscriptionSuccessfull} />
   }
 }

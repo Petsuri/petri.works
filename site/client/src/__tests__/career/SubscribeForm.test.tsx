@@ -1,15 +1,15 @@
 import { failure, success, unit, Unit } from "@petriworks/common";
 import { render, fireEvent, wait } from "@testing-library/react";
 import { ApiClientStubBuilder } from "../../__builders__/ApiClientStubBuilder";
-import { SubscribeBuilder } from "../../__builders__/career/SubscribeBuilder";
+import { SubscribeFormBuilder } from "../../__builders__/career/SubscribeFormBuilder";
 
-describe("Subscribe.tsx", () => {
+describe("SubscribeForm.tsx", () => {
 
   [{ field: "name", values: { name: "", email: "petri@petri.works" } },
   { field: "email", values: { name: "Petri", email: "petri@" } }].forEach(value => {
     it(`should not send API request, when given ${value.field} is not valid`, async () => {
       const client = new ApiClientStubBuilder<Unit>().build();
-      const { findByTestId } = render(new SubscribeBuilder().withApiClient(client).build());
+      const { findByTestId } = render(new SubscribeFormBuilder().withApiClient(client).build());
       const submitButton = await findByTestId("subscribe-button-submit");
       const nameInput = (await findByTestId("input-name")).querySelector("input") as HTMLInputElement;
       const emailInput = (await findByTestId("input-email")).querySelector("input") as HTMLInputElement;
@@ -25,7 +25,7 @@ describe("Subscribe.tsx", () => {
 
   it("should send API request, when valid name and email is given", async () => {
     const client = new ApiClientStubBuilder<Unit>().build();
-    const { findByTestId } = render(new SubscribeBuilder().withApiClient(client).build());
+    const { findByTestId } = render(new SubscribeFormBuilder().withApiClient(client).build());
     const submitButton = await findByTestId("subscribe-button-submit");
     const nameInput = (await findByTestId("input-name")).querySelector("input") as HTMLInputElement;
     const emailInput = (await findByTestId("input-email")).querySelector("input") as HTMLInputElement;
@@ -42,7 +42,7 @@ describe("Subscribe.tsx", () => {
     const wasSubscriptionSuccessfull = jest.fn();
     const client = new ApiClientStubBuilder<Unit>().withSend(success(unit())).build();
     const { findByTestId } = render(
-      new SubscribeBuilder().withApiClient(client).withWasSubscriptionSuccessfull(wasSubscriptionSuccessfull).build()
+      new SubscribeFormBuilder().withApiClient(client).withWasSubscriptionSuccessfull(wasSubscriptionSuccessfull).build()
     );
     const submitButton = await findByTestId("subscribe-button-submit");
     const nameInput = (await findByTestId("input-name")).querySelector("input") as HTMLInputElement;
@@ -59,7 +59,7 @@ describe("Subscribe.tsx", () => {
   it("should reset form values after successfull subscription", async () => {
     const client = new ApiClientStubBuilder<Unit>().withSend(success(unit())).build();
     const { findByTestId } = render(
-      new SubscribeBuilder().withApiClient(client).build()
+      new SubscribeFormBuilder().withApiClient(client).build()
     );
     const submitButton = await findByTestId("subscribe-button-submit");
     const nameInput = (await findByTestId("input-name")).querySelector("input") as HTMLInputElement;
@@ -78,7 +78,7 @@ describe("Subscribe.tsx", () => {
     const wasSubscriptionSuccessfull = jest.fn();
     const client = new ApiClientStubBuilder<Unit>().withSend(failure({})).build();
     const { findByTestId } = render(
-      new SubscribeBuilder().withApiClient(client).withWasSubscriptionSuccessfull(wasSubscriptionSuccessfull).build()
+      new SubscribeFormBuilder().withApiClient(client).withWasSubscriptionSuccessfull(wasSubscriptionSuccessfull).build()
     );
     const submitButton = await findByTestId("subscribe-button-submit");
     const nameInput = (await findByTestId("input-name")).querySelector("input") as HTMLInputElement;
@@ -95,7 +95,7 @@ describe("Subscribe.tsx", () => {
   it("should not reset form values after subscribing has failed", async () => {
     const client = new ApiClientStubBuilder<Unit>().withSend(failure({})).build();
     const { findByTestId } = render(
-      new SubscribeBuilder().withApiClient(client).build()
+      new SubscribeFormBuilder().withApiClient(client).build()
     );
     const submitButton = await findByTestId("subscribe-button-submit");
     const nameInput = (await findByTestId("input-name")).querySelector("input") as HTMLInputElement;
