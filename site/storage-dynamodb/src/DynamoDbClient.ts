@@ -1,4 +1,4 @@
-import { AttributeMap, DocumentClient } from "aws-sdk/clients/dynamodb";
+import { AttributeMap, DocumentClient, ItemList } from "aws-sdk/clients/dynamodb";
 import { failure, none, Option, Result, some, success, unit, Unit } from "@petriworks/common";
 
 export type DynamoDbError = {
@@ -8,7 +8,7 @@ export type DynamoDbError = {
 
 export interface DynamoDbClient {
   put(item: DocumentClient.PutItemInput): Promise<Result<Unit, DynamoDbError>>;
-  get(item: DocumentClient.GetItemInput): Promise<Result<Option<AttributeMap>, DynamoDbError>>;
+  scanItems(item: DocumentClient.ScanInput): Promise<Result<Option<ItemList>, DynamoDbError>>;
 }
 
 const putItem = async (client: DocumentClient, item: DocumentClient.PutItemInput): Promise<Result<Unit, DynamoDbError>> => {
@@ -20,11 +20,11 @@ const putItem = async (client: DocumentClient, item: DocumentClient.PutItemInput
   });
 };
 
-const getItem = async (client: DocumentClient, item: DocumentClient.GetItemInput): Promise<Result<Option<AttributeMap>, DynamoDbError>> => {
-  const request = client.get(item);
+const scanItems = async (client: DocumentClient, item: DocumentClient.ScanInput): Promise<Result<Option<ItemList>, DynamoDbError>> => {
+  const request = client.scan(item);
   return await request.promise().then(object => {
-    if (object.Item !== undefined) {
-      return success(some(object.Item));
+    if (object.Items && 0 < object.Items.length) {
+      return success(some(object.Items));
     }
     return success(none());
   }).catch(value => {
@@ -35,6 +35,6 @@ const getItem = async (client: DocumentClient, item: DocumentClient.GetItemInput
 export const create = (client: DocumentClient): DynamoDbClient => {
   return {
     put: putItem.bind(null, client),
-    get: getItem.bind(null, client),
+    scanItems: scanItems.bind(null, client),
   };
 };

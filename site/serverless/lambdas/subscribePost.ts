@@ -1,4 +1,4 @@
-import { APIGatewayProxyHandler, APIGatewayProxyResult } from "aws-lambda";
+import { APIGatewayProxyEvent, APIGatewayProxyHandler, APIGatewayProxyResult, Context } from "aws-lambda";
 import {
   validateSchema,
   NewSubscriptionSchema,
@@ -6,24 +6,28 @@ import {
 } from "@petriworks/api-contracts";
 import { noContent, validationError } from "../src/results";
 import { defaultClient } from "@petriworks/storage-dynamodb";
+import { dynamoDbSubscriptionRepository, SubscriptionService } from "@petriworks/subscriptions"
+import { EmailAddress, Name } from "@petriworks/common";
 
-export const handler: APIGatewayProxyHandler = async (event, _context) => {
-
+export const subscribePostHandler = async (subscriptionService: SubscriptionService, event: APIGatewayProxyEvent, _context: Context) => {
   const result = await validateSchema<NewSubscriptionRequest>(event.body, NewSubscriptionSchema);
   if (result.ok) {
-    return await createSubscription(result.value);
+    const subscription = { name: new Name(result.value.name), email: new EmailAddress(result.value.email) };
+    const subscriptionResult = await subscriptionService.subscribe(subscription);
+    if (subscriptionResult.ok) {
+      return noContent();
+    }
+
+    return validationError([{ field: "", message: subscriptionResult.error }])
   }
 
   return validationError(result.error);
-};
+}
 
-const createSubscription = async (request: NewSubscriptionRequest): Promise<APIGatewayProxyResult> => {
-
-  const client = defaultClient(process.env.DYNAMODB_REGION as string, process.env.DYNAMODB_ENDPOINT as string);
-  const result = await client.put({ TableName: "subscriptions", Item: { email: request.email, name: request.name } });
-  if (result.ok) {
-    return noContent();
-  }
-
-  return validationError([{ field: "", message: result.error.message }]);
-} 
+export const handler: APIGatewayProxyHandler = subscribePostHandler.bind(null,
+  new SubscriptionService(
+    dynamoDbSubscriptionRepository(
+      defaultClient(process.env.DYNAMODB_REGION as string, process.env.DYNAMODB_ENDPOINT as string)
+    )
+  )
+);
