@@ -10,8 +10,7 @@ import SubscribeButton from "./SubscribeButton";
 
 type FormProps = {
   apiClient: ApiClient,
-  subscribeSucceeded: () => void,
-  subscribeError: () => void,
+  wasSubscriptionSuccessfull: (_: boolean) => void,
 };
 
 const isEmailValid = (
@@ -74,14 +73,14 @@ const Form = (props: FormikProps<NewSubscriptionRequest>) => {
 };
 
 const subsribeToPetriWorks = async (values: NewSubscriptionRequest, formikBag: FormikBag<FormProps, NewSubscriptionRequest>) => {
-  const { apiClient, subscribeSucceeded, subscribeError } = formikBag.props;
+  const { apiClient, wasSubscriptionSuccessfull } = formikBag.props;
 
   const result = await apiClient.send<Unit>(new SubscribeResource({ email: values.email, name: values.name }));
   if (result.ok) {
-    subscribeSucceeded();
+    wasSubscriptionSuccessfull(true);
     formikBag.resetForm({});
   } else {
-    subscribeError();
+    wasSubscriptionSuccessfull(false);
   }
   formikBag.setSubmitting(false);
 }

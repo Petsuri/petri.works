@@ -39,11 +39,10 @@ describe("Subscribe.tsx", () => {
   });
 
   it("should call subscribe success after successfull subscription", async () => {
-    const subscribeSucceeded = jest.fn();
-    const subscribeError = jest.fn();
+    const wasSubscriptionSuccessfull = jest.fn();
     const client = new ApiClientStubBuilder<Unit>().withSend(success(unit())).build();
     const { findByTestId } = render(
-      new SubscribeBuilder().withApiClient(client).withSubscribeSucceeded(subscribeSucceeded).withSubscribeError(subscribeError).build()
+      new SubscribeBuilder().withApiClient(client).withWasSubscriptionSuccessfull(wasSubscriptionSuccessfull).build()
     );
     const submitButton = await findByTestId("subscribe-button-submit");
     const nameInput = (await findByTestId("input-name")).querySelector("input") as HTMLInputElement;
@@ -54,8 +53,7 @@ describe("Subscribe.tsx", () => {
     fireEvent.click(submitButton);
     await wait();
 
-    expect(subscribeSucceeded).toHaveBeenCalledTimes(1);
-    expect(subscribeError).not.toHaveBeenCalled();
+    expect(wasSubscriptionSuccessfull).toHaveBeenCalledWith(true);
   });
 
   it("should reset form values after successfull subscription", async () => {
@@ -77,11 +75,10 @@ describe("Subscribe.tsx", () => {
   });
 
   it("should call subscribe error after subscribing has failed", async () => {
-    const subscribeSucceeded = jest.fn();
-    const subscribeError = jest.fn();
+    const wasSubscriptionSuccessfull = jest.fn();
     const client = new ApiClientStubBuilder<Unit>().withSend(failure({})).build();
     const { findByTestId } = render(
-      new SubscribeBuilder().withApiClient(client).withSubscribeSucceeded(subscribeSucceeded).withSubscribeError(subscribeError).build()
+      new SubscribeBuilder().withApiClient(client).withWasSubscriptionSuccessfull(wasSubscriptionSuccessfull).build()
     );
     const submitButton = await findByTestId("subscribe-button-submit");
     const nameInput = (await findByTestId("input-name")).querySelector("input") as HTMLInputElement;
@@ -92,8 +89,7 @@ describe("Subscribe.tsx", () => {
     fireEvent.click(submitButton);
     await wait();
 
-    expect(subscribeError).toHaveBeenCalledTimes(1);
-    expect(subscribeSucceeded).not.toHaveBeenCalled();
+    expect(wasSubscriptionSuccessfull).toHaveBeenCalledWith(false);
   });
 
   it("should not reset form values after subscribing has failed", async () => {

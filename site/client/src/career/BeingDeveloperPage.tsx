@@ -17,15 +17,11 @@ export default function BeingDeveloperPage() {
   const [isSuccessAlertOpen, setSuccessAlertOpen] = React.useState(false);
   const [isErrorAlertOpen, setErrorAlertOpen] = React.useState(false);
 
-  const showSubscribeSuccess = (): void => {
-    setSuccessAlertOpen(true);
-    setErrorAlertOpen(false);
+  const wasSubscriptionSuccessfull = (isSuccess: boolean): void => {
+    setSuccessAlertOpen(isSuccess);
+    setErrorAlertOpen(!isSuccess);
   }
 
-  const showSubscribeError = (): void => {
-    setSuccessAlertOpen(false);
-    setErrorAlertOpen(true);
-  }
 
   const whatDoINeedTranslationsKeys = [
     "where_to_start",
@@ -57,7 +53,7 @@ export default function BeingDeveloperPage() {
         <Paragraph variant="body1">{t("career.good_news")}</Paragraph>
       </ParagraphContainer>
 
-      <Subscribe apiClient={client()} subscribeSucceeded={showSubscribeSuccess} subscribeError={showSubscribeError} />
+      <Subscribe apiClient={client()} wasSubscriptionSuccessfull={wasSubscriptionSuccessfull} />
 
       <SuccessAlert message={t("career.subscribe.success")} isOpen={isSuccessAlertOpen} setOpen={setSuccessAlertOpen} />
       <ErrorAlert message={t("career.subscribe.error")} isOpen={isErrorAlertOpen} setOpen={setErrorAlertOpen} />

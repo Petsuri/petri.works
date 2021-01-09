@@ -6,25 +6,19 @@ import { ApiClientStubBuilder } from "../ApiClientStubBuilder";
 export class SubscribeBuilder {
 
   private _apiClient: ApiClient = new ApiClientStubBuilder().build();
-  private _subscribeSucceeded: () => void = () => { };
-  private _subscribeError: () => void = () => { };
+  private _wasSubscriptionSuccessfull: (_: boolean) => void = jest.fn();
 
   public withApiClient(value: ApiClient): SubscribeBuilder {
     this._apiClient = value;
     return this;
   }
 
-  public withSubscribeSucceeded(value: () => void): SubscribeBuilder {
-    this._subscribeSucceeded = value;
-    return this;
-  }
-
-  public withSubscribeError(value: () => void): SubscribeBuilder {
-    this._subscribeError = value;
+  public withWasSubscriptionSuccessfull(value: (_: boolean) => void): SubscribeBuilder {
+    this._wasSubscriptionSuccessfull = value;
     return this;
   }
 
   public build(): React.ReactElement {
-    return <Subscribe apiClient={this._apiClient} subscribeSucceeded={this._subscribeSucceeded} subscribeError={this._subscribeError} />
+    return <Subscribe apiClient={this._apiClient} wasSubscriptionSuccessfull={this._wasSubscriptionSuccessfull} />
   }
 }
