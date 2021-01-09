@@ -4,7 +4,7 @@ import { JsonResponseBuilder } from "../__builders__/JsonResponseBuilder";
 describe("Response", () => {
   describe("handleResult", () => {
     type TestType = {
-      value: String;
+      readonly value: String;
     };
 
     [200, 299].forEach((httpStatusCode) => {

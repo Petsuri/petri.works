@@ -5,6 +5,6 @@ export interface Request {
 }
 
 export type RequestResult = {
-  body: string;
-  httpStatusCode: number;
+  readonly body: string;
+  readonly httpStatusCode: number;
 };

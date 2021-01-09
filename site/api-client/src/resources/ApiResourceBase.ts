@@ -1,9 +1,9 @@
 export type HttpMethod = "GET" | "POST";
 
 export abstract class ApiResourceBase {
-  private _httpMethod: HttpMethod;
-  private _route: string;
-  private _body: string | null;
+  private readonly _httpMethod: HttpMethod;
+  private readonly _route: string;
+  private readonly _body: string | null;
 
   protected constructor(httpMethod: HttpMethod, route: string, body: object | null = null) {
     this._httpMethod = httpMethod;
