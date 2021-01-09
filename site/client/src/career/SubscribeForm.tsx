@@ -9,20 +9,15 @@ import { ParagraphContainer, StyledTextField } from "../styles/components";
 import SubscribeButton from "./SubscribeButton";
 
 type SubscribeProps = {
-  readonly apiClient: ApiClient,
-  readonly wasSubscriptionSuccessfull: (_: boolean) => void,
-}
+  readonly apiClient: ApiClient;
+  readonly wasSubscriptionSuccessfull: (_: boolean) => void;
+};
 
-
-const isEmailValid = (
-  errors: FormikErrors<NewSubscriptionRequest>
-) => {
+const isEmailValid = (errors: FormikErrors<NewSubscriptionRequest>) => {
   return errors.email === undefined;
 };
 
-const isNameValid = (
-  errors: FormikErrors<NewSubscriptionRequest>
-) => {
+const isNameValid = (errors: FormikErrors<NewSubscriptionRequest>) => {
   return errors.name === undefined;
 };
 
@@ -73,10 +68,15 @@ const Form = (props: FormikProps<NewSubscriptionRequest>) => {
   );
 };
 
-const subsribeToPetriWorks = async (values: NewSubscriptionRequest, formikBag: FormikBag<SubscribeProps, NewSubscriptionRequest>) => {
+const subsribeToPetriWorks = async (
+  values: NewSubscriptionRequest,
+  formikBag: FormikBag<SubscribeProps, NewSubscriptionRequest>
+) => {
   const { apiClient, wasSubscriptionSuccessfull } = formikBag.props;
 
-  const result = await apiClient.send<Unit>(new SubscribeResource({ email: values.email, name: values.name }));
+  const result = await apiClient.send<Unit>(
+    new SubscribeResource({ email: values.email, name: values.name })
+  );
   if (result.ok) {
     wasSubscriptionSuccessfull(true);
     formikBag.resetForm({});
@@ -84,7 +84,7 @@ const subsribeToPetriWorks = async (values: NewSubscriptionRequest, formikBag: F
     wasSubscriptionSuccessfull(false);
   }
   formikBag.setSubmitting(false);
-}
+};
 
 const SubscribeForm = withFormik<SubscribeProps, NewSubscriptionRequest>({
   validationSchema: NewSubscriptionSchema,

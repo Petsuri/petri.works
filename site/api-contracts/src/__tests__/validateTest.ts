@@ -7,9 +7,11 @@ describe("validate", () => {
     type TestType = {
       readonly name: string;
     };
-    const TestSchema = Yup.object().noUnknown(true).shape({
-      name: Yup.string().required().min(1).max(5),
-    });
+    const TestSchema = Yup.object()
+      .noUnknown(true)
+      .shape({
+        name: Yup.string().required().min(1).max(5),
+      });
 
     [
       {
@@ -33,8 +35,8 @@ describe("validate", () => {
       },
       {
         input: `{"name": "XXX", "email": "petri@petri.works"}`,
-        failure: [{ field: "", message: "this field has unspecified keys: email" }]
-      }
+        failure: [{ field: "", message: "this field has unspecified keys: email" }],
+      },
     ].forEach((value) => {
       it(`should return false with invalid input '${value.input}'`, async () => {
         const actual = await validateSchema<TestType>(value.input, TestSchema);

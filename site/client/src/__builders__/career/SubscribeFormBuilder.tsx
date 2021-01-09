@@ -4,7 +4,6 @@ import { ApiClientStubBuilder } from "../ApiClientStubBuilder";
 import SubscribeForm from "../../career/SubscribeForm";
 
 export class SubscribeFormBuilder {
-
   private _apiClient: ApiClient = new ApiClientStubBuilder().build();
   private _wasSubscriptionSuccessfull: (_: boolean) => void = jest.fn();
 
@@ -19,6 +18,11 @@ export class SubscribeFormBuilder {
   }
 
   public build(): React.ReactElement {
-    return <SubscribeForm apiClient={this._apiClient} wasSubscriptionSuccessfull={this._wasSubscriptionSuccessfull} />
+    return (
+      <SubscribeForm
+        apiClient={this._apiClient}
+        wasSubscriptionSuccessfull={this._wasSubscriptionSuccessfull}
+      />
+    );
   }
 }

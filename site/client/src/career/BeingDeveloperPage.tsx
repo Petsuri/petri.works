@@ -45,7 +45,6 @@ export default function BeingDeveloperPage() {
       </ParagraphContainer>
 
       <Subscribe apiClient={client()} />
-
     </PageContainer>
   );
 }

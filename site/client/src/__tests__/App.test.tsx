@@ -9,4 +9,3 @@ describe("App.tsx", () => {
     expect(linkElement).toBeInTheDocument();
   });
 });
-

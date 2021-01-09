@@ -4,7 +4,9 @@ import { create, DynamoDbClient } from "./DynamoDbClient";
 export const defaultClient = (region: string, endpoint?: string): DynamoDbClient => {
   return create(
     new DocumentClient({
-      region: region, endpoint: endpoint, apiVersion: '2012-08-10',
+      region: region,
+      endpoint: endpoint,
+      apiVersion: "2012-08-10",
     })
   );
-}
+};

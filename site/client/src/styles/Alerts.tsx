@@ -1,26 +1,26 @@
-import React, { Dispatch, SetStateAction } from 'react';
-import Snackbar from '@material-ui/core/Snackbar';
-import MuiAlert from '@material-ui/lab/Alert';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { Dispatch, SetStateAction } from "react";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
-    '& > * + *': {
+    width: "100%",
+    "& > * + *": {
       marginTop: theme.spacing(2),
     },
   },
 }));
 
 export type AlertProps = {
-  readonly message: string,
-  readonly isOpen: boolean,
-  readonly setOpen: Dispatch<SetStateAction<boolean>>,
-}
+  readonly message: string;
+  readonly isOpen: boolean;
+  readonly setOpen: Dispatch<SetStateAction<boolean>>;
+};
 
 type AlertSeverity = {
-  readonly severity: 'success' | 'info' | 'warning' | 'error',
-}
+  readonly severity: "success" | "info" | "warning" | "error";
+};
 
 type SnackbarProps = AlertSeverity & AlertProps;
 
@@ -29,14 +29,14 @@ export const SuccessAlert = (props: AlertProps) => {
     severity: "success",
     ...props,
   });
-}
+};
 
 export const ErrorAlert = (props: AlertProps) => {
   return CustomizedSnackbars({
     severity: "error",
     ...props,
   });
-}
+};
 
 function CustomizedSnackbars(props: SnackbarProps) {
   const classes = useStyles();
@@ -44,7 +44,7 @@ function CustomizedSnackbars(props: SnackbarProps) {
 
   const close = () => {
     setOpen(false);
-  }
+  };
 
   return (
     <div className={classes.root}>
@@ -53,6 +53,6 @@ function CustomizedSnackbars(props: SnackbarProps) {
           {message}
         </MuiAlert>
       </Snackbar>
-    </div >
+    </div>
   );
 }

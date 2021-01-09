@@ -3,7 +3,6 @@ import { Subscription } from "./Subscription";
 import { SubscriptionRepository } from "./SubscriptionRepository";
 
 export class SubscriptionService {
-
   private readonly _repository: SubscriptionRepository;
 
   public constructor(repository: SubscriptionRepository) {

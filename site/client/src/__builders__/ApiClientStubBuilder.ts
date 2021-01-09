@@ -12,7 +12,7 @@ export class ApiClientStubBuilder<T> {
 
   public build(): ApiClient {
     return {
-      send: jest.fn().mockReturnValue(Promise.resolve(this._send))
+      send: jest.fn().mockReturnValue(Promise.resolve(this._send)),
     };
   }
 }

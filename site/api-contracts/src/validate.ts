@@ -25,7 +25,6 @@ export async function validateSchema<T>(
   input: string | null,
   schema: ObjectSchema<any>
 ): Promise<Result<T, ValidationError[]>> {
-
   const json = parseInput<T>(input);
   if (json.ok) {
     return await schema

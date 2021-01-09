@@ -1,4 +1,9 @@
-import { styled, createMuiTheme, responsiveFontSizes, ThemeProvider } from "@material-ui/core/styles";
+import {
+  styled,
+  createMuiTheme,
+  responsiveFontSizes,
+  ThemeProvider,
+} from "@material-ui/core/styles";
 import { Button, Container, Divider, TextField, Typography, withStyles } from "@material-ui/core";
 import React from "react";
 import { darkThemeTextColor } from "./colors";
@@ -78,7 +83,6 @@ export const UnorderedList = styled("ul")({
   marginBlockStart: "0.1rem",
   marginBlockEnd: "0.1rem",
 });
-
 
 type PageContainerProps = {
   readonly children: React.ReactNode;
