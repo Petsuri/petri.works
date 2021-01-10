@@ -11,8 +11,8 @@
   ],
   "scripts": {
     "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
-    "install-projects-win": "(cd common && npm install) & (cd ../api-contracts && npm install) & (cd ../api-client && npm install) & (cd ../subscriptions && npm install) & (cd ../client && npm install) & (cd ../serverless && npm install) & (cd ../storage-dynamodb && npm install) & (cd .. && npm install)",
-    "install-projects": "(cd common && npm install) & (cd api-contracts && npm install) & (cd api-client && npm install) & (cd subscriptions && npm install)  & (cd client && npm install) & (cd serverless && npm install) & (cd storage-dynamodb && npm install) & (npm install)",
+    "install-projects-win": "(cd common && npm install) & (cd ../api-contracts && npm install) & (cd ../api-client && npm install) & (cd ../subscriptions && npm install) & (cd ../client && npm install) & (cd ../subscriptions-api && npm install) & (cd ../storage-dynamodb && npm install) & (cd .. && npm install)",
+    "install-projects": "(cd common && npm install) & (cd api-contracts && npm install) & (cd api-client && npm install) & (cd subscriptions && npm install)  & (cd client && npm install) & (cd subscriptions-api && npm install) & (cd storage-dynamodb && npm install) & (npm install)",
     "dev:build:api-client": "cd api-client && tsc -b --clean && tsc -b",
     "dev:build:common": "cd common && tsc -b --clean && tsc -b",
     "dev:build:storage-dynamodb": "cd storage-dynamodb && tsc -b --clean  && tsc -b",
