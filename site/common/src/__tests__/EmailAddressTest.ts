@@ -1,5 +1,5 @@
 import { EmailAddress } from "../EmailAddress";
-import EmailAddressBuilder from "../__builders__/EmailAddressBuilder";
+import { EmailAddressBuilder } from "../__builders__/EmailAddressBuilder";
 
 describe("EmailAddress", () => {
   describe("isValid", () => {

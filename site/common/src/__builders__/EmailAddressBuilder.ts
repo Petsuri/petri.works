@@ -1,6 +1,6 @@
 import { EmailAddress } from "../EmailAddress";
 
-export default class EmailAddressBuilder {
+export class EmailAddressBuilder {
   private _email: string;
 
   public constructor() {

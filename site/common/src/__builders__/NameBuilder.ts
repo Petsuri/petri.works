@@ -1,6 +1,6 @@
 import { Name } from "../Name";
 
-export default class NameBuilder {
+export class NameBuilder {
   private _name: string;
 
   public constructor() {

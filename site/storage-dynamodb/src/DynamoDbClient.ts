@@ -1,4 +1,4 @@
-import { AttributeMap, DocumentClient, ItemList } from "aws-sdk/clients/dynamodb";
+import { DocumentClient, ItemList } from "aws-sdk/clients/dynamodb";
 import { failure, none, Option, Result, some, success, unit, Unit } from "@petriworks/common";
 
 export type DynamoDbError = {

@@ -1,5 +1,5 @@
 import { Name } from "../Name";
-import NameBuilder from "../__builders__/NameBuilder";
+import { NameBuilder } from "../__builders__/NameBuilder";
 
 describe("Name", () => {
   describe("isValid", () => {
