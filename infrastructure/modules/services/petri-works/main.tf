@@ -122,7 +122,7 @@ module "api_gate_way_lambdas" {
   lambdas = {
     1 = {
       name        = "subscribe",
-      handler     = "lambdas/subscribePost.handler",
+      handler     = "src/lambdas/subscribePost.handler",
       http_method = "POST",
       http_route  = "/subscribe"
     },

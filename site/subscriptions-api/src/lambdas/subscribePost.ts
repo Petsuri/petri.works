@@ -1,7 +1,6 @@
 import {
   APIGatewayProxyEvent,
   APIGatewayProxyHandler,
-  APIGatewayProxyResult,
   Context,
 } from "aws-lambda";
 import {
@@ -9,7 +8,7 @@ import {
   NewSubscriptionSchema,
   NewSubscriptionRequest,
 } from "@petriworks/api-contracts";
-import { noContent, validationError } from "../src/results";
+import { noContent, validationError } from "../results";
 import { defaultClient } from "@petriworks/storage-dynamodb";
 import { dynamoDbSubscriptionRepository, SubscriptionService } from "@petriworks/subscriptions";
 import { EmailAddress, Name } from "@petriworks/common";
