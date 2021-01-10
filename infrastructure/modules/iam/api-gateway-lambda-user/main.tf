@@ -29,10 +29,11 @@ data "aws_iam_policy_document" "dynamodb" {
     actions = [
       "dynamodb:Get*",
       "dynamodb:Delete*",
-      "dynamodb:PutItem"
+      "dynamodb:PutItem",
+      "dynamodb:Scan",
     ]
 
-    resources = ["*"]
+    resources = var.dynamodb_arns
   }
 }
 
