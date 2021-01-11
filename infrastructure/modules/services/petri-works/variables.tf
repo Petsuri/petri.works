@@ -5,10 +5,15 @@ variable "environment" {
 
 variable "domain" {
   type        = string
-  description = "Name of domain for which zone is created"
+  description = "Name of domain that will be used for public site"
 }
 
 variable "api_domain" {
   type        = string
-  description = "Name of domain for which zone is created"
+  description = "Name of domain that is used for API"
+}
+
+variable "admin_domain" {
+  type        = string
+  description = "Name of admin domain that is used for admin site"
 }

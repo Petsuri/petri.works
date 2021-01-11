@@ -13,8 +13,9 @@ provider "aws" {
 }
 
 module "petri-works" {
-  source      = "../../modules/services/petri-works"
-  domain      = "petri.works"
-  api_domain  = "api.petri.works"
-  environment = "production"
+  source       = "../../modules/services/petri-works"
+  domain       = "petri.works"
+  api_domain   = "api.petri.works"
+  admin_domain = "admin.petri.works"
+  environment  = "production"
 }

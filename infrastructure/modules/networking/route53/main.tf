@@ -6,25 +6,29 @@ resource "aws_route53_zone" "domain" {
 }
 
 resource "aws_route53_record" "www_ipv4" {
+  for_each = var.site_domains
+
   zone_id = aws_route53_zone.domain.zone_id
-  name    = var.domain
+  name    = each.value.domain
   type    = "A"
 
   alias {
-    name                   = var.alias_domain
-    zone_id                = var.alias_host_zone_id
+    name                   = each.value.alias_domain
+    zone_id                = each.value.alias_host_zone_id
     evaluate_target_health = false
   }
 }
 
 resource "aws_route53_record" "www_ipv6" {
+  for_each = var.site_domains
+
   zone_id = aws_route53_zone.domain.zone_id
-  name    = var.domain
+  name    = each.value.domain
   type    = "AAAA"
 
   alias {
-    name                   = var.alias_domain
-    zone_id                = var.alias_host_zone_id
+    name                   = each.value.alias_domain
+    zone_id                = each.value.alias_host_zone_id
     evaluate_target_health = false
   }
 }

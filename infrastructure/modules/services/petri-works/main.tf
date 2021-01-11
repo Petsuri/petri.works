@@ -15,6 +15,13 @@ module "cloudfront" {
   acm_certificate_arn = module.acm_certificate.acm_certificate_arn
 }
 
+module "admin_cloudfront" {
+  source              = "../../networking/cloudfront"
+  domain              = var.admin_domain
+  environment         = var.environment
+  acm_certificate_arn = module.acm_certificate.acm_certificate_arn
+}
+
 module "api_gateway" {
   source                     = "../../networking/api-gateway"
   domain                     = var.domain
@@ -28,11 +35,21 @@ module "route53" {
   domain                    = var.domain
   api_domain                = var.api_domain
   environment               = var.environment
-  alias_domain              = module.cloudfront.domain_name
-  alias_host_zone_id        = module.cloudfront.hosted_zone_id
   alias_api_domain          = module.api_gateway.domain_name
   alias_api_host_zone_id    = module.api_gateway.hosted_zone_id
   domain_validation_options = module.acm_certificate.domain_validation_options
+  site_domains = {
+    1 = {
+      domain             = var.domain,
+      alias_domain       = module.cloudfront.domain_name,
+      alias_host_zone_id = module.cloudfront.hosted_zone_id,
+    },
+    2 = {
+      domain             = var.admin_domain,
+      alias_domain       = module.admin_cloudfront.domain_name,
+      alias_host_zone_id = module.admin_cloudfront.hosted_zone_id,
+    }
+  }
 }
 
 module "acm_cert_validation" {
