@@ -11,7 +11,7 @@ const FullWidthDiv = styled(withTheme(Div))((props) => ({
   display: "flex",
   justifyContent: "center",
   [props.theme.breakpoints.down("xs")]: {
-    justifyContent: "left",
+    justifyContent: "flex-start",
   },
 }));
 

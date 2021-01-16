@@ -1,6 +1,6 @@
 import { Grid } from "@material-ui/core";
 import React from "react";
-import OuterLink from "../OuterLink";
+import OuterLink from "../styles/OuterLink";
 import { UCaseTypography } from "../styles/components";
 
 export default function PersonalInformation() {

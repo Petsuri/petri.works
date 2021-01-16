@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@material-ui/core";
 import { UCaseTypography } from "../styles/components";
 import React from "react";
-import OuterLink from "../OuterLink";
+import OuterLink from "../styles/OuterLink";
 import { useTranslation } from "react-i18next";
 import { TFunction } from "i18next";
 
