@@ -1,5 +1,7 @@
 locals {
-  serverless_package_name = "petri-works.zip"
+  serverless_package_name             = "petri-works.zip"
+  admin_auth_domain                   = "auth-${var.admin_domain}"
+  fixed_cognito_route53_alias_zone_id = "Z2FDTNDATAQYW2"
 }
 
 module "acm_certificate" {
@@ -30,6 +32,16 @@ module "api_gateway" {
   api_domain_certificate_arn = module.acm_certificate.acm_certificate_arn
 }
 
+
+module "admin_cognito_user_pool" {
+  source              = "../../iam/cognito-user-pool"
+  name                = "admin site users"
+  domain              = local.admin_auth_domain
+  acm_certificate_arn = module.acm_certificate.acm_certificate_arn
+  environment         = var.environment
+}
+
+
 module "route53" {
   source                    = "../../networking/route53"
   domain                    = var.domain
@@ -48,6 +60,11 @@ module "route53" {
       domain             = var.admin_domain,
       alias_domain       = module.admin_cloudfront.domain_name,
       alias_host_zone_id = module.admin_cloudfront.hosted_zone_id,
+    },
+    3 = {
+      domain             = local.admin_auth_domain
+      alias_domain       = module.admin_cognito_user_pool.domain_route53_alias_name
+      alias_host_zone_id = local.fixed_cognito_route53_alias_zone_id
     }
   }
 }
