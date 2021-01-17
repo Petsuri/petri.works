@@ -65,7 +65,7 @@
       },
       "coaching_mentoring": {
         "name": "Valmennus ja mentorointi",
-        "description": "Aina halutuks jakamaan tietoa, mentoroimaan sekä valmentamaan muita, että he pystyvät onnistumaan. Onnistuneesti luonut käytännöt tiedon jakamiseen aiemmassa roolissani."
+        "description": "Aina halukas jakamaan tietoa, mentoroimaan sekä valmentamaan muita, että he pystyvät onnistumaan. Onnistuneesti luonut käytännöt tiedon jakamiseen aiemmassa roolissani."
       }
     },
     "experience": {
@@ -85,7 +85,7 @@
         }
       },
       "mobile_developer": {
-        "description": "Mobiilikehityksen aloittaminen Netvisorille. Ensimmäiset 1,5 vuotta ainoa kehittäjä joka työskenteli Netvisor mobiilin parissa. Tämän asniosta opin nopeaa päätöksen tekemistä ja keskittymään asioihin joilla on oikeasti merkitystä liiketoiminnan suhteen.",
+        "description": "Mobiilikehityksen aloittaminen Netvisorille. Ensimmäiset 1,5 vuotta ainoa kehittäjä joka työskenteli Netvisor mobiilin parissa. Tämän ansiosta opin nopeaa päätöksen tekemistä ja keskittymään asioihin joilla on oikeasti merkitystä liiketoiminnan suhteen.",
         "responsibilities": {
           "1": "Arkkitehtuurin määrittely ja toteuttaminen Netvisorin mobiilisovellukseen",
           "2": "Netvisorin rajapinnan kehittäminen tukemaan mobiilisovelluksen käyttötapauksia",
@@ -97,7 +97,7 @@
         }
       },
       "software_developer": {
-        "description": "Alussa enemmän itsenäistä työnkentelyä. Tein paljon suunnitelupäätöksiä toiminnallisuuksiin liittyen mitä tulimme toteuttamaan. Myöhemmin siirryimme tiimityöskentelyyn, niin toimin mentorina tiimimme jäsenille.",
+        "description": "Alussa enemmän itsenäistä työskentelyä. Tein paljon suunnitelupäätöksiä toiminnallisuuksiin liittyen mitä tulimme toteuttamaan. Myöhemmin siirryimme tiimityöskentelyyn, niin toimin mentorina tiimimme jäsenille.",
         "responsibilities": {
           "1": "Integraatioiden suunnittelu ja toteuttamin eri järjestelmiin, esimerkiksi Netvisor ID, Visma Scanner ja Visma Webshop",
           "2": "Netvisorin teknisen pohjan parantaminen 'teknisessä neuvostossa', jossa toimin puheenjohtajana",
