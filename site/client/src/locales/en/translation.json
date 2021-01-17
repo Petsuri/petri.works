@@ -11,7 +11,7 @@
     },
     "cv": "Curriculum Vitae",
     "main_page": "Main Page",
-    "path_to_being_developer": "Path to being a developer"
+    "path_to_awesome_developer": "Path to awesome developer"
   },
   "cv": {
     "present": "Present",
@@ -111,16 +111,37 @@
     }
   },
   "career": {
-    "header": "Path to developer and beyond",
-    "career_as_software_developer": "Have you thought a career as a software developer but are not sure where to start:",
-    "what_do_i_need": {
-      "degree": "Would I need degree from university?",
-      "where_to_start": "Where to start?",
-      "what_programming_language": "What programming language should I learn first?",
-      "getting_first_job": "How can I land my first job as a software developer?",
-      "advancing_in_career": "How can I advance in my career?"
+    "header": "Path to awesome software developer",
+    "mentoring": {
+      "program_synopsis": "This is mentoring program to develop your skills, knowledge, attitude & motivation to excel as software developer. Program is mainly meant for junior developers, at least we start at the basics, but as we are building our skills and knowledge we are moving to topics that also are relevant for more experienced developers.",
+      "what_we_will_start_with": "As I am not offering silver bullets for being awesome developer. We are going to start out path with the basics:",
+      "basics": {
+        "coding": "Learn basics about object oriented design and check out principles from functional programming",
+        "design": "Learn about software design principles ranging from SOLID to specific design patterns",
+        "unit_tests": "Learn about good practices to write unit tests that stand test of time",
+        "katas": "Use katas as learning tool so these things will come out of our backbones, without greater thinking",
+        "motivation_and_ambition": "At the same time we are also looking about your motivation and find ambitions for being great at something"
+      },
+      "what_to_learn_after_basics": "When we have basics in order, we start to take look at building our own website, hosted in AWS",
+      "building_website": {
+        "domain": "Buying domain",
+        "infrastructure": "Automating your infrastructure using Terraform",
+        "frontend": "Creating frontend using React & Typescript",
+        "backend": "Adding API using serverless technologies and Typescript",
+        "pipeline": "Creating pipeline for automating your site deployments"
+      },
+      "we_will_also_touch_following_topics": "This will give you good understanding how to build new products with quality using new technologies. These skills will also be more important in the future where microservices will play more important role. During building our new site, we will also touch following topics:",
+      "following_topics": {
+        "decisions": "How to make decisions smartly",
+        "productivity": "Talking about what makes you productivity monster and how can you improve that",
+        "responsibility": "Taking responsibility for your decisions",
+        "architectures": "Different architectures from monolithic approaches to serverless",
+        "test_automation": "Test automation with Robot framework; e2e and integration tests",
+        "micro": "Microservices and microfrontends"
+      },
+      "what_this_requires": "Program will take one year and requires 5 hours per week from you. I will give also a lot of book recommendations, so if you want to develop yourself even faster; you will spend more time in a week with reading books."
     },
-    "good_news": "I have good news for you. I will answer all these questions and help you land your first programming job. While content is under work, please subscribe to petri.works and get notified of new articles.",
+    "good_news": "While content is under work, please subscribe to petri.works and get notified of new articles.",
     "subscribe": {
       "email": "Email",
       "invalid_email": "Given email is invalid",

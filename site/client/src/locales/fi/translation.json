@@ -11,7 +11,7 @@
     },
     "cv": "Ansioluettelo",
     "main_page": "Pääsivu",
-    "path_to_being_developer": "Polku kehittäjäksi"
+    "path_to_awesome_developer": "Polku mahtavaksi kehittäjäksi"
   },
   "cv": {
     "present": "Nykyhetki",
@@ -111,8 +111,36 @@
     }
   },
   "career": {
-    "header": "Polku kehittäjäksi ja sen yli",
-    "career_as_software_developer": "Oletko ajatellut uraa koodarina, mutta et tiedä mistä aloittaa:",
+    "header": "Polku mahtavaksi softakehittäjäksi",
+    "mentoring": {
+      "program_synopsis": "Tämä on mentorointiohjelma tarkoitettu kehittämään sinun taitojasi, tietoasi, asennetta sekä motivaatiota että pystyt loistamaan softakehittäjänä. Ohjelma on pääasiassa tarkoitettu junior -tason kehittäjille, koska aloitamme perusteista. Mitä pidemmälle etenemme ohjelmassa, niin siirrymme aihe-alueisiin jotka ovat myös relevantteja enemmän kokeneille kehittäjille.",
+      "what_we_will_start_with": "En tarjoa hopealuoteja, että pystyt olemaan mahtava softakehittäjä. Tulemme aloittamaan polun perusteista:",
+      "basics": {
+        "coding": "Opimme perusteet olio-ohjelmoinnista ja tutustumme myös periaatteisiin funktionaalisesta ohjelmoinnista",
+        "design": "Opimme ohjelmistosuunnitteluperiaatteista, aina SOLID -periaatteista eri ohjelmoinnin suunnittelumalleihin",
+        "unit_tests": "Opimme hyvistä tavoista kirjoittaa yksikkötestejä jotka tulevat kestämään ajan testin",
+        "katas": "Käytämme katoja oppimistyökaluna että nämä asiat tulevat selkärangasta, ilman suurempaa ajattelua",
+        "motivation_and_ambition": "Samaan aikaan tulemme myös katsomaan sinun motivaatiotasi ja löytämään kunnianhimoa ollaksesi loistava jossain"
+      },
+      "what_to_learn_after_basics": "Kun olemme saaneet perusteet kuntoon, niin alamme rakentamaan omaa nettisivustoamme joka tulee olemaan hostattuna AWSssa:",
+      "building_website": {
+        "domain": "Domainin osto",
+        "infrastructure": "Automatisoidaan infra käyttäen Terraformia",
+        "frontend": "Luodaan frontend käyttäen Reactia ja Typescriptiä",
+        "backend": "Lisätään rajapinta käyttäen palvelittomia teknologioita ja Typescriptiä",
+        "pipeline": "Luodaan pipeline automatisoimaan sivustomme julkaisut"
+      },
+      "we_will_also_touch_following_topics": "Tämä tulee antamaan sinulle hyvän ymmärryksen kuinka rakentaa uusia tuotteita laadukkaasti, samalla käyttäen uusia teknologioita. Nämä taidot tulevat olemaan myös tärkeitä tulevaisuudessa jossa microservicet tulevat olemaan tärkeämmässä roolissa. Kun rakennamme sivustoamme, niin tulemme samalla käsittelemään seuraavia aihealueita:",
+      "following_topics": {
+        "decisions": "Kuinka tehtä päätöksiä viisaasti",
+        "productivity": "Puhumme mikä tekee sinusta tuottavuushirviön ja kuinka pystyt parantamaan sitä",
+        "responsibility": "Vastuunottaminen päätöksien tekemisessä",
+        "architectures": "Eri arkkitehtuureista, aina monoliiteista palvelimettomiin",
+        "test_automation": "Testiautomaatiosta Robot frameworkin kanssa; e2e & integraatio testauksesta",
+        "micro": "Microservicet ja microfrontendit"
+      },
+      "what_this_requires": "Tämä ohjelma tulee kestämään yhden vuoden ja vaatii viisi tuntia aikaa viikossa sinulta. Tulen antamaan myös paljon kirjasuosituksia, joten jos tahdot kehittää itseäsi vielä nopeammin; tulet käyttämään enemmän aikaa viikossa lukien kirjallisuutta."
+    },
     "what_do_i_need": {
       "degree": "Tarvitsenko korkeakoulututkintoa?",
       "where_to_start": "Mistä lähteä liikkeelle?",
@@ -120,7 +148,7 @@
       "getting_first_job": "Miten saan ensimmäisen työpaikkani koodarina?",
       "advancing_in_career": "Miten pystyn etenemään urallani?"
     },
-    "good_news": "Minulla on hyviä uutisia sinulle. Tulen vastaamaan kaikkiin näihin kysymyksiin ja auttamaan sinua saamaan ensimmäisen ohjelmointityösi. Sillä välin kun sisältö on vielä työnalla, niin tilaa petri.works ja saa ilmoitukset uusista artikkeleista.",
+    "good_news": "Sillä välin kun sisältö on vielä työnalla, niin tilaa petri.works ja saa ilmoitukset uusista artikkeleista.",
     "subscribe": {
       "email": "Sähköposti",
       "invalid_email": "Syöttämäsi sähköposti on virheellinen",
