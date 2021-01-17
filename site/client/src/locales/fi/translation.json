@@ -38,7 +38,7 @@
     },
     "profile": {
       "header": "Profiili",
-      "pitch": "Tech Lead yli 6 vuoden työkokemuksella työskennellen webbi- ja mobiilisovelluksien parissa. Omaa vahvan motivaation jatkuvalle kehittymiselle sekä itsensä haastamiselle, että pystyn kehittämään itseä ammattillisesti. Mentoroi ja coachaa työkavereita saavuttamaan heidän täyden potentiaalin ja yrityksen tavoitteet.",
+      "pitch": "Tech Lead yli 6 vuoden työkokemuksella työskennellen webbi- ja mobiilisovelluksien parissa. Omaa vahvan motivaation jatkuvalle kehittymiselle sekä itsensä haastamiselle, että pystyn kehittämään itseä ammatillisesti. Mentoroi ja coachaa työkavereita saavuttamaan heidän täyden potentiaalin ja yrityksen tavoitteet.",
       "technical_decisions": "Teknisissä päätöksissä ottaa aina huomioon nykykontekstin sekä päätöksien ROIn, koska ei ole olemassa teknisiä päätöksiä, vain bisnespäätöksiä."
     },
     "skills": {
@@ -49,7 +49,7 @@
       },
       "solid": {
         "name": "SOLID periatteet",
-        "description": "Puolestapuhuja hyville suunnittelukäytännöille ja kuinka koodin muuttamin on mahdollisuus, eikä uhka. Pitänyt workshoppeja "
+        "description": "Puolestapuhuja hyville suunnittelukäytännöille ja kuinka koodin muuttaminen on mahdollisuus, eikä uhka. Pitänyt workshoppeja "
       },
       "ddd": {
         "name": "Domain driven design",
@@ -61,7 +61,7 @@
       },
       "unit_testing": {
         "name": "Yksikkötestaus",
-        "description": "Omaan taidot ottaa johtajuuden määrittälläkseni hyvät käytännöt, mallit ja periaatteet yksikkötestaukseen. Olen intohimoinen kirjoittamaan laadukkaita testejä, joita on helppo ylläpitää tulevaisuudessa."
+        "description": "Omaan taidot ottaa johtajuuden määritelläkseni hyvät käytännöt, mallit ja periaatteet yksikkötestaukseen. Olen intohimoinen kirjoittamaan laadukkaita testejä, joita on helppo ylläpitää tulevaisuudessa."
       },
       "coaching_mentoring": {
         "name": "Valmennus ja mentorointi",
