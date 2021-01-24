@@ -14,7 +14,6 @@ import BeingDeveloperPage from "./career/BeingDeveloperPage";
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
     minHeight: "100vh",
-    minWidth: "400px",
     backgroundColor: darkBackgroundColor,
   },
 }));

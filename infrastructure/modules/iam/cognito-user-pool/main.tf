@@ -1,7 +1,13 @@
+locals {
+  thirty_days      = 30
+  https_domain_uri = "https://${var.domain}/"
+}
+
 resource "aws_cognito_user_pool" "cognito" {
   name = var.name
 
-  username_attributes = ["email"]
+  username_attributes      = ["email"]
+  auto_verified_attributes = ["email"]
   username_configuration {
     case_sensitive = false
   }
@@ -23,12 +29,12 @@ resource "aws_cognito_user_pool" "cognito" {
     allow_admin_create_user_only = true
     invite_message_template {
       email_subject = "Password for ${var.domain}"
-      email_message = "Here '{username}' is your password for ${var.domain}: '{####}"
-      sms_message   = "Here '{username}' is your password for ${var.domain}: '{####}"
+      email_message = "Here '{username}' is your password for ${var.domain}: '{####}'"
+      sms_message   = "Here '{username}' is your password for ${var.domain}: '{####}'"
     }
   }
 
-  mfa_configuration = "ON"
+  mfa_configuration = "OPTIONAL"
   software_token_mfa_configuration {
     enabled = true
   }
@@ -74,4 +80,34 @@ resource "aws_cognito_user_pool_domain" "cognito_domain" {
   domain          = var.domain
   certificate_arn = var.acm_certificate_arn
   user_pool_id    = aws_cognito_user_pool.cognito.id
+}
+
+resource "aws_cognito_user_pool_client" "cognito_client" {
+  name                                 = "${var.name}-client"
+  user_pool_id                         = aws_cognito_user_pool.cognito.id
+  allowed_oauth_flows                  = ["code"]
+  allowed_oauth_flows_user_pool_client = true
+
+  callback_urls        = var.callback_urls
+  default_redirect_uri = var.default_redirect_uri
+  logout_urls          = var.logout_urls
+
+  refresh_token_validity        = local.thirty_days
+  prevent_user_existence_errors = "ENABLED"
+  read_attributes               = ["email"]
+  allowed_oauth_scopes          = concat(["email", "openid"], aws_cognito_resource_server.cognito_resource_server.scope_identifiers)
+  explicit_auth_flows           = ["ALLOW_REFRESH_TOKEN_AUTH", "ALLOW_USER_PASSWORD_AUTH"]
+  supported_identity_providers  = ["COGNITO"]
+  write_attributes              = []
+}
+
+resource "aws_cognito_resource_server" "cognito_resource_server" {
+  identifier = var.domain
+  name       = "Resource server for user pool ${aws_cognito_user_pool.cognito.name}"
+  scope {
+    scope_name        = "subscribe_list"
+    scope_description = "Get list of all subscribers"
+  }
+
+  user_pool_id = aws_cognito_user_pool.cognito.id
 }

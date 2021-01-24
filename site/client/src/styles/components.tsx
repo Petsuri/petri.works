@@ -89,7 +89,7 @@ type PageContainerProps = {
 };
 
 export function PageContainer(props: PageContainerProps) {
-  const responsiveFontSizesTheme = responsiveFontSizes(createMuiTheme());
+  const responsiveFontSizesTheme = responsiveFontSizes(createMuiTheme(), { factor: 3 });
   const PageContainerStyles = styled("div")({
     margin: "1rem",
   });

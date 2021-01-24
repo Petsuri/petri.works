@@ -10,10 +10,25 @@ variable "environment" {
 
 variable "domain" {
   type        = string
-  description = "Domain for which user pools is applied"
+  description = "Domain for login"
 }
 
 variable "acm_certificate_arn" {
   type        = string
   description = "The ARN of the AWS Certificate Manager certificate that you wish to use with this domain"
+}
+
+variable "callback_urls" {
+  type        = list(string)
+  description = "List of callback urls for user pool client"
+}
+
+variable "default_redirect_uri" {
+  type        = string
+  description = "Default redirect uri for login"
+}
+
+variable "logout_urls" {
+  type        = list(string)
+  description = "List of logout urls for the user pool client"
 }

@@ -34,11 +34,14 @@ module "api_gateway" {
 
 
 module "admin_cognito_user_pool" {
-  source              = "../../iam/cognito-user-pool"
-  name                = "admin site users"
-  domain              = local.admin_auth_domain
-  acm_certificate_arn = module.acm_certificate.acm_certificate_arn
-  environment         = var.environment
+  source               = "../../iam/cognito-user-pool"
+  name                 = "admin site users"
+  domain               = local.admin_auth_domain
+  acm_certificate_arn  = module.acm_certificate.acm_certificate_arn
+  environment          = var.environment
+  callback_urls        = ["https://${var.domain}/"]
+  default_redirect_uri = "https://${var.domain}/"
+  logout_urls          = ["https://${var.domain}/logout"]
 }
 
 
