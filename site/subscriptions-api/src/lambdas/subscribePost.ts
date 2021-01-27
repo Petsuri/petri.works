@@ -1,8 +1,4 @@
-import {
-  APIGatewayProxyEvent,
-  APIGatewayProxyHandler,
-  Context,
-} from "aws-lambda";
+import { APIGatewayProxyEvent, APIGatewayProxyHandler, Context } from "aws-lambda";
 import {
   validateSchema,
   NewSubscriptionSchema,

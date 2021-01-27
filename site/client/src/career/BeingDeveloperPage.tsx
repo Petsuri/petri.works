@@ -14,21 +14,9 @@ import Subscribe from "./Subscribe";
 export default function BeingDeveloperPage() {
   const { t } = useTranslation();
 
-  const basics = [
-    "coding",
-    "design",
-    "unit_tests",
-    "katas",
-    "motivation_and_ambition",
-  ];
+  const basics = ["coding", "design", "unit_tests", "katas", "motivation_and_ambition"];
 
-  const buildingWebsite = [
-    "domain",
-    "infrastructure",
-    "frontend",
-    "backend",
-    "pipeline",
-  ];
+  const buildingWebsite = ["domain", "infrastructure", "frontend", "backend", "pipeline"];
 
   const followingTopics = [
     "decisions",
@@ -42,7 +30,9 @@ export default function BeingDeveloperPage() {
   const renderListItem = (listKey: string, translationKey: string, index: number) => {
     return (
       <li key={index}>
-        <Typography variant="body1">{t(`career.mentoring.${listKey}.${translationKey}`)}</Typography>
+        <Typography variant="body1">
+          {t(`career.mentoring.${listKey}.${translationKey}`)}
+        </Typography>
       </li>
     );
   };
@@ -71,8 +61,9 @@ export default function BeingDeveloperPage() {
           <UnorderedList>{buildingWebsite.map(renderBuildingWebsite)}</UnorderedList>
         </ParagraphContainer>
 
-
-        <Paragraph variant="body1">{t("career.mentoring.we_will_also_touch_following_topics")}</Paragraph>
+        <Paragraph variant="body1">
+          {t("career.mentoring.we_will_also_touch_following_topics")}
+        </Paragraph>
 
         <ParagraphContainer>
           <UnorderedList>{followingTopics.map(renderFollowingTopic)}</UnorderedList>

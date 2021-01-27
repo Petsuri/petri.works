@@ -9,6 +9,8 @@ import { PathToComingSoonPage } from "./coming-soon/ComingSoonLink";
 import { makeStyles, Theme } from "@material-ui/core";
 import { darkBackgroundColor } from "./styles/colors";
 import { PathToBeingDeveloperPage } from "./career/BeingDeveloperLink";
+import { PathToChapterOne } from "./career/chapters/ChapterOneLink";
+import ChapterOnePage from "./career/chapters/ChapterOnePage";
 import BeingDeveloperPage from "./career/BeingDeveloperPage";
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -35,6 +37,9 @@ export default function Routing() {
             </Route>
             <Route path={PathToBeingDeveloperPage}>
               <BeingDeveloperPage />
+            </Route>
+            <Route path={PathToChapterOne}>
+              <ChapterOnePage />
             </Route>
             <Route path="/">
               <CvPage />
