@@ -21,6 +21,6 @@ export class Locale {
       return found;
     }
 
-    return this.finnish();
+    return this.english();
   }
 }
