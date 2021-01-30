@@ -21,6 +21,9 @@ jobs:
       - name: Install serverless
         run: |
           npm install -g serverless
+      - name: Install ts-node
+        run: |
+          npm install -g ts-node
       - name: Build typescript modules
         run: |
           cd site
@@ -38,7 +41,10 @@ jobs:
       - name: Build subscriptions api
         run: |
           cd site/subscriptions-api
-          npm install -g ts-node
+          serverless package 
+      - name: Build security extensions
+        run: |
+          cd site/security-extensions-lambda
           serverless package 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -49,9 +55,12 @@ jobs:
       - name: Copy client files to S3 bucket
         run: |
           aws s3 sync site/client/build/. s3://petri.works-client-static-files
-      - name: Copy subscriptions api files to S3 bucket
+      - name: Copy subscriptions api file to S3 bucket
         run: |
           aws s3 cp site/subscriptions-api/.serverless/${{ secrets.AWS_S3_SERVERLESS_BUCKET_KEY }} s3://${{ secrets.AWS_S3_SERVERLESS_BUCKET_NAME }}
+      - name: Copy security extensions lambda file to S3 bucket
+        run: |
+          aws s3 cp site/security-extensions-lambda/.serverless/${{ secrets.AWS_S3_SECURITY_EXTENSIONS_BUCKET_KEY }} s3://${{ secrets.AWS_S3_SERVERLESS_BUCKET_NAME }}
       - name: Invalidate Cloudfront cache to instantly serve new files
         run: |
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
