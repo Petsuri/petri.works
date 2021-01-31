@@ -70,3 +70,4 @@ jobs:
           do
               aws lambda update-function-code --function-name $functionName --s3-bucket ${{ secrets.AWS_S3_SERVERLESS_BUCKET_NAME }} --s3-key ${{ secrets.AWS_S3_SERVERLESS_BUCKET_KEY }}
           done
+          aws lambda update-function-code --function-name add-security-headers --s3-bucket ${{ secrets.AWS_S3_SERVERLESS_BUCKET_NAME }} --s3-key ${{ secrets.AWS_S3_SECURITY_EXTENSIONS_BUCKET_KEY }}

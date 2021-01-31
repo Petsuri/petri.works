@@ -68,6 +68,12 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
       }
     }
 
+    lambda_function_association {
+      lambda_arn   = var.security_headers_lambda_arn
+      event_type   = "origin-response"
+      include_body = false
+    }
+
     min_ttl                = 0
     default_ttl            = local.oneWeek
     max_ttl                = local.oneMonth

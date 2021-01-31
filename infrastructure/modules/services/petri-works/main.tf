@@ -2,6 +2,7 @@ locals {
   serverless_package_name             = "petri-works.zip"
   admin_auth_domain                   = "auth-${var.admin_domain}"
   fixed_cognito_route53_alias_zone_id = "Z2FDTNDATAQYW2"
+  security_extensions_package_name    = "security-extensions-lambda.zip"
 }
 
 module "acm_certificate" {
@@ -10,18 +11,35 @@ module "acm_certificate" {
   environment = var.environment
 }
 
+module "lambda_edge_user" {
+  source      = "../../iam/lambda-edge-user"
+  environment = var.environment
+}
+
+module "lambda_edge_security_headers" {
+  source       = "../../compute/lambda-edge"
+  environment  = var.environment
+  name         = "add-security-headers"
+  handler      = "src/lambdas/addSecurityHeaders.handler"
+  s3_bucket    = module.s3_serverless_distribution.bucket_name
+  s3_key       = local.security_extensions_package_name
+  iam_user_arn = module.lambda_edge_user.iam_user_arn
+}
+
 module "cloudfront" {
-  source              = "../../networking/cloudfront"
-  domain              = var.domain
-  environment         = var.environment
-  acm_certificate_arn = module.acm_certificate.acm_certificate_arn
+  source                      = "../../networking/cloudfront"
+  domain                      = var.domain
+  environment                 = var.environment
+  acm_certificate_arn         = module.acm_certificate.acm_certificate_arn
+  security_headers_lambda_arn = module.lambda_edge_security_headers.qualified_arn
 }
 
 module "admin_cloudfront" {
-  source              = "../../networking/cloudfront"
-  domain              = var.admin_domain
-  environment         = var.environment
-  acm_certificate_arn = module.acm_certificate.acm_certificate_arn
+  source                      = "../../networking/cloudfront"
+  domain                      = var.admin_domain
+  environment                 = var.environment
+  acm_certificate_arn         = module.acm_certificate.acm_certificate_arn
+  security_headers_lambda_arn = module.lambda_edge_security_headers.qualified_arn
 }
 
 module "api_gateway" {
@@ -89,6 +107,12 @@ module "github_secret_s3_serverless_bucket_name" {
   source       = "../../github/secrets"
   secret_name  = "AWS_S3_SERVERLESS_BUCKET_NAME"
   secret_value = module.s3_serverless_distribution.bucket_name
+}
+
+module "github_secret_security_extensions_bucket_key" {
+  source       = "../../github/secrets"
+  secret_name  = "AWS_S3_SECURITY_EXTENSIONS_BUCKET_KEY"
+  secret_value = local.security_extensions_package_name
 }
 
 module "github_secret_s3_serverless_bucket_key" {
