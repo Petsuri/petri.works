@@ -12,11 +12,6 @@ module.exports = {
     extensions: ['.mjs', '.json', '.ts'],
     symlinks: false,
     cacheWithContext: false,
-    plugins: [
-      new TsconfigPathsPlugin({
-        configFile: './tsconfig.paths.json',
-      }),
-    ],
   },
   output: {
     libraryTarget: 'commonjs',
