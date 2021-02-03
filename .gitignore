@@ -390,3 +390,4 @@ terraform.rc
 
 # Ignore local Typescript project builds
 **/dist/
+.artifacts

@@ -6,6 +6,10 @@ resource "aws_s3_bucket" "bucket" {
   bucket = var.bucket_name
   acl    = var.bucket_acl
 
+  versioning {
+    enabled = var.is_versioning_enabled
+  }
+
   tags = {
     Name        = var.purpose_of_bucket
     Environment = var.environment

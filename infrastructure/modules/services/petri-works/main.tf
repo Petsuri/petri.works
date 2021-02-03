@@ -17,13 +17,15 @@ module "lambda_edge_user" {
 }
 
 module "lambda_edge_security_headers" {
-  source       = "../../compute/lambda-edge"
-  environment  = var.environment
-  name         = "add-security-headers"
-  handler      = "src/lambdas/addSecurityHeaders.handler"
-  s3_bucket    = module.s3_serverless_distribution.bucket_name
-  s3_key       = local.security_extensions_package_name
-  iam_user_arn = module.lambda_edge_user.iam_user_arn
+  source            = "../../compute/s3-bucket-lambda"
+  environment       = var.environment
+  name              = "add-security-headers"
+  handler           = "src/lambdas/addSecurityHeaders.handler"
+  s3_bucket_name    = "security-headers-lambda-static-files"
+  s3_bucket_key     = "security-extensions-lambda.zip"
+  purpose_of_bucket = "Static files for security extensions lambda"
+  package_path      = "site/security-extensions-lambda/dist"
+  iam_user_arn      = module.lambda_edge_user.iam_user_arn
 }
 
 module "cloudfront" {

@@ -58,9 +58,6 @@ jobs:
       - name: Copy subscriptions api file to S3 bucket
         run: |
           aws s3 cp site/subscriptions-api/.serverless/${{ secrets.AWS_S3_SERVERLESS_BUCKET_KEY }} s3://${{ secrets.AWS_S3_SERVERLESS_BUCKET_NAME }}
-      - name: Copy security extensions lambda file to S3 bucket
-        run: |
-          aws s3 cp site/security-extensions-lambda/.serverless/${{ secrets.AWS_S3_SECURITY_EXTENSIONS_BUCKET_KEY }} s3://${{ secrets.AWS_S3_SERVERLESS_BUCKET_NAME }}
       - name: Invalidate Cloudfront cache to instantly serve new files
         run: |
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
@@ -70,4 +67,3 @@ jobs:
           do
               aws lambda update-function-code --function-name $functionName --s3-bucket ${{ secrets.AWS_S3_SERVERLESS_BUCKET_NAME }} --s3-key ${{ secrets.AWS_S3_SERVERLESS_BUCKET_KEY }}
           done
-          aws lambda update-function-code --function-name add-security-headers --s3-bucket ${{ secrets.AWS_S3_SERVERLESS_BUCKET_NAME }} --s3-key ${{ secrets.AWS_S3_SECURITY_EXTENSIONS_BUCKET_KEY }}

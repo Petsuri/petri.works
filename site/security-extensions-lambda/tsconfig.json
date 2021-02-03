@@ -1,21 +1,18 @@
 {
-  "extends": "./tsconfig.paths.json",
+  "extends": "../tsconfig-base.json",
   "compilerOptions": {
-    "lib": ["ESNext"],
-    "moduleResolution": "node",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "removeComments": true,
-    "sourceMap": true,
-    "target": "ESNext",
-    "outDir": "lib"
+    "composite": true,
+    "outDir": "./dist"
   },
-  "include": ["src/**/*.ts"],
+  "include": [
+    "**/*.ts"
+  ],
   "exclude": [
     "node_modules/**/*",
-    ".serverless/**/*",
+    "src/__*__",
     ".webpack/**/*",
     "_warmup/**/*",
-    ".vscode/**/*"
+    ".vscode/**/*",
+    ".serverless/**/*"
   ]
 }
