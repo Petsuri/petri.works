@@ -55,15 +55,6 @@ jobs:
       - name: Copy client files to S3 bucket
         run: |
           aws s3 sync site/client/build/. s3://petri.works-client-static-files
-      - name: Copy subscriptions api file to S3 bucket
-        run: |
-          aws s3 cp site/subscriptions-api/.serverless/${{ secrets.AWS_S3_SERVERLESS_BUCKET_KEY }} s3://${{ secrets.AWS_S3_SERVERLESS_BUCKET_NAME }}
       - name: Invalidate Cloudfront cache to instantly serve new files
         run: |
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
-      - name: Update code for for lambdas
-        run: |
-          for functionName in ${{ secrets.AWS_LAMBDA_NAMES }}
-          do
-              aws lambda update-function-code --function-name $functionName --s3-bucket ${{ secrets.AWS_S3_SERVERLESS_BUCKET_NAME }} --s3-key ${{ secrets.AWS_S3_SERVERLESS_BUCKET_KEY }}
-          done

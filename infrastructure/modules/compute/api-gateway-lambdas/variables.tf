@@ -14,16 +14,6 @@ variable "iam_user_arn" {
   description = "IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to."
 }
 
-variable "s3_bucket" {
-  type        = string
-  description = "The S3 bucket location containing the function's deployment package"
-}
-
-variable "s3_key" {
-  type        = string
-  description = "The S3 key of an object containing the function's deployment package"
-}
-
 variable "api_gateway_id" {
   type        = string
   description = "ID of used API gateway"
@@ -41,10 +31,11 @@ variable "api_gateway_execution_arn" {
 
 variable "lambdas" {
   type = map(object({
-    name        = string,
-    handler     = string,
-    http_method = string,
-    http_route  = string
+    name         = string,
+    handler      = string,
+    http_method  = string,
+    http_route   = string,
+    package_path = string,
   }))
   description = "Lambas that will be registed to API gateway"
 }

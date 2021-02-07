@@ -4,26 +4,23 @@ locals {
 
 data "aws_region" "current" {}
 
-resource "aws_lambda_function" "lambda" {
+module "s3_bucket_lamda" {
+  source = "../s3-bucket-lambda"
 
-  function_name = var.name
-  handler       = var.handler
-  runtime       = var.runtime
-  role          = var.iam_user_arn
-  s3_bucket     = var.s3_bucket
-  s3_key        = var.s3_key
-  publish       = true
-  tags = {
-    Environment = var.environment
-  }
-  environment {
-    variables = {
-      DYNAMODB_REGION = data.aws_region.current.name
-    }
-  }
+  name                  = var.name
+  handler               = var.handler
+  package_path          = var.package_path
+  runtime               = var.runtime
+  iam_user_arn          = var.iam_user_arn
+  s3_bucket_name        = "${var.name}-static-files"
+  s3_bucket_key         = var.s3_bucket_key
+  purpose_of_bucket     = "Static files for ${var.name} lambda"
+  environment           = var.environment
+  environment_variables = { DYNAMODB_REGION = data.aws_region.current.name }
 }
+
 resource "aws_lambda_permission" "api_gateway_permission" {
-  function_name = aws_lambda_function.lambda.function_name
+  function_name = module.s3_bucket_lamda.function_name
   statement_id  = "AllowExecutionFromApiGatewayBase"
   action        = "lambda:InvokeFunction"
   principal     = "apigateway.amazonaws.com"
@@ -38,7 +35,7 @@ resource "aws_apigatewayv2_integration" "integration" {
   connection_type        = "INTERNET"
   passthrough_behavior   = "WHEN_NO_MATCH"
   integration_method     = "POST"
-  integration_uri        = aws_lambda_function.lambda.invoke_arn
+  integration_uri        = module.s3_bucket_lamda.invoke_arn
   payload_format_version = "2.0"
   timeout_milliseconds   = local.ten_seconds
 }

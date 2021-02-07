@@ -23,10 +23,6 @@ resource "aws_apigatewayv2_api" "gateway" {
       "X-Api-Key"
     ]
   }
-
-  tags = {
-    Environment = var.environment
-  }
 }
 
 resource "aws_apigatewayv2_domain_name" "gateway_domain_name" {
@@ -35,10 +31,6 @@ resource "aws_apigatewayv2_domain_name" "gateway_domain_name" {
     certificate_arn = var.api_domain_certificate_arn
     endpoint_type   = "REGIONAL"
     security_policy = "TLS_1_2"
-  }
-
-  tags = {
-    Environment = var.environment
   }
 }
 

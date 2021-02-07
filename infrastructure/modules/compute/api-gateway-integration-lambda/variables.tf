@@ -19,19 +19,15 @@ variable "runtime" {
   default     = "nodejs12.x"
 }
 
+variable "environment_variables" {
+  description = "A map that defines environment variables for the Lambda Function."
+  type        = map(string)
+  default     = {}
+}
+
 variable "iam_user_arn" {
   type        = string
   description = "IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to."
-}
-
-variable "s3_bucket" {
-  type        = string
-  description = "The S3 bucket location containing the function's deployment package"
-}
-
-variable "s3_key" {
-  type        = string
-  description = "The S3 key of an object containing the function's deployment package"
 }
 
 variable "http_method" {
@@ -52,4 +48,14 @@ variable "api_gateway_id" {
 variable "api_gateway_execution_arn" {
   type        = string
   description = "Execution arn of API gateway that invokes lambda"
+}
+
+variable "package_path" {
+  type        = string
+  description = "Path to Javascript package"
+}
+
+variable "s3_bucket_key" {
+  type        = string
+  description = "The S3 key of an object containing the function's deployment package"
 }

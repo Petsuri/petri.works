@@ -25,6 +25,12 @@ variable "iam_user_arn" {
   description = "IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to."
 }
 
+variable "environment_variables" {
+  description = "A map that defines environment variables for the Lambda Function."
+  type        = map(string)
+  default     = {}
+}
+
 // S3 Bucket
 variable "s3_bucket_name" {
   type        = string
@@ -40,7 +46,6 @@ variable "purpose_of_bucket" {
   type        = string
   description = "In what way is bucket going to be used"
 }
-
 
 // Code
 variable "package_path" {

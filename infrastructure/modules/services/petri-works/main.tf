@@ -1,5 +1,4 @@
 locals {
-  serverless_package_name             = "petri-works.zip"
   admin_auth_domain                   = "auth-${var.admin_domain}"
   fixed_cognito_route53_alias_zone_id = "Z2FDTNDATAQYW2"
   security_extensions_package_name    = "security-extensions-lambda.zip"
@@ -117,13 +116,6 @@ module "github_secret_security_extensions_bucket_key" {
   secret_value = local.security_extensions_package_name
 }
 
-module "github_secret_s3_serverless_bucket_key" {
-  source       = "../../github/secrets"
-  secret_name  = "AWS_S3_SERVERLESS_BUCKET_KEY"
-  secret_value = local.serverless_package_name
-
-}
-
 module "iam_pipeline" {
   source         = "../../iam/pipeline-user"
   environment    = var.environment
@@ -177,17 +169,16 @@ module "api_gate_way_lambdas" {
   source                            = "../../compute/api-gateway-lambdas"
   environment                       = var.environment
   iam_user_arn                      = module.iam_api_gateway_lambda.iam_user_arn
-  s3_bucket                         = module.s3_serverless_distribution.bucket_name
-  s3_key                            = local.serverless_package_name
   api_gateway_id                    = module.api_gateway.gateway_id
   api_gateway_custom_domain_name_id = module.api_gateway.custom_domain_id
   api_gateway_execution_arn         = module.api_gateway.execution_arn
   lambdas = {
     1 = {
-      name        = "subscribe",
-      handler     = "src/lambdas/subscribePost.handler",
-      http_method = "POST",
-      http_route  = "/subscribe"
+      name         = "subscribe",
+      handler      = "subscribePost.handler",
+      package_path = "site/subscriptions-api/.build"
+      http_method  = "POST",
+      http_route   = "/subscribe"
     },
   }
 }

@@ -12,8 +12,4 @@ resource "aws_dynamodb_table" "dynamodb_table" {
       type = attribute.value.type
     }
   }
-
-  tags = {
-    Environment = var.environment
-  }
 }

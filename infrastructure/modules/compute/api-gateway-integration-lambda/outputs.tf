@@ -1,5 +1,5 @@
 output "invoke_arn" {
-  value = aws_lambda_function.lambda.invoke_arn
+  value = module.s3_bucket_lamda.invoke_arn
 }
 
 output "route_key" {
@@ -7,5 +7,5 @@ output "route_key" {
 }
 
 output "lambda_arn" {
-  value = aws_lambda_function.lambda.arn
+  value = module.s3_bucket_lamda.arn
 }

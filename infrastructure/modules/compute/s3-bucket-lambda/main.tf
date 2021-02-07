@@ -18,7 +18,7 @@ module "lambda_s3_bucket" {
   environment           = var.environment
   is_versioning_enabled = true
 }
-
+ 
 resource "aws_s3_bucket_object" "object" {
   bucket = module.lambda_s3_bucket.bucket_name
   key    = var.s3_bucket_key
@@ -37,7 +37,11 @@ resource "aws_lambda_function" "lambda" {
   s3_key            = var.s3_bucket_key
   s3_object_version = aws_s3_bucket_object.object.version_id
   publish           = true
-  tags = {
-    Environment = var.environment
+
+  dynamic "environment" {
+    for_each = length(keys(var.environment_variables)) == 0 ? [] : [true]
+    content {
+      variables = var.environment_variables
+    }
   }
 }
