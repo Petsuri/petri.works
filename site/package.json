@@ -11,8 +11,8 @@
   ],
   "scripts": {
     "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
-    "install-projects-win": "(cd common && npm install) & (cd ../api-contracts && npm install) & (cd ../api-client && npm install) & (cd ../subscriptions && npm install) & (cd ../client && npm install) & (cd ../subscriptions-api && npm install) & (cd ../storage-dynamodb && npm install) & (cd ../security-extensions-lambda && npm install) & (cd .. && npm install)",
-    "install-projects": "(cd common && npm install) & (cd api-contracts && npm install) & (cd api-client && npm install) & (cd subscriptions && npm install)  & (cd client && npm install) & (cd subscriptions-api && npm install) & (cd storage-dynamodb && npm install) & (cd security-extensions-lambda && npm install) & (npm install)",
+    "install-projects-win": "(npm install) && (cd common && npm install) & (cd ../api-contracts && npm install) & (cd ../api-client && npm install) & (cd ../subscriptions && npm install) & (cd ../client && npm install) & (cd ../subscriptions-api && npm install) & (cd ../storage-dynamodb && npm install) & (cd ../security-extensions-lambda && npm install)",
+    "install-projects": "(npm install) && (cd common && npm install) && (cd api-contracts && npm install) && (cd api-client && npm install) && (cd subscriptions && npm install)  && (cd client && npm install) && (cd subscriptions-api && npm install) && (cd storage-dynamodb && npm install) && (cd security-extensions-lambda && npm install)",
     "dev:build:api-client": "cd api-client && npm run build",
     "dev:build:common": "cd common && npm run build",
     "dev:build:storage-dynamodb": "cd storage-dynamodb && npm run build",
