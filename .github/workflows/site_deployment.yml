@@ -17,6 +17,7 @@ jobs:
         run: |
           npm install -g ts-node
           cd site
+          npm install
           npm run install-and-build-production
       - name: Run all tests
         run: |
