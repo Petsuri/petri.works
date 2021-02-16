@@ -23,7 +23,7 @@
     "dev:subscriptions-api-serverless": "cd subscriptions-api && serverless offline",
     "dev": "run-p dev:**",
     "production-build:client": "cd client && GENERATE_SOURCEMAP=false npm run build",
-    "production-build:subscriptions-api": "cd subscriptions-api && npm run build:produ  ction",
+    "production-build:subscriptions-api": "cd subscriptions-api && npm run build:production",
     "production-build:security-extensions": "cd security-extensions-lambda && npm run build:production",
     "production-build": "run-p production-build:**",
     "test:api-client": "cd api-client && npm test",
