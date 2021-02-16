@@ -9,7 +9,6 @@
     "build:development": "npx webpack --mode development"
   },
   "dependencies": {
-    "lodash": "^4.17.20",
     "source-map-support": "^0.5.19"
   },
   "devDependencies": {

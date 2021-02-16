@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc -b --clean && tsc -b"
   },
   "devDependencies": {
     "@types/jest": "^26.0.19",

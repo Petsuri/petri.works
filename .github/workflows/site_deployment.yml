@@ -5,48 +5,27 @@ on:
     branches: [master]
 
 jobs:
-  build-and-deploy:
+  test-and-deploy:
     runs-on: ubuntu-latest
-
+    needs: build    
     steps:
       - uses: actions/checkout@v2
       - name: Set up node environment
         uses: actions/setup-node@v1
         with:
           node-version: "15.5.X"
-      - name: Install site and modules
-        run: |
-          cd site
-          npm run install-projects
-      - name: Install serverless
-        run: |
-          npm install -g serverless
-      - name: Install ts-node
+      - name: Install and build dependencies
         run: |
           npm install -g ts-node
-      - name: Build typescript modules
-        run: |
           cd site
-          npm run build
-      - name: Run all site tests
+          npm run install-and-build-production
+      - name: Run all tests
         run: |
           cd site/client
           npm install
           cd ..
           npm run test
-      - name: Build client
-        run: |
-          cd site/client
-          GENERATE_SOURCEMAP=false npm run build
-      - name: Build subscriptions api
-        run: |
-          cd site/subscriptions-api
-          serverless package 
-      - name: Build security extensions
-        run: |
-          cd site/security-extensions-lambda
-          serverless package 
-      - name: Configure AWS credentials
+     - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}

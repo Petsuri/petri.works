@@ -4,6 +4,9 @@
   "private": true,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -b --clean  && tsc -b"
+  },
   "dependencies": {
     "aws-sdk": "^2.804.0"
   },
