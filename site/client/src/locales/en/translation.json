@@ -10,8 +10,14 @@
       "software_development": "Awesome software development & architecture"
     },
     "cv": "Curriculum Vitae",
+    "technologies": "Technology expertises",
     "main_page": "Main Page",
-    "path_to_awesome_developer": "Path to awesome developer"
+    "path_to_awesome_developer": "Path to awesome developer",
+    "chapter": {
+      "one": "Chapter 1: It all starts with motivation",
+      "two": "Chapter 2: Establishing your current knowledge",
+      "three": "Chapter 3: Art of self-reflection"
+    }
   },
   "cv": {
     "present": "Present",
@@ -110,6 +116,9 @@
       }
     }
   },
+  "technologies": {
+    "header": "Technology expertises"
+  },
   "career": {
     "header": "Path to awesome software developer",
     "mentoring": {
@@ -182,6 +191,22 @@
           "15": "So what is the point?",
           "19": "TL;DR"
         }
+      },
+      "two": {
+        "header": "Chapter 2: Establishing your current knowledge",
+        "paragraphs": {
+          "1": "To begin our journey to being awesome software developer, first thing for us is to know our current skill level. Where are we at today? What are our strenghts and what skills are we missing?",
+          "2": "We are going to start this chapter with a coding exercise to create baseline. After a while, one or two months, we are going to make this exercise again and self-reflect. Have we actually learned anything, if yes what and if no, why? Where can we improve? Name of the game is always to improve and understand your current limitations."
+        },
+        "paragraph_headers": {}
+      },
+      "three": {
+        "header": "Chapter 3: Art of self-reflection",
+        "paragraphs": {
+          "1": "Funny thing about us humans is that we think we are better than we actually are. If we have to assess our skills, we usually overestimate our skills. This is even more evident for people whose skill level is lower and don't actually understand their own limitations.",
+          "2": "If we actually want to develop ourselves, we must be aware our current skills. We shouldn't overestimate our current knowledge and skills, otherwise we will take shortcuts in learning and try to take quick wins. Something that has quickly visible but doesn't offer us stable growth. Being software developer is not about quick wins, yes certainly you can improve quickly for a certain point but actual wisdom and stable growth comes from understanding widely the basics and building atop of them."
+        },
+        "paragraph_headers": {}
       }
     }
   }

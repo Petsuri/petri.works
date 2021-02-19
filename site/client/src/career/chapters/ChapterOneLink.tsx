@@ -4,8 +4,8 @@ import { useTranslation } from "react-i18next";
 
 export const PathToChapterOne: string = "/career/chapter-one";
 
-export default function CvLink() {
+export default function ChapterOneLink() {
   const { t } = useTranslation();
 
-  return <Link to={PathToChapterOne}>{t("main.career.chapters.one.header")}</Link>;
+  return <Link to={PathToChapterOne}>{t("main.chapter.one")}</Link>;
 }

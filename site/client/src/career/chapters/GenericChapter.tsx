@@ -15,14 +15,13 @@ type Paragraph = {
   readonly Index: number;
   readonly ParagraphKey: string;
   readonly HeaderKey: string | null;
-}
+};
 
 const createParagraphInfos = (props: ChapterProps): Array<Paragraph> => {
   const { TranslationKey, FirstParagraphIndex, LastParagraphIndex, Headers } = props;
 
   const paragraphs = Array<Paragraph>();
   for (let index = FirstParagraphIndex; index <= LastParagraphIndex; index++) {
-
     const hasHeader = Headers.includes(index);
     const headerKey = hasHeader ? `${TranslationKey}.paragraph_headers.${index}` : null;
     const paragrapKey = `${TranslationKey}.paragraphs.${index}`;
@@ -34,17 +33,16 @@ const createParagraphInfos = (props: ChapterProps): Array<Paragraph> => {
   }
 
   return paragraphs;
-}
+};
 
 const renderParagraph = (t: TFunction, paragraph: Paragraph, index: number) => {
-
   const header = (headerKey: string | null) => {
     if (headerKey === null) {
       return null;
     }
 
     return <UCaseTypography variant="h4">{t(headerKey)}</UCaseTypography>;
-  }
+  };
 
   return (
     <ParagraphContainer key={index}>

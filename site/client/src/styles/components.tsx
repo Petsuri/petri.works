@@ -4,7 +4,15 @@ import {
   responsiveFontSizes,
   ThemeProvider,
 } from "@material-ui/core/styles";
-import { Button, Container, Divider, TextField, Typography, withStyles } from "@material-ui/core";
+import {
+  Button,
+  Container,
+  Divider,
+  ListItem,
+  TextField,
+  Typography,
+  withStyles,
+} from "@material-ui/core";
 import React from "react";
 import { darkThemeTextColor } from "./colors";
 
@@ -82,6 +90,10 @@ export const ParagraphContainer = styled("div")({
 export const UnorderedList = styled("ul")({
   marginBlockStart: "0.1rem",
   marginBlockEnd: "0.1rem",
+});
+
+export const IdentedListItem = styled(ListItem)({
+  paddingLeft: "2rem",
 });
 
 type PageContainerProps = {

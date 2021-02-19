@@ -12,6 +12,12 @@ import { PathToBeingDeveloperPage } from "./career/BeingDeveloperLink";
 import { PathToChapterOne } from "./career/chapters/ChapterOneLink";
 import ChapterOnePage from "./career/chapters/ChapterOnePage";
 import BeingDeveloperPage from "./career/BeingDeveloperPage";
+import { PathToChapterTwo } from "./career/chapters/ChapterTwoLink";
+import ChapterTwoPage from "./career/chapters/ChapterTwoPage";
+import { PathToChapterThree } from "./career/chapters/ChapterThreeLink";
+import ChapterThreePage from "./career/chapters/ChapterThreePage";
+import { PathToTechnologiesPage } from "./cv/TechnologiesLink";
+import TechnologiesPage from "./cv/TechonologiesPage";
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
@@ -29,8 +35,11 @@ export default function Routing() {
         <TopMenu />
         <div className="App">
           <Switch>
-            <Route path={PathToCvPage}>
+            <Route path={PathToCvPage} exact>
               <CvPage />
+            </Route>
+            <Route path={PathToTechnologiesPage}>
+              <TechnologiesPage />
             </Route>
             <Route path={PathToComingSoonPage}>
               <ComingSoonPage />
@@ -40,6 +49,12 @@ export default function Routing() {
             </Route>
             <Route path={PathToChapterOne}>
               <ChapterOnePage />
+            </Route>
+            <Route path={PathToChapterTwo}>
+              <ChapterTwoPage />
+            </Route>
+            <Route path={PathToChapterThree}>
+              <ChapterThreePage />
             </Route>
             <Route path="/">
               <CvPage />
