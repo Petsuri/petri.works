@@ -8,6 +8,7 @@ export default function ChapterOnePage() {
       FirstParagraphIndex={1}
       LastParagraphIndex={19}
       Headers={[2, 6, 10, 15, 19]}
+      ListItems={[]}
     />
   );
 }

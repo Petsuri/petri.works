@@ -8,6 +8,7 @@ export default function ChapterTwoPage() {
       FirstParagraphIndex={1}
       LastParagraphIndex={10}
       Headers={[3, 4, 5, 6, 7]}
+      ListItems={[]}
     />
   );
 }

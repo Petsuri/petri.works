@@ -13,6 +13,7 @@ export default function GenericChapterPage(props: ChapterProps) {
         FirstParagraphIndex={props.FirstParagraphIndex}
         LastParagraphIndex={props.LastParagraphIndex}
         Headers={props.Headers}
+        ListItems={props.ListItems}
       />
     </PageContainer>
   );

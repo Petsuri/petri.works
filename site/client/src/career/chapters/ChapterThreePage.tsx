@@ -11,8 +11,9 @@ export default function ChapterThreePage() {
       <GenericParagraphs
         TranslationKey="career.chapter.three"
         FirstParagraphIndex={1}
-        LastParagraphIndex={10}
-        Headers={[3, 6]} />
+        LastParagraphIndex={9}
+        Headers={[3, 6]}
+        ListItems={[{ ParagraphIndex: 7, LastItemIndex: 10 }, { ParagraphIndex: 8, LastItemIndex: 5 }]} />
     </PageContainer>
   );
 }
