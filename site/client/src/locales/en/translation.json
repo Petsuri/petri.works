@@ -16,7 +16,8 @@
     "chapter": {
       "one": "Chapter 1: It all starts with motivation",
       "two": "Chapter 2: Establishing your current skill level",
-      "three": "Chapter 3: Art of self-reflection"
+      "three": "Chapter 3: Art of self-reflection",
+      "four": "Chapter 4: Fundamentals of object-oriented programming"
     }
   },
   "cv": {
@@ -252,6 +253,9 @@
             "5": "5 = you can teach this subject at seminar which has hundreds of attendees"
           }
         }
+      },
+      "four": {
+        "header": "Chapter 4: Fundamentals of object-oriented programming"
       }
     }
   }

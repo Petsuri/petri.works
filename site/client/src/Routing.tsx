@@ -16,6 +16,8 @@ import { PathToChapterTwo } from "./career/chapters/ChapterTwoLink";
 import ChapterTwoPage from "./career/chapters/ChapterTwoPage";
 import { PathToChapterThree } from "./career/chapters/ChapterThreeLink";
 import ChapterThreePage from "./career/chapters/ChapterThreePage";
+import { PathToChapterFour } from "./career/chapters/ChapterFourLink";
+import ChapterFourPage from "./career/chapters/ChapterFourPage";
 import { PathToTechnologiesPage } from "./cv/TechnologiesLink";
 import TechnologiesPage from "./cv/TechonologiesPage";
 
@@ -55,6 +57,9 @@ export default function Routing() {
             </Route>
             <Route path={PathToChapterThree}>
               <ChapterThreePage />
+            </Route>
+            <Route path={PathToChapterFour}>
+              <ChapterFourPage />
             </Route>
             <Route path="/">
               <CvPage />
