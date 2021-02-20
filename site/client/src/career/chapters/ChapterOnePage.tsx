@@ -1,9 +1,9 @@
 import React from "react";
-import GenericChapter from "./GenericChapter";
+import GenericChapterPage from "./GenericChapterPage";
 
 export default function ChapterOnePage() {
   return (
-    <GenericChapter
+    <GenericChapterPage
       TranslationKey="career.chapter.one"
       FirstParagraphIndex={1}
       LastParagraphIndex={19}

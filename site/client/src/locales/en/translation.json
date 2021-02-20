@@ -217,10 +217,21 @@
       "three": {
         "header": "Chapter 3: Art of self-reflection",
         "paragraphs": {
-          "1": "Funny thing about us humans is that we think we are better than we actually are. If we have to assess our skills, we usually overestimate our skills. This is even more evident for people whose skill level is lower and don't actually understand their own limitations.",
-          "2": "If we actually want to develop ourselves, we must be aware our current skills. We shouldn't overestimate our current knowledge and skills, otherwise we will take shortcuts in learning and try to take quick wins. Something that has quickly visible but doesn't offer us stable growth. Being software developer is not about quick wins, yes certainly you can improve quickly for a certain point but actual wisdom and stable growth comes from understanding widely the basics and building atop of them."
+          "1": "Funny thing about us humans is that we think we are better than we actually are. If we have to assess our skills, we usually overestimate them, alot. This is even more evident for people whose skill level is lower and don't actually understand their own limitations.",
+          "2": "If we actually want to develop ourselves, we must be aware our current skill level. We shouldn't overestimate our knowledge and skills, otherwise we will take shortcuts in learning and try to take quick wins since we already know so much. Something that has quickly visible results usually don't offer stable long time growth. Being software developer is not about quick wins, yes certainly you can improve quickly for a certain point but actual wisdom and stable growth comes from understanding widely the basics and building atop of them. I have seen too many 'advanced juniors' who might even have 'senior software developer' or some other fancy tittle but actually are still juniors if ever change jobs.",
+          "3": "Like I mentioned in chapter one, I studied over 1000 hours programming and landed my first job even before graduating from school. I had been working probably around one year and I thought I am already really good at programming. There is not that much else for me to learn. Oh boy, how wrong was I. I had quite good understanding about known unkowns, but what I was missing was unkown unkowns.",
+          "4": "Now six years later, I am still in student's seat learning new things about cloud computing, micro frontends, serverless etc... But I am also teaching what I already know. There is actually good story about military life example described in \"The Art of Scalability\" -book:",
+          "5": "\"Elite military units strip a potential leader down to absolutely nothing and force him to know his limits. They deprive ther person of sleep and food and force the person to live in harsh climates, with the goal of getting the person to truly understand his strengths, weaknesses and limitations.\"",
+          "6": "I have thought a lot of about this. I think I have quite good understanding of my strenghts, weaknesses and limitations. For example my strenghts are limitless willingness to learn, improve, self-reflect etc... My weaknesses are that I want too much results which will affect my personal life and family. My limitations are how much time I can spend on learning now-a-days since I have a young daughter.",
+          "7": "Now that we know why undestanding your limitations is important, we will have following exercise:",
+          "8": "Write down what are your current strenghts, weaknesses and limitations regarding software developer job. Next make a self-assessment about your skills in following areas: object oriented programming, functional programming, software design patterns, unit testing, architectures, cloud computing, CI/CD pipelines, infrastructure as code, front end- and back end development.",
+          "9": "Use scale of 1 - 5. 1 = you have no knowledge. 2 = you know basics of this. 3 = you can work efficiently with this. 4 = you can mentor limited audience with this. 5 = you can teach this subject at seminar which has hundreds of attendees.",
+          "10": "After doing self assessment, are you as good as you thought you are?"
         },
-        "paragraph_headers": {}
+        "paragraph_headers": {
+          "3": "How did I self assessment myself earlier?",
+          "6": "Strenghts, weaknesses and limitations"
+        }
       }
     }
   }

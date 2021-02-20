@@ -1,10 +1,10 @@
 import React from "react";
-import { UCaseTypography, PageContainer, ParagraphContainer } from "../../styles/components";
+import { UCaseTypography, ParagraphContainer } from "../../styles/components";
 import { useTranslation } from "react-i18next";
 import { TFunction } from "i18next";
 import { Typography } from "@material-ui/core";
 
-type ChapterProps = {
+export type ChapterProps = {
   readonly TranslationKey: string;
   readonly FirstParagraphIndex: number;
   readonly LastParagraphIndex: number;
@@ -52,16 +52,15 @@ const renderParagraph = (t: TFunction, paragraph: Paragraph, index: number) => {
   );
 };
 
-export default function GenericChapter(props: ChapterProps) {
+export function GenericParagraphs(props: ChapterProps) {
   const { t } = useTranslation();
 
   const toParagrapth = renderParagraph.bind(null, t);
 
   const paragraphs = createParagraphInfos(props);
   return (
-    <PageContainer>
-      <UCaseTypography variant="h3">{t(`${props.TranslationKey}.header`)}</UCaseTypography>
-      {paragraphs.map(toParagrapth)}
-    </PageContainer>
-  );
+    <>
+      { paragraphs.map(toParagrapth)}
+    </>
+  )
 }
