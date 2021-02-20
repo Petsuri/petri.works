@@ -10,8 +10,14 @@
       "software_development": "Mahtavaa softan kehitystä & arkkitehtuuria"
     },
     "cv": "Ansioluettelo",
+    "technologies": "Teknologioiden osaaminen",
     "main_page": "Pääsivu",
-    "path_to_awesome_developer": "Polku mahtavaksi kehittäjäksi"
+    "path_to_awesome_developer": "Polku mahtavaksi kehittäjäksi",
+    "chapter": {
+      "one": "Kappale 1: Kaikki alkaa motivaatiosta",
+      "two": "Kappale 2: Ymmärrä nykyinen osaamisen tasosi",
+      "three": "Kappale 3: Itsereflektion taito"
+    }
   },
   "cv": {
     "present": "Nykyhetki",

@@ -15,7 +15,7 @@
     "path_to_awesome_developer": "Path to awesome developer",
     "chapter": {
       "one": "Chapter 1: It all starts with motivation",
-      "two": "Chapter 2: Establishing your current knowledge",
+      "two": "Chapter 2: Establishing your current skill level",
       "three": "Chapter 3: Art of self-reflection"
     }
   },
@@ -193,12 +193,26 @@
         }
       },
       "two": {
-        "header": "Chapter 2: Establishing your current knowledge",
+        "header": "Chapter 2: Establishing your current skill level",
         "paragraphs": {
           "1": "To begin our journey to being awesome software developer, first thing for us is to know our current skill level. Where are we at today? What are our strenghts and what skills are we missing?",
-          "2": "We are going to start this chapter with a coding exercise to create baseline. After a while, one or two months, we are going to make this exercise again and self-reflect. Have we actually learned anything, if yes what and if no, why? Where can we improve? Name of the game is always to improve and understand your current limitations."
+          "2": "We are going to start this chapter with a coding exercise to create baseline. After a while, one or two months, we are going to make this exercise again and self-reflect. Have we actually learned anything, if yes what and if no, why? Where can we improve? Name of the game is always to improve and understand your current limitations.",
+          "3": "Petri.works has been having problems on scaling up its development resources. You have offered your help to implement new feature for petri.works which will also be your work example since petri.works might be hiring later. You should implement this with your best effort to evaluate your current skill level. You should take object-oriented approach for solving following problem:",
+          "4": "As a scrooge family guy, I want to subscribe to know when meat is coming to discount at my local supermarket, so I can save money and time without having to go check meast last expiration dates all the time.",
+          "5": "As a meat lover, I want to write down meat expiration dates with current €/kg prices including how many pieces are still left at supermarket, so I can help others to find cheap meat and benefit from others doing the same.",
+          "6": "As a guy who just bought discounted meat, I want to inform where I just bought meat at discount with information of how many pieces, so program can maintain status of showing how many pieces of discounted meat is still left at the store.",
+          "7": "As a system admin, I want to users being able to unsubscribe from getting notifications about meat discounts, so I can avoid GDPR issues.",
+          "8": "---",
+          "9": "Based on these user stories, implement class(es) for handling these user stories. Implementation should not have dependencies on APIs, console applications etc... and should be usable in any context. Focus on simplicity, testability, interoperability and clearness of responsibilities.",
+          "10": "PS. you don't need to use concrete database or filesystem for maintaining state, instead you can use abstraction to hide away these technical details."
         },
-        "paragraph_headers": {}
+        "paragraph_headers": {
+          "3": "The exercise",
+          "4": "User Story #1",
+          "5": "User Story #2",
+          "6": "User Story #3",
+          "7": "User Story #4"
+        }
       },
       "three": {
         "header": "Chapter 3: Art of self-reflection",

@@ -6,8 +6,8 @@ export default function ChapterTwoPage() {
     <GenericChapter
       TranslationKey="career.chapter.two"
       FirstParagraphIndex={1}
-      LastParagraphIndex={2}
-      Headers={[]}
+      LastParagraphIndex={10}
+      Headers={[3, 4, 5, 6, 7]}
     />
   );
 }
