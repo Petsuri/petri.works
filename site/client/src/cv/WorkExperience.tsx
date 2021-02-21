@@ -130,10 +130,16 @@ const renderExperience = (t: TFunction, job: Experience, key: number): JSX.Eleme
   return (
     <Grid key={key} item sm={12}>
       <FlexContainer>
-        <UCaseTypography variant="h5">{job.company}</UCaseTypography>
-        <UCaseTypography variant="h5">{formatPeriod(t, job.begin, job.end)}</UCaseTypography>
+        <UCaseTypography variant="h5" component="h4">
+          {job.company}
+        </UCaseTypography>
+        <UCaseTypography variant="h5" component="h4">
+          {formatPeriod(t, job.begin, job.end)}
+        </UCaseTypography>
       </FlexContainer>
-      <UCaseTypography variant="h6">{job.jobTitle}</UCaseTypography>
+      <UCaseTypography variant="h6" component="h5">
+        {job.jobTitle}
+      </UCaseTypography>
       {renderDescriptions(job.description)}
       {renderResponsibilities(t, job.responsibilities)}
       {renderAchievements(t, job.achievements)}

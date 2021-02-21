@@ -2,6 +2,7 @@
   "main": {
     "works": "Petri Miikki works",
     "works_short": "Petri works",
+    "open_menu": "Open menu",
     "coming_soon": "Coming soon",
     "coming": {
       "pizza": "Pizza",
@@ -227,7 +228,8 @@
           "7": "I have thought a lot of about this. I think I have quite good understanding of my strenghts, weaknesses and limitations. For example my strenghts are limitless willingness to learn, improve, self-reflect etc... My weaknesses are that I want too much results which will affect my personal life and family. My limitations are how much time I can spend on learning now-a-days since I have a young daughter. Now that we know why undestanding your limitations is important, we will have following exercise:",
           "8": "Write down what are your current strenghts, weaknesses and limitations regarding software developer job. Next make a self-assessment about your skills in following areas:",
           "9": "Use scale of one to five:",
-          "10": "This is also a baseline for our current knowledge. We will make this same assessment again after we have been progressing in this mentoring program so we can also measure our own progress. After doing self assessment, are you as good as you thought you are?"
+          "10": "This is also a baseline for our current knowledge. We will make this same assessment again after we have been progressing in this mentoring program so we can also measure our own progress.",
+          "11": "After doing self-assessment, are you as good as you thought you are?"
         },
         "paragraph_headers": {
           "4": "How about self-assessment?",

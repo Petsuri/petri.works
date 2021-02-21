@@ -15,7 +15,7 @@ export type ChapterProps = {
 export type ChapterListItem = {
   readonly ParagraphIndex: number;
   readonly LastItemIndex: number;
-}
+};
 
 type Paragraph = {
   readonly Index: number;
@@ -37,14 +37,19 @@ const createParagraphInfos = (props: ChapterProps): Array<Paragraph> => {
       Index: index,
       HeaderKey: headerKey,
       ParagraphKey: paragrapKey,
-      ListItems: listItems
+      ListItems: listItems,
     });
   }
 
   return paragraphs;
 };
 
-const renderListTems = (t: TFunction, translationKey: string, paragaphIndex: number, listItems: ChapterListItem | null) => {
+const renderListTems = (
+  t: TFunction,
+  translationKey: string,
+  paragaphIndex: number,
+  listItems: ChapterListItem | null
+) => {
   if (listItems === null) {
     return null;
   }
@@ -53,17 +58,18 @@ const renderListTems = (t: TFunction, translationKey: string, paragaphIndex: num
   for (let listItemIndex = 1; listItemIndex <= listItems.LastItemIndex; listItemIndex++) {
     items.push(
       <li>{t(`${translationKey}.paragraph_list_items.${paragaphIndex}.${listItemIndex}`)}</li>
-    )
+    );
   }
 
-  return (
-    <UnorderedList>
-      {items}
-    </UnorderedList>
-  );
-}
+  return <UnorderedList>{items}</UnorderedList>;
+};
 
-const renderParagraph = (t: TFunction, translationKey: string, paragraph: Paragraph, index: number) => {
+const renderParagraph = (
+  t: TFunction,
+  translationKey: string,
+  paragraph: Paragraph,
+  index: number
+) => {
   const header = (headerKey: string | null) => {
     if (headerKey === null) {
       return null;
@@ -87,9 +93,5 @@ export function GenericParagraphs(props: ChapterProps) {
   const toParagrapth = renderParagraph.bind(null, t).bind(null, props.TranslationKey);
 
   const paragraphs = createParagraphInfos(props);
-  return (
-    <>
-      { paragraphs.map(toParagrapth)}
-    </>
-  )
+  return <>{paragraphs.map(toParagrapth)}</>;
 }

@@ -9,7 +9,13 @@ type OuterLinkProps = {
 
 export default function OuterLink(props: OuterLinkProps) {
   return (
-    <Link href={props.href} target={props.openToBlank ? "_blank" : ""} rel="noopener noreferrer">
+    <Link
+      color="inherit"
+      underline="always"
+      href={props.href}
+      target={props.openToBlank ? "_blank" : ""}
+      rel="noopener noreferrer"
+    >
       {props.text}
     </Link>
   );

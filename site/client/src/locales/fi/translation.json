@@ -2,6 +2,7 @@
   "main": {
     "works": "Petri Miikki työskentelee",
     "works_short": "Petri työskentelee",
+    "open_menu": "Avaa valikko",
     "coming_soon": "Tulossa pian",
     "coming": {
       "pizza": "Pizzaa",

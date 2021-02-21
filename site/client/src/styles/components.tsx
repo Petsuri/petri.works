@@ -18,12 +18,14 @@ import { darkThemeTextColor } from "./colors";
 
 const defaultMargin = "0.2rem";
 
-export const UCaseTypography = styled(Typography)({
-  letterSpacing: "0.05em",
-  textTransform: "uppercase",
-  textAlign: "left",
-  marginBottom: defaultMargin,
-});
+export const UCaseTypography = withStyles({
+  root: {
+    letterSpacing: "0.05em",
+    textTransform: "uppercase",
+    textAlign: "left",
+    marginBottom: defaultMargin,
+  },
+})(Typography) as typeof Typography;
 
 export const WhiteDivider = styled(Divider)({
   background: "white",

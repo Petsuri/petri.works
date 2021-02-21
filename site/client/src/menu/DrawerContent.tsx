@@ -37,7 +37,12 @@ export default function DrawerContent(props: DrawerContentProps) {
     { MainLink: <CvLink />, SubLinks: some([<TechnologiesLink />]) },
     {
       MainLink: <BeingDeveloperLink />,
-      SubLinks: some([<ChapterOneLink />, <ChapterTwoLink />, <ChapterThreeLink />, <ChapterFourLink />]),
+      SubLinks: some([
+        <ChapterOneLink />,
+        <ChapterTwoLink />,
+        <ChapterThreeLink />,
+        <ChapterFourLink />,
+      ]),
     },
     { MainLink: <ComingSoonLink />, SubLinks: none() },
   ];

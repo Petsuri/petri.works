@@ -55,7 +55,9 @@ export default function Skills() {
     return (
       <Grid key={key} item sm={6}>
         <div>
-          <UCaseTypography variant="h5">{skill.header}</UCaseTypography>
+          <UCaseTypography variant="h5" component="h4">
+            {skill.header}
+          </UCaseTypography>
           <Typography variant="body1">{skill.description}</Typography>
         </div>
       </Grid>

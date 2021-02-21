@@ -42,7 +42,11 @@ const TopMenu = (): JSX.Element => {
     <>
       <AppBar position="static">
         <Toolbar>
-          <IconButton className={classes.icon} onClick={() => setIsDrawerOpen(!isDrawerOpen)}>
+          <IconButton
+            aria-label={t("main.open_menu")}
+            className={classes.icon}
+            onClick={() => setIsDrawerOpen(!isDrawerOpen)}
+          >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.titleDesktop}>

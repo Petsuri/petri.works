@@ -37,10 +37,16 @@ const renderSchool = (t: TFunction, school: School, key: number): JSX.Element =>
   return (
     <Grid key={key} item sm={12}>
       <FlexContainer>
-        <UCaseTypography variant="h5">{school.name}</UCaseTypography>
-        <UCaseTypography variant="h5">{formatPeriod(t, school.begin, school.end)}</UCaseTypography>
+        <UCaseTypography variant="h5" component="h4">
+          {school.name}
+        </UCaseTypography>
+        <UCaseTypography variant="h5" component="h4">
+          {formatPeriod(t, school.begin, school.end)}
+        </UCaseTypography>
       </FlexContainer>
-      <UCaseTypography variant="h6">{school.location}</UCaseTypography>
+      <UCaseTypography variant="h6" component="h5">
+        {school.location}
+      </UCaseTypography>
       <Paragraph>{school.description}</Paragraph>
     </Grid>
   );
@@ -48,14 +54,13 @@ const renderSchool = (t: TFunction, school: School, key: number): JSX.Element =>
 
 export default function Education(): JSX.Element {
   const { t } = useTranslation();
-  const toSchool = renderSchool.bind(null, t);
+  const render = renderSchool.bind(null, t);
   return (
     <>
       <UCaseTypography variant="h3">{t("cv.education.header")}</UCaseTypography>
       <Grid container spacing={3}>
-        {getSchools(t).map(toSchool)}
+        {getSchools(t).map(render)}
       </Grid>
-      §
     </>
   );
 }

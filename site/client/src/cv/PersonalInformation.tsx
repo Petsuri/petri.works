@@ -2,6 +2,7 @@ import { Grid } from "@material-ui/core";
 import React from "react";
 import OuterLink from "../styles/OuterLink";
 import { UCaseTypography } from "../styles/components";
+import TechnologiesLink from "./TechnologiesLink";
 
 export default function PersonalInformation() {
   return (
@@ -9,7 +10,7 @@ export default function PersonalInformation() {
       <UCaseTypography variant="h3">Petri Miikki</UCaseTypography>
       <UCaseTypography variant="h4">Tech Lead</UCaseTypography>
       <UCaseTypography variant="h5">
-        <Grid container spacing={5}>
+        <Grid container spacing={2}>
           <Grid item>
             <OuterLink openToBlank={true} href="https://github.com/petsuri" text="Github" />
           </Grid>
@@ -21,6 +22,9 @@ export default function PersonalInformation() {
             />
           </Grid>
         </Grid>
+      </UCaseTypography>
+      <UCaseTypography variant="h5">
+        <TechnologiesLink />
       </UCaseTypography>
       <UCaseTypography variant="h5">
         <OuterLink href="mailto:miikinpetri@gmail.com" text="miikinpetri@gmail.com" />
