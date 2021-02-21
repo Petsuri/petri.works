@@ -119,7 +119,30 @@
     }
   },
   "technologies": {
-    "header": "Technology expertises"
+    "header": "Technology expertises",
+    "languages": {
+      "title": "Programming languages",
+      "description": "I have a strong background in object-oriented design. Even though I might not have worked with a ton of languages, I have built strong knowledge about design principles & patterns, unit testable code, how to make maintainable code etc... using few different object-oriented languages. All these skills are transferable to another language without a trouble, it is just learning new syntax and base libraries used in that language.",
+      "learning": "Not a long time ago, when I started working with PHP which was new language to me, it only took about one week that I was able to work with it productively since it was also object-oriented language. I was able to use all my existing skills and only transfer them to little bit different environment. Because of this, even though if I haven't worked with some OO language, I can learn it fast.",
+      "profiency": "I have full profiency following languages:"
+    },
+    "infrastructures": {
+      "title": "Infrastructures",
+      "description": "I have always had interest for cloud computing. I have read a lot of books related to this topic and understand different aspects about cloud computing and what it is all about. I have been using with all three major provides (AWS, Azure, GCP).",
+      "aws": "I have been studying AWS at home. This site is also hosted in AWS and infrastructure is automated using Terraform. So all changes to this sites infrastructure is done through Terraform.",
+      "gcp": "I have been using Google Cloud Platform as part of my work. We are hosting our service using GCP with help of Google Kubernetes Engine. Kubernetes itself is wide topic and I have basic knowledge of it and how to operate it.",
+      "azure": "Azure is the major provider I have been using the least. Mainly just trying out Functions as part of automating workflows.",
+      "knowledge": "I have knowledge of following infrastructure related things:"
+    },
+    "databases": {
+      "title": "Databases"
+    },
+    "backend": {
+      "title": "Backend"
+    },
+    "frontend": {
+      "title": "Frontend"
+    }
   },
   "career": {
     "header": "Path to awesome software developer",
