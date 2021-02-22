@@ -124,10 +124,10 @@
       "title": "Programming languages",
       "description": "I have a strong background in object-oriented design. Even though I might not have worked with a ton of languages, I have built strong knowledge about design principles & patterns, unit testable code, how to make maintainable code etc... using few different object-oriented languages. All these skills are transferable to another language without a trouble, it is just learning new syntax and base libraries used in that language.",
       "learning": "Not a long time ago, when I started working with PHP which was new language to me, it only took about one week that I was able to work with it productively since it was also object-oriented language. I was able to use all my existing skills and only transfer them to little bit different environment. Because of this, even though if I haven't worked with some OO language, I can learn it fast.",
-      "profiency": "I have full profiency following languages:"
+      "profiency": "Currently I can work with following languages:"
     },
     "infrastructures": {
-      "title": "Infrastructures",
+      "title": "Infrastructure",
       "description": "I have always had interest for cloud computing. I have read a lot of books related to this topic and understand different aspects about cloud computing and what it is all about. I have been using with all three major provides (AWS, Azure, GCP).",
       "aws": "I have been studying AWS at home. This site is also hosted in AWS and infrastructure is automated using Terraform. So all changes to this sites infrastructure is done through Terraform.",
       "gcp": "I have been using Google Cloud Platform as part of my work. We are hosting our service using GCP with help of Google Kubernetes Engine. Kubernetes itself is wide topic and I have basic knowledge of it and how to operate it.",
@@ -135,13 +135,18 @@
       "knowledge": "I have knowledge of following infrastructure related things:"
     },
     "databases": {
-      "title": "Databases"
+      "title": "Databases",
+      "description": "I have mainly worked with relational databases SQL Server, MySQL and MariaDB. With petri.works I am also using NoSQL database to store data and have been studying for example graph databases (Neo4j)."
     },
     "backend": {
-      "title": "Backend"
+      "title": "Backend",
+      "description": "I love to work with backend related stuff, especially with business logic and architecture. This is also area that I have the most skills with and they are not technology dependent.",
+      "history": "I have been working a lot of different aspects that comes to backend with designing: REST APIs, integrations, microservices, architecture, coding principles etc..."
     },
     "frontend": {
-      "title": "Frontend"
+      "title": "Frontend",
+      "achievement": "My biggest achievement from frontend area is Netvisor mobile app that I have created from ground up. Choosing technologies that best suites organization, making architecture decisions, defining practices, creating pipelines. All the groundwork was done by me (except UX), before we were able to recruit more teammates.",
+      "web": "Web related things, I have been working mainly with React (petri.works is also done by React). I have also been using different libraries for unit testing, integration testing and end-to-end testing."
     }
   },
   "career": {

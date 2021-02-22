@@ -7,7 +7,7 @@ import TechnologyItems from "./TechnologyItems";
 export default function TechnologiesPage() {
   const { t } = useTranslation();
 
-  const languages = ["C#", "Javascript", "Typescript", "PHP", "VB.NET", "SQL", "HCL"];
+  const languages = ["C#", "Javascript", "Typescript", "PHP", "VB.NET", "SQL", "HCL", "F#", "C++"];
   const infrastructure = ["AWS", "GCP", "Serverless", "Terraform", "Kubernetes", "Docker", "RabbitMQ"];
   const databases = ["SQLServer", "MariaDB", "MySQL", "DynamoDB", "Redis"];
   const backend = ["asp.net", "Symfony", "REST", "OpenID", "OAuth", "RobotFramework", "NUnit", "PHPUnit", "Specflow"];
@@ -34,14 +34,19 @@ export default function TechnologiesPage() {
       <TechnologyItems Items={infrastructure} />
       <ParagraphContainer>
         <UCaseTypography variant="h4">{t("technologies.databases.title")}</UCaseTypography>
+        <Paragraph>{t("technologies.databases.description")}</Paragraph>
       </ParagraphContainer>
       <TechnologyItems Items={databases} />
       <ParagraphContainer>
         <UCaseTypography variant="h4">{t("technologies.backend.title")}</UCaseTypography>
+        <Paragraph>{t("technologies.backend.description")}</Paragraph>
+        <Paragraph>{t("technologies.backend.history")}</Paragraph>
       </ParagraphContainer>
       <TechnologyItems Items={backend} />
       <ParagraphContainer>
         <UCaseTypography variant="h4">{t("technologies.frontend.title")}</UCaseTypography>
+        <Paragraph>{t("technologies.frontend.achievement")}</Paragraph>
+        <Paragraph>{t("technologies.frontend.web")}</Paragraph>
       </ParagraphContainer>
       <TechnologyItems Items={frontend} />
     </PageContainer>

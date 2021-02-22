@@ -20,7 +20,7 @@ const defaultMargin = "0.2rem";
 
 export const UCaseTypography = withStyles({
   root: {
-    letterSpacing: "0.05em",
+    letterSpacing: "0.05rem",
     textTransform: "uppercase",
     textAlign: "left",
     marginBottom: defaultMargin,
@@ -33,7 +33,7 @@ export const WhiteDivider = styled(Divider)({
 
 export const Paragraph = styled(Typography)({
   "& + &": {
-    paddingTop: defaultMargin,
+    paddingTop: "0.4rem",
   },
 });
 
