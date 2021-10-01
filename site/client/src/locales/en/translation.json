@@ -286,7 +286,31 @@
         }
       },
       "four": {
-        "header": "Chapter 4: Fundamentals of object-oriented programming"
+        "header": "Chapter 4: Fundamentals of object-oriented programming",
+        "paragraphs": {
+          "1": "If you have ever attended object-oriented programming course, it most likely contained following topics:",
+          "2": "Great. You have learned the building bricks of object-oriented programming. You know what features you can use to solve problems and also understand concepts as encapsulation. Before continuing, self-reflect for a moment: what do you think is most important in object-oriented programming?",
+          "3": "One of the my favourite things about object-oriented proramming is data hiding. Hide all unnecessary things from the reader and let the reader focus on what is actually important at the moment. This also enforces more abstract code making, usually, it also more readable and maintainable. Simple example of this is:",
+          "4": "Do you think this code is readable and easy to maintain? If you answered yes, you are most likely still in the beginning of your programming career and are a junior software developer. Bad thing about this implementation is that we have also mixed technical complexities with business logic. With this implementation, can you even find what our business rules are? Also, this code is hard to unit test with all of its execution paths. One downside that I have also seen with these kind of implemenations is that it leads to copy paste coding since it is the only way reuse logic.",
+          "5": "If we would think about hiding unnecessary things from reader of the code and have well defined responsibilities, we could refactor code above to following:",
+          "6": "This implementation would allow reader to focus what is actual responsiblity of SubscrpitionService: what are actual business requirements for subscribing. This also allows easier reusability of our code, since you can use different implementations of repositories; for example mobile impelmentation could use API when your backend implementation could use NoSQL or SQL database.",
+          "7": "Separation of concerns is also followed here. We are not mixing technical and business requirements, we can focus on what matters to us at that time. It might be that we have to change persistance layer; great, we don't have to think about business rules or business logic; we don't have to think about persistance.",
+          "8": "For me most important thing about object-oriented programming is information hiding. Programmers can always focus on the problem at correct abstraction level. This will bring benefits at different levels, for example: unit testability, reausability, maintainability, understandability to just name a few '-ilities'.",
+          "9": "We have just touched surface here. In next chapters we will focus on SOLID principles which are really close to my heart and will bring another level of excellence to your programming skills. You can already checkout excerises regarding SOLID principles here: https://github.com/Petsuri/SolidPrinciplesWorkshop"
+        },
+        "paragraph_headers": {
+          "3": "Information hiding",
+          "8": "Beyond basic OO"
+        },
+        "paragraph_list_items": {
+          "1": {
+            "1": "Classes",
+            "2": "Inheritance",
+            "3": "Polymorphism (aka method overloading / overriding)",
+            "4": "Abstraction",
+            "5": "Encapsulation"
+          }
+        }
       }
     }
   }

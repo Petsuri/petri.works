@@ -1,17 +1,39 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { PageContainer, Paragraph, ParagraphContainer, UCaseTypography } from "../styles/components";
+import {
+  PageContainer,
+  Paragraph,
+  ParagraphContainer,
+  UCaseTypography,
+} from "../styles/components";
 import TechnologyItems from "./TechnologyItems";
-
 
 export default function TechnologiesPage() {
   const { t } = useTranslation();
 
   const languages = ["C#", "Javascript", "Typescript", "PHP", "VB.NET", "SQL", "HCL", "F#", "C++"];
-  const infrastructure = ["AWS", "GCP", "Serverless", "Terraform", "Kubernetes", "Docker", "RabbitMQ"];
+  const infrastructure = [
+    "AWS",
+    "GCP",
+    "Serverless",
+    "Terraform",
+    "Kubernetes",
+    "Docker",
+    "RabbitMQ",
+  ];
   const databases = ["SQLServer", "MariaDB", "MySQL", "DynamoDB", "Redis"];
-  const backend = ["asp.net", "Symfony", "REST", "OpenID", "OAuth", "RobotFramework", "NUnit", "PHPUnit", "Specflow"];
-  const frontend = ["React", "Xamarin.Forms", "Jasmine", "Jest", "Intern"]
+  const backend = [
+    "asp.net",
+    "Symfony",
+    "REST",
+    "OpenID",
+    "OAuth",
+    "RobotFramework",
+    "NUnit",
+    "PHPUnit",
+    "Specflow",
+  ];
+  const frontend = ["React", "Xamarin.Forms", "Jasmine", "Jest", "Intern"];
 
   return (
     <PageContainer>
