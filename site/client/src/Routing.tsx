@@ -20,6 +20,8 @@ import { PathToChapterFour } from "./career/chapters/ChapterFourLink";
 import ChapterFourPage from "./career/chapters/ChapterFourPage";
 import { PathToTechnologiesPage } from "./cv/TechnologiesLink";
 import TechnologiesPage from "./cv/TechonologiesPage";
+import { PathToChapterFive } from "./career/chapters/ChapterFiveLink";
+import ChapterFivePage from "./career/chapters/ChapterFivePage";
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
@@ -60,6 +62,9 @@ export default function Routing() {
             </Route>
             <Route path={PathToChapterFour}>
               <ChapterFourPage />
+            </Route>
+            <Route path={PathToChapterFive}>
+              <ChapterFivePage />
             </Route>
             <Route path="/">
               <CvPage />

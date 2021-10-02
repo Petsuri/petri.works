@@ -18,7 +18,8 @@
       "one": "Chapter 1: It all starts with motivation",
       "two": "Chapter 2: Establishing your current skill level",
       "three": "Chapter 3: Art of self-reflection",
-      "four": "Chapter 4: Fundamentals of object-oriented programming"
+      "four": "Chapter 4: Fundamentals of object-oriented programming",
+      "five": "Chapter 5: SOLID principles at the beginning of your career"
     }
   },
   "cv": {
@@ -310,6 +311,21 @@
             "4": "Abstraction",
             "5": "Encapsulation"
           }
+        }
+      },
+      "five": {
+        "header": "Chapter 5: SOLID principles at the beginning of your career",
+        "paragraphs": {
+          "1": "It amazes me again and again how less these principles are known in the industry. For example, Liskov Substition Principle, dates back to 1988, when I wasn't even born yet even though I lived almost 6 months in the 80's. For me, these principles have always been the backbone in the programming or even in the architecture of software. It is good to notice that SOLID principles are not exlusive to object-oriented programming; same principles can also be applied in functional programming.",
+          "2": "These principles were brough together first time in 2000 by Robert C. Martin (who has been a great inspirer for me).",
+          "3": "It is strange that these fundementals, that make possible to write maintainable, extenable, unit testable etc... code are not in mind of every developer. When I started my career in software industry; it was all about procedural programming. Yeah, I know, it was just one company/product. But I never settled for current standard or way of doing things, I always wanted to learn more.",
+          "4": "I read countless books about programming in my first two years in the industry; from really generic Code Complete to more niche Writing High-Performance .NET Code. Still two most influential books I read are probably: Clean Code & Adaptive Code (1st & 2nd editions).",
+          "5": "Clean Code touched topic of SOLID principles but sadly didn't go further in that topic. Gladly, Adaptice Code continued where Clean Code left off. It went more deeply to every principle and taught them with more discussion and insight; tradeoffs.",
+          "6": "Probably most important learning for me has been that knowing about theory doesn't mean anything; how you can apply your skills is everything. I have learnt this the hard way. In early days of my career, \"architects\" called by code \"machine from hell\" when they could only write prodecural code without understanding what object-oriented programming actually meant. By no means, I made code too hard to understand and read because of unnecessary abstractions etc... But I never actually got any feedback how to stucture code other than few hundred line functions (at the baddest +1k lines; otherwise it was hard to read and follow).",
+          "7": "Where I am getting with all this is; follow your instincs, trust what you have read about industry even there might be some who disagress and most importanly: \"if you never make mistakes, you can't never learn and improve\". The last advice has been my guideline for continous improvement; always try new things. They might fail; that is fine but you have learnt why they failed and can make better decisions in the future.",
+          "8": "If I just accepted in my work environment that I should not study or try to apply SOLID principles at work; I would probably still be mediocre software developer since there was no one to mentor or teach me. It is really important not to let people talk you down or not allow them to make you have feeling of infeority because that is what hinders your own personal development and career.",
+          "9": "Most imporant learning for me about SOLID principles has been that they are just a tool in your toolbox. You have to remember that not everything looks like a nail even though all you have is a hammer. It always comes down to tradeoffs in your current context. It might be that other team members are not ready for SOLID principles because of too high learning curve or just unwillingness to learn new.",
+          "10": "We are going to explore all principles one by one in following chapters with examples and exercises."
         }
       }
     }
