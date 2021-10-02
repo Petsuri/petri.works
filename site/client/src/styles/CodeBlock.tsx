@@ -1,4 +1,6 @@
 import React from "react";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 type CodeBlockProps = {
   readonly children: React.ReactNode;
@@ -6,8 +8,8 @@ type CodeBlockProps = {
 
 export const CodeBlock = (props: CodeBlockProps) => {
   return (
-    <pre>
-      <code>{props.children}</code>
-    </pre>
+    <SyntaxHighlighter language="typescript" showLineNumbers wrapLongLines style={docco}>
+      {props.children}
+    </SyntaxHighlighter >
   );
 };
