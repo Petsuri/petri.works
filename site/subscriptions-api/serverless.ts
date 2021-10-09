@@ -1,24 +1,13 @@
 import type { Serverless } from "serverless/aws";
 
 const serverlessConfiguration: Serverless = {
-  service: {
-    name: "petri-works",
-    // app and org for use with dashboard.serverless.com
-    // app: your-app-name,
-    // org: your-org-name,
-  },
+  service: "petri-works",
   package: {
     excludeDevDependencies: true,
   },
   configValidationMode: "error",
   frameworkVersion: "2",
   custom: {
-    webpack: {
-      webpackConfig: "./webpack.config.js",
-      includeModules: {
-        forceExclude: ["aws-sdk"],
-      },
-    },
     "serverless-offline": {
       httpPort: 4000,
     },
@@ -35,9 +24,9 @@ const serverlessConfiguration: Serverless = {
     },
   },
   plugins: [
+    "serverless-plugin-typescript",
     "serverless-dynamodb-local",
     "serverless-offline",
-    "serverless-webpack",
     "serverless-dotenv-plugin",
   ],
   provider: {
