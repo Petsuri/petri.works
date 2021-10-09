@@ -1,9 +1,8 @@
 import React from "react";
 import { List, ListItem, makeStyles, Theme } from "@material-ui/core";
 import CvLink from "../cv/CvLink";
-import ComingSoonLink from "../coming-soon/ComingSoonLink";
 import BeingDeveloperLink from "../career/BeingDeveloperLink";
-import { none, Option, some } from "@petriworks/common";
+import { Option, some } from "@petriworks/common";
 import { IdentedListItem } from "../styles/components";
 import ChapterOneLink from "../career/chapters/ChapterOneLink";
 import ChapterTwoLink from "../career/chapters/ChapterTwoLink";
@@ -46,7 +45,6 @@ export default function DrawerContent(props: DrawerContentProps) {
         <ChapterFiveLink />,
       ]),
     },
-    { MainLink: <ComingSoonLink />, SubLinks: none() },
   ];
 
   const renderSubLinks = (subLinks: Option<JSX.Element[]>) => {

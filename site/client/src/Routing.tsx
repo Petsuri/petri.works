@@ -1,11 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ComingSoonPage from "./coming-soon/ComingSoonPage";
 import TopMenu from "./menu/TopMenu";
 import "./App.css";
 import CvPage from "./cv/CvPage";
 import { PathToCvPage } from "./cv/CvLink";
-import { PathToComingSoonPage } from "./coming-soon/ComingSoonLink";
 import { makeStyles, Theme } from "@material-ui/core";
 import { darkBackgroundColor } from "./styles/colors";
 import { PathToBeingDeveloperPage } from "./career/BeingDeveloperLink";
@@ -44,9 +42,6 @@ export default function Routing() {
             </Route>
             <Route path={PathToTechnologiesPage}>
               <TechnologiesPage />
-            </Route>
-            <Route path={PathToComingSoonPage}>
-              <ComingSoonPage />
             </Route>
             <Route path={PathToBeingDeveloperPage}>
               <BeingDeveloperPage />
