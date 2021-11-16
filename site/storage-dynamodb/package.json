@@ -8,7 +8,7 @@
     "build": "tsc -b --clean  && tsc -b"
   },
   "dependencies": {
-    "aws-sdk": "^2.804.0"
+    "aws-sdk": "^2.814.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.10",
