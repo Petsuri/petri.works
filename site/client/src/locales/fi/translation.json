@@ -12,7 +12,8 @@
       "two": "Kappale 2: Ymmärrä nykyinen osaamisen tasosi",
       "three": "Kappale 3: Itsereflektion taito",
       "four": "Kappale 4: Olio-ohjelmoinnin perusteet",
-      "five": "Kappale 5: SOLID -periaatteet urasi alussa"
+      "five": "Kappale 5: SOLID -periaatteet urasi alussa",
+      "six": "Kappale 6: Single Responsibility Principle (SRP)"
     }
   },
   "cv": {
