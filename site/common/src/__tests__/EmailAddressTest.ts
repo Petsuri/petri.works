@@ -11,7 +11,7 @@ describe("EmailAddress", () => {
       });
     });
 
-    ["petri@petri.works", "miikinpetri@gmail.com", "x@gmail.com"].forEach((expected) => {
+    ["petri@petri.works", "PETRI@PETRI.WORKS", "miikinpetri@gmail.com", "x@gmail.com"].forEach((expected) => {
       it(`should create instance with correct email: ${expected}`, () => {
         const sut = new EmailAddressBuilder().withEmail(expected).build();
 
