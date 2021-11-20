@@ -7,7 +7,7 @@ import {
   Paragraph,
   UnorderedList,
   ParagraphContainer,
-} from "../styles/components";
+} from "../components/common";
 import { client } from "../ApiClient";
 import Subscribe from "./Subscribe";
 

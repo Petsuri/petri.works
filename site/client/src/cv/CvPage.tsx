@@ -1,6 +1,6 @@
 import React from "react";
 import Skills from "./Skills";
-import { TextContainer, WhiteDivider, PageContainer } from "../styles/components";
+import { TextContainer, WhiteDivider, PageContainer } from "../components/common";
 import Profile from "./Profile";
 import PersonalInformation from "./PersonalInformation";
 import WorkExperience from "./WorkExperience";

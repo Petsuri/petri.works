@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { PageContainer, UCaseTypography } from "../../styles/components";
-import { CodeBlock } from "../../styles/CodeBlock";
+import { PageContainer, UCaseTypography } from "../../components/common";
+import { CodeBlock } from "../../components/CodeBlock";
 import { GenericParagraphs } from "./GenericParagraphs";
 
 export default function ChapterOnePage() {

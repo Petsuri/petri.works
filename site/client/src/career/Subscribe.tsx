@@ -2,7 +2,7 @@ import React from "react";
 import { ApiClient } from "@petriworks/api-client";
 import { useTranslation } from "react-i18next";
 import SubscribeForm from "./SubscribeForm";
-import { ErrorAlert, SuccessAlert } from "../styles/Alerts";
+import { ErrorAlert, SuccessAlert } from "../components/Alerts";
 
 type SubscribeProps = {
   readonly apiClient: ApiClient;

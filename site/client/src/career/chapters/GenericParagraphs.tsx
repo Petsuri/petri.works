@@ -1,5 +1,5 @@
 import React from "react";
-import { UCaseTypography, ParagraphContainer, UnorderedList } from "../../styles/components";
+import { UCaseTypography, ParagraphContainer, UnorderedList } from "../../components/common";
 import { useTranslation } from "react-i18next";
 import { TFunction } from "i18next";
 import { Typography } from "@material-ui/core";

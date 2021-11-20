@@ -5,7 +5,7 @@ import { LanguageSelection } from "./LanguageSelection";
 import MenuIcon from "@material-ui/icons/Menu";
 import Drawer from "@material-ui/core/Drawer";
 import DrawerContent from "./DrawerContent";
-import { darkBackgroundColor } from "../styles/colors";
+import { darkBackgroundColor } from "../components/colors";
 
 const useStyles = makeStyles((theme: Theme) => ({
   titleDesktop: {

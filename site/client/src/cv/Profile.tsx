@@ -1,5 +1,5 @@
 import React from "react";
-import { Paragraph, UCaseTypography } from "../styles/components";
+import { Paragraph, UCaseTypography } from "../components/common";
 import { useTranslation } from "react-i18next";
 
 export default function Profile() {

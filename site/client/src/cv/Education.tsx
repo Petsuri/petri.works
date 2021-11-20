@@ -1,6 +1,6 @@
 import { Grid } from "@material-ui/core";
 import React from "react";
-import { FlexContainer, Paragraph, UCaseTypography } from "../styles/components";
+import { FlexContainer, Paragraph, UCaseTypography } from "../components/common";
 import { formatPeriod } from "../timeFormatting";
 import { useTranslation } from "react-i18next";
 import { TFunction } from "i18next";

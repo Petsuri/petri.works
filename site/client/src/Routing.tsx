@@ -5,7 +5,7 @@ import "./App.css";
 import CvPage from "./cv/CvPage";
 import { PathToCvPage } from "./cv/CvLink";
 import { makeStyles, Theme } from "@material-ui/core";
-import { darkBackgroundColor } from "./styles/colors";
+import { darkBackgroundColor } from "./components/colors";
 import { PathToBeingDeveloperPage } from "./career/BeingDeveloperLink";
 import { PathToChapterOne } from "./career/chapters/ChapterOneLink";
 import ChapterOnePage from "./career/chapters/ChapterOnePage";

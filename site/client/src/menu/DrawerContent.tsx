@@ -3,7 +3,7 @@ import { List, ListItem, makeStyles, Theme } from "@material-ui/core";
 import CvLink from "../cv/CvLink";
 import BeingDeveloperLink from "../career/BeingDeveloperLink";
 import { Option, some } from "@petriworks/common";
-import { IdentedListItem } from "../styles/components";
+import { IdentedListItem } from "../components/common";
 import ChapterOneLink from "../career/chapters/ChapterOneLink";
 import ChapterTwoLink from "../career/chapters/ChapterTwoLink";
 import ChapterThreeLink from "../career/chapters/ChapterThreeLink";

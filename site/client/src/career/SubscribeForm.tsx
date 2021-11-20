@@ -5,7 +5,7 @@ import { ApiClient, SubscribeResource } from "@petriworks/api-client";
 import { Name, Unit } from "@petriworks/common";
 import { NewSubscriptionSchema, NewSubscriptionRequest } from "@petriworks/api-contracts";
 import { useTranslation } from "react-i18next";
-import { ParagraphContainer, StyledTextField } from "../styles/components";
+import { ParagraphContainer, StyledTextField } from "../components/common";
 import SubscribeButton from "./SubscribeButton";
 
 type SubscribeProps = {

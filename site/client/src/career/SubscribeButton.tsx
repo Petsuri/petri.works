@@ -1,6 +1,6 @@
 import React from "react";
 import { withTheme } from "@material-ui/core";
-import { StyledButton } from "../styles/components";
+import { StyledButton } from "../components/common";
 import { styled } from "@material-ui/core/styles";
 
 import { useTranslation } from "react-i18next";

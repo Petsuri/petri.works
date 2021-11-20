@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { PageContainer, UCaseTypography } from "../../styles/components";
+import { PageContainer, UCaseTypography } from "../../components/common";
 import { GenericParagraphs } from "./GenericParagraphs";
 
 export default function ChapterThreePage() {
