@@ -13,7 +13,8 @@
       "three": "Chapter 3: Art of self-reflection",
       "four": "Chapter 4: Fundamentals of object-oriented programming",
       "five": "Chapter 5: SOLID principles at the beginning of your career",
-      "six": "Chapter 6: Single Responsibility Principle (SRP)"
+      "six": "Chapter 6: Single Responsibility Principle (SRP)",
+      "seven": "Chapter 7: Single Responsibility Principle exercise"
     }
   },
   "cv": {
@@ -351,6 +352,23 @@
             "2": "Credits purchasing service",
             "3": "Person password management",
             "4": "Person account service"
+          }
+        }
+      },
+      "seven": {
+        "header": "Chapter 7: Single Responsibility Principle exercise",
+        "paragraphs": {
+          "1": "After reading Chapter Six, you should have a basic understanding of what Single Responsibility Principle stands for and what it means.SOLID principle exercises will be in C# but it is enough that you know some C -style language; they are mostly about design and how to refactor existing code.",
+          "2": "First, fork following repository: https://github.com/Petsuri/SolidPrinciplesWorkshop",
+          "3": "Navigate to  SOLID.Principles.Workshop/SRP -folder. There is a file called Pizzeria.cs. Your task is:",
+          "4": "In SRP it is really important that you discuss your reasoning with your colleagues. Learn and understand your reasoning about this principle so you can improve together and write even better code to meet your customers needs.",
+          "5": "What I have found is that if you actually follow SRP in your codebase, you can write code with greater certainty and make changes faster to allow your customers to have competitive advantage."
+        },
+        "paragraph_list_items": {
+          "3": {
+            "1": "List all reasons (responsibilities) for a change that the class has",
+            "2": "Refactor class so that it will follow Single Responsibility Principle",
+            "3": "Share your answer and discuss it with your colleagues"
           }
         }
       }

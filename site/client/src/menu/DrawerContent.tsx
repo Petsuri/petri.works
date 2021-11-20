@@ -11,6 +11,7 @@ import TechnologiesLink from "../cv/TechnologiesLink";
 import ChapterFourLink from "../career/chapters/ChapterFourLink";
 import ChapterFiveLink from "../career/chapters/ChapterFiveLink";
 import ChapterSixLink from "../career/chapters/ChapterSixLink";
+import ChapterSevenLink from "../career/chapters/ChapterSevenLink";
 
 type DrawerContentProps = {
   readonly closeDrawer: Function;
@@ -45,6 +46,7 @@ export default function DrawerContent(props: DrawerContentProps) {
         <ChapterFourLink />,
         <ChapterFiveLink />,
         <ChapterSixLink />,
+        <ChapterSevenLink />,
       ]),
     },
   ];

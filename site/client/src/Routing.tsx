@@ -22,6 +22,8 @@ import { PathToChapterFive } from "./career/chapters/ChapterFiveLink";
 import ChapterFivePage from "./career/chapters/ChapterFivePage";
 import { PathToChapterSix } from "./career/chapters/ChapterSixLink";
 import ChapterSixPage from "./career/chapters/ChapterSixPage";
+import { PathToChapterSeven } from "./career/chapters/ChapterSevenLink";
+import ChapterSevenPage from "./career/chapters/ChapterSevenPage";
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
@@ -65,6 +67,9 @@ export default function Routing() {
             </Route>
             <Route path={PathToChapterSix}>
               <ChapterSixPage />
+            </Route>
+            <Route path={PathToChapterSeven}>
+              <ChapterSevenPage />
             </Route>
             <Route path="/">
               <CvPage />
