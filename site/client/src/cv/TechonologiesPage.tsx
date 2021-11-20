@@ -5,7 +5,7 @@ import {
   Paragraph,
   ParagraphContainer,
   UCaseTypography,
-} from "../components/common";
+} from "../components";
 import TechnologyItems from "./TechnologyItems";
 
 export default function TechnologiesPage() {

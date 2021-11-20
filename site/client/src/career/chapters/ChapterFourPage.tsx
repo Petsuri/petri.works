@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { PageContainer, UCaseTypography } from "../../components/common";
+import { PageContainer, UCaseTypography } from "../../components";
 import { CodeBlock } from "../../components/CodeBlock";
 import { GenericParagraphs } from "./GenericParagraphs";
 

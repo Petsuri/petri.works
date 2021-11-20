@@ -16,17 +16,6 @@ import {
 import React from "react";
 import { darkThemeTextColor } from "./colors";
 
-const defaultMargin = "0.2rem";
-
-export const UCaseTypography = withStyles({
-  root: {
-    letterSpacing: "0.05rem",
-    textTransform: "uppercase",
-    textAlign: "left",
-    marginBottom: defaultMargin,
-  },
-})(Typography) as typeof Typography;
-
 export const WhiteDivider = styled(Divider)({
   background: "white",
 });

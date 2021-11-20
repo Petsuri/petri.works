@@ -1,5 +1,5 @@
 import React from "react";
-import { UCaseTypography, PageContainer } from "../../components/common";
+import { UCaseTypography, PageContainer } from "../../components";
 import { useTranslation } from "react-i18next";
 import { GenericParagraphs, ChapterProps } from "./GenericParagraphs";
 
