@@ -47,10 +47,23 @@ const getExperiences = (t: TFunction): Experience[] => {
       "Visma Solutions Oy, Visma Sign",
       "Tech Lead",
       new Date(2019, 5, 1),
-      null,
+      new Date(2022, 1, 1),
       "tech_lead",
       ["1", "2", "3", "4"],
       ["1", "2"]
+    )
+  );
+
+  experienses.push(
+    createExperience(
+      t,
+      "Visma Solutions Oy, Management board",
+      "Personnel member",
+      new Date(2021, 0, 1),
+      new Date(2021, 11, 1),
+      "management_board",
+      [],
+      []
     )
   );
 
@@ -101,7 +114,11 @@ const renderListItems = (items: string[]): JSX.Element => {
   );
 };
 
-const renderResponsibilities = (t: TFunction, responsibilities: string[]): JSX.Element => {
+const renderResponsibilities = (t: TFunction, responsibilities: string[]): JSX.Element | null => {
+  if (responsibilities.length === 0) {
+    return null;
+  }
+
   return (
     <>
       <Paragraph variant="subtitle1">{t("cv.experience.responsibilities")}:</Paragraph>
@@ -110,11 +127,8 @@ const renderResponsibilities = (t: TFunction, responsibilities: string[]): JSX.E
   );
 };
 
-const renderAchievements = (
-  t: TFunction,
-  achievements: string[] | undefined
-): JSX.Element | null => {
-  if (achievements === undefined) {
+const renderAchievements = (t: TFunction, achievements: string[]): JSX.Element | null => {
+  if (achievements.length === 0) {
     return null;
   }
 

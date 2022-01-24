@@ -8,9 +8,7 @@ export default function ChapterSevenPage() {
       FirstParagraphIndex={1}
       LastParagraphIndex={5}
       Headers={[]}
-      ListItems={[
-        { ParagraphIndex: 3, LastItemIndex: 3 },
-      ]}
+      ListItems={[{ ParagraphIndex: 3, LastItemIndex: 3 }]}
     />
   );
 }

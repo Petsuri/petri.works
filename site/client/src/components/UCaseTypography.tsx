@@ -1,7 +1,4 @@
-import {
-  Typography,
-  withStyles,
-} from "@material-ui/core";
+import { Typography, withStyles } from "@material-ui/core";
 
 const defaultMargin = "0.2rem";
 

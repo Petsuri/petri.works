@@ -76,6 +76,9 @@
       "header": "Experience",
       "responsibilities": "Responsibilities",
       "achievements": "Achievements",
+      "management_board": {
+        "description": "Growing Visma Solutions towards unicorn as a personnel member in the management board. Being part of making wide-ranging decisions about SaaS firm’s business."
+      },
       "tech_lead": {
         "description": "Strong focus on return on investment on what we are building and what way to best benefit business. Leading technical development of Visma Sign with daily hands-on coding.",
         "responsibilities": {

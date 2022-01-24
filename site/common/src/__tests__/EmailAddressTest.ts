@@ -11,15 +11,17 @@ describe("EmailAddress", () => {
       });
     });
 
-    ["petri@petri.works", "PETRI@PETRI.WORKS", "miikinpetri@gmail.com", "x@gmail.com"].forEach((expected) => {
-      it(`should create instance with correct email: ${expected}`, () => {
-        const sut = new EmailAddressBuilder().withEmail(expected).build();
+    ["petri@petri.works", "PETRI@PETRI.WORKS", "miikinpetri@gmail.com", "x@gmail.com"].forEach(
+      (expected) => {
+        it(`should create instance with correct email: ${expected}`, () => {
+          const sut = new EmailAddressBuilder().withEmail(expected).build();
 
-        const actual = sut.email;
+          const actual = sut.email;
 
-        expect(actual).toBe(expected);
-      });
-    });
+          expect(actual).toBe(expected);
+        });
+      }
+    );
 
     [
       "petri.works",

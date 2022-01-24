@@ -1,11 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import {
-  PageContainer,
-  Paragraph,
-  ParagraphContainer,
-  UCaseTypography,
-} from "../components";
+import { PageContainer, Paragraph, ParagraphContainer, UCaseTypography } from "../components";
 import TechnologyItems from "./TechnologyItems";
 
 export default function TechnologiesPage() {
