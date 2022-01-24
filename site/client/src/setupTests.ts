@@ -13,7 +13,7 @@ jest.mock("react-i18next", () => ({
 }));
 
 const mockLocale = Locale.finnish();
-jest.mock("./i18n", () => ({
+jest.mock("./locales/i18n", () => ({
   getLocale: () => {
     return mockLocale;
   },

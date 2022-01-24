@@ -1,8 +1,8 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import translationFI from "./locales/fi/translation.json";
-import translationEN from "./locales/en/translation.json";
-import { Locale } from "./locales/Locale";
+import translationFI from "./fi/translation.json";
+import translationEN from "./en/translation.json";
+import { Locale } from "./Locale";
 
 const translations = {
   fi: {

@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@material-ui/core";
 import React from "react";
 import { FlexContainer, Paragraph, UCaseTypography, UnorderedList } from "../components";
-import { formatPeriod } from "../timeFormatting";
+import { formatPeriod } from "../formatting/timeFormatting";
 import { useTranslation } from "react-i18next";
 import { TFunction } from "i18next";
 

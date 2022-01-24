@@ -1,4 +1,4 @@
-import { formatPeriod } from "../timeFormatting";
+import { formatPeriod } from "../../formatting/timeFormatting";
 
 describe("timeFormatting.ts", () => {
   describe("formatPeriod", () => {

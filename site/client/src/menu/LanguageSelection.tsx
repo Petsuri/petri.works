@@ -1,6 +1,6 @@
 import { IconButton, Menu, MenuItem, Typography } from "@material-ui/core";
 import React, { useState, MouseEvent } from "react";
-import { changeLocale, getLocale } from "../i18n";
+import { changeLocale, getLocale } from "../locales/i18n";
 import { Locale } from "../locales/Locale";
 import TranslateIcon from "@material-ui/icons/Translate";
 
