@@ -44,6 +44,19 @@ const getExperiences = (t: TFunction): Experience[] => {
   experienses.push(
     createExperience(
       t,
+      "Alma Media Oyj",
+      "Tech Lead",
+      new Date(2022, 1, 1),
+      null,
+      "tech_lead_alma_media",
+      [],
+      []
+    )
+  );
+
+  experienses.push(
+    createExperience(
+      t,
       "Visma Solutions Oy, Visma Sign",
       "Tech Lead",
       new Date(2019, 5, 1),
