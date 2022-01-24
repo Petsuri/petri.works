@@ -79,7 +79,7 @@
       "management_board": {
         "description": "Henkilöstön jäsenenä Visma Solutionsin johtoryhmässä kasvattavassa firmaa kohti yksisarvista. Laaja-alaisesti mukana päättämässä SaaS firman liiketoiminnasta."
       },
-      "tech_lead": {
+      "tech_lead_visma_sign": {
         "description": "Vahva keskittyminen ROIn näkökulmaan kun kehitämme sovellusta ja miten pystymme parhaiten edistämään tuotteemme liiketoimintaa. Visma Sign -tuotteen teknisen kehittämisen johtaminen, päivittäin koodaten.",
         "responsibilities": {
           "1": "Koodausstandarien määrittely",

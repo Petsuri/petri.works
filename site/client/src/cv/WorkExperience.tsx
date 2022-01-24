@@ -48,7 +48,7 @@ const getExperiences = (t: TFunction): Experience[] => {
       "Tech Lead",
       new Date(2019, 5, 1),
       new Date(2022, 1, 1),
-      "tech_lead",
+      "tech_lead_visma_sign",
       ["1", "2", "3", "4"],
       ["1", "2"]
     )
