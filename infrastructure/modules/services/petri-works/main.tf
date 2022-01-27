@@ -1,5 +1,5 @@
 locals {
-  admin_auth_domain                   = "auth-${var.admin_domain}"
+  admin_auth_domain                   = "login${var.admin_domain}"
   fixed_cognito_route53_alias_zone_id = "Z2FDTNDATAQYW2"
   security_extensions_package_name    = "security-extensions-lambda.zip"
 }
@@ -58,7 +58,7 @@ module "admin_cognito_user_pool" {
   domain               = local.admin_auth_domain
   acm_certificate_arn  = module.acm_certificate.acm_certificate_arn
   environment          = var.environment
-  callback_urls        = ["https://${var.admin_domain}"]
+  callback_urls        = ["https://${var.admin_domain}", "http://localhost:3000"]
   default_redirect_uri = "https://${var.admin_domain}"
   logout_urls          = ["https://${var.domain}/logout"]
 }
