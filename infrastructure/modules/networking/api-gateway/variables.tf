@@ -22,3 +22,8 @@ variable "cognito_admin_user_pool_endpoint" {
   type        = string
   description = "Cognito user pool base domain for API gateway to authorize admin API resoure usage"
 }
+
+variable "cognito_admin_user_pool_client_id" {
+  type = string
+  description = "Cognito user pool app client id for API gateway to authorize admin API resoure usage"
+}

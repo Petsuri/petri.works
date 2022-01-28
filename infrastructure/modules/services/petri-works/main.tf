@@ -55,12 +55,13 @@ module "admin_cognito_user_pool" {
 }
 
 module "api_gateway" {
-  source                           = "../../networking/api-gateway"
-  domain                           = var.domain
-  api_domain                       = var.api_domain
-  environment                      = var.environment
-  api_domain_certificate_arn       = module.acm_certificate.acm_certificate_arn
-  cognito_admin_user_pool_endpoint = module.admin_cognito_user_pool.endpoint
+  source                            = "../../networking/api-gateway"
+  domain                            = var.domain
+  api_domain                        = var.api_domain
+  environment                       = var.environment
+  api_domain_certificate_arn        = module.acm_certificate.acm_certificate_arn
+  cognito_admin_user_pool_endpoint  = module.admin_cognito_user_pool.endpoint
+  cognito_admin_user_pool_client_id = module.admin_cognito_user_pool.app_client_id
 }
 
 module "route53" {
@@ -179,6 +180,16 @@ module "api_gate_way_lambdas" {
       http_method          = "POST",
       http_route           = "/subscribe",
       authorization_scopes = toset([])
+      authorizer_id        = null
+    },
+    2 = {
+      name                 = "subscribe-admin-test",
+      handler              = "subscribePost.handler",
+      package_path         = "site/subscriptions-api/.build"
+      http_method          = "POST",
+      http_route           = "/subscribe_admin_test",
+      authorization_scopes = toset(["loginadmin.petri.works/subscribe_list"])
+      authorizer_id        = module.api_gateway.api_gateway_admin_authorizer_id
     },
   }
 }

@@ -8,6 +8,7 @@ module "lambda" {
   http_method          = each.value.http_method
   http_route           = each.value.http_route
   package_path         = each.value.package_path
+  authorizer_id        = each.value.authorizer_id
   authorization_scopes = each.value.authorization_scopes
   s3_bucket_key        = "${each.value.name}.zip"
 

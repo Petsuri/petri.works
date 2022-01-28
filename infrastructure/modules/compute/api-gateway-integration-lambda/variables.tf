@@ -18,6 +18,11 @@ variable "authorization_scopes" {
   description = "Scope(s) that API resource requires. If empty, resource will be public."
 }
 
+variable "authorizer_id" {
+  type        = string
+  description = "Authorizer id that is used to verify scope access"
+}
+
 variable "runtime" {
   type        = string
   description = "Runtime that is used for Lambda"

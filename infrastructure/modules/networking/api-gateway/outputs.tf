@@ -17,3 +17,7 @@ output "execution_arn" {
 output "custom_domain_id" {
   value = aws_apigatewayv2_domain_name.gateway_domain_name.id
 }
+
+output "api_gateway_admin_authorizer_id" {
+  value = aws_apigatewayv2_authorizer.admin_gateway_authorizer.id
+}

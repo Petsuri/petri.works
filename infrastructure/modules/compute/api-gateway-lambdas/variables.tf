@@ -37,6 +37,7 @@ variable "lambdas" {
     http_route           = string,
     package_path         = string,
     authorization_scopes = set(string),
+    authorizer_id        = string
   }))
   description = "Lambas that will be registed to API gateway"
 }

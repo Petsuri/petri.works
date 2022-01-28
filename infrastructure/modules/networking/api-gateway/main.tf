@@ -41,7 +41,7 @@ resource "aws_apigatewayv2_authorizer" "admin_gateway_authorizer" {
   name             = "${var.api_domain}-admin-authorizer"
 
   jwt_configuration {
-    audience = ["admin_api"]
+    audience = [var.cognito_admin_user_pool_client_id]
     issuer   = "https://${var.cognito_admin_user_pool_endpoint}"
   }
 }
