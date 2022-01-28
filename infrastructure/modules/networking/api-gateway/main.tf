@@ -34,13 +34,14 @@ resource "aws_apigatewayv2_domain_name" "gateway_domain_name" {
   }
 }
 
-# resource "aws_apigatewayv2_integration" "cors_preflight" {
-#   api_id             = aws_apigatewayv2_api.gateway.id
-#   integration_type   = "MOCK"
-#   integration_method = "OPTIONS"
-# }
+resource "aws_apigatewayv2_authorizer" "admin_gateway_authorizer" {
+  api_id           = aws_apigatewayv2_api.gateway.id
+  authorizer_type  = "JWT"
+  identity_sources = ["$request.header.Authorization"]
+  name             = "${var.api_domain}-admin-authorizer"
 
-# resource "aws_apigatewayv2_route" "example" {
-#   api_id    = aws_apigatewayv2_api.example.id
-#   route_key = "{cors+}"
-# }
+  jwt_configuration {
+    audience = ["admin_api"]
+    issuer   = "https://${var.cognito_admin_user_pool_endpoint}"
+  }
+}

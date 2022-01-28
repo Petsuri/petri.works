@@ -17,3 +17,8 @@ variable "api_domain_certificate_arn" {
   type        = string
   description = "The ARN of the AWS Certificate Manager certificate that you wish to use with API gateway"
 }
+
+variable "cognito_admin_user_pool_endpoint" {
+  type        = string
+  description = "Cognito user pool base domain for API gateway to authorize admin API resoure usage"
+}

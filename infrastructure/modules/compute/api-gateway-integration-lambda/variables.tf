@@ -13,6 +13,11 @@ variable "handler" {
   description = "Entrypoint for Lambda function"
 }
 
+variable "authorization_scopes" {
+  type        = set(string)
+  description = "Scope(s) that API resource requires. If empty, resource will be public."
+}
+
 variable "runtime" {
   type        = string
   description = "Runtime that is used for Lambda"

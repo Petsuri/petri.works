@@ -43,15 +43,6 @@ module "admin_cloudfront" {
   security_headers_lambda_arn = module.lambda_edge_security_headers.qualified_arn
 }
 
-module "api_gateway" {
-  source                     = "../../networking/api-gateway"
-  domain                     = var.domain
-  api_domain                 = var.api_domain
-  environment                = var.environment
-  api_domain_certificate_arn = module.acm_certificate.acm_certificate_arn
-}
-
-
 module "admin_cognito_user_pool" {
   source               = "../../iam/cognito-user-pool"
   name                 = "admin site users"
@@ -63,6 +54,14 @@ module "admin_cognito_user_pool" {
   logout_urls          = ["https://${var.domain}/logout"]
 }
 
+module "api_gateway" {
+  source                           = "../../networking/api-gateway"
+  domain                           = var.domain
+  api_domain                       = var.api_domain
+  environment                      = var.environment
+  api_domain_certificate_arn       = module.acm_certificate.acm_certificate_arn
+  cognito_admin_user_pool_endpoint = module.admin_cognito_user_pool.endpoint
+}
 
 module "route53" {
   source                    = "../../networking/route53"
@@ -174,11 +173,12 @@ module "api_gate_way_lambdas" {
   api_gateway_execution_arn         = module.api_gateway.execution_arn
   lambdas = {
     1 = {
-      name         = "subscribe",
-      handler      = "subscribePost.handler",
-      package_path = "site/subscriptions-api/.build"
-      http_method  = "POST",
-      http_route   = "/subscribe"
+      name                 = "subscribe",
+      handler              = "subscribePost.handler",
+      package_path         = "site/subscriptions-api/.build"
+      http_method          = "POST",
+      http_route           = "/subscribe",
+      authorization_scopes = toset([])
     },
   }
 }

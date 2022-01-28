@@ -3,12 +3,13 @@ module "lambda" {
 
   for_each = var.lambdas
 
-  name          = each.value.name
-  handler       = each.value.handler
-  http_method   = each.value.http_method
-  http_route    = each.value.http_route
-  package_path  = each.value.package_path
-  s3_bucket_key = "${each.value.name}.zip"
+  name                 = each.value.name
+  handler              = each.value.handler
+  http_method          = each.value.http_method
+  http_route           = each.value.http_route
+  package_path         = each.value.package_path
+  authorization_scopes = each.value.authorization_scopes
+  s3_bucket_key        = "${each.value.name}.zip"
 
   environment               = var.environment
   iam_user_arn              = var.iam_user_arn

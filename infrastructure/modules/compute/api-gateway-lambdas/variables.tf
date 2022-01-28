@@ -31,11 +31,12 @@ variable "api_gateway_execution_arn" {
 
 variable "lambdas" {
   type = map(object({
-    name         = string,
-    handler      = string,
-    http_method  = string,
-    http_route   = string,
-    package_path = string,
+    name                 = string,
+    handler              = string,
+    http_method          = string,
+    http_route           = string,
+    package_path         = string,
+    authorization_scopes = set(string),
   }))
   description = "Lambas that will be registed to API gateway"
 }
