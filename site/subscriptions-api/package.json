@@ -4,7 +4,7 @@
   "description": "API for subscriptions",
   "main": "handler.js",
   "scripts": {
-    "build:production": "npx webpack --mode production",
+    "build:production": "npx webpack --mode production -o ./.production-build",
     "build:development": "npx webpack --mode development"
   },
   "dependencies": {

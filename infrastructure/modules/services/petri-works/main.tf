@@ -176,7 +176,7 @@ module "api_gate_way_lambdas" {
     1 = {
       name                 = "subscribe",
       handler              = "subscribePost.handler",
-      package_path         = "site/subscriptions-api/.build"
+      package_path         = "site/subscriptions-api/.production-build"
       http_method          = "POST",
       http_route           = "/subscribe",
       authorization_scopes = toset([])
@@ -185,7 +185,7 @@ module "api_gate_way_lambdas" {
     2 = {
       name                 = "subscribe-admin-test",
       handler              = "subscribePost.handler",
-      package_path         = "site/subscriptions-api/.build"
+      package_path         = "site/subscriptions-api/.production-build"
       http_method          = "POST",
       http_route           = "/subscribe_admin_test",
       authorization_scopes = toset(["loginadmin.petri.works/subscribe_list"])
