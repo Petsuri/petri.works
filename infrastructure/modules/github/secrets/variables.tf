@@ -6,4 +6,5 @@ variable "secret_name" {
 variable "secret_value" {
   type        = string
   description = "Value of secret to be stored"
+  sensitive   = true
 }
