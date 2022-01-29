@@ -38,7 +38,7 @@ jobs:
       - name: Copy client files to S3 bucket
         run: |
           aws s3 sync site/client/build/. s3://petri.works-client-static-files
-          aws s3 sybc site/client-admin/build/. s3://admin.petri.works-client-static-files
+          aws s3 sync site/client-admin/build/. s3://admin.petri.works-client-static-files
       - name: Invalidate Cloudfront cache to instantly serve new files
         run: |
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
