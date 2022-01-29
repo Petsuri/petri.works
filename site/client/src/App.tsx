@@ -1,18 +1,29 @@
 import React from "react";
 import Routing from "./Routing";
 import {
-  createMuiTheme,
+  createTheme,
   responsiveFontSizes,
   ThemeProvider,
-} from "@material-ui/core/styles";
+  Theme,
+  StyledEngineProvider,
+} from "@mui/material/styles";
+
+
+declare module '@mui/styles/defaultTheme' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface DefaultTheme extends Theme {}
+}
+
 
 function App() {
-    const responsiveFontSizesTheme = responsiveFontSizes(createMuiTheme(), { factor: 3 });
+    const responsiveFontSizesTheme = responsiveFontSizes(createTheme(), { factor: 3 });
     
   return (
-  <ThemeProvider theme={responsiveFontSizesTheme}>
-    <Routing />      
-  </ThemeProvider>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={responsiveFontSizesTheme}>
+        <Routing />      
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 }
 

@@ -2,7 +2,7 @@ import React from "react";
 import { UCaseTypography, ParagraphContainer, UnorderedList } from "../../components";
 import { useTranslation } from "react-i18next";
 import { TFunction } from "i18next";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 
 export type ChapterProps = {
   readonly TranslationKey: string;

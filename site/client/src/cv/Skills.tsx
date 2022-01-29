@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@mui/material";
 import { UCaseTypography } from "../components";
 import React from "react";
 import OuterLink from "../components/OuterLink";

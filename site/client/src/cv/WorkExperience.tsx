@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@mui/material";
 import React from "react";
 import { FlexContainer, Paragraph, UCaseTypography, UnorderedList } from "../components";
 import { formatPeriod } from "../formatting/timeFormatting";

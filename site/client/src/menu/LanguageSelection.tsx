@@ -1,8 +1,8 @@
-import { IconButton, Menu, MenuItem, Typography } from "@material-ui/core";
+import { IconButton, Menu, MenuItem, Typography } from "@mui/material";
 import React, { useState, MouseEvent } from "react";
 import { changeLocale, getLocale } from "../locales/i18n";
 import { Locale } from "../locales/Locale";
-import TranslateIcon from "@material-ui/icons/Translate";
+import TranslateIcon from "@mui/icons-material/Translate";
 
 export const LanguageSelection = () => {
   const languageMenuId: string = "change-language-menu-id";
@@ -48,20 +48,18 @@ export const LanguageSelection = () => {
     </Menu>
   );
 
-  return (
-    <>
-      <IconButton
-        edge="end"
-        aria-label="language of site"
-        aria-controls={languageMenuId}
-        aria-haspopup="true"
-        onClick={handleLanguageMenuOpen}
-        color="inherit"
-      >
-        <TranslateIcon />
-        <Typography variant="h6">{locale.name}</Typography>
-      </IconButton>
-      {renderMenu}
-    </>
-  );
+  return <>
+    <IconButton
+      edge="end"
+      aria-label="language of site"
+      aria-controls={languageMenuId}
+      aria-haspopup="true"
+      onClick={handleLanguageMenuOpen}
+      color="inherit"
+      size="large">
+      <TranslateIcon />
+      <Typography variant="h6">{locale.name}</Typography>
+    </IconButton>
+    {renderMenu}
+  </>;
 };

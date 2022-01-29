@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
+import { Grid } from "@mui/material";
 import { UCaseTypography } from "../components";
 
 export type ItemsProps = {
@@ -20,7 +20,7 @@ const TechnologyItems = (props: ItemsProps) => {
   };
 
   return (
-    <Grid container spacing={1} justify="center">
+    <Grid container spacing={1} justifyContent="center">
       {Items.map(toGridItem)}
     </Grid>
   );

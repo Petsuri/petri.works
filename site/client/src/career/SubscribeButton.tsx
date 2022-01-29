@@ -1,16 +1,16 @@
 import React from "react";
-import { withTheme } from "@material-ui/core";
+import withTheme from '@mui/styles/withTheme';
 import { StyledButton } from "../components";
-import { styled } from "@material-ui/core/styles";
+import { styled } from "@mui/material/styles";
 
 import { useTranslation } from "react-i18next";
 
 const Div = styled("div")({});
 
-const FullWidthDiv = styled(withTheme(Div))((props) => ({
+const FullWidthDiv = styled("div")((props) => ({
   display: "flex",
   justifyContent: "center",
-  [props.theme.breakpoints.down("xs")]: {
+  [props.theme.breakpoints.down('sm')]: {
     justifyContent: "flex-start",
   },
 }));

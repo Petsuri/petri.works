@@ -1,5 +1,6 @@
 import React from "react";
-import { List, ListItem, makeStyles, Theme } from "@material-ui/core";
+import { List, ListItem, Theme } from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
 import CvLink from "../cv/CvLink";
 import BeingDeveloperLink from "../career/BeingDeveloperLink";
 import { Option, some } from "@petriworks/common";
@@ -59,7 +60,7 @@ export default function DrawerContent(props: DrawerContentProps) {
     return (
       <List component="div" disablePadding>
         {subLinks.value.map((link, index) => (
-          <IdentedListItem button key={index} onClick={() => props.closeDrawer()}>
+          <IdentedListItem key={index} onClick={() => props.closeDrawer()}>
             {link}
           </IdentedListItem>
         ))}

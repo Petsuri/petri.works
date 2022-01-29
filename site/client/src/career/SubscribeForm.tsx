@@ -1,6 +1,6 @@
 import React from "react";
 import { withFormik, FormikProps, FormikErrors, FormikBag } from "formik";
-import { Grid } from "@material-ui/core";
+import { Grid } from "@mui/material";
 import { ApiClient, SubscribeResource } from "@petriworks/api-client";
 import { Name, Unit } from "@petriworks/common";
 import { NewSubscriptionSchema, NewSubscriptionRequest } from "@petriworks/api-contracts";
