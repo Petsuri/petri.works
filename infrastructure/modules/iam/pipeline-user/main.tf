@@ -1,6 +1,7 @@
 locals {
-  arn_resources          = join(", ", formatlist("\"%s\"", var.s3_bucket_arns))
-  arn_resources_wildcard = join(", ", formatlist("\"%s/*\"", var.s3_bucket_arns))
+  s3_bucket_arn_resources          = join(", ", formatlist("\"%s\"", var.s3_bucket_arns))
+  s3_bucket_arn_resources_wildcard = join(", ", formatlist("\"%s/*\"", var.s3_bucket_arns))
+  cloudfront_arn_resources         = join(", ", formatlist("\"%s\"", var.cloudfront_arns))
 }
 
 resource "aws_iam_user" "deployer" {
@@ -25,8 +26,8 @@ resource "aws_iam_policy" "policy" {
                 "s3:ListAllMyBuckets"
             ],
             "Resource": [
-              ${local.arn_resources}, 
-              ${local.arn_resources_wildcard}
+              ${local.s3_bucket_arn_resources}, 
+              ${local.s3_bucket_arn_resources_wildcard}
             ]
         },
         {
@@ -35,15 +36,8 @@ resource "aws_iam_policy" "policy" {
               "cloudfront:CreateInvalidation"
             ],
             "Resource": [
-              "${var.cloudfront_arn}"
+              ${local.cloudfront_arn_resources}
             ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-              "lambda:UpdateFunctionCode"
-            ],
-            "Resource": ["*"]
         }
     ]
 }

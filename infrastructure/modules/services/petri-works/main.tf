@@ -97,19 +97,6 @@ module "acm_cert_validation" {
   validation_record_fqdns = module.route53.cert_validation_record_fqdns
 }
 
-module "s3_serverless_distribution" {
-  source            = "../../storage/s3"
-  environment       = var.environment
-  bucket_name       = "${var.domain}-serverless-static-files"
-  purpose_of_bucket = "Bucket for ${var.domain} -serverless static files"
-}
-
-module "github_secret_s3_serverless_bucket_name" {
-  source       = "../../github/secrets"
-  secret_name  = "AWS_S3_SERVERLESS_BUCKET_NAME"
-  secret_value = module.s3_serverless_distribution.bucket_name
-}
-
 module "github_secret_security_extensions_bucket_key" {
   source       = "../../github/secrets"
   secret_name  = "AWS_S3_SECURITY_EXTENSIONS_BUCKET_KEY"
@@ -117,10 +104,16 @@ module "github_secret_security_extensions_bucket_key" {
 }
 
 module "iam_pipeline" {
-  source         = "../../iam/pipeline-user"
-  environment    = var.environment
-  s3_bucket_arns = [module.cloudfront.cloudfront_s3_bucket_arn, module.s3_serverless_distribution.bucket_arn]
-  cloudfront_arn = module.cloudfront.cloudfront_arn
+  source      = "../../iam/pipeline-user"
+  environment = var.environment
+  s3_bucket_arns = [
+    module.cloudfront.cloudfront_s3_bucket_arn,
+    module.admin_cloudfront.cloudfront_s3_bucket_arn,
+  ]
+  cloudfront_arns = [
+    module.cloudfront.cloudfront_arn,
+    module.admin_cloudfront.cloudfront_arn,
+  ]
 }
 
 module "github_secret_access_key_id" {
