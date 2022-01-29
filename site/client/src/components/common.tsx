@@ -1,8 +1,5 @@
 import {
   styled,
-  createMuiTheme,
-  responsiveFontSizes,
-  ThemeProvider,
 } from "@material-ui/core/styles";
 import {
   Button,
@@ -92,18 +89,15 @@ type PageContainerProps = {
 };
 
 export function PageContainer(props: PageContainerProps) {
-  const responsiveFontSizesTheme = responsiveFontSizes(createMuiTheme(), { factor: 3 });
   const PageContainerStyles = styled("div")({
     margin: "1rem",
   });
 
   return (
-    <ThemeProvider theme={responsiveFontSizesTheme}>
       <PageContainerStyles>
         <Container maxWidth="md">
           <>{props.children}</>
         </Container>
       </PageContainerStyles>
-    </ThemeProvider>
   );
 }
