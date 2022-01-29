@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import TopMenu from "./menu/TopMenu";
 import "./App.css";
 import CvPage from "./cv/CvPage";
@@ -40,41 +40,19 @@ export default function Routing() {
       <div className={classes.container}>
         <TopMenu />
         <div className="App">
-          <Switch>
-            <Route path={PathToCvPage} exact>
-              <CvPage />
-            </Route>
-            <Route path={PathToTechnologiesPage}>
-              <TechnologiesPage />
-            </Route>
-            <Route path={PathToBeingDeveloperPage}>
-              <BeingDeveloperPage />
-            </Route>
-            <Route path={PathToChapterOne}>
-              <ChapterOnePage />
-            </Route>
-            <Route path={PathToChapterTwo}>
-              <ChapterTwoPage />
-            </Route>
-            <Route path={PathToChapterThree}>
-              <ChapterThreePage />
-            </Route>
-            <Route path={PathToChapterFour}>
-              <ChapterFourPage />
-            </Route>
-            <Route path={PathToChapterFive}>
-              <ChapterFivePage />
-            </Route>
-            <Route path={PathToChapterSix}>
-              <ChapterSixPage />
-            </Route>
-            <Route path={PathToChapterSeven}>
-              <ChapterSevenPage />
-            </Route>
-            <Route path="/">
-              <CvPage />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path={PathToCvPage} element={<CvPage />} />
+            <Route path={PathToTechnologiesPage} element={<TechnologiesPage />} />
+            <Route path={PathToBeingDeveloperPage} element={<BeingDeveloperPage />} />
+            <Route path={PathToChapterOne} element={<ChapterOnePage />} />
+            <Route path={PathToChapterTwo} element={<ChapterTwoPage />} />
+            <Route path={PathToChapterThree} element={<ChapterThreePage />} />
+            <Route path={PathToChapterFour} element={<ChapterFourPage />} />
+            <Route path={PathToChapterFive} element={<ChapterFivePage />} />
+            <Route path={PathToChapterSix} element={<ChapterSixPage />} />
+            <Route path={PathToChapterSeven} element={<ChapterSevenPage />} />
+            <Route path="/" element={<CvPage />} />
+          </Routes>
         </div>
       </div>
     </Router>
