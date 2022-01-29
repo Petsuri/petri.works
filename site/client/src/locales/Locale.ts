@@ -1,6 +1,6 @@
 export class Locale {
-  private static readonly Finnish = new Locale("fi", "Suomi");
-  private static readonly English = new Locale("en", "English");
+  private static readonly Finnish = new Locale('fi', 'Suomi');
+  private static readonly English = new Locale('en', 'English');
 
   public readonly shortCode: string;
   public readonly name: string;

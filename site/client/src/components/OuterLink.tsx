@@ -1,5 +1,5 @@
-import { Link } from "@mui/material";
-import React from "react";
+import { Link } from '@mui/material';
+import React from 'react';
 
 type OuterLinkProps = {
   readonly href: string;
@@ -13,7 +13,7 @@ export default function OuterLink(props: OuterLinkProps) {
       color="inherit"
       underline="always"
       href={props.href}
-      target={props.openToBlank ? "_blank" : ""}
+      target={props.openToBlank ? '_blank' : ''}
       rel="noopener noreferrer"
     >
       {props.text}

@@ -1,8 +1,8 @@
-import { DynamoDbError } from "../DynamoDbClient";
+import { DynamoDbError } from '../DynamoDbClient';
 
 export class DynamoDbErrorBuilder {
-  private _message: string = "message";
-  private _code: string = "code";
+  private _message: string = 'message';
+  private _code: string = 'code';
 
   public withMessage(value: string): DynamoDbErrorBuilder {
     this._message = value;

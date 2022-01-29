@@ -1,18 +1,18 @@
-import React from "react";
-import { List, ListItem, Theme } from "@mui/material";
+import React from 'react';
+import { List, ListItem, Theme } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
-import CvLink from "../cv/CvLink";
-import BeingDeveloperLink from "../career/BeingDeveloperLink";
-import { Option, some } from "@petriworks/common";
-import { IdentedListItem } from "../components";
-import ChapterOneLink from "../career/chapters/ChapterOneLink";
-import ChapterTwoLink from "../career/chapters/ChapterTwoLink";
-import ChapterThreeLink from "../career/chapters/ChapterThreeLink";
-import TechnologiesLink from "../cv/TechnologiesLink";
-import ChapterFourLink from "../career/chapters/ChapterFourLink";
-import ChapterFiveLink from "../career/chapters/ChapterFiveLink";
-import ChapterSixLink from "../career/chapters/ChapterSixLink";
-import ChapterSevenLink from "../career/chapters/ChapterSevenLink";
+import CvLink from '../cv/CvLink';
+import BeingDeveloperLink from '../career/BeingDeveloperLink';
+import { Option, some } from '@petriworks/common';
+import { IdentedListItem } from '../components';
+import ChapterOneLink from '../career/chapters/ChapterOneLink';
+import ChapterTwoLink from '../career/chapters/ChapterTwoLink';
+import ChapterThreeLink from '../career/chapters/ChapterThreeLink';
+import TechnologiesLink from '../cv/TechnologiesLink';
+import ChapterFourLink from '../career/chapters/ChapterFourLink';
+import ChapterFiveLink from '../career/chapters/ChapterFiveLink';
+import ChapterSixLink from '../career/chapters/ChapterSixLink';
+import ChapterSevenLink from '../career/chapters/ChapterSevenLink';
 
 type DrawerContentProps = {
   readonly closeDrawer: Function;
@@ -21,10 +21,10 @@ type DrawerContentProps = {
 const useStyles = makeStyles((theme: Theme) => ({
   content: {
     width: 250,
-    alignItems: "baseline",
-    color: "white",
-    paddingTop: "2rem",
-    paddingLeft: "2rem",
+    alignItems: 'baseline',
+    color: 'white',
+    paddingTop: '2rem',
+    paddingLeft: '2rem',
   },
 }));
 

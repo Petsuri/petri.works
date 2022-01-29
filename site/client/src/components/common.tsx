@@ -1,38 +1,36 @@
-import {
-  styled,
-} from "@mui/material/styles";
-import { Button, Container, Divider, ListItem, TextField, Typography } from "@mui/material";
+import { styled } from '@mui/material/styles';
+import { Button, Container, Divider, ListItem, TextField, Typography } from '@mui/material';
 import withStyles from '@mui/styles/withStyles';
-import React from "react";
-import { darkThemeTextColor } from "./colors";
+import React from 'react';
+import { darkThemeTextColor } from './colors';
 
 export const WhiteDivider = styled(Divider)({
-  background: "white",
+  background: 'white',
 });
 
 export const Paragraph = styled(Typography)({
-  "& + &": {
-    paddingTop: "0.4rem",
+  '& + &': {
+    paddingTop: '0.4rem',
   },
 });
 
 export const TextContainer = styled(Container)({
-  padding: "1rem",
+  padding: '1rem',
 });
 
-const defaultTextInputBorderBottom = "1px solid white";
+const defaultTextInputBorderBottom = '1px solid white';
 export const StyledTextField = withStyles({
   root: {
-    "& .MuiInput-underline:before": {
+    '& .MuiInput-underline:before': {
       borderBottom: defaultTextInputBorderBottom,
     },
-    "& .MuiInput-underline:hover": {
+    '& .MuiInput-underline:hover': {
       borderBottom: defaultTextInputBorderBottom,
     },
-    "& .MuiInput-underline:focus": {
+    '& .MuiInput-underline:focus': {
       borderBottom: defaultTextInputBorderBottom,
     },
-    "& .MuiInput-underline:after": {
+    '& .MuiInput-underline:after': {
       borderBottom: defaultTextInputBorderBottom,
     },
   },
@@ -45,24 +43,24 @@ export const StyledButton = withStyles({
   },
 })(Button);
 
-export const FlexContainer = styled("div")({
-  display: "flex",
-  flexWrap: "wrap",
-  justifyContent: "space-between",
+export const FlexContainer = styled('div')({
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'space-between',
 });
 
-export const ParagraphContainer = styled("div")({
-  paddingTop: "1rem",
-  paddingBottom: "1rem",
+export const ParagraphContainer = styled('div')({
+  paddingTop: '1rem',
+  paddingBottom: '1rem',
 });
 
-export const UnorderedList = styled("ul")({
-  marginBlockStart: "0.1rem",
-  marginBlockEnd: "0.1rem",
+export const UnorderedList = styled('ul')({
+  marginBlockStart: '0.1rem',
+  marginBlockEnd: '0.1rem',
 });
 
 export const IdentedListItem = styled(ListItem)({
-  paddingLeft: "2rem",
+  paddingLeft: '2rem',
 });
 
 type PageContainerProps = {
@@ -70,15 +68,15 @@ type PageContainerProps = {
 };
 
 export function PageContainer(props: PageContainerProps) {
-  const PageContainerStyles = styled("div")({
-    margin: "1rem",
+  const PageContainerStyles = styled('div')({
+    margin: '1rem',
   });
 
   return (
-      <PageContainerStyles>
-        <Container maxWidth="md">
-          <>{props.children}</>
-        </Container>
-      </PageContainerStyles>
+    <PageContainerStyles>
+      <Container maxWidth="md">
+        <>{props.children}</>
+      </Container>
+    </PageContainerStyles>
   );
 }

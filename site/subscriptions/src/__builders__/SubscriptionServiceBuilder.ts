@@ -1,6 +1,6 @@
-import { SubscriptionRepository } from "../SubscriptionRepository";
-import { SubscriptionService } from "../SubscriptionService";
-import { SubscriptionRepositoryStubBuilder } from "./SubscriptionRepositoryStubBuilder";
+import { SubscriptionRepository } from '../SubscriptionRepository';
+import { SubscriptionService } from '../SubscriptionService';
+import { SubscriptionRepositoryStubBuilder } from './SubscriptionRepositoryStubBuilder';
 
 export class SubscriptionServiceBuilder {
   private _repository: SubscriptionRepository = new SubscriptionRepositoryStubBuilder().build();

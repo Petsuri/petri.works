@@ -9,12 +9,12 @@ import {
   success,
   Unit,
   unit,
-} from "@petriworks/common";
-import { DynamoDbClient } from "@petriworks/storage-dynamodb";
-import { Subscription } from "./Subscription";
-import { SubscriptionRepository } from "./SubscriptionRepository";
+} from '@petriworks/common';
+import { DynamoDbClient } from '@petriworks/storage-dynamodb';
+import { Subscription } from './Subscription';
+import { SubscriptionRepository } from './SubscriptionRepository';
 
-const TableName = "subscriptions";
+const TableName = 'subscriptions';
 
 const findSubscription = async (
   client: DynamoDbClient,
@@ -22,8 +22,8 @@ const findSubscription = async (
 ): Promise<Result<Option<Subscription>, string>> => {
   const result = await client.scanItems({
     TableName: TableName,
-    FilterExpression: "email = :email",
-    ExpressionAttributeValues: { ":email": email.email },
+    FilterExpression: 'email = :email',
+    ExpressionAttributeValues: { ':email': email.email },
   });
   if (!result.ok) {
     return failure(result.error.message);
@@ -36,8 +36,8 @@ const findSubscription = async (
   const first = result.value.value[0];
   return success(
     some({
-      name: new Name(first["name"] as string),
-      email: new EmailAddress(first["email"] as string),
+      name: new Name(first['name'] as string),
+      email: new EmailAddress(first['email'] as string),
     })
   );
 };

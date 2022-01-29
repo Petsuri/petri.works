@@ -1,7 +1,7 @@
-import React from "react";
-import { UCaseTypography, PageContainer } from "../../components";
-import { useTranslation } from "react-i18next";
-import { GenericParagraphs, ChapterProps } from "./GenericParagraphs";
+import React from 'react';
+import { UCaseTypography, PageContainer } from '../../components';
+import { useTranslation } from 'react-i18next';
+import { GenericParagraphs, ChapterProps } from './GenericParagraphs';
 
 export default function GenericChapterPage(props: ChapterProps) {
   const { t } = useTranslation();

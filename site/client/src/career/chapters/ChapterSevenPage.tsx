@@ -1,5 +1,5 @@
-import React from "react";
-import GenericChapterPage from "./GenericChapterPage";
+import React from 'react';
+import GenericChapterPage from './GenericChapterPage';
 
 export default function ChapterSevenPage() {
   return (

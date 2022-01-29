@@ -1,9 +1,9 @@
-import { Grid, Typography } from "@mui/material";
-import React from "react";
-import { FlexContainer, Paragraph, UCaseTypography, UnorderedList } from "../components";
-import { formatPeriod } from "../formatting/timeFormatting";
-import { useTranslation } from "react-i18next";
-import { TFunction } from "i18next";
+import { Grid, Typography } from '@mui/material';
+import React from 'react';
+import { FlexContainer, Paragraph, UCaseTypography, UnorderedList } from '../components';
+import { formatPeriod } from '../formatting/timeFormatting';
+import { useTranslation } from 'react-i18next';
+import { TFunction } from 'i18next';
 
 interface Experience {
   company: string;
@@ -31,11 +31,11 @@ const createExperience = (
     jobTitle,
     begin,
     end,
-    description: t(translationIndex + "description"),
+    description: t(translationIndex + 'description'),
     responsibilities: responsibilityKeys.map((key) =>
-      t(translationIndex + "responsibilities." + key)
+      t(translationIndex + 'responsibilities.' + key)
     ),
-    achievements: achievementKeys.map((key) => t(translationIndex + "achievements." + key)),
+    achievements: achievementKeys.map((key) => t(translationIndex + 'achievements.' + key)),
   };
 };
 
@@ -44,11 +44,11 @@ const getExperiences = (t: TFunction): Experience[] => {
   experienses.push(
     createExperience(
       t,
-      "Alma Media Oyj",
-      "Tech Lead",
+      'Alma Media Oyj',
+      'Tech Lead',
       new Date(2022, 1, 1),
       null,
-      "tech_lead_alma_media",
+      'tech_lead_alma_media',
       [],
       []
     )
@@ -57,24 +57,24 @@ const getExperiences = (t: TFunction): Experience[] => {
   experienses.push(
     createExperience(
       t,
-      "Visma Solutions Oy, Visma Sign",
-      "Tech Lead",
+      'Visma Solutions Oy, Visma Sign',
+      'Tech Lead',
       new Date(2019, 5, 1),
       new Date(2022, 1, 1),
-      "tech_lead_visma_sign",
-      ["1", "2", "3", "4"],
-      ["1", "2"]
+      'tech_lead_visma_sign',
+      ['1', '2', '3', '4'],
+      ['1', '2']
     )
   );
 
   experienses.push(
     createExperience(
       t,
-      "Visma Solutions Oy, Management board",
-      "Personnel member",
+      'Visma Solutions Oy, Management board',
+      'Personnel member',
       new Date(2021, 0, 1),
       new Date(2021, 11, 1),
-      "management_board",
+      'management_board',
       [],
       []
     )
@@ -83,26 +83,26 @@ const getExperiences = (t: TFunction): Experience[] => {
   experienses.push(
     createExperience(
       t,
-      "Visma Solutions Oy, Netvisor",
-      "Mobile Developer",
+      'Visma Solutions Oy, Netvisor',
+      'Mobile Developer',
       new Date(2017, 5, 1),
       new Date(2019, 5, 1),
-      "mobile_developer",
-      ["1", "2", "3", "4"],
-      ["1"]
+      'mobile_developer',
+      ['1', '2', '3', '4'],
+      ['1']
     )
   );
 
   experienses.push(
     createExperience(
       t,
-      "Visma Solutions Oy, Netvisor",
-      "Software Developer",
+      'Visma Solutions Oy, Netvisor',
+      'Software Developer',
       new Date(2014, 4, 1),
       new Date(2017, 5, 1),
-      "software_developer",
-      ["1", "2", "3"],
-      ["1", "2"]
+      'software_developer',
+      ['1', '2', '3'],
+      ['1', '2']
     )
   );
 
@@ -134,7 +134,7 @@ const renderResponsibilities = (t: TFunction, responsibilities: string[]): JSX.E
 
   return (
     <>
-      <Paragraph variant="subtitle1">{t("cv.experience.responsibilities")}:</Paragraph>
+      <Paragraph variant="subtitle1">{t('cv.experience.responsibilities')}:</Paragraph>
       <UnorderedList>{renderListItems(responsibilities)}</UnorderedList>
     </>
   );
@@ -147,7 +147,7 @@ const renderAchievements = (t: TFunction, achievements: string[]): JSX.Element |
 
   return (
     <>
-      <Paragraph variant="subtitle1">{t("cv.experience.achievements")}:</Paragraph>
+      <Paragraph variant="subtitle1">{t('cv.experience.achievements')}:</Paragraph>
       <UnorderedList>{renderListItems(achievements)}</UnorderedList>
     </>
   );
@@ -179,7 +179,7 @@ export default function WorkExperience(): JSX.Element {
   const toExperience = renderExperience.bind(null, t);
   return (
     <>
-      <UCaseTypography variant="h3">{t("cv.experience.header")}</UCaseTypography>
+      <UCaseTypography variant="h3">{t('cv.experience.header')}</UCaseTypography>
       <Grid container spacing={3}>
         {getExperiences(t).map(toExperience)}
       </Grid>

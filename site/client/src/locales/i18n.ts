@@ -1,8 +1,8 @@
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-import translationFI from "./fi/translation.json";
-import translationEN from "./en/translation.json";
-import { Locale } from "./Locale";
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import translationFI from './fi/translation.json';
+import translationEN from './en/translation.json';
+import { Locale } from './Locale';
 
 const translations = {
   fi: {
@@ -13,14 +13,14 @@ const translations = {
   },
 };
 
-const currentLocaleKey = "locale.current.shortcode";
+const currentLocaleKey = 'locale.current.shortcode';
 export const changeLocale = (locale: Locale): void => {
   i18n.changeLanguage(locale.shortCode);
   localStorage.setItem(currentLocaleKey, locale.shortCode);
 };
 
 export const getLocale = (): Locale => {
-  const current = localStorage.getItem(currentLocaleKey) || "";
+  const current = localStorage.getItem(currentLocaleKey) || '';
   return Locale.find(current);
 };
 

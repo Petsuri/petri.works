@@ -1,4 +1,4 @@
-import { JsonResponse } from "../JsonResponse";
+import { JsonResponse } from '../JsonResponse';
 
 export class JsonResponseBuilder {
   public build(): JsonResponse {

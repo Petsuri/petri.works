@@ -1,9 +1,9 @@
-import { EmailAddress } from "../EmailAddress";
-import { EmailAddressBuilder } from "../__builders__/EmailAddressBuilder";
+import { EmailAddress } from '../EmailAddress';
+import { EmailAddressBuilder } from '../__builders__/EmailAddressBuilder';
 
-describe("EmailAddress", () => {
-  describe("isValid", () => {
-    ["petri@petri.works", "miikinpetri@gmail.com", "x@gmail.com"].forEach((value) => {
+describe('EmailAddress', () => {
+  describe('isValid', () => {
+    ['petri@petri.works', 'miikinpetri@gmail.com', 'x@gmail.com'].forEach((value) => {
       it(`should be true with valid email: ${value}`, () => {
         const actual = EmailAddress.isValid(value);
 
@@ -11,7 +11,7 @@ describe("EmailAddress", () => {
       });
     });
 
-    ["petri@petri.works", "PETRI@PETRI.WORKS", "miikinpetri@gmail.com", "x@gmail.com"].forEach(
+    ['petri@petri.works', 'PETRI@PETRI.WORKS', 'miikinpetri@gmail.com', 'x@gmail.com'].forEach(
       (expected) => {
         it(`should create instance with correct email: ${expected}`, () => {
           const sut = new EmailAddressBuilder().withEmail(expected).build();
@@ -24,15 +24,15 @@ describe("EmailAddress", () => {
     );
 
     [
-      "petri.works",
-      "petri@@petri.works",
-      "@petri.works",
-      "ää@petri.works",
-      "()@petri.works",
-      "petri@petri",
-      "@",
-      " petri@@petri.works",
-      "petri@@petri.works ",
+      'petri.works',
+      'petri@@petri.works',
+      '@petri.works',
+      'ää@petri.works',
+      '()@petri.works',
+      'petri@petri',
+      '@',
+      ' petri@@petri.works',
+      'petri@@petri.works ',
       null,
       undefined,
     ].forEach((value) => {
@@ -44,11 +44,11 @@ describe("EmailAddress", () => {
     });
 
     [
-      "petri.works",
-      "petri@@petri.works",
-      "@petri.works",
-      "ää@petri.works",
-      "()@petri.works",
+      'petri.works',
+      'petri@@petri.works',
+      '@petri.works',
+      'ää@petri.works',
+      '()@petri.works',
     ].forEach((value) => {
       it(`should throw exception when trying to create instance: ${value}`, () => {
         const sut = new EmailAddressBuilder().withEmail(value);

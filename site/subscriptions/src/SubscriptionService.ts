@@ -1,6 +1,6 @@
-import { failure, Result, success, unit, Unit } from "@petriworks/common";
-import { Subscription } from "./Subscription";
-import { SubscriptionRepository } from "./SubscriptionRepository";
+import { failure, Result, success, unit, Unit } from '@petriworks/common';
+import { Subscription } from './Subscription';
+import { SubscriptionRepository } from './SubscriptionRepository';
 
 export class SubscriptionService {
   private readonly _repository: SubscriptionRepository;

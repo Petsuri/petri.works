@@ -1,4 +1,4 @@
-import { Name, EmailAddress } from "@petriworks/common";
+import { Name, EmailAddress } from '@petriworks/common';
 
 export type Subscription = {
   readonly name: Name;

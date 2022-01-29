@@ -1,13 +1,12 @@
-import React from "react";
-import Routing from "./Routing";
+import React from 'react';
+import Routing from './Routing';
 import {
   createTheme,
   responsiveFontSizes,
   ThemeProvider,
   Theme,
   StyledEngineProvider,
-} from "@mui/material/styles";
-
+} from '@mui/material/styles';
 
 declare module '@mui/styles/defaultTheme' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -31,21 +30,18 @@ const theme = createTheme({
   },
   typography: {
     allVariants: {
-      color: 'white'
-    }
-  }
+      color: 'white',
+    },
+  },
 });
-
 
 const responsiveFontSizesTheme = responsiveFontSizes(theme, { factor: 3 });
 
-
 function App() {
-    
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={responsiveFontSizesTheme}>
-        <Routing />      
+        <Routing />
       </ThemeProvider>
     </StyledEngineProvider>
   );

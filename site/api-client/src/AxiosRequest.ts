@@ -1,6 +1,6 @@
-import { Request, RequestResult } from "./Request";
-import { ApiResourceBase } from "./resources/ApiResourceBase";
-import { AxiosPromise, AxiosRequestConfig } from "axios";
+import { Request, RequestResult } from './Request';
+import { ApiResourceBase } from './resources/ApiResourceBase';
+import { AxiosPromise, AxiosRequestConfig } from 'axios';
 
 export type AxiosFunction = {
   (config: AxiosRequestConfig): AxiosPromise<string>;
@@ -24,7 +24,7 @@ export class AxiosRequest implements Request {
     if (resource.body !== null) {
       options.data = resource.body;
       options.headers = {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       };
     }
 

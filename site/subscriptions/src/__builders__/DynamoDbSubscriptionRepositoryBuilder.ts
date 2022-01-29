@@ -1,7 +1,7 @@
-import { DynamoDbClientStubBuilder } from "@petriworks/storage-dynamodb";
-import { DynamoDbClient } from "@petriworks/storage-dynamodb";
-import { dynamoDbSubscriptionRepository } from "../DynamoDbSubscriptionRepository";
-import { SubscriptionRepository } from "../SubscriptionRepository";
+import { DynamoDbClientStubBuilder } from '@petriworks/storage-dynamodb';
+import { DynamoDbClient } from '@petriworks/storage-dynamodb';
+import { dynamoDbSubscriptionRepository } from '../DynamoDbSubscriptionRepository';
+import { SubscriptionRepository } from '../SubscriptionRepository';
 
 export class DynamoDbSubscriptionRepositoryBuilder {
   private _client: DynamoDbClient = new DynamoDbClientStubBuilder().build();

@@ -1,14 +1,14 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
-import { PageContainer, UCaseTypography } from "../../components";
-import { CodeBlock } from "../../components/CodeBlock";
-import { GenericParagraphs } from "./GenericParagraphs";
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { PageContainer, UCaseTypography } from '../../components';
+import { CodeBlock } from '../../components/CodeBlock';
+import { GenericParagraphs } from './GenericParagraphs';
 
 export default function ChapterOnePage() {
   const { t } = useTranslation();
   return (
     <PageContainer>
-      <UCaseTypography variant="h3">{t("career.chapter.four.header")}</UCaseTypography>
+      <UCaseTypography variant="h3">{t('career.chapter.four.header')}</UCaseTypography>
       <GenericParagraphs
         TranslationKey="career.chapter.four"
         FirstParagraphIndex={1}

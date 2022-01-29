@@ -1,8 +1,8 @@
-import { Grid } from "@mui/material";
-import React from "react";
-import OuterLink from "../components/OuterLink";
-import { UCaseTypography } from "../components";
-import TechnologiesLink from "./TechnologiesLink";
+import { Grid } from '@mui/material';
+import React from 'react';
+import OuterLink from '../components/OuterLink';
+import { UCaseTypography } from '../components';
+import TechnologiesLink from './TechnologiesLink';
 
 export default function PersonalInformation() {
   return (

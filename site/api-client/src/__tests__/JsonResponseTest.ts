@@ -1,8 +1,8 @@
-import { failure, success } from "@petriworks/common";
-import { JsonResponseBuilder } from "../__builders__/JsonResponseBuilder";
+import { failure, success } from '@petriworks/common';
+import { JsonResponseBuilder } from '../__builders__/JsonResponseBuilder';
 
-describe("Response", () => {
-  describe("handleResult", () => {
+describe('Response', () => {
+  describe('handleResult', () => {
     type TestType = {
       readonly value: String;
     };
@@ -13,12 +13,12 @@ describe("Response", () => {
 
         const actual = sut.handleResult<TestType>({ body: `{"value": ""}`, httpStatusCode });
 
-        const expected = success({ value: "" });
+        const expected = success({ value: '' });
         expect(actual).toStrictEqual(expected);
       });
     });
 
-    it("should return validation error with http status code 400", () => {
+    it('should return validation error with http status code 400', () => {
       const sut = new JsonResponseBuilder().build();
 
       const actual = sut.handleResult<TestType>({
@@ -26,7 +26,7 @@ describe("Response", () => {
         httpStatusCode: 400,
       });
 
-      const expected = failure({ field: "email", message: "invalid" });
+      const expected = failure({ field: 'email', message: 'invalid' });
       expect(actual).toStrictEqual(expected);
     });
     [401, 500].forEach((httpStatusCode) => {
@@ -38,7 +38,7 @@ describe("Response", () => {
           httpStatusCode,
         });
 
-        const expected = failure({ error: "invalid request" });
+        const expected = failure({ error: 'invalid request' });
         expect(actual).toStrictEqual(expected);
       });
     });

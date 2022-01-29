@@ -1,7 +1,7 @@
-import { AxiosFunction, AxiosRequest } from "../AxiosRequest";
+import { AxiosFunction, AxiosRequest } from '../AxiosRequest';
 
 export class AxiosRequestBuilder {
-  private _baseUrl: string = "xxx";
+  private _baseUrl: string = 'xxx';
   private _axios: AxiosFunction = jest.fn();
 
   public withBaseUrl(value: string): AxiosRequestBuilder {

@@ -1,34 +1,34 @@
-import type { AWS } from "@serverless/typescript";
+import type { AWS } from '@serverless/typescript';
 const serverlessConfiguration: AWS = {
-  service: "security-extensions-lambda",
-  frameworkVersion: "2",
+  service: 'security-extensions-lambda',
+  frameworkVersion: '2',
   custom: {
     webpack: {
-      webpackConfig: "./webpack.config.js",
+      webpackConfig: './webpack.config.js',
       includeModules: true,
     },
   },
-  plugins: ["serverless-webpack"],
+  plugins: ['serverless-webpack'],
   provider: {
-    name: "aws",
-    runtime: "nodejs12.x",
+    name: 'aws',
+    runtime: 'nodejs12.x',
     apiGateway: {
       minimumCompressionSize: 1024,
       shouldStartNameWithService: true,
     },
     environment: {
-      AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1",
+      AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
     },
-    lambdaHashingVersion: "20201221",
+    lambdaHashingVersion: '20201221',
   },
   functions: {
     addSecurityHeaders: {
-      handler: "src/lambdas/addSecurityHeaders.handler",
+      handler: 'src/lambdas/addSecurityHeaders.handler',
       events: [
         {
           http: {
-            method: "POST",
-            path: "/",
+            method: 'POST',
+            path: '/',
             cors: true,
           },
         },

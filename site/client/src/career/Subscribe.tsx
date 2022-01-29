@@ -1,8 +1,8 @@
-import React from "react";
-import { ApiClient } from "@petriworks/api-client";
-import { useTranslation } from "react-i18next";
-import SubscribeForm from "./SubscribeForm";
-import { ErrorAlert, SuccessAlert } from "../components/Alerts";
+import React from 'react';
+import { ApiClient } from '@petriworks/api-client';
+import { useTranslation } from 'react-i18next';
+import SubscribeForm from './SubscribeForm';
+import { ErrorAlert, SuccessAlert } from '../components/Alerts';
 
 type SubscribeProps = {
   readonly apiClient: ApiClient;
@@ -23,12 +23,12 @@ const Container = (props: SubscribeProps) => {
         wasSubscriptionSuccessfull={wasSubscriptionSuccessfull}
       />
       <SuccessAlert
-        message={t("career.subscribe.success")}
+        message={t('career.subscribe.success')}
         isOpen={isSuccessAlertOpen}
         setOpen={setSuccessAlertOpen}
       />
       <ErrorAlert
-        message={t("career.subscribe.error")}
+        message={t('career.subscribe.error')}
         isOpen={isErrorAlertOpen}
         setOpen={setErrorAlertOpen}
       />

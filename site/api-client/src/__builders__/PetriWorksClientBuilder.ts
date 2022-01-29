@@ -1,8 +1,8 @@
-import { PetriWorksClient } from "../PetriWorksClient";
-import { Request } from "../Request";
-import { Response } from "../Response";
-import { RequestStubBuilder } from "./RequestStubBuilder";
-import { ResponseStubBuilder } from "./ResponseStubBuilder";
+import { PetriWorksClient } from '../PetriWorksClient';
+import { Request } from '../Request';
+import { Response } from '../Response';
+import { RequestStubBuilder } from './RequestStubBuilder';
+import { ResponseStubBuilder } from './ResponseStubBuilder';
 
 export class PetriWorksClientBuilder {
   private _request: Request = new RequestStubBuilder().build();

@@ -1,6 +1,6 @@
-import { ValidationError } from "@petriworks/api-contracts";
-import { Result, success } from "@petriworks/common";
-import { Response } from "../Response";
+import { ValidationError } from '@petriworks/api-contracts';
+import { Result, success } from '@petriworks/common';
+import { Response } from '../Response';
 
 export class ResponseStubBuilder<T> {
   private _handleResult: Result<T, ValidationError[] | object> = success({} as T);

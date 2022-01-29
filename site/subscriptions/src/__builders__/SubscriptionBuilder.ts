@@ -1,5 +1,5 @@
-import { Name, NameBuilder, EmailAddress, EmailAddressBuilder } from "@petriworks/common";
-import { Subscription } from "../Subscription";
+import { Name, NameBuilder, EmailAddress, EmailAddressBuilder } from '@petriworks/common';
+import { Subscription } from '../Subscription';
 
 export class SubscriptionBuilder {
   private _name: Name = new NameBuilder().build();

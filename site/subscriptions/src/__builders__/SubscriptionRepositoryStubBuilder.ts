@@ -1,6 +1,6 @@
-import { Result, Option, Unit, success, none, unit } from "@petriworks/common";
-import { Subscription } from "../Subscription";
-import { SubscriptionRepository } from "../SubscriptionRepository";
+import { Result, Option, Unit, success, none, unit } from '@petriworks/common';
+import { Subscription } from '../Subscription';
+import { SubscriptionRepository } from '../SubscriptionRepository';
 
 export class SubscriptionRepositoryStubBuilder {
   private _find: Promise<Result<Option<Subscription>, string>> = Promise.resolve(success(none()));

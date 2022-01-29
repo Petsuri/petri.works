@@ -1,54 +1,54 @@
-import type { Serverless } from "serverless/aws";
+import type { Serverless } from 'serverless/aws';
 
 const serverlessConfiguration: Serverless = {
-  service: "petri-works",
+  service: 'petri-works',
   package: {
     excludeDevDependencies: true,
   },
-  configValidationMode: "error",
-  frameworkVersion: "2",
+  configValidationMode: 'error',
+  frameworkVersion: '2',
   custom: {
-    "serverless-offline": {
+    'serverless-offline': {
       httpPort: 4000,
     },
     dynamodb: {
-      stages: "v1",
+      stages: 'v1',
       start: {
         migrate: true,
         port: 8000,
         inMemory: true,
-        heapInitial: "200m",
-        heapMax: "1g",
+        heapInitial: '200m',
+        heapMax: '1g',
         seed: true,
       },
     },
   },
   plugins: [
-    "serverless-plugin-typescript",
-    "serverless-dynamodb-local",
-    "serverless-offline",
-    "serverless-dotenv-plugin",
+    'serverless-plugin-typescript',
+    'serverless-dynamodb-local',
+    'serverless-offline',
+    'serverless-dotenv-plugin',
   ],
   provider: {
-    name: "aws",
-    runtime: "nodejs12.x",
-    region: "us-east-1",
-    stage: "v1",
+    name: 'aws',
+    runtime: 'nodejs12.x',
+    region: 'us-east-1',
+    stage: 'v1',
     apiGateway: {
       minimumCompressionSize: 1024,
     },
     environment: {
-      AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1",
+      AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
     },
   },
   functions: {
     subscribePost: {
-      handler: "src/lambdas/subscribePost.handler",
+      handler: 'src/lambdas/subscribePost.handler',
       events: [
         {
           http: {
-            method: "POST",
-            path: "subscribe",
+            method: 'POST',
+            path: 'subscribe',
             cors: true,
           },
         },
@@ -58,27 +58,27 @@ const serverlessConfiguration: Serverless = {
   resources: {
     Resources: {
       usersTable: {
-        Type: "AWS::DynamoDB::Table",
+        Type: 'AWS::DynamoDB::Table',
         Properties: {
-          TableName: "subscriptions",
+          TableName: 'subscriptions',
           AttributeDefinitions: [
             {
-              AttributeName: "email",
-              AttributeType: "S",
+              AttributeName: 'email',
+              AttributeType: 'S',
             },
             {
-              AttributeName: "name",
-              AttributeType: "S",
+              AttributeName: 'name',
+              AttributeType: 'S',
             },
           ],
           KeySchema: [
             {
-              AttributeName: "email",
-              KeyType: "HASH",
+              AttributeName: 'email',
+              KeyType: 'HASH',
             },
             {
-              AttributeName: "name",
-              KeyType: "RANGE",
+              AttributeName: 'name',
+              KeyType: 'RANGE',
             },
           ],
           ProvisionedThroughput: {

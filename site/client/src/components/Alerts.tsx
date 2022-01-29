@@ -1,13 +1,13 @@
-import React, { Dispatch, SetStateAction } from "react";
-import Snackbar from "@mui/material/Snackbar";
+import React, { Dispatch, SetStateAction } from 'react';
+import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import makeStyles from '@mui/styles/makeStyles';
-import { Theme } from "@mui/material";
+import { Theme } from '@mui/material';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    width: "100%",
-    "& > * + *": {
+    width: '100%',
+    '& > * + *': {
       marginTop: theme.spacing(2),
     },
   },
@@ -20,21 +20,21 @@ export type AlertProps = {
 };
 
 type AlertSeverity = {
-  readonly severity: "success" | "info" | "warning" | "error";
+  readonly severity: 'success' | 'info' | 'warning' | 'error';
 };
 
 type SnackbarProps = AlertSeverity & AlertProps;
 
 export const SuccessAlert = (props: AlertProps) => {
   return CustomizedSnackbars({
-    severity: "success",
+    severity: 'success',
     ...props,
   });
 };
 
 export const ErrorAlert = (props: AlertProps) => {
   return CustomizedSnackbars({
-    severity: "error",
+    severity: 'error',
     ...props,
   });
 };

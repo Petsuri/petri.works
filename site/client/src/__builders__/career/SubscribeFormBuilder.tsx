@@ -1,7 +1,7 @@
-import React from "react";
-import { ApiClient } from "@petriworks/api-client";
-import { ApiClientStubBuilder } from "../ApiClientStubBuilder";
-import SubscribeForm from "../../career/SubscribeForm";
+import React from 'react';
+import { ApiClient } from '@petriworks/api-client';
+import { ApiClientStubBuilder } from '../ApiClientStubBuilder';
+import SubscribeForm from '../../career/SubscribeForm';
 
 export class SubscribeFormBuilder {
   private _apiClient: ApiClient = new ApiClientStubBuilder().build();

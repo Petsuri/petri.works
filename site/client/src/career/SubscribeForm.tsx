@@ -1,12 +1,12 @@
-import React from "react";
-import { withFormik, FormikProps, FormikErrors, FormikBag } from "formik";
-import { Grid } from "@mui/material";
-import { ApiClient, SubscribeResource } from "@petriworks/api-client";
-import { Name, Unit } from "@petriworks/common";
-import { NewSubscriptionSchema, NewSubscriptionRequest } from "@petriworks/api-contracts";
-import { useTranslation } from "react-i18next";
-import { ParagraphContainer, StyledTextField } from "../components";
-import SubscribeButton from "./SubscribeButton";
+import React from 'react';
+import { withFormik, FormikProps, FormikErrors, FormikBag } from 'formik';
+import { Grid } from '@mui/material';
+import { ApiClient, SubscribeResource } from '@petriworks/api-client';
+import { Name, Unit } from '@petriworks/common';
+import { NewSubscriptionSchema, NewSubscriptionRequest } from '@petriworks/api-contracts';
+import { useTranslation } from 'react-i18next';
+import { ParagraphContainer, StyledTextField } from '../components';
+import SubscribeButton from './SubscribeButton';
 
 type SubscribeProps = {
   readonly apiClient: ApiClient;
@@ -35,13 +35,13 @@ const Form = (props: FormikProps<NewSubscriptionRequest>) => {
               data-testid="input-name"
               error={!isNameValid(errors)}
               id="name"
-              value={values.name || ""}
-              label={t("career.subscribe.name")}
+              value={values.name || ''}
+              label={t('career.subscribe.name')}
               onChange={handleChange}
               onBlur={handleBlur}
               helperText={
                 !isNameValid(errors) &&
-                t("career.subscribe.invalid_name", {
+                t('career.subscribe.invalid_name', {
                   min: Name.MinLenght,
                   max: Name.MaxLength,
                 })
@@ -55,11 +55,11 @@ const Form = (props: FormikProps<NewSubscriptionRequest>) => {
               data-testid="input-email"
               error={!isEmailValid(errors)}
               id="email"
-              value={values.email || ""}
-              label={t("career.subscribe.email")}
+              value={values.email || ''}
+              label={t('career.subscribe.email')}
               onChange={handleChange}
               onBlur={handleBlur}
-              helperText={!isEmailValid(errors) && t("career.subscribe.invalid_email")}
+              helperText={!isEmailValid(errors) && t('career.subscribe.invalid_email')}
               fullWidth
             />
           </Grid>

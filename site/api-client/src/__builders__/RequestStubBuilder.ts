@@ -1,4 +1,4 @@
-import { Request, RequestResult } from "../Request";
+import { Request, RequestResult } from '../Request';
 
 export class RequestStubBuilder {
   private _send: Promise<RequestResult> = Promise.resolve({ body: `{}`, httpStatusCode: 201 });

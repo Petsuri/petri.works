@@ -1,8 +1,8 @@
-import { NewSubscriptionSchema } from "../subscription";
-import { validateSchema } from "../validate";
+import { NewSubscriptionSchema } from '../subscription';
+import { validateSchema } from '../validate';
 
-describe("subscription", () => {
-  describe("NewSubscriptionSchema", () => {
+describe('subscription', () => {
+  describe('NewSubscriptionSchema', () => {
     [
       null,
       `{}`,
@@ -17,16 +17,16 @@ describe("subscription", () => {
       });
     });
 
-    it("should return true with valid input", async () => {
+    it('should return true with valid input', async () => {
       const actual = await NewSubscriptionSchema.isValid({
-        name: "Petri",
-        email: "petri@petri.works",
+        name: 'Petri',
+        email: 'petri@petri.works',
       });
 
       expect(actual).toBe(true);
     });
 
-    it("should disallow extra fields", async () => {
+    it('should disallow extra fields', async () => {
       const actual = validateSchema(
         `{
         "name": "Petri",

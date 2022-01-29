@@ -1,6 +1,6 @@
-import { EmailAddress, Option, Result, Unit } from "@petriworks/common";
+import { EmailAddress, Option, Result, Unit } from '@petriworks/common';
 
-import { Subscription } from "./Subscription";
+import { Subscription } from './Subscription';
 
 export interface SubscriptionRepository {
   find(email: EmailAddress): Promise<Result<Option<Subscription>, string>>;

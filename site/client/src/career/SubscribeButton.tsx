@@ -1,14 +1,14 @@
-import React from "react";
-import { StyledButton } from "../components";
-import { styled } from "@mui/material/styles";
+import React from 'react';
+import { StyledButton } from '../components';
+import { styled } from '@mui/material/styles';
 
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
-const FullWidthDiv = styled("div")((props) => ({
-  display: "flex",
-  justifyContent: "center",
+const FullWidthDiv = styled('div')((props) => ({
+  display: 'flex',
+  justifyContent: 'center',
   [props.theme.breakpoints.down('sm')]: {
-    justifyContent: "flex-start",
+    justifyContent: 'flex-start',
   },
 }));
 
@@ -29,7 +29,7 @@ const SubscribeButton = (props: SubscribeButtonProps) => {
         disabled={props.isSubmitting}
         onClick={() => props.onClick()}
       >
-        {t("career.subscribe.subscribe")}
+        {t('career.subscribe.subscribe')}
       </StyledButton>
     </FullWidthDiv>
   );

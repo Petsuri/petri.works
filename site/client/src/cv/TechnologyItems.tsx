@@ -1,6 +1,6 @@
-import React from "react";
-import { Grid } from "@mui/material";
-import { UCaseTypography } from "../components";
+import React from 'react';
+import { Grid } from '@mui/material';
+import { UCaseTypography } from '../components';
 
 export type ItemsProps = {
   readonly Items: string[];

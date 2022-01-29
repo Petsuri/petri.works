@@ -1,13 +1,13 @@
-import { APIGatewayProxyEvent, APIGatewayProxyHandler, Context } from "aws-lambda";
+import { APIGatewayProxyEvent, APIGatewayProxyHandler, Context } from 'aws-lambda';
 import {
   validateSchema,
   NewSubscriptionSchema,
   NewSubscriptionRequest,
-} from "@petriworks/api-contracts";
-import { noContent, validationError } from "../results";
-import { defaultClient } from "@petriworks/storage-dynamodb";
-import { dynamoDbSubscriptionRepository, SubscriptionService } from "@petriworks/subscriptions";
-import { EmailAddress, Name } from "@petriworks/common";
+} from '@petriworks/api-contracts';
+import { noContent, validationError } from '../results';
+import { defaultClient } from '@petriworks/storage-dynamodb';
+import { dynamoDbSubscriptionRepository, SubscriptionService } from '@petriworks/subscriptions';
+import { EmailAddress, Name } from '@petriworks/common';
 
 export const subscribePostHandler = async (
   subscriptionService: SubscriptionService,
@@ -25,7 +25,7 @@ export const subscribePostHandler = async (
       return noContent();
     }
 
-    return validationError([{ field: "", message: subscriptionResult.error }]);
+    return validationError([{ field: '', message: subscriptionResult.error }]);
   }
 
   return validationError(result.error);

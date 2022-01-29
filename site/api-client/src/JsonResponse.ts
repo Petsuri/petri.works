@@ -1,7 +1,7 @@
-import { RequestResult } from "./Request";
-import { Result, success, failure } from "@petriworks/common";
-import { ValidationError } from "@petriworks/api-contracts";
-import { Response } from "./Response";
+import { RequestResult } from './Request';
+import { Result, success, failure } from '@petriworks/common';
+import { ValidationError } from '@petriworks/api-contracts';
+import { Response } from './Response';
 
 export class JsonResponse implements Response {
   public handleResult<T>(result: RequestResult): Result<T, ValidationError[] | object> {

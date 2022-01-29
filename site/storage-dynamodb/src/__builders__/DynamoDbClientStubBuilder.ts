@@ -1,6 +1,6 @@
-import { none, Option, Result, success, unit, Unit } from "@petriworks/common";
-import { ItemList } from "aws-sdk/clients/dynamodb";
-import { DynamoDbClient, DynamoDbError } from "../DynamoDbClient";
+import { none, Option, Result, success, unit, Unit } from '@petriworks/common';
+import { ItemList } from 'aws-sdk/clients/dynamodb';
+import { DynamoDbClient, DynamoDbError } from '../DynamoDbClient';
 
 export class DynamoDbClientStubBuilder {
   private _put: Promise<Result<Unit, DynamoDbError>> = Promise.resolve(success(unit()));

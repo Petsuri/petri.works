@@ -1,10 +1,10 @@
-import { EmailAddress } from "../EmailAddress";
+import { EmailAddress } from '../EmailAddress';
 
 export class EmailAddressBuilder {
   private _email: string;
 
   public constructor() {
-    this._email = "xxx@petri.works";
+    this._email = 'xxx@petri.works';
   }
 
   public withEmail(value: string): EmailAddressBuilder {

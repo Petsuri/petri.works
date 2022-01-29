@@ -4,8 +4,8 @@ const formatDate = (date: Date): string => {
 
 export const formatPeriod = (t: Function, begin: Date, end: Date | null): string => {
   if (end === null) {
-    return formatDate(begin) + " - " + t("cv.present");
+    return formatDate(begin) + ' - ' + t('cv.present');
   }
 
-  return formatDate(begin) + " - " + formatDate(end);
+  return formatDate(begin) + ' - ' + formatDate(end);
 };

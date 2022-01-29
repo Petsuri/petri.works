@@ -1,5 +1,5 @@
-import { failure, Result, success } from "@petriworks/common";
-import { ObjectSchema, ValidationError as YupValidationError } from "yup";
+import { failure, Result, success } from '@petriworks/common';
+import { ObjectSchema, ValidationError as YupValidationError } from 'yup';
 
 export type ValidationError = {
   readonly field: string;
@@ -17,7 +17,7 @@ function parseInput<T>(input: string | null): Result<T, ValidationError[]> {
     const values = input === null ? {} : JSON.parse(input);
     return success(values as T);
   } catch (_) {
-    return failure([{ field: "input", message: "input is not valid JSON" }]);
+    return failure([{ field: 'input', message: 'input is not valid JSON' }]);
   }
 }
 
