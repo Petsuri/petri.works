@@ -1,14 +1,24 @@
-import { IconButton, Menu, MenuItem, Typography } from "@mui/material";
+import { IconButton, Menu, MenuItem, Theme, Typography } from "@mui/material";
 import React, { useState, MouseEvent } from "react";
 import { changeLocale, getLocale } from "../locales/i18n";
 import { Locale } from "../locales/Locale";
 import TranslateIcon from "@mui/icons-material/Translate";
+import makeStyles from "@mui/styles/makeStyles";
+
+export const useStyles = makeStyles((theme: Theme) => ({
+  menu: {
+    "& .MuiPaper-root": {
+      backgroundColor: theme.palette.primary.main
+    }
+  }
+}));
 
 export const LanguageSelection = () => {
   const languageMenuId: string = "change-language-menu-id";
   const [anchorEl, setAnchorEl] = useState<Element | null>(null);
   const [locale, setLocale] = useState<Locale>(getLocale());
   const isLanguageMenuOpen = Boolean(anchorEl);
+  const classes = useStyles();
 
   const handleLanguageMenuOpen = (event: MouseEvent): void => {
     setAnchorEl(event.currentTarget);
@@ -36,6 +46,7 @@ export const LanguageSelection = () => {
 
   const renderMenu = (
     <Menu
+      className={classes.menu}
       anchorEl={anchorEl}
       anchorOrigin={{ vertical: "top", horizontal: "right" }}
       id={languageMenuId}
