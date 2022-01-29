@@ -15,7 +15,8 @@
       "five": "Chapter 5: SOLID principles at the beginning of your career",
       "six": "Chapter 6: Single Responsibility Principle (SRP)",
       "seven": "Chapter 7: Single Responsibility Principle exercise"
-    }
+    },
+    "admin_site": "Sign in"
   },
   "cv": {
     "present": "Present",

@@ -15,7 +15,8 @@
       "five": "Kappale 5: SOLID -periaatteet urasi alussa",
       "six": "Kappale 6: Single Responsibility Principle (SRP)",
       "seven": "Kappale 7: Single Responsibility Principle harjoitus"
-    }
+    },
+    "admin_site": "Kirjaudu sisään"
   },
   "cv": {
     "present": "Nykyhetki",
