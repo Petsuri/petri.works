@@ -31,6 +31,7 @@ const Form = (props: FormikProps<NewSubscriptionRequest>) => {
         <Grid container spacing={2}>
           <Grid item xs={7} sm={6}>
             <StyledTextField
+              variant="standard"
               data-testid="input-name"
               error={!isNameValid(errors)}
               id="name"
@@ -50,6 +51,7 @@ const Form = (props: FormikProps<NewSubscriptionRequest>) => {
           </Grid>
           <Grid item xs={7} sm={6}>
             <StyledTextField
+              variant="standard"
               data-testid="input-email"
               error={!isEmailValid(errors)}
               id="email"

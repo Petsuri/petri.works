@@ -23,18 +23,6 @@ export const TextContainer = styled(Container)({
 const defaultTextInputBorderBottom = "1px solid white";
 export const StyledTextField = withStyles({
   root: {
-    "& label": {
-      color: "white",
-    },
-    "& input": {
-      color: "white",
-    },
-    "& label.Mui-error": {
-      color: "white",
-    },
-    "& label.Mui-focused": {
-      color: "white",
-    },
     "& .MuiInput-underline:before": {
       borderBottom: defaultTextInputBorderBottom,
     },
