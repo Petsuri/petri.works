@@ -141,6 +141,12 @@ module "github_secret_cloudfront_distribution_id" {
   secret_value = module.cloudfront.cloudfront_distribution_id
 }
 
+module "github_secret_admin_cloudfront_distribution_id" {
+  source       = "../../github/secrets"
+  secret_name  = "ADMIN_CLOUDFRONT_DISTRIBUTION_ID"
+  secret_value = module.admin_cloudfront.cloudfront_distribution_id
+}
+
 module "dynamodb_table_subscriptions" {
   source      = "../../storage/dynamodb"
   environment = var.environment
