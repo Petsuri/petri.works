@@ -2,8 +2,9 @@ import React, { Dispatch, SetStateAction } from "react";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from '@mui/material/Alert';
 import makeStyles from '@mui/styles/makeStyles';
+import { Theme } from "@mui/material";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     width: "100%",
     "& > * + *": {
