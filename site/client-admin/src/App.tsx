@@ -4,7 +4,6 @@ import {
   createTheme,
   responsiveFontSizes,
   ThemeProvider,
-  Theme,
   StyledEngineProvider,
 } from '@mui/material/styles';
 
