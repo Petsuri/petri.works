@@ -54,10 +54,11 @@ export const ParagraphContainer = styled('div')({
   paddingBottom: '1rem',
 });
 
-export const UnorderedList = styled('ul')({
+export const UnorderedList = styled('ul')(({ theme }) => ({
   marginBlockStart: '0.1rem',
   marginBlockEnd: '0.1rem',
-});
+  color: theme.palette.primary.contrastText,
+}));
 
 export const IdentedListItem = styled(ListItem)({
   paddingLeft: '2rem',
@@ -69,7 +70,7 @@ type PageContainerProps = {
 
 export function PageContainer(props: PageContainerProps) {
   const PageContainerStyles = styled('div')({
-    margin: '1rem',
+    padding: '1rem',
   });
 
   return (

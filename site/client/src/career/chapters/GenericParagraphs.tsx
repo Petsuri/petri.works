@@ -57,7 +57,11 @@ const renderListTems = (
   const items = Array<JSX.Element>();
   for (let listItemIndex = 1; listItemIndex <= listItems.LastItemIndex; listItemIndex++) {
     items.push(
-      <li>{t(`${translationKey}.paragraph_list_items.${paragaphIndex}.${listItemIndex}`)}</li>
+      <li key={listItemIndex}>
+        <Typography variant="body1">
+          {t(`${translationKey}.paragraph_list_items.${paragaphIndex}.${listItemIndex}`)}
+        </Typography>
+      </li>
     );
   }
 

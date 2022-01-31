@@ -1,12 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import TopMenu from './menu/TopMenu';
-import './App.css';
 import CvPage from './cv/CvPage';
 import { PathToCvPage } from './cv/CvLink';
 import { Theme } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
-import { darkBackgroundColor } from './components/colors';
 import { PathToBeingDeveloperPage } from './career/BeingDeveloperLink';
 import { PathToChapterOne } from './career/chapters/ChapterOneLink';
 import ChapterOnePage from './career/chapters/ChapterOnePage';
@@ -29,7 +27,7 @@ import ChapterSevenPage from './career/chapters/ChapterSevenPage';
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
     minHeight: '100vh',
-    backgroundColor: darkBackgroundColor,
+    backgroundColor: theme.palette.primary.dark,
   },
 }));
 
@@ -37,8 +35,8 @@ export default function Routing() {
   const classes = useStyles();
 
   return (
-    <Router>
-      <div className={classes.container}>
+    <div className={classes.container}>
+      <Router>
         <TopMenu />
         <div className="App">
           <Routes>
@@ -55,7 +53,7 @@ export default function Routing() {
             <Route path="/" element={<CvPage />} />
           </Routes>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
 }

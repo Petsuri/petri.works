@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from '../../components';
 import { useTranslation } from 'react-i18next';
 
 export const PathToChapterFive: string = '/career/chapter-five';
@@ -7,5 +7,5 @@ export const PathToChapterFive: string = '/career/chapter-five';
 export default function ChapterFourLink() {
   const { t } = useTranslation();
 
-  return <Link to={PathToChapterFive}>{t('main.chapter.five')}</Link>;
+  return <Link to={PathToChapterFive} text={t('main.chapter.five')} />;
 }

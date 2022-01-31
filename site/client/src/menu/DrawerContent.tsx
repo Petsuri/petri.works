@@ -13,7 +13,7 @@ import ChapterFourLink from '../career/chapters/ChapterFourLink';
 import ChapterFiveLink from '../career/chapters/ChapterFiveLink';
 import ChapterSixLink from '../career/chapters/ChapterSixLink';
 import ChapterSevenLink from '../career/chapters/ChapterSevenLink';
-import AdminSiteLink from "./AdminSiteLink";
+import AdminSiteLink from './AdminSiteLink';
 
 type DrawerContentProps = {
   readonly closeDrawer: Function;
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: 'white',
     paddingTop: '2rem',
     paddingLeft: '2rem',
-    height: '100%'
+    height: '100%',
   },
 }));
 
@@ -85,7 +85,7 @@ export default function DrawerContent(props: DrawerContentProps) {
     <div className={classes.content}>
       <Grid container>
         <Grid item>
-      <List component="nav">{links.map(renderLink)}</List>
+          <List component="nav">{links.map(renderLink)}</List>
         </Grid>
         <Grid item position="absolute" bottom={0} paddingBottom={2}>
           <AdminSiteLink />
