@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { CredentialsState, getCredentialsState } from './credentials';
+import { getRedirectToLogin } from './login';
 import { Skeleton } from '@mui/material';
 
 const withAuthentication = (Component: React.FC) => {
@@ -17,6 +18,9 @@ const withAuthentication = (Component: React.FC) => {
     }
 
     if (credentialState === CredentialsState.Missing) {
+      const loginUri = getRedirectToLogin();
+      window.location.href = loginUri;
+      return null;
     }
 
     return <Component />;

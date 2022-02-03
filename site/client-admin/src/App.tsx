@@ -46,6 +46,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import withAuthentication from './authentication/withAuthentication';
 
 function App() {
   return (
@@ -68,4 +69,4 @@ function App() {
   );
 }
 
-export default App;
+export default withAuthentication(App);
