@@ -103,11 +103,15 @@ resource "aws_cognito_user_pool_client" "cognito_client" {
 }
 
 resource "aws_cognito_resource_server" "cognito_resource_server" {
-  identifier = var.domain
+  identifier = var.scope_prefix
   name       = "Resource server for user pool ${aws_cognito_user_pool.cognito.name}"
-  scope {
-    scope_name        = "subscribe_list"
-    scope_description = "Get list of all subscribers"
+  dynamic "scope" {
+    for_each = var.scopes
+
+    content {
+      scope_name        = scope.value.name
+      scope_description = scope.value.description
+    }
   }
 
   user_pool_id = aws_cognito_user_pool.cognito.id

@@ -32,3 +32,16 @@ variable "logout_urls" {
   type        = list(string)
   description = "List of logout urls for the user pool client"
 }
+
+variable "scope_prefix" {
+  type        = string
+  description = "Prefix that will be used for all scopes"
+}
+
+variable "scopes" {
+  type = map(object({
+    name        = string,
+    description = string,
+  }))
+  description = "Scopes for user pool"
+}
