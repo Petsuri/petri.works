@@ -14,7 +14,6 @@ export async function exchangeCode(
   code: string,
   save: (credentials: Credentials) => void
 ): Promise<Result<Unit, string>> {
-
   const host = getLoginHost();
   return await fetch(`${host}oauth2/token/`, {
     method: 'POST',

@@ -11,22 +11,20 @@ const Callback = () => {
   const code = searchParams.get('code');
 
   useEffect(() => {
-      if (!code) {
-        window.location.href = getPetriWorksUri();
-        return;
-      }
+    if (!code) {
+      window.location.href = getPetriWorksUri();
+      return;
+    }
 
     exchangeCode(code, save).then((result: Result<Unit, string>) => {
-        if (result.ok) {
-          return navigate('/test');
-        }
+      if (result.ok) {
+        return navigate('/test');
+      }
 
-        console.log(result.error);
-        window.location.href = getPetriWorksUri();
-      });
-    },
-    [code]
-  );
+      console.log(result.error);
+      window.location.href = getPetriWorksUri();
+    });
+  }, [code]);
 
   return null;
 };
