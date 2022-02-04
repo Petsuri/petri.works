@@ -98,7 +98,7 @@ const getExperiences = (t: TFunction): Experience[] => {
       t,
       'Visma Solutions Oy, Netvisor',
       'Software Developer',
-      new Date(2014, 4, 1),
+      new Date(2014, 3, 1),
       new Date(2017, 5, 1),
       'software_developer',
       ['1', '2', '3'],
