@@ -69,3 +69,13 @@ variable "s3_bucket_key" {
   type        = string
   description = "The S3 key of an object containing the function's deployment package"
 }
+
+variable "module_path" {
+  type = string
+  description = "Path where module is located"
+}
+
+variable "module_build_command" {
+  type = string
+  description = "Command that is used to build the module"
+}

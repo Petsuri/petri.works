@@ -9,6 +9,8 @@ module "s3_bucket_lamda" {
 
   name                  = var.name
   handler               = var.handler
+  module_path           = var.module_path
+  module_build_command  = var.module_build_command
   package_path          = var.package_path
   runtime               = var.runtime
   iam_user_arn          = var.iam_user_arn

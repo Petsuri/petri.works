@@ -16,15 +16,17 @@ module "lambda_edge_user" {
 }
 
 module "lambda_edge_security_headers" {
-  source            = "../../compute/s3-bucket-lambda"
-  environment       = var.environment
-  name              = "add-security-headers"
-  handler           = "src/lambdas/addSecurityHeaders.handler"
-  s3_bucket_name    = "security-headers-lambda-static-files"
-  s3_bucket_key     = "security-extensions-lambda.zip"
-  purpose_of_bucket = "Static files for security extensions lambda"
-  package_path      = "site/security-extensions-lambda/dist"
-  iam_user_arn      = module.lambda_edge_user.iam_user_arn
+  source               = "../../compute/s3-bucket-lambda"
+  environment          = var.environment
+  name                 = "add-security-headers"
+  handler              = "src/lambdas/addSecurityHeaders.handler"
+  s3_bucket_name       = "security-headers-lambda-static-files"
+  s3_bucket_key        = "security-extensions-lambda.zip"
+  purpose_of_bucket    = "Static files for security extensions lambda"
+  module_path          = "site/security-extensions-lambda"
+  module_build_command = "npm run build:production"
+  package_path         = "site/security-extensions-lambda/dist"
+  iam_user_arn         = module.lambda_edge_user.iam_user_arn
 }
 
 module "cloudfront" {
@@ -182,6 +184,8 @@ module "api_gate_way_lambdas" {
     1 = {
       name                 = "subscribe",
       handler              = "subscribePost.handler",
+      module_path          = "site/subscription-api",
+      module_build_command = "npm run build:production"
       package_path         = "site/subscriptions-api/.production-build"
       http_method          = "POST",
       http_route           = "/subscribe",
@@ -191,10 +195,12 @@ module "api_gate_way_lambdas" {
     2 = {
       name                 = "subscribe-admin-test",
       handler              = "subscribePost.handler",
+      module_path          = "site/subscription-api",
+      module_build_command = "npm run build:production"
       package_path         = "site/subscriptions-api/.production-build"
       http_method          = "POST",
       http_route           = "/subscribe_admin_test",
-      authorization_scopes = toset(["loginadmin.petri.works/subscribe_list"])
+      authorization_scopes = toset(["admin/subscribe_list"])
       authorizer_id        = module.api_gateway.api_gateway_admin_authorizer_id
     },
   }

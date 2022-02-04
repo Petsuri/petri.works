@@ -1,12 +1,21 @@
 locals {
-  base_path      = "../../.."
-  path_to_folder = "${local.base_path}/${var.package_path}"
-  path_to_zip    = "${local.base_path}/.artifacts/${var.s3_bucket_key}"
+  base_path            = "../../.."
+  path_to_module       = "${local.base_path}/${var.module_path}"
+  path_to_build_folder = "${local.base_path}/${var.package_path}"
+  path_to_zip          = "${local.base_path}/.artifacts/${var.s3_bucket_key}"
+}
+
+resource "null_resource" "build_lambda" {
+  provisioner "local-exec" {
+    working_dir = local.path_to_build_folder
+    command     = var.module_build_command
+  }
 }
 
 data "archive_file" "lambda_archive" {
+  depends_on  = [null_resource.build_lambda]
   type        = "zip"
-  source_dir  = local.path_to_folder
+  source_dir  = local.path_to_build_folder
   output_path = local.path_to_zip
 }
 
@@ -18,7 +27,7 @@ module "lambda_s3_bucket" {
   environment           = var.environment
   is_versioning_enabled = true
 }
- 
+
 resource "aws_s3_bucket_object" "object" {
   bucket = module.lambda_s3_bucket.bucket_name
   key    = var.s3_bucket_key

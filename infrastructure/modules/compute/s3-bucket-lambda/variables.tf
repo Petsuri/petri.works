@@ -47,8 +47,17 @@ variable "purpose_of_bucket" {
   description = "In what way is bucket going to be used"
 }
 
-// Code
 variable "package_path" {
   type        = string
   description = "Path to Javascript package"
+}
+
+variable "module_path" {
+  type = string
+  description = "Path where module is located"
+}
+
+variable "module_build_command" {
+  type = string
+  description = "Command that is used to build the module"
 }

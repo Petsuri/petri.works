@@ -33,6 +33,8 @@ variable "lambdas" {
   type = map(object({
     name                 = string,
     handler              = string,
+    module_path          = string,
+    module_build_command = string,
     http_method          = string,
     http_route           = string,
     package_path         = string,

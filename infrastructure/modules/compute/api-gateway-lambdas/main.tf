@@ -7,6 +7,8 @@ module "lambda" {
   handler              = each.value.handler
   http_method          = each.value.http_method
   http_route           = each.value.http_route
+  module_path          = each.value.module_path
+  module_build_command = each.value.module_build_command
   package_path         = each.value.package_path
   authorizer_id        = each.value.authorizer_id
   authorization_scopes = each.value.authorization_scopes
