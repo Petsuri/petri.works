@@ -1,7 +1,7 @@
 import type { AWS } from '@serverless/typescript';
 const serverlessConfiguration: AWS = {
   service: 'security-extensions-lambda',
-  frameworkVersion: '2',
+  frameworkVersion: '3',
   custom: {
     webpack: {
       webpackConfig: './webpack.config.js',

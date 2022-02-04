@@ -6,7 +6,7 @@ const serverlessConfiguration: Serverless = {
     excludeDevDependencies: true,
   },
   configValidationMode: 'error',
-  frameworkVersion: '2',
+  frameworkVersion: '3',
   custom: {
     'serverless-offline': {
       httpPort: 4000,
