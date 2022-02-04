@@ -21,3 +21,11 @@ export const getLoginClientId = (): string => {
 
   return process.env.REACT_APP_LOGIN_CLIENT_ID;
 };
+
+export const getPetriWorksUri = (): string => {
+  if (process.env.REACT_APP_PETRI_WORKS_HOST === undefined) {
+    throw new Error('REACT_APP_PETRI_WORKS_HOST environment variable must be defined');
+  }
+
+  return process.env.REACT_APP_PETRI_WORKS_HOST;
+};

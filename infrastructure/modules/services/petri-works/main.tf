@@ -49,8 +49,8 @@ module "admin_cognito_user_pool" {
   domain               = local.admin_auth_domain
   acm_certificate_arn  = module.acm_certificate.acm_certificate_arn
   environment          = var.environment
-  callback_urls        = ["https://${var.admin_domain}/", "http://localhost:3001/"]
-  default_redirect_uri = "https://${var.admin_domain}/"
+  callback_urls        = ["https://${var.admin_domain}/login/callback/", "http://localhost:3001/login/callback/"]
+  default_redirect_uri = "https://${var.admin_domain}/login/callback/"
   logout_urls          = ["https://${var.domain}/logout"]
   scope_prefix         = "admin"
   scopes = {

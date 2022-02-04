@@ -13,13 +13,6 @@ export type Credentials = {
   readonly tokenType: string;
 };
 
-type CredentialsDto = {
-  readonly access_token: string;
-  readonly refresh_token: string;
-  readonly expires_in: string;
-  readonly token_type: string;
-};
-
 const CredentialsKey = 'credentials';
 
 function exists(): boolean {
