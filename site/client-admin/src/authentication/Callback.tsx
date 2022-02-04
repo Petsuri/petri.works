@@ -17,7 +17,6 @@ const Callback = () => {
       }
 
     exchangeCode(code, save).then((result: Result<Unit, string>) => {
-      debugger;
         if (result.ok) {
           return navigate('/test');
         }

@@ -25,7 +25,6 @@ export async function exchangeCode(
   })
     .then((value) => value.json())
     .then((json: CredentialsDto) => {
-      debugger;
       save({
         token: json.access_token,
         refreshToken: json.refresh_token,
@@ -35,7 +34,6 @@ export async function exchangeCode(
       return success(unit());
     })
     .catch((error: string) => {
-      debugger;
       return failure(error);
     });
 }
