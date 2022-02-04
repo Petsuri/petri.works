@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { CredentialsState, getCredentialsState } from './credentials';
-import { getRedirectToLogin } from './login';
+import { AccessTokenState, getAccessTokenState, isLoginRequired } from './accessToken';
+import { getRedirectToLoginUri } from './login';
 import { Skeleton } from '@mui/material';
 
 const withAuthentication = (Component: React.FC) => {
   return () => {
-    const [credentialState, setCredentialState] = useState<CredentialsState>(
-      CredentialsState.Undefined
+    const [tokenState, setCredentialState] = useState<AccessTokenState>(
+      AccessTokenState.Undefined
     );
 
     useEffect(() => {
-      setCredentialState(getCredentialsState());
+      setCredentialState(getAccessTokenState());
     }, []);
 
-    if (credentialState === CredentialsState.Undefined) {
+    if (tokenState === AccessTokenState.Undefined) {
       return <Skeleton animation="wave" variant="circular" width={40} height={40} />;
     }
 
-    if (credentialState === CredentialsState.Missing) {
-      const loginUri = getRedirectToLogin();
+    if (isLoginRequired(tokenState)) {
+      const loginUri = getRedirectToLoginUri();
       window.location.href = loginUri;
       return null;
     }

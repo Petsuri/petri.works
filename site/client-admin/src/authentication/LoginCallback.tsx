@@ -1,32 +1,32 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { getPetriWorksUri } from '../environmentVariables';
-import { exchangeCode } from './accessToken';
-import { save } from './credentials';
+import { exchangeCode } from './accessTokenExchange';
+import { save } from './accessToken';
+import { getLogoutUri } from './logout';
 import { Unit, Result } from '@petriworks/common';
 
-const Callback = () => {
+const LoginCallback = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const code = searchParams.get('code');
 
   useEffect(() => {
     if (!code) {
-      window.location.href = getPetriWorksUri();
+      window.location.href = getLogoutUri();
       return;
     }
 
     exchangeCode(code, save).then((result: Result<Unit, string>) => {
       if (result.ok) {
-        return navigate('/test');
+        return navigate('/');
       }
 
       console.log(result.error);
-      window.location.href = getPetriWorksUri();
+      window.location.href = getLogoutUri();
     });
-  }, [code]);
+  }, [code, navigate]);
 
   return null;
 };
 
-export default Callback;
+export default LoginCallback;

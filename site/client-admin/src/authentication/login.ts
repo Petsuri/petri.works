@@ -3,7 +3,7 @@ import { getLoginClientId, getLoginHost, getLoginRedirectUri } from '../environm
 const scope_prefix = 'admin';
 const scopes = ['subscribe_list'];
 
-export function getRedirectToLogin(): string {
+export function getRedirectToLoginUri(): string {
   const clientId = getLoginClientId();
   const redirectUri = getLoginRedirectUri();
   const host = getLoginHost();

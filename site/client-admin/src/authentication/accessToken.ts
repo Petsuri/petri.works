@@ -1,55 +1,49 @@
-import { failure, Result, success, unit, Unit } from '@petriworks/common';
-import { Credentials } from './credentials';
-import { getLoginClientId, getLoginHost, getLoginRedirectUri } from '../environmentVariables';
-import { add } from 'date-fns';
+import { failure, Result, success } from '@petriworks/common';
+import { isAfter } from "date-fns";
 
-type CredentialsDto = {
-  readonly access_token: string;
-  readonly refresh_token: string;
-  readonly expires_in: number;
-  readonly token_type: string;
-};
-
-export async function exchangeCode(
-  code: string,
-  save: (credentials: Credentials) => void
-): Promise<Result<Unit, string>> {
-  const host = getLoginHost();
-  return await fetch(`${host}oauth2/token/`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: getBody(code),
-  })
-    .then((value) => value.json())
-    .then((json: CredentialsDto) => {
-      save({
-        token: json.access_token,
-        refreshToken: json.refresh_token,
-        tokenType: json.token_type,
-        validUntil: add(new Date(), { seconds: json.expires_in }),
-      });
-      return success(unit());
-    })
-    .catch((error: string) => {
-      return failure(error);
-    });
+export enum AccessTokenState {
+  Undefined,
+  Valid,
+  Missing,
+  Expired,
 }
 
-const getBody = (code: string): string => {
-  const redirectUri = getLoginRedirectUri();
-  const clientId = getLoginClientId();
-
-  const body = [];
-  body.push(encodeUrlParameter('grant_type', 'authorization_code'));
-  body.push(encodeUrlParameter('code', code));
-  body.push(encodeUrlParameter('client_id', clientId));
-  body.push(encodeUrlParameter('redirect_uri', redirectUri));
-
-  return body.join('&');
+export type AccessToken = {
+  readonly token: string;
+  readonly refreshToken: string;
+  readonly validUntil: Date;
+  readonly tokenType: string;
 };
 
-const encodeUrlParameter = (key: string, value: string): string => {
-  return encodeURIComponent(key) + '=' + encodeURIComponent(value);
-};
+const AccessTokenKey = 'access_token';
+
+export function getAccessTokenState(): AccessTokenState {
+  const token = getAccessToken();
+  if (!token.ok) {
+    return AccessTokenState.Missing;
+  }
+
+  const now = new Date();
+  if (isAfter(token.value.validUntil, now)) {
+    return AccessTokenState.Expired;
+  }
+
+  return AccessTokenState.Valid;  
+}
+
+export function save(token: AccessToken): void {
+  sessionStorage.setItem(AccessTokenKey, JSON.stringify(token));
+}
+
+export function getAccessToken(): Result<AccessToken, string> {
+  const token = sessionStorage.getItem(AccessTokenKey);
+  if (token === null) {
+    return failure('Credentials are not stored');
+  }
+
+  return success<AccessToken>(JSON.parse(token));
+}
+
+export function isLoginRequired(state: AccessTokenState): Boolean {
+  return state === AccessTokenState.Missing || state === AccessTokenState.Expired;
+}
