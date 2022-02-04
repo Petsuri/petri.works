@@ -53,7 +53,7 @@ module "admin_cognito_user_pool" {
   environment          = var.environment
   callback_urls        = ["https://${var.admin_domain}/login/callback/", "http://localhost:3001/login/callback/"]
   default_redirect_uri = "https://${var.admin_domain}/login/callback/"
-  logout_urls          = ["https://${var.domain}/logout"]
+  logout_urls          = ["https://${var.domain}/", "http://localhost:3000/"]
   scope_prefix         = "admin"
   scopes = {
     1 = {

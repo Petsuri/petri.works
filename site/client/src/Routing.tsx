@@ -38,7 +38,6 @@ export default function Routing() {
     <div className={classes.container}>
       <Router>
         <TopMenu />
-        <div className="App">
           <Routes>
             <Route path={PathToCvPage} element={<CvPage />} />
             <Route path={PathToTechnologiesPage} element={<TechnologiesPage />} />
@@ -52,7 +51,6 @@ export default function Routing() {
             <Route path={PathToChapterSeven} element={<ChapterSevenPage />} />
             <Route path="/" element={<CvPage />} />
           </Routes>
-        </div>
       </Router>
     </div>
   );

@@ -1,27 +1,11 @@
 import { AppBar, IconButton, Theme, Toolbar, Typography } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { LanguageSelection } from './LanguageSelection';
 import MenuIcon from '@mui/icons-material/Menu';
 import Drawer from '@mui/material/Drawer';
-import DrawerContent from './DrawerContent';
+import LogoutLink from '../authentication/LogoutLink';
 
 const useStyles = makeStyles((theme: Theme) => ({
-  titleDesktop: {
-    flexGrow: 1,
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
-  },
-  titleMobile: {
-    flexGrow: 1,
-    display: 'none',
-    [theme.breakpoints.down('sm')]: {
-      display: 'block',
-    },
-  },
   menuIcon: {
     paddingRight: 25,
   },
@@ -34,7 +18,6 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 const TopMenu = (): JSX.Element => {
-  const { t } = useTranslation();
   const classes = useStyles();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -43,20 +26,16 @@ const TopMenu = (): JSX.Element => {
       <AppBar position="static">
         <Toolbar>
           <IconButton
-            aria-label={t('main.open_menu')}
+            aria-label={'open menu'}
             className={classes.icon}
             onClick={() => setIsDrawerOpen(!isDrawerOpen)}
             size="large"
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.titleDesktop}>
-            {t('main.works')}
+          <Typography variant="h6">
+            Petri.works admin
           </Typography>
-          <Typography variant="h6" className={classes.titleMobile}>
-            {t('main.works_short')}
-          </Typography>
-          <LanguageSelection />
         </Toolbar>
       </AppBar>
       <Drawer
@@ -65,7 +44,9 @@ const TopMenu = (): JSX.Element => {
         open={isDrawerOpen}
         onClose={() => setIsDrawerOpen(false)}
       >
-        <DrawerContent closeDrawer={() => setIsDrawerOpen(false)} />
+        <div>
+          <LogoutLink />
+          </div>
       </Drawer>
     </>
   );

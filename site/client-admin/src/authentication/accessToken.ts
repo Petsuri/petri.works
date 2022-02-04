@@ -47,3 +47,7 @@ export function getAccessToken(): Result<AccessToken, string> {
 export function isLoginRequired(state: AccessTokenState): Boolean {
   return state === AccessTokenState.Missing || state === AccessTokenState.Expired;
 }
+
+export function clear(): void {
+  sessionStorage.clear();
+}
