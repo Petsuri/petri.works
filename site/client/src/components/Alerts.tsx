@@ -1,17 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
-import makeStyles from '@mui/styles/makeStyles';
-import { Theme } from '@mui/material';
-
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    width: '100%',
-    '& > * + *': {
-      marginTop: theme.spacing(2),
-    },
-  },
-}));
 
 export type AlertProps = {
   readonly message: string;
@@ -40,7 +29,6 @@ export const ErrorAlert = (props: AlertProps) => {
 };
 
 function CustomizedSnackbars(props: SnackbarProps) {
-  const classes = useStyles();
   const { isOpen, setOpen, message, severity } = props;
 
   const close = () => {
@@ -48,12 +36,10 @@ function CustomizedSnackbars(props: SnackbarProps) {
   };
 
   return (
-    <div className={classes.root}>
-      <Snackbar open={isOpen} autoHideDuration={6000} onClose={() => close()}>
+      <Snackbar open={isOpen} autoHideDuration={6000} anchorOrigin={{ vertical: 'top', horizontal: 'center' }} onClose={() => close()}>
         <MuiAlert elevation={6} variant="filled" onClose={() => close()} severity={severity}>
           {message}
         </MuiAlert>
       </Snackbar>
-    </div>
   );
 }
