@@ -3,7 +3,7 @@ import makeStyles from '@mui/styles/makeStyles';
 import React, { useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import Drawer from '@mui/material/Drawer';
-import LogoutLink from '../authentication/LogoutLink';
+import DrawerContent from "./DrawerContent";
 
 const useStyles = makeStyles((theme: Theme) => ({
   menuIcon: {
@@ -44,9 +44,7 @@ const TopMenu = (): JSX.Element => {
         open={isDrawerOpen}
         onClose={() => setIsDrawerOpen(false)}
       >
-        <div>
-          <LogoutLink />
-          </div>
+        <DrawerContent closeDrawer={() => setIsDrawerOpen(false)} />
       </Drawer>
     </>
   );

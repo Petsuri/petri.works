@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { AccessTokenState, getAccessTokenState, isLoginRequired } from './accessToken';
 import { getRedirectToLoginUri } from './login';
-import { Skeleton } from '@mui/material';
 
 const withAuthentication = (Component: React.FC) => {
   return () => {
@@ -14,7 +13,7 @@ const withAuthentication = (Component: React.FC) => {
     }, []);
 
     if (tokenState === AccessTokenState.Undefined) {
-      return <Skeleton animation="wave" variant="circular" width={40} height={40} />;
+      return null;
     }
 
     if (isLoginRequired(tokenState)) {

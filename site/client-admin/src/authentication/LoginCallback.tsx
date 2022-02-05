@@ -21,7 +21,6 @@ const LoginCallback = () => {
         return navigate('/');
       }
 
-      console.log(result.error);
       window.location.href = getLogoutUri();
     });
   }, [code, navigate]);
