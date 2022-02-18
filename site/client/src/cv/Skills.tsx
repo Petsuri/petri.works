@@ -1,7 +1,7 @@
 import { Grid, Typography } from '@mui/material';
 import { UCaseTypography } from '../components';
 import React from 'react';
-import OuterLink from '../components/OuterLink';
+import { OuterLink } from '@petriworks/client-components';
 import { useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
 

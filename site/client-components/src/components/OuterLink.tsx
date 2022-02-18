@@ -1,13 +1,14 @@
-import { Link } from '@mui/material';
 import React from 'react';
+import { Link } from '@mui/material';
 
 type OuterLinkProps = {
   readonly href: string;
   readonly text: string;
   readonly openToBlank?: boolean;
+  readonly onclick?: () => void;
 };
 
-export default function OuterLink(props: OuterLinkProps) {
+export function OuterLink(props: OuterLinkProps) {
   return (
     <Link
       color="inherit"
@@ -22,6 +23,7 @@ export default function OuterLink(props: OuterLinkProps) {
           color: 'primary.main',
         },
       }}
+      onClick={props.onclick}
     >
       {props.text}
     </Link>

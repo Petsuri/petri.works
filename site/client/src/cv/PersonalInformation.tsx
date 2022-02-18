@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
 import React from 'react';
-import OuterLink from '../components/OuterLink';
+import { OuterLink } from '@petriworks/client-components';
 import { UCaseTypography } from '../components';
 import TechnologiesLink from './TechnologiesLink';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import OuterLink from '../components/OuterLink';
+import { OuterLink } from '@petriworks/client-components';
 import { getAdminSiteUri } from '../environmentVariables';
 
 const AdminSiteLink = () => {
