@@ -23,7 +23,7 @@ jobs:
         run: |
           npm install -g ts-node
           cd site
-          npm ci
+          npm ci --include=dev
           npm run install-and-build-production
       - name: Run all tests
         run: |
