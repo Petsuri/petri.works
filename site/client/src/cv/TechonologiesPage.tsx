@@ -15,6 +15,7 @@ export default function TechnologiesPage() {
     'Kubernetes',
     'Docker',
     'RabbitMQ',
+    'AWS CDK',
   ];
   const databases = ['SQLServer', 'MariaDB', 'MySQL', 'DynamoDB', 'Redis'];
   const backend = [
@@ -44,6 +45,7 @@ export default function TechnologiesPage() {
         <UCaseTypography variant="h4">{t('technologies.infrastructures.title')}</UCaseTypography>
         <Paragraph>{t('technologies.infrastructures.description')}</Paragraph>
         <Paragraph>{t('technologies.infrastructures.aws')}</Paragraph>
+        <Paragraph>{t('technologies.infrastructures.aws_2')}</Paragraph>
         <Paragraph>{t('technologies.infrastructures.gcp')}</Paragraph>
         <Paragraph>{t('technologies.infrastructures.azure')}</Paragraph>
         <Paragraph>{t('technologies.infrastructures.knowledge')}</Paragraph>

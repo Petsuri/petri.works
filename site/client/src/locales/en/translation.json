@@ -43,7 +43,7 @@
     },
     "profile": {
       "header": "Profile",
-      "pitch": "Tech Lead with 7+ years of experience working with web and mobile applications. Possesses a strong motivation for continuous improvement and challenging myself to develop professionally. Mentoring and coaching coworkers to achieve their own full potential and company's goals.",
+      "pitch": "Tech Lead with 8+ years of experience working with web and mobile applications. Possesses a strong motivation for continuous improvement and challenging myself to develop professionally. Mentoring and coaching coworkers to achieve their own full potential and company's goals.",
       "technical_decisions": "In technical decision making always taking in to notice current context and return on investment because there is no technical decisions, only business decisions."
     },
     "skills": {
@@ -78,7 +78,11 @@
       "responsibilities": "Responsibilities",
       "achievements": "Achievements",
       "tech_lead_alma_media": {
-        "description": "New challenges waiting."
+        "description": "Working with small and ambitious team to create new greenfield software to serve our customers needs.",
+        "responsibilities": {
+          "1": "Sparring external team to improve current software stability, scalability & maintainability",
+          "2": "Defining and implementing serverless architecture for greenfield project"
+        }
       },
       "management_board": {
         "description": "Growing Visma Solutions towards unicorn as a personnel member in the management board. Being part of making wide-ranging decisions about SaaS firm’s business."
@@ -134,6 +138,7 @@
       "title": "Infrastructure",
       "description": "I have always had interest for cloud computing. I have read a lot of books related to this topic and understand different aspects about cloud computing and what it is all about. I have been using with all three major provides (AWS, Azure, GCP).",
       "aws": "I have been studying AWS at home. This site is also hosted in AWS and infrastructure is automated using Terraform. So all changes to this sites infrastructure is done through Terraform.",
+      "aws_2": "At work I have been developing serverless architecture in AWS using AWS CDK to automate whole infrastructure and deployment of the software, including front- & backend. I have written unit tests to also verify that CDK code that I have written works as intented.",
       "gcp": "I have been using Google Cloud Platform as part of my work. We are hosting our service using GCP with help of Google Kubernetes Engine. Kubernetes itself is wide topic and I have basic knowledge of it and how to operate it.",
       "azure": "Azure is the major provider I have been using the least. Mainly just trying out Functions as part of automating workflows.",
       "knowledge": "I have knowledge of following infrastructure related things:"

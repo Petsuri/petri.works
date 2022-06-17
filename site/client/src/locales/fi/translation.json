@@ -43,7 +43,7 @@
     },
     "profile": {
       "header": "Profiili",
-      "pitch": "Tech Lead yli 7 vuoden työkokemuksella työskennellen webbi- ja mobiilisovelluksien parissa. Omaa vahvan motivaation jatkuvalle kehittymiselle sekä itsensä haastamiselle, että pystyn kehittämään itseä ammatillisesti. Mentoroi ja coachaa työkavereita saavuttamaan heidän täyden potentiaalin ja yrityksen tavoitteet.",
+      "pitch": "Tech Lead yli 8 vuoden työkokemuksella työskennellen webbi- ja mobiilisovelluksien parissa. Omaa vahvan motivaation jatkuvalle kehittymiselle sekä itsensä haastamiselle, että pystyn kehittämään itseä ammatillisesti. Mentoroi ja coachaa työkavereita saavuttamaan heidän täyden potentiaalin ja yrityksen tavoitteet.",
       "technical_decisions": "Teknisissä päätöksissä ottaa aina huomioon nykykontekstin sekä päätöksien ROIn, koska ei ole olemassa teknisiä päätöksiä, vain bisnespäätöksiä."
     },
     "skills": {
@@ -78,7 +78,11 @@
       "responsibilities": "Vastuut",
       "achievements": "Saavutukset",
       "tech_lead_alma_media": {
-        "description": "Uudet haasteet odottamassa."
+        "description": "Työskentely pienen ja kunnianhimoisen tiimin kanssa luomassa uutta greenfield softaa palvelemaan olemassa olevien asiakkaiden tarpeita.",
+        "responsibilities": {
+          "1": "Ulkoisen kehitystiimin sparraaminen kuinka parantaa nykyisen softa vakautta, skaalautumista sekä ylläpidettävyyttä",
+          "2": "Serverless arkkitehtuurin määrittely sekä toteuttaminen greenfield projektille"
+        }
       },
       "management_board": {
         "description": "Henkilöstön jäsenenä Visma Solutionsin johtoryhmässä kasvattavassa firmaa kohti yksisarvista. Laaja-alaisesti mukana päättämässä SaaS firman liiketoiminnasta."

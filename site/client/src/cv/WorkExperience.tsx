@@ -49,7 +49,7 @@ const getExperiences = (t: TFunction): Experience[] => {
       new Date(2022, 1, 1),
       null,
       'tech_lead_alma_media',
-      [],
+      ['1', '2'],
       []
     )
   );
