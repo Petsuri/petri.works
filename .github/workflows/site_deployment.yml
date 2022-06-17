@@ -12,7 +12,7 @@ jobs:
       - name: Set up node environment
         uses: actions/setup-node@v1
         with:
-          node-version: "16"
+          node-version: "16.13.X"
       - uses: actions/cache@v2
         with:
           path: ~/.npm
@@ -23,7 +23,7 @@ jobs:
         run: |
           npm install -g ts-node
           cd site
-          npm ci --include=dev
+          npm ci
           npm run install-and-build-production
       - name: Run all tests
         run: |
