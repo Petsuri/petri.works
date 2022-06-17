@@ -36,10 +36,15 @@ function CustomizedSnackbars(props: SnackbarProps) {
   };
 
   return (
-      <Snackbar open={isOpen} autoHideDuration={6000} anchorOrigin={{ vertical: 'top', horizontal: 'center' }} onClose={() => close()}>
-        <MuiAlert elevation={6} variant="filled" onClose={() => close()} severity={severity}>
-          {message}
-        </MuiAlert>
-      </Snackbar>
+    <Snackbar
+      open={isOpen}
+      autoHideDuration={6000}
+      anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      onClose={() => close()}
+    >
+      <MuiAlert elevation={6} variant="filled" onClose={() => close()} severity={severity}>
+        {message}
+      </MuiAlert>
+    </Snackbar>
   );
 }

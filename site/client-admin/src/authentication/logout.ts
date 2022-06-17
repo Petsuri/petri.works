@@ -1,6 +1,5 @@
 import { getLoginClientId, getLoginHost, getPetriWorksUri } from '../environmentVariables';
 
-
 export function getLogoutUri(): string {
   const host = getLoginHost();
   const clientId = getLoginClientId();

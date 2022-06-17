@@ -3,7 +3,7 @@ import makeStyles from '@mui/styles/makeStyles';
 import React, { useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import Drawer from '@mui/material/Drawer';
-import DrawerContent from "./DrawerContent";
+import DrawerContent from './DrawerContent';
 
 const useStyles = makeStyles((theme: Theme) => ({
   menuIcon: {
@@ -33,9 +33,7 @@ const TopMenu = (): JSX.Element => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6">
-            Petri.works admin
-          </Typography>
+          <Typography variant="h6">Petri.works admin</Typography>
         </Toolbar>
       </AppBar>
       <Drawer

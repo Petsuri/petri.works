@@ -1,4 +1,4 @@
-import { Theme } from "@mui/material";
+import { Theme } from '@mui/material';
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginCallback from './authentication/LoginCallback';
@@ -13,19 +13,18 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-
 export default function Routing() {
   const classes = useStyles();
 
   return (
     <div className={classes.container}>
-    <Router>
-      <TopMenu />
+      <Router>
+        <TopMenu />
         <Routes>
           <Route path="/login/callback/" element={<LoginCallback />} />
           <Route path="/" element={<Main />} />
         </Routes>
-    </Router>
+      </Router>
     </div>
   );
 }

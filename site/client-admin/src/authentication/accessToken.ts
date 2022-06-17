@@ -1,5 +1,5 @@
 import { failure, Result, success } from '@petriworks/common';
-import { isAfter } from "date-fns";
+import { isAfter } from 'date-fns';
 
 export enum AccessTokenState {
   Undefined,
@@ -28,7 +28,7 @@ export function getAccessTokenState(): AccessTokenState {
     return AccessTokenState.Expired;
   }
 
-  return AccessTokenState.Valid;  
+  return AccessTokenState.Valid;
 }
 
 export function save(token: AccessToken): void {

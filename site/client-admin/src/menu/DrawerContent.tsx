@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Theme } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
-import LogoutLink from "../authentication/LogoutLink";
+import LogoutLink from '../authentication/LogoutLink';
 
 type DrawerContentProps = {
   readonly closeDrawer: Function;

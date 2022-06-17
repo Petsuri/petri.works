@@ -38,19 +38,19 @@ export default function Routing() {
     <div className={classes.container}>
       <Router>
         <TopMenu />
-          <Routes>
-            <Route path={PathToCvPage} element={<CvPage />} />
-            <Route path={PathToTechnologiesPage} element={<TechnologiesPage />} />
-            <Route path={PathToBeingDeveloperPage} element={<BeingDeveloperPage />} />
-            <Route path={PathToChapterOne} element={<ChapterOnePage />} />
-            <Route path={PathToChapterTwo} element={<ChapterTwoPage />} />
-            <Route path={PathToChapterThree} element={<ChapterThreePage />} />
-            <Route path={PathToChapterFour} element={<ChapterFourPage />} />
-            <Route path={PathToChapterFive} element={<ChapterFivePage />} />
-            <Route path={PathToChapterSix} element={<ChapterSixPage />} />
-            <Route path={PathToChapterSeven} element={<ChapterSevenPage />} />
-            <Route path="/" element={<CvPage />} />
-          </Routes>
+        <Routes>
+          <Route path={PathToCvPage} element={<CvPage />} />
+          <Route path={PathToTechnologiesPage} element={<TechnologiesPage />} />
+          <Route path={PathToBeingDeveloperPage} element={<BeingDeveloperPage />} />
+          <Route path={PathToChapterOne} element={<ChapterOnePage />} />
+          <Route path={PathToChapterTwo} element={<ChapterTwoPage />} />
+          <Route path={PathToChapterThree} element={<ChapterThreePage />} />
+          <Route path={PathToChapterFour} element={<ChapterFourPage />} />
+          <Route path={PathToChapterFive} element={<ChapterFivePage />} />
+          <Route path={PathToChapterSix} element={<ChapterSixPage />} />
+          <Route path={PathToChapterSeven} element={<ChapterSevenPage />} />
+          <Route path="/" element={<CvPage />} />
+        </Routes>
       </Router>
     </div>
   );

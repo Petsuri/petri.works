@@ -4,9 +4,7 @@ import { getRedirectToLoginUri } from './login';
 
 const withAuthentication = (Component: React.FC) => {
   return () => {
-    const [tokenState, setCredentialState] = useState<AccessTokenState>(
-      AccessTokenState.Undefined
-    );
+    const [tokenState, setCredentialState] = useState<AccessTokenState>(AccessTokenState.Undefined);
 
     useEffect(() => {
       setCredentialState(getAccessTokenState());
