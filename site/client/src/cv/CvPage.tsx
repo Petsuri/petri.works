@@ -1,33 +1,33 @@
-import React from 'react';
-import Skills from './Skills';
-import { TextContainer, WhiteDivider, PageContainer } from '../components';
-import Profile from './Profile';
-import PersonalInformation from './PersonalInformation';
-import WorkExperience from './WorkExperience';
-import Education from './Education';
+import styled from '@emotion/styled';
+import { useRef } from 'react';
+import ReactToPrint from 'react-to-print';
+import CvPageContent from './CvPageContent';
+import PrintButton from './PrintButton';
+
+const PositionToRight = styled('div')((props) => ({
+  display: 'flex',
+  justifyContent: 'right',
+  paddingRight: '1rem',
+}));
 
 export default function CvPage() {
+  const contentComponentRef = useRef<HTMLDivElement | null>(null);
+
   return (
-    <PageContainer>
-      <TextContainer>
-        <PersonalInformation />
-      </TextContainer>
-      <WhiteDivider />
-      <TextContainer>
-        <Profile />
-      </TextContainer>
-      <WhiteDivider />
-      <TextContainer>
-        <Skills />
-      </TextContainer>
-      <WhiteDivider />
-      <TextContainer>
-        <WorkExperience />
-      </TextContainer>
-      <WhiteDivider />
-      <TextContainer>
-        <Education />
-      </TextContainer>
-    </PageContainer>
+    <div>
+      <ReactToPrint
+        documentTitle="Petri Miikki CV"
+        copyStyles={true}
+        trigger={() => {
+          return (<PositionToRight>
+            <PrintButton />
+          </PositionToRight>);
+        }}
+        content={() => contentComponentRef.current}
+      />
+      <div ref={contentComponentRef}>
+        <CvPageContent />
+      </div>
+    </div>
   );
 }

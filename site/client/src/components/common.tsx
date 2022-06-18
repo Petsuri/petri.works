@@ -76,15 +76,16 @@ export const IdentedListItem = styled(ListItem)({
   paddingLeft: '2rem',
 });
 
+const PageContainerStyles = styled('div')(({ theme }) => ({
+  padding: '1rem',
+  minHeight: '100vh',
+  backgroundColor: theme.palette.primary.dark,
+}));
+
 type PageContainerProps = {
   readonly children: React.ReactNode;
 };
-
 export function PageContainer(props: PageContainerProps) {
-  const PageContainerStyles = styled('div')({
-    padding: '1rem',
-  });
-
   return (
     <PageContainerStyles>
       <Container maxWidth="md">
