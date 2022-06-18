@@ -4,10 +4,9 @@ import ReactToPrint from 'react-to-print';
 import CvPageContent from './CvPageContent';
 import PrintButton from './PrintButton';
 
-const PositionToRight = styled('div')((props) => ({
-  display: 'flex',
-  justifyContent: 'right',
-  paddingRight: '1rem',
+const PositionToRight = styled('span')(() => ({
+  position: 'absolute',
+  right: '1rem',
 }));
 
 export default function CvPage() {
