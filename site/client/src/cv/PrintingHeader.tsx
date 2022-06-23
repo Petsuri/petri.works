@@ -6,7 +6,6 @@ interface PrintingHeaderProps {
 }
 
 export default function PrintingHeader({ isPrinting }: PrintingHeaderProps) {
-
   const { t, i18n } = useTranslation();
 
   if (!isPrinting) {
@@ -18,7 +17,7 @@ export default function PrintingHeader({ isPrinting }: PrintingHeaderProps) {
     <TextContainer>
       <Paragraph>
         {t('cv.printed', { date: currentDate })}
-        <Link text='petri.works' to='https://petri.works' />
+        <Link text="petri.works" to="https://petri.works" />.
       </Paragraph>
     </TextContainer>
   );

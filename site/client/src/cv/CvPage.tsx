@@ -9,6 +9,12 @@ const PositionToRight = styled('span')(() => ({
   right: '1rem',
 }));
 
+const addTimeToRenderPrintingMode = () => {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, 0);
+  });
+};
+
 export default function CvPage() {
   const contentComponentRef = useRef<HTMLDivElement | null>(null);
   const [isPrinting, setIsPrinting] = useState(false);
@@ -20,9 +26,7 @@ export default function CvPage() {
         copyStyles={true}
         onBeforeGetContent={() => {
           setIsPrinting(true);
-          return new Promise(function (resolve) {
-            setTimeout(resolve, 1000);
-          });
+          return addTimeToRenderPrintingMode();
         }}
         onAfterPrint={() => setIsPrinting(false)}
         trigger={() => {

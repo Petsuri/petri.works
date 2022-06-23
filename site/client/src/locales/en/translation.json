@@ -20,7 +20,7 @@
   },
   "cv": {
     "present": "Present",
-    "printed": "Printed on {{date}}. Up-to-date verion is found at ",
+    "printed": "Printed on {{date}}. Up-to-date verion can be found in ",
     "education": {
       "header": "Education",
       "school": {
