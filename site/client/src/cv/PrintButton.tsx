@@ -8,5 +8,6 @@ export default function PrintButton() {
       <IconButton color="inherit" component="a">
         <PrintOutlinedIcon />
       </IconButton>
-    </Paragraph>);
+    </Paragraph>
+  );
 }

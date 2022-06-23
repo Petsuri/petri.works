@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import ReactToPrint from 'react-to-print';
 import CvPageContent from './CvPageContent';
 import PrintButton from './PrintButton';
@@ -11,21 +11,31 @@ const PositionToRight = styled('span')(() => ({
 
 export default function CvPage() {
   const contentComponentRef = useRef<HTMLDivElement | null>(null);
+  const [isPrinting, setIsPrinting] = useState(false);
 
   return (
     <div>
       <ReactToPrint
         documentTitle="Petri Miikki CV"
         copyStyles={true}
+        onBeforeGetContent={() => {
+          setIsPrinting(true);
+          return new Promise(function (resolve) {
+            setTimeout(resolve, 1000);
+          });
+        }}
+        onAfterPrint={() => setIsPrinting(false)}
         trigger={() => {
-          return (<PositionToRight>
-            <PrintButton />
-          </PositionToRight>);
+          return (
+            <PositionToRight>
+              <PrintButton />
+            </PositionToRight>
+          );
         }}
         content={() => contentComponentRef.current}
       />
       <div ref={contentComponentRef}>
-        <CvPageContent />
+        <CvPageContent isPrinting={isPrinting} />
       </div>
     </div>
   );

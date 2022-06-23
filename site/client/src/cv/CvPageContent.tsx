@@ -4,10 +4,16 @@ import Profile from './Profile';
 import PersonalInformation from './PersonalInformation';
 import WorkExperience from './WorkExperience';
 import Education from './Education';
+import PrintingHeader from './PrintingHeader';
 
-export default function CvPageContent() {
-    return (
+interface CvPageContentProps {
+  readonly isPrinting: boolean;
+}
+
+export default function CvPageContent({ isPrinting }: CvPageContentProps) {
+  return (
     <PageContainer>
+      <PrintingHeader isPrinting={isPrinting} />
       <TextContainer>
         <PersonalInformation />
       </TextContainer>

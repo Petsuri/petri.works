@@ -20,7 +20,7 @@
   },
   "cv": {
     "present": "Nykyhetki",
-    "coming_soon": "Petrin ansioluettelo on tulossa pian",
+    "printed": "Tulostettu {{date}}. Tuorein versio löytyy ",
     "education": {
       "header": "Koulutus",
       "school": {

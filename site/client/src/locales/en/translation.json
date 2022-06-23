@@ -20,7 +20,7 @@
   },
   "cv": {
     "present": "Present",
-    "coming_soon": "Petri's Curriculum Vitae is coming soon",
+    "printed": "Printed on {{date}}. Up-to-date verion is found at ",
     "education": {
       "header": "Education",
       "school": {
