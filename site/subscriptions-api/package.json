@@ -16,7 +16,7 @@
     "@types/serverless": "^1.72.5",
     "fork-ts-checker-webpack-plugin": "^6.3.4",
     "serverless-dotenv-plugin": "^3.12.2",
-    "serverless-dynamodb-local": "^0.2.40",
+    "serverless-dynamodb-local": "^1.0.2",
     "serverless-offline": "^8.3.1",
     "serverless-plugin-typescript": "^2.1.0",
     "ts-loader": "^9.2.6",
